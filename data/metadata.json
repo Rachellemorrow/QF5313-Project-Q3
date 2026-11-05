@@ -1,12 +1,12 @@
 {
-  "built_utc": "2026-11-05T09:13:31.919048+00:00",
+  "built_utc": "2026-11-05T13:30:38.168391+00:00",
   "script": "data/build_panel.py",
   "panel_start": "2008-01",
   "panel_end": "2026-11",
   "n_monthly_indicators": 30,
   "n_rows": 227,
   "panel_file": "data/clean/macro_panel.csv",
-  "panel_sha256": "e6fecc775bfb731eefe81ab9e2e07e2100dcc6604649ed299408191138c0fd64",
+  "panel_sha256": "725699fc99e28878fbe24ef52308148f15f4058ecead8f3d750c67b273b5eabe",
   "quarterly_files": {
     "gdp_quarterly": {
       "sha256": "b7c93b71f1df5f513f7105535ff2dbba59dbd4c0ab66bdf91b612a92cc2b0c01",
@@ -211,17 +211,17 @@
       "interface": "macro_china_lpr",
       "column": "LPR1Y",
       "unit": "% p.a.",
-      "transformation": "daily → monthly last value (announced on 20th within month)",
+      "transformation": "daily → monthly last value (announced on 20th within month); LPR1Y observations start 2013-10 (first: 2013-10-25 = 5.71) with the LPR mechanism itself",
       "publication_lag_months": 0,
       "lag_basis": "estimated convention: announced 20th of the month",
-      "notes": "LPR regime from 2019-08; pre-2019 rows use RATE_1/RATE_2 — different benchmark regime, excluded from these columns (documented break)"
+      "notes": "LPR5Y tenor only exists from 2019-08 (first: 2019-08-20 = 4.85); pre-2013 rows carry the old benchmark rate (RATE_1/RATE_2) — different regime, excluded from the LPR columns (documented series change)"
     },
     {
       "name": "lpr_5y",
       "interface": "macro_china_lpr",
       "column": "LPR5Y",
       "unit": "% p.a.",
-      "transformation": "idem lpr_1y",
+      "transformation": "idem lpr_1y; LPR5Y series starts 2019-08 (tenor did not exist before the 2019-08-20 reform)",
       "publication_lag_months": 0,
       "lag_basis": "estimated convention: announced 20th of the month",
       "notes": ""
@@ -231,7 +231,7 @@
       "interface": "macro_china_shibor_all",
       "column": "O/N-定价",
       "unit": "% p.a.",
-      "transformation": "daily → monthly mean",
+      "transformation": "daily → monthly mean. 2026-11 is a PARTIAL-MONTH mean computed over trading days Nov 1–5 only (snapshot date 2026-11-05). The observation is preserved as computed (no NaN replacement, no row deletion), but 2026-11 MUST be excluded from model training and backtesting until a complete monthly mean is available.",
       "publication_lag_months": 0,
       "lag_basis": "verified: real-time market data (audit §5.4)",
       "notes": ""
@@ -241,7 +241,7 @@
       "interface": "macro_china_shibor_all",
       "column": "3M-定价",
       "unit": "% p.a.",
-      "transformation": "daily → monthly mean",
+      "transformation": "daily → monthly mean. 2026-11 is a PARTIAL-MONTH mean computed over trading days Nov 1–5 only (snapshot date 2026-11-05). The observation is preserved as computed (no NaN replacement, no row deletion), but 2026-11 MUST be excluded from model training and backtesting until a complete monthly mean is available.",
       "publication_lag_months": 0,
       "lag_basis": "verified: real-time market data",
       "notes": ""
@@ -251,7 +251,7 @@
       "interface": "macro_china_shibor_all",
       "column": "1Y-定价",
       "unit": "% p.a.",
-      "transformation": "daily → monthly mean",
+      "transformation": "daily → monthly mean. 2026-11 is a PARTIAL-MONTH mean computed over trading days Nov 1–5 only (snapshot date 2026-11-05). The observation is preserved as computed (no NaN replacement, no row deletion), but 2026-11 MUST be excluded from model training and backtesting until a complete monthly mean is available.",
       "publication_lag_months": 0,
       "lag_basis": "verified: real-time market data",
       "notes": ""
@@ -261,7 +261,7 @@
       "interface": "macro_china_hgjck",
       "column": "当月出口额−当月进口额 → derived",
       "unit": "bn USD",
-      "transformation": "derived from customs levels; unit resolved ≈千美元 via jin10 trade-balance overlap calibration (see metadata.checks, factor ≈1e-5 to 亿美元 ⇒ ÷1e5 to bn USD)",
+      "transformation": "derived from customs levels; unit resolved ≈千美元 via jin10 trade-balance overlap calibration (see metadata.checks; calibration factor ×1e-5 to 亿美元, i.e. ×1e-6 to bn USD — implementation (cexp−cimp)×1e3/1e9)",
       "publication_lag_months": 1,
       "lag_basis": "verified: GACC ~7th of following month (audit §5.1)",
       "notes": ""
@@ -321,7 +321,7 @@
       "interface": "macro_china_gdp",
       "column": "国内生产总值-同比增长",
       "unit": "% YoY (YTD window as published)",
-      "transformation": "none — quarterly frequency preserved with window tag (Q1 single quarter; Q2–Q4 YTD cumulative); NO monthly interpolation or bridge conversion performed here",
+      "transformation": "none — quarterly frequency preserved with window tag (Q1 single quarter; Q2–Q4 YTD cumulative); NO monthly interpolation or bridge conversion performed here. UNIT NOTE: gdp_abs_cum_bn holds RMB 100 million (亿元) values — the 'bn' in the retained column name is legacy and must NOT be read as RMB billions",
       "publication_lag_months": 1,
       "lag_basis": "verified: released ~15–18 days after quarter end (audit §5.1); conservative integer lag 1",
       "notes": ""
@@ -331,7 +331,7 @@
       "interface": "derived",
       "column": "shibor_1y − shibor_on",
       "unit": "percentage points",
-      "transformation": "derived tenor spread",
+      "transformation": "derived tenor spread. 2026-11 is a PARTIAL-MONTH mean computed over trading days Nov 1–5 only (snapshot date 2026-11-05). The observation is preserved as computed (no NaN replacement, no row deletion), but 2026-11 MUST be excluded from model training and backtesting until a complete monthly mean is available.",
       "publication_lag_months": 0,
       "lag_basis": "earlier of components = same month (market data)",
       "notes": ""
@@ -908,7 +908,8 @@
     {
       "check": "MAD outlier scan",
       "rule": "|x − median| > 5.0 × 1.4826·MAD",
-      "n_flagged": 48,
+      "n_flagged": 54,
+      "value_field_note": "in outliers_flagged (and the missing-report table), the 'value' field stores the MAD z-score |x − median| / (1.4826·MAD), NOT the original observed panel value; 'median' is the column median and 'mad_z' the same z-score rounded;",
       "policy": "flags reported only — values NOT modified or removed"
     }
   ],
@@ -1050,12 +1051,12 @@
       "coverage_years": 11.3
     },
     "base_money_yoy": {
-      "n_valid": 213,
-      "n_missing": 14,
+      "n_valid": 225,
+      "n_missing": 2,
       "first_valid": "2008-01",
-      "last_valid": "2025-09",
-      "january_missing": 1,
-      "coverage_years": 17.8
+      "last_valid": "2026-09",
+      "january_missing": 0,
+      "coverage_years": 18.8
     },
     "lpr_1y": {
       "n_valid": 157,
@@ -1406,6 +1407,48 @@
       "value": 17.5514,
       "median": 5.048,
       "mad_z": 17.6
+    },
+    {
+      "indicator": "base_money_yoy",
+      "month": "2008-01",
+      "value": 6.8342,
+      "median": 6.1745,
+      "mad_z": 6.8
+    },
+    {
+      "indicator": "base_money_yoy",
+      "month": "2008-04",
+      "value": 5.1594,
+      "median": 6.1745,
+      "mad_z": 5.2
+    },
+    {
+      "indicator": "base_money_yoy",
+      "month": "2008-05",
+      "value": 5.2959,
+      "median": 6.1745,
+      "mad_z": 5.3
+    },
+    {
+      "indicator": "base_money_yoy",
+      "month": "2008-06",
+      "value": 5.3015,
+      "median": 6.1745,
+      "mad_z": 5.3
+    },
+    {
+      "indicator": "base_money_yoy",
+      "month": "2008-07",
+      "value": 5.3504,
+      "median": 6.1745,
+      "mad_z": 5.4
+    },
+    {
+      "indicator": "base_money_yoy",
+      "month": "2008-08",
+      "value": 5.4679,
+      "median": 6.1745,
+      "mad_z": 5.5
     },
     {
       "indicator": "export_yoy",

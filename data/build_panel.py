@@ -276,6 +276,10 @@ reg("tsf_flow", interface="macro_china_shrzgm", column="社会融资规模增量
 
 cbb = raw("central_bank_balance"); cbb.index = sina_month(cbb["统计时间"])
 base_money = pd.to_numeric(cbb["储备货币"], errors="coerce")
+# raw file is stored in DESCENDING chronological order → sort ascending BEFORE
+# the YoY shift so pct_change(12) compares each month with the same month of
+# the previous year (no future observation is referenced; no fill/interpolation)
+base_money = base_money.sort_index()
 series["base_money_yoy"] = base_money.pct_change(12) * 100.0
 reg("base_money_yoy", interface="macro_china_central_bank_balance",
     column="储备货币 → derived", unit="% YoY",
@@ -291,30 +295,39 @@ lpr_g = lpr[["LPR1Y", "LPR5Y"]].apply(pd.to_numeric, errors="coerce").groupby(
 series["lpr_1y"] = lpr_g["LPR1Y"]
 series["lpr_5y"] = lpr_g["LPR5Y"]
 reg("lpr_1y", interface="macro_china_lpr", column="LPR1Y", unit="% p.a.",
-    transformation="daily → monthly last value (announced on 20th within month)",
+    transformation="daily → monthly last value (announced on 20th within month); "
+    "LPR1Y observations start 2013-10 (first: 2013-10-25 = 5.71) with the LPR "
+    "mechanism itself",
     lag=0, lag_basis="estimated convention: announced 20th of the month",
-    notes="LPR regime from 2019-08; pre-2019 rows use RATE_1/RATE_2 — different "
-    "benchmark regime, excluded from these columns (documented break)")
+    notes="LPR5Y tenor only exists from 2019-08 (first: 2019-08-20 = 4.85); "
+    "pre-2013 rows carry the old benchmark rate (RATE_1/RATE_2) — different "
+    "regime, excluded from the LPR columns (documented series change)")
 reg("lpr_5y", interface="macro_china_lpr", column="LPR5Y", unit="% p.a.",
-    transformation="idem lpr_1y", lag=0,
+    transformation="idem lpr_1y; LPR5Y series starts 2019-08 (tenor did not "
+    "exist before the 2019-08-20 reform)", lag=0,
     lag_basis="estimated convention: announced 20th of the month")
 
 shib = raw("shibor")
 shib.index = pd.PeriodIndex(pd.to_datetime(shib["日期"]), freq="M")
+SHIBOR_PARTIAL_NOTE = (
+    "2026-11 is a PARTIAL-MONTH mean computed over trading days Nov 1–5 only "
+    "(snapshot date 2026-11-05). The observation is preserved as computed (no "
+    "NaN replacement, no row deletion), but 2026-11 MUST be excluded from "
+    "model training and backtesting until a complete monthly mean is available.")
 shib_g = shib[["O/N-定价", "3M-定价", "1Y-定价"]].apply(
     pd.to_numeric, errors="coerce").groupby(shib.index).mean()
 series["shibor_on"] = shib_g["O/N-定价"]
 series["shibor_3m"] = shib_g["3M-定价"]
 series["shibor_1y"] = shib_g["1Y-定价"]
 reg("shibor_on", interface="macro_china_shibor_all", column="O/N-定价",
-    unit="% p.a.", transformation="daily → monthly mean", lag=0,
-    lag_basis="verified: real-time market data (audit §5.4)")
+    unit="% p.a.", transformation="daily → monthly mean. " + SHIBOR_PARTIAL_NOTE,
+    lag=0, lag_basis="verified: real-time market data (audit §5.4)")
 reg("shibor_3m", interface="macro_china_shibor_all", column="3M-定价",
-    unit="% p.a.", transformation="daily → monthly mean", lag=0,
-    lag_basis="verified: real-time market data")
+    unit="% p.a.", transformation="daily → monthly mean. " + SHIBOR_PARTIAL_NOTE,
+    lag=0, lag_basis="verified: real-time market data")
 reg("shibor_1y", interface="macro_china_shibor_all", column="1Y-定价",
-    unit="% p.a.", transformation="daily → monthly mean", lag=0,
-    lag_basis="verified: real-time market data")
+    unit="% p.a.", transformation="daily → monthly mean. " + SHIBOR_PARTIAL_NOTE,
+    lag=0, lag_basis="verified: real-time market data")
 
 # --- external sector + unit resolution (customs vs jin10 cross-check) ---------
 x = raw("trade_balance_xcheck")            # jin10, release-dated rows
@@ -346,9 +359,9 @@ if unit_ok:
 reg("trade_bal_bn_usd", interface="macro_china_hgjck",
     column="当月出口额−当月进口额 → derived", unit="bn USD",
     transformation="derived from customs levels; unit resolved ≈千美元 via jin10 "
-    "trade-balance overlap calibration (see metadata.checks, factor ≈1e-5 to "
-    "亿美元 ⇒ ÷1e5 to bn USD)", lag=1,
-    lag_basis="verified: GACC ~7th of following month (audit §5.1)")
+    "trade-balance overlap calibration (see metadata.checks; calibration factor "
+    "×1e-5 to 亿美元, i.e. ×1e-6 to bn USD — implementation (cexp−cimp)×1e3/1e9)",
+    lag=1, lag_basis="verified: GACC ~7th of following month (audit §5.1)")
 for tag, col in [("export", "当月出口额-同比增长"), ("import", "当月进口额-同比增长")]:
     series[f"{tag}_yoy"] = pd.to_numeric(cus[col], errors="coerce")
     reg(f"{tag}_yoy", interface="macro_china_hgjck", column=col, unit="% YoY",
@@ -411,7 +424,9 @@ reg("enterprise_boom (quarterly)", interface="macro_china_enterprise_boom_index"
 reg("gdp (quarterly)", interface="macro_china_gdp", column="国内生产总值-同比增长",
     unit="% YoY (YTD window as published)", transformation="none — quarterly "
     "frequency preserved with window tag (Q1 single quarter; Q2–Q4 YTD "
-    "cumulative); NO monthly interpolation or bridge conversion performed here",
+    "cumulative); NO monthly interpolation or bridge conversion performed here. "
+    "UNIT NOTE: gdp_abs_cum_bn holds RMB 100 million (亿元) values — the 'bn' "
+    "in the retained column name is legacy and must NOT be read as RMB billions",
     lag=1, lag_basis="verified: released ~15–18 days after quarter end "
     "(audit §5.1); conservative integer lag 1")
 
@@ -424,8 +439,9 @@ panel.index.name = "month"
 # derived spreads (controls for the probit z_t), same-day availability
 panel["shibor_spread_1y_on"] = panel["shibor_1y"] - panel["shibor_on"]
 reg("shibor_spread_1y_on", interface="derived", column="shibor_1y − shibor_on",
-    unit="percentage points", transformation="derived tenor spread", lag=0,
-    lag_basis="earlier of components = same month (market data)")
+    unit="percentage points",
+    transformation="derived tenor spread. " + SHIBOR_PARTIAL_NOTE,
+    lag=0, lag_basis="earlier of components = same month (market data)")
 panel["lpr_spread_5y_1y"] = panel["lpr_5y"] - panel["lpr_1y"]
 reg("lpr_spread_5y_1y", interface="derived", column="lpr_5y − lpr_1y",
     unit="percentage points", transformation="derived term spread", lag=0,
@@ -463,6 +479,10 @@ for col in panel.columns:
         outliers[col] = {"n_flagged": int(len(bad)), "median": med, "mad": mad}
 CHECKS.append({"check": "MAD outlier scan", "rule": f"|x − median| > {MAD_Z} × 1.4826·MAD",
                "n_flagged": len(flag_rows),
+               "value_field_note": "in outliers_flagged (and the missing-report "
+               "table), the 'value' field stores the MAD z-score "
+               "|x − median| / (1.4826·MAD), NOT the original observed panel value; "
+               "'median' is the column median and 'mad_z' the same z-score rounded;",
                "policy": "flags reported only — values NOT modified or removed"})
 
 # ----------------------------------------------------------------- write out ---
@@ -537,7 +557,13 @@ if flag_rows:
     for r in sorted(flag_rows, key=lambda d: -d["mad_z"])[:25]:
         lines.append(f"| {r['indicator']} | {r['month']} | {r['value']} | "
                      f"{r['median']} | {r['mad_z']} |")
-lines += ["", "## Recorded checks", ""]
+lines += ["", "## Usage warnings (data values unchanged by these notes)", "",
+    "- **`2026-11` partial-month Shibor**: `shibor_on`, `shibor_3m`, `shibor_1y` "
+    "and `shibor_spread_1y_on` for month 2026-11 are means over trading days "
+    "Nov 1–5 only. Observations are preserved, but **2026-11 must be excluded "
+    "from model training and backtesting** until a complete monthly mean is "
+    "available.",
+    "", "## Recorded checks", ""]
 for c in CHECKS:
     lines.append(f"- `{c['check']}`: " + json.dumps(
         {k: v for k, v in c.items() if k != "check"}, ensure_ascii=False))

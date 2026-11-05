@@ -26,7 +26,7 @@
 | m0_yoy | 225 | 2 | 2008-01 | 2026-09 | 0 | 18.8 |
 | new_loans_yoy | 225 | 2 | 2008-01 | 2026-09 | 0 | 18.8 |
 | tsf_flow | 136 | 91 | 2015-01 | 2026-04 | 7 | 11.3 |
-| base_money_yoy | 213 | 14 | 2008-01 | 2025-09 | 1 | 17.8 |
+| base_money_yoy | 225 | 2 | 2008-01 | 2026-09 | 0 | 18.8 |
 | lpr_1y | 157 | 70 | 2013-10 | 2026-10 | 6 | 13.1 |
 | lpr_5y | 87 | 140 | 2019-08 | 2026-10 | 12 | 7.2 |
 | shibor_on | 118 | 109 | 2015-05 | 2026-11 | 10 | 9.8 |
@@ -63,12 +63,16 @@
 | fiscal_rev_yoy | 2023-04 | 7.8276 | 7.2214 | 7.8 |
 | fai_yoy | 2019-11 | 7.3599 | 3.8357 | 7.4 |
 | pmi_man | 2008-12 | 6.8199 | 50.3 | 6.8 |
+| base_money_yoy | 2008-01 | 6.8342 | 6.1745 | 6.8 |
 | pmi_man | 2008-04 | 6.67 | 50.3 | 6.7 |
 | fiscal_rev_yoy | 2022-12 | 6.7243 | 7.2214 | 6.7 |
 | m1_yoy | 2010-01 | 6.4196 | 6.6 | 6.4 |
 | fx_reserves_yoy | 2008-01 | 6.4132 | 2.5253 | 6.4 |
 | fai_yoy | 2018-12 | 6.3079 | 3.8357 | 6.3 |
-| elec_cons_yoy | 2010-02 | 6.331 | 5.3 | 6.3 |
+
+## Usage warnings (data values unchanged by these notes)
+
+- **`2026-11` partial-month Shibor**: `shibor_on`, `shibor_3m`, `shibor_1y` and `shibor_spread_1y_on` for month 2026-11 are means over trading days Nov 1–5 only. Observations are preserved, but **2026-11 must be excluded from model training and backtesting** until a complete monthly mean is available.
 
 ## Recorded checks
 
@@ -99,4 +103,4 @@
 - `raw load gdp`: {"rows": 83, "cols": 9, "sha256": "928562490831"}
 - `GDP quarterly rows`: {"kept_rows": 83, "note": "Eastmoney publishes YTD windows (第1-2/3/4季度 = H1/9M/FY, 2006Q1-style single-quarter rows for Q1 only): all rows kept AS PUBLISHED with a window tag (ytd_cumulative vs single_quarter); values are cumulative absolute value (亿元) and cumulative YoY (%); single-quarter YoY for Q2–Q4 is not published by this interface and is NOT derived here (no nominal-to-real bridge invented); NO interpolation to monthly frequency"}
 - `raw load enterprise_boom`: {"rows": 87, "cols": 7, "sha256": "d84591ff93d8"}
-- `MAD outlier scan`: {"rule": "|x − median| > 5.0 × 1.4826·MAD", "n_flagged": 48, "policy": "flags reported only — values NOT modified or removed"}
+- `MAD outlier scan`: {"rule": "|x − median| > 5.0 × 1.4826·MAD", "n_flagged": 54, "value_field_note": "in outliers_flagged (and the missing-report table), the 'value' field stores the MAD z-score |x − median| / (1.4826·MAD), NOT the original observed panel value; 'median' is the column median and 'mad_z' the same z-score rounded;", "policy": "flags reported only — values NOT modified or removed"}
