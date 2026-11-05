@@ -1,0 +1,1496 @@
+{
+  "built_utc": "2026-11-05T09:13:31.919048+00:00",
+  "script": "data/build_panel.py",
+  "panel_start": "2008-01",
+  "panel_end": "2026-11",
+  "n_monthly_indicators": 30,
+  "n_rows": 227,
+  "panel_file": "data/clean/macro_panel.csv",
+  "panel_sha256": "e6fecc775bfb731eefe81ab9e2e07e2100dcc6604649ed299408191138c0fd64",
+  "quarterly_files": {
+    "gdp_quarterly": {
+      "sha256": "b7c93b71f1df5f513f7105535ff2dbba59dbd4c0ab66bdf91b612a92cc2b0c01",
+      "rows": 83
+    },
+    "enterprise_boom_quarterly": {
+      "sha256": "0e6f50e6ae78f1fffb5110617563e47ed2c5bf37e7ecf3b5c328159a74684615",
+      "rows": 87
+    }
+  },
+  "decisions": {
+    "caixin_pmi": "excluded — no fresh source in akshare 1.20.25 (endpoint dead; jin10 frozen 2025-09) — group decision",
+    "tsf": "kept with documented gap (source ends 2026-04)",
+    "jan_feb": "standalone Jan/Feb left NaN for combined NBS quantities",
+    "electricity": "consumption substituted for generation (approved)",
+    "industrial_profits": "dropped — no interface (audit §7.1)",
+    "gdp": "quarterly frequency preserved; no monthly interpolation"
+  },
+  "indicators": [
+    {
+      "name": "pmi_man",
+      "interface": "macro_china_pmi",
+      "column": "制造业-指数",
+      "unit": "index",
+      "transformation": "none (survey diffusion index; 同比 column NOT used — meaningless)",
+      "publication_lag_months": 0,
+      "lag_basis": "verified: released 09:30 on last day of reference month (audit §5.1)",
+      "notes": "label source for d_t = 1{PMI_t<50 and PMI_{t-1}<50}"
+    },
+    {
+      "name": "pmi_nonman",
+      "interface": "macro_china_pmi",
+      "column": "非制造业-指数",
+      "unit": "index",
+      "transformation": "none",
+      "publication_lag_months": 0,
+      "lag_basis": "verified: released with mfg PMI at month-end",
+      "notes": ""
+    },
+    {
+      "name": "cpi_yoy",
+      "interface": "macro_china_cpi",
+      "column": "全国-同比增长",
+      "unit": "% YoY",
+      "transformation": "as published; implied-index 当月 column NOT used",
+      "publication_lag_months": 1,
+      "lag_basis": "verified: released ~9th of following month (audit §5.1)",
+      "notes": ""
+    },
+    {
+      "name": "ppi_yoy",
+      "interface": "macro_china_ppi",
+      "column": "当月同比增长",
+      "unit": "% YoY",
+      "transformation": "as published (implied index)",
+      "publication_lag_months": 1,
+      "lag_basis": "estimated: released in the CPI joint block ~9th (audit §5.4)",
+      "notes": ""
+    },
+    {
+      "name": "cgpi_yoy",
+      "interface": "macro_china_qyspjg",
+      "column": "总指数-同比增长",
+      "unit": "% YoY",
+      "transformation": "as published; base-year history to verify before clustering (audit §7.3)",
+      "publication_lag_months": 1,
+      "lag_basis": "estimated: PBOC CGPI monthly release cadence",
+      "notes": ""
+    },
+    {
+      "name": "industrial_va_yoy",
+      "interface": "macro_china_gyzjz",
+      "column": "同比增长",
+      "unit": "% YoY",
+      "transformation": "as published (value-added growth)",
+      "publication_lag_months": 1,
+      "lag_basis": "verified: NBS quantities block, ~13th–17th of following month (audit §5.1)",
+      "notes": " 发布时间 column is a period marker, NOT a release date (audit §5.3)"
+    },
+    {
+      "name": "retail_yoy",
+      "interface": "macro_china_consumer_goods_retail",
+      "column": "同比增长",
+      "unit": "% YoY",
+      "transformation": "none; standalone Jan/Feb missing since 2012 (combined Jan–Feb), left as NaN — group decision, no interpolation",
+      "publication_lag_months": 1,
+      "lag_basis": "estimated: NBS joint quantities block ~15th",
+      "notes": ""
+    },
+    {
+      "name": "fai_yoy",
+      "interface": "macro_china_gdzctz",
+      "column": "当月 → derived",
+      "unit": "% YoY (nominal)",
+      "transformation": "当月 level ÷ same month previous year − 1 (provider 同比 column unreliable, audit §7.3); months Jan–Feb NaN (combined)",
+      "publication_lag_months": 1,
+      "lag_basis": "estimated: NBS joint quantities block ~15th",
+      "notes": "2026-09 同比 −9.69 reported by audit: sanity-check flag in missing report"
+    },
+    {
+      "name": "consumer_confidence",
+      "interface": "macro_china_xfzxx",
+      "column": "消费者信心指数-指数值",
+      "unit": "index",
+      "transformation": "none; 预期指数 and 满意指数 excluded (source-code bug overwrites 预期指数, audit §6.5)",
+      "publication_lag_months": 2,
+      "lag_basis": "conservative until schedule verified (group decision, audit §5.5)",
+      "notes": ""
+    },
+    {
+      "name": "lpi",
+      "interface": "macro_china_lpi_index",
+      "column": "最新值",
+      "unit": "index",
+      "transformation": "none; reference month = release date − 1 month (row dated 2026-10-01 → Sep-2026 value), documented re-dating",
+      "publication_lag_months": 1,
+      "lag_basis": "estimated: released ~1st of following month (record dates)",
+      "notes": ""
+    },
+    {
+      "name": "elec_cons_yoy",
+      "interface": "macro_china_society_electricity",
+      "column": "全社会用电量同比",
+      "unit": "% YoY",
+      "transformation": "published 同比 of cumulative-YTD consumption kept (identical window YoY); monthly levels derived by de-accumulation in-check column; January NaN (Jan–Feb combined) — substitution approved by group: consumption NOT generation",
+      "publication_lag_months": 1,
+      "lag_basis": "estimated: ministry/association cadence (audit §5.5)",
+      "notes": ""
+    },
+    {
+      "name": "freight_yoy",
+      "interface": "macro_china_society_traffic_volume",
+      "column": "货运量同比增长 (合计 rows)",
+      "unit": "% YoY",
+      "transformation": "published YoY; 长-filter to 合计 (total) rows; column-name typos in source normalised; structural check: cumulative-YTD=True (cum-MAE 1.78 vs month-MAE 289.79)",
+      "publication_lag_months": 1,
+      "lag_basis": "estimated: ministry cadence",
+      "notes": ""
+    },
+    {
+      "name": "m2_yoy",
+      "interface": "macro_china_money_supply",
+      "column": "货币和准货币(M2)-同比增长",
+      "unit": "% YoY",
+      "transformation": "as published (stock)",
+      "publication_lag_months": 1,
+      "lag_basis": "estimated: PBOC monthly financial statistics ~10th–13th",
+      "notes": "M2 stock YoY as published"
+    },
+    {
+      "name": "m1_yoy",
+      "interface": "macro_china_money_supply",
+      "column": "货币(M1)-同比增长",
+      "unit": "% YoY",
+      "transformation": "as published (stock)",
+      "publication_lag_months": 1,
+      "lag_basis": "estimated: PBOC monthly financial statistics ~10th–13th",
+      "notes": "M1 definition change 2024-01 (personal demand deposits included) — structural break documented (audit §7.3)"
+    },
+    {
+      "name": "m0_yoy",
+      "interface": "macro_china_money_supply",
+      "column": "流通中的现金(M0)-同比增长",
+      "unit": "% YoY",
+      "transformation": "as published (stock)",
+      "publication_lag_months": 1,
+      "lag_basis": "estimated: PBOC monthly financial statistics ~10th–13th",
+      "notes": "M0 stock YoY as published"
+    },
+    {
+      "name": "new_loans_yoy",
+      "interface": "macro_china_new_financial_credit",
+      "column": "当月-同比增长",
+      "unit": "% YoY",
+      "transformation": "as published (flow)",
+      "publication_lag_months": 1,
+      "lag_basis": "estimated: same PBOC day as M-series",
+      "notes": ""
+    },
+    {
+      "name": "tsf_flow",
+      "interface": "macro_china_shrzgm",
+      "column": "社会融资规模增量",
+      "unit": "亿元 (RMB 100 million)",
+      "transformation": "as published monthly flow (string→numeric); SOURCE STALE: ends 2026-04, NaN afterwards with a documented gap — group decision 'keep with gap'",
+      "publication_lag_months": 1,
+      "lag_basis": "estimated: same PBOC day as M-series",
+      "notes": ""
+    },
+    {
+      "name": "base_money_yoy",
+      "interface": "macro_china_central_bank_balance",
+      "column": "储备货币 → derived",
+      "unit": "% YoY",
+      "transformation": "YoY derived from monthly stock levels (pct_change 12)",
+      "publication_lag_months": 1,
+      "lag_basis": "estimated: PBOC balance-sheet cadence",
+      "notes": ""
+    },
+    {
+      "name": "lpr_1y",
+      "interface": "macro_china_lpr",
+      "column": "LPR1Y",
+      "unit": "% p.a.",
+      "transformation": "daily → monthly last value (announced on 20th within month)",
+      "publication_lag_months": 0,
+      "lag_basis": "estimated convention: announced 20th of the month",
+      "notes": "LPR regime from 2019-08; pre-2019 rows use RATE_1/RATE_2 — different benchmark regime, excluded from these columns (documented break)"
+    },
+    {
+      "name": "lpr_5y",
+      "interface": "macro_china_lpr",
+      "column": "LPR5Y",
+      "unit": "% p.a.",
+      "transformation": "idem lpr_1y",
+      "publication_lag_months": 0,
+      "lag_basis": "estimated convention: announced 20th of the month",
+      "notes": ""
+    },
+    {
+      "name": "shibor_on",
+      "interface": "macro_china_shibor_all",
+      "column": "O/N-定价",
+      "unit": "% p.a.",
+      "transformation": "daily → monthly mean",
+      "publication_lag_months": 0,
+      "lag_basis": "verified: real-time market data (audit §5.4)",
+      "notes": ""
+    },
+    {
+      "name": "shibor_3m",
+      "interface": "macro_china_shibor_all",
+      "column": "3M-定价",
+      "unit": "% p.a.",
+      "transformation": "daily → monthly mean",
+      "publication_lag_months": 0,
+      "lag_basis": "verified: real-time market data",
+      "notes": ""
+    },
+    {
+      "name": "shibor_1y",
+      "interface": "macro_china_shibor_all",
+      "column": "1Y-定价",
+      "unit": "% p.a.",
+      "transformation": "daily → monthly mean",
+      "publication_lag_months": 0,
+      "lag_basis": "verified: real-time market data",
+      "notes": ""
+    },
+    {
+      "name": "trade_bal_bn_usd",
+      "interface": "macro_china_hgjck",
+      "column": "当月出口额−当月进口额 → derived",
+      "unit": "bn USD",
+      "transformation": "derived from customs levels; unit resolved ≈千美元 via jin10 trade-balance overlap calibration (see metadata.checks, factor ≈1e-5 to 亿美元 ⇒ ÷1e5 to bn USD)",
+      "publication_lag_months": 1,
+      "lag_basis": "verified: GACC ~7th of following month (audit §5.1)",
+      "notes": ""
+    },
+    {
+      "name": "export_yoy",
+      "interface": "macro_china_hgjck",
+      "column": "当月出口额-同比增长",
+      "unit": "% YoY",
+      "transformation": "as published (unit-independent)",
+      "publication_lag_months": 1,
+      "lag_basis": "verified: GACC ~7th of following month",
+      "notes": ""
+    },
+    {
+      "name": "import_yoy",
+      "interface": "macro_china_hgjck",
+      "column": "当月进口额-同比增长",
+      "unit": "% YoY",
+      "transformation": "as published (unit-independent)",
+      "publication_lag_months": 1,
+      "lag_basis": "verified: GACC ~7th of following month",
+      "notes": ""
+    },
+    {
+      "name": "fx_reserves_yoy",
+      "interface": "macro_china_fx_gold",
+      "column": "国家外汇储备-同比",
+      "unit": "% YoY",
+      "transformation": "as published; GOLD RESERVES excluded — unit 万盎司 UNVERIFIED (audit §7.3)",
+      "publication_lag_months": 1,
+      "lag_basis": "estimated: SAFE ~7th of following month",
+      "notes": ""
+    },
+    {
+      "name": "fiscal_rev_yoy",
+      "interface": "macro_china_czsr",
+      "column": "当月-同比增长",
+      "unit": "% YoY",
+      "transformation": "as published",
+      "publication_lag_months": 1,
+      "lag_basis": "estimated: typical ministry cadence (audit §5.5)",
+      "notes": ""
+    },
+    {
+      "name": "enterprise_boom (quarterly)",
+      "interface": "macro_china_enterprise_boom_index",
+      "column": "企业景气指数-指数",
+      "unit": "index",
+      "transformation": "none (quarterly)",
+      "publication_lag_months": 1,
+      "lag_basis": "estimated: released with NBS quarterly block",
+      "notes": "企业家信心指数 NaN in recent quarters — excluded"
+    },
+    {
+      "name": "gdp (quarterly)",
+      "interface": "macro_china_gdp",
+      "column": "国内生产总值-同比增长",
+      "unit": "% YoY (YTD window as published)",
+      "transformation": "none — quarterly frequency preserved with window tag (Q1 single quarter; Q2–Q4 YTD cumulative); NO monthly interpolation or bridge conversion performed here",
+      "publication_lag_months": 1,
+      "lag_basis": "verified: released ~15–18 days after quarter end (audit §5.1); conservative integer lag 1",
+      "notes": ""
+    },
+    {
+      "name": "shibor_spread_1y_on",
+      "interface": "derived",
+      "column": "shibor_1y − shibor_on",
+      "unit": "percentage points",
+      "transformation": "derived tenor spread",
+      "publication_lag_months": 0,
+      "lag_basis": "earlier of components = same month (market data)",
+      "notes": ""
+    },
+    {
+      "name": "lpr_spread_5y_1y",
+      "interface": "derived",
+      "column": "lpr_5y − lpr_1y",
+      "unit": "percentage points",
+      "transformation": "derived term spread",
+      "publication_lag_months": 0,
+      "lag_basis": "same announcement day (20th)",
+      "notes": ""
+    }
+  ],
+  "raw_snapshot_provenance": {
+    "gdp": {
+      "file": "data/raw/gdp.csv",
+      "sha256": "928562490831d820e3072d364254cb4db7a6d8588572e6e1b2ab3e5c235f2b5a",
+      "retrieved_utc": "2026-11-05T08:44:20.374955+00:00",
+      "interface": "macro_china_gdp",
+      "role": "panel-quarterly",
+      "note": "Quarterly GDP absolute value + YoY by industry; kept quarterly."
+    },
+    "enterprise_boom": {
+      "file": "data/raw/enterprise_boom.csv",
+      "sha256": "d84591ff93d8d564f465b605772029a10ed0977b13601b92467867c8da09a84f",
+      "retrieved_utc": "2026-11-05T08:44:20.374955+00:00",
+      "interface": "macro_china_enterprise_boom_index",
+      "role": "panel-quarterly",
+      "note": "Quarterly boom index; 信心指数 NaN in recent quarters (audit §4.20)."
+    },
+    "cpi": {
+      "file": "data/raw/cpi.csv",
+      "sha256": "a17d2d1e830f1913f9932e21f26d5d7c5ac48f5ccb8fbe168c950ea7e81b40f9",
+      "retrieved_utc": "2026-11-05T08:44:20.374955+00:00",
+      "interface": "macro_china_cpi",
+      "role": "panel",
+      "note": "\"当月\" is an implied index (100+yoy); use 同比 columns."
+    },
+    "ppi": {
+      "file": "data/raw/ppi.csv",
+      "sha256": "5a0c4bacd0a6b477170724a64d9ceac4f32f29c918f0858189717d01dc56354e",
+      "retrieved_utc": "2026-11-05T08:44:20.374955+00:00",
+      "interface": "macro_china_ppi",
+      "role": "panel",
+      "note": ""
+    },
+    "cgpi": {
+      "file": "data/raw/cgpi.csv",
+      "sha256": "42d6951a6aeabd8c5d8597fb4db5aaf3b8cc768ead252c4b0ab61e6f0a352551",
+      "retrieved_utc": "2026-11-05T08:44:20.374955+00:00",
+      "interface": "macro_china_qyspjg",
+      "role": "panel",
+      "note": "PBOC corporate goods price index; check rebasing history."
+    },
+    "pmi": {
+      "file": "data/raw/pmi.csv",
+      "sha256": "e10dcba6ebcba57100bcc55be7c1a7df06d526d0fb004b2fd2fe35ae425e3b07",
+      "retrieved_utc": "2026-11-05T08:44:20.374955+00:00",
+      "interface": "macro_china_pmi",
+      "role": "panel",
+      "note": "Label source (制造业-指数). \"同比\" columns meaningless for PMI."
+    },
+    "industrial_va": {
+      "file": "data/raw/industrial_va.csv",
+      "sha256": "c1c6ac768721b47afb0fbd228d100a6f052b7cbe10535b24c0442c5acf565a7b",
+      "retrieved_utc": "2026-11-05T08:44:20.374955+00:00",
+      "interface": "macro_china_gyzjz",
+      "role": "panel",
+      "note": "发布时间 column is a period marker, NOT a release date (audit §5.3)."
+    },
+    "retail_sales": {
+      "file": "data/raw/retail_sales.csv",
+      "sha256": "c7e9effca2ccbaa045dac51e290b3b0a935b3991a5957a7c3b68765cc075b92c",
+      "retrieved_utc": "2026-11-05T08:44:20.374955+00:00",
+      "interface": "macro_china_consumer_goods_retail",
+      "role": "panel",
+      "note": "January absent (Jan–Feb combined)."
+    },
+    "fai": {
+      "file": "data/raw/fai.csv",
+      "sha256": "6bcb7ba178d5b1cb18dcc1666a171f0c26ee45425a09969a97137f0e2bb4f452",
+      "retrieved_utc": "2026-11-05T08:44:20.374955+00:00",
+      "interface": "macro_china_gdzctz",
+      "role": "panel",
+      "note": "当月 derived from cumulative; 2026-09 YoY sanity-checked in build step."
+    },
+    "consumer_confidence": {
+      "file": "data/raw/consumer_confidence.csv",
+      "sha256": "0f4197c21cb2607dee0a291bfdab6fef86aca93edc331273d0e97dbecc29d5a0",
+      "retrieved_utc": "2026-11-05T08:44:20.374955+00:00",
+      "interface": "macro_china_xfzxx",
+      "role": "panel",
+      "note": "Source-code bug overwrites 预期指数; only 信心指数-指数值 usable."
+    },
+    "lpi": {
+      "file": "data/raw/lpi.csv",
+      "sha256": "f3580e80fd717bfc7fe4ad074064f84864a5e5009b2dda685fd72c018f10380c",
+      "retrieved_utc": "2026-11-05T08:44:20.374955+00:00",
+      "interface": "macro_china_lpi_index",
+      "role": "panel",
+      "note": ""
+    },
+    "electricity": {
+      "file": "data/raw/electricity.csv",
+      "sha256": "aeb5bff66e629c2ef3909db64997e2f1c83b8ea7f5f56da009e6b4b41fae065e",
+      "retrieved_utc": "2026-11-05T08:44:20.374955+00:00",
+      "interface": "macro_china_society_electricity",
+      "role": "panel",
+      "note": "Consumption (万千瓦时), not generation — approved substitution."
+    },
+    "traffic": {
+      "file": "data/raw/traffic.csv",
+      "sha256": "1ae6b89306bcb443e0407c3773967a216e5996507a6b1633082c1149f0a005b1",
+      "retrieved_utc": "2026-11-05T08:44:20.374955+00:00",
+      "interface": "macro_china_society_traffic_volume",
+      "role": "panel",
+      "note": "Long format; 合计 rows only; column-name typos normalised in build."
+    },
+    "money_supply": {
+      "file": "data/raw/money_supply.csv",
+      "sha256": "59d0954b1db8153905f83a683e9c1e99bf88cacad2543fd19e4066159f5f7542",
+      "retrieved_utc": "2026-11-05T08:44:20.374955+00:00",
+      "interface": "macro_china_money_supply",
+      "role": "panel",
+      "note": "M1 definition change 2024-01 — structural break documented."
+    },
+    "new_loans": {
+      "file": "data/raw/new_loans.csv",
+      "sha256": "d06d5e1664433afd2bfccdde8c2c70eabaccdcceecd09dd1ee170e05d7ae5635",
+      "retrieved_utc": "2026-11-05T08:44:20.374955+00:00",
+      "interface": "macro_china_new_financial_credit",
+      "role": "panel",
+      "note": ""
+    },
+    "tsf": {
+      "file": "data/raw/tsf.csv",
+      "sha256": "a79d04f3b132be4054869c12185198bb6080158e7d1b88372f5bd1c3cdb917ad",
+      "retrieved_utc": "2026-11-05T08:44:20.374955+00:00",
+      "interface": "macro_china_shrzgm",
+      "role": "panel",
+      "note": "mofcom source STALE (ends 2026-04); kept with a documented gap."
+    },
+    "central_bank_balance": {
+      "file": "data/raw/central_bank_balance.csv",
+      "sha256": "5882f12168e91519fab4fb9f6cb621321f04aa24183bdd1520ad64032f5ed3a9",
+      "retrieved_utc": "2026-11-05T08:44:20.374955+00:00",
+      "interface": "macro_china_central_bank_balance",
+      "role": "panel",
+      "note": "Base money (储备货币) source."
+    },
+    "lpr": {
+      "file": "data/raw/lpr.csv",
+      "sha256": "dd3b0de2a08a83325c8752324b2e29c0d43dd1e2b54c7b388a43cfe20dfc0ffa",
+      "retrieved_utc": "2026-11-05T08:44:20.374955+00:00",
+      "interface": "macro_china_lpr",
+      "role": "panel",
+      "note": "LPR1Y/5Y post-2019; RATE_1/RATE_2 are the old benchmark (different regime)."
+    },
+    "shibor": {
+      "file": "data/raw/shibor.csv",
+      "sha256": "1c836b63ea737babe843a29fb55f8650058a790626139dce40ba63a09fb4a079",
+      "retrieved_utc": "2026-11-05T08:44:20.374955+00:00",
+      "interface": "macro_china_shibor_all",
+      "role": "panel",
+      "note": "Daily O/N…1Y tenors; monthly means in build step."
+    },
+    "customs": {
+      "file": "data/raw/customs.csv",
+      "sha256": "25281e426da8b05cd9be688568e173803835f05f727295b812bea6f84de27842",
+      "retrieved_utc": "2026-11-05T08:44:20.374955+00:00",
+      "interface": "macro_china_hgjck",
+      "role": "panel",
+      "note": "Unit unlabelled — resolved via jin10 trade-balance cross-check."
+    },
+    "trade_balance_xcheck": {
+      "file": "data/raw/trade_balance_xcheck.csv",
+      "sha256": "d42b42a17cefd527eb4692511e975e14b0ea9fed165822a9cf388dd8bec6f2e5",
+      "retrieved_utc": "2026-11-05T08:44:20.374955+00:00",
+      "interface": "macro_china_trade_balance",
+      "role": "cross-check",
+      "note": "jin10, frozen ≤2025-08: cross-check ONLY, never panel data."
+    },
+    "fx_gold": {
+      "file": "data/raw/fx_gold.csv",
+      "sha256": "460dd2d0f2d586912167a0bb4dd7316de126ea8a070cc5d0ffbad3dabf936d92",
+      "retrieved_utc": "2026-11-05T08:44:20.374955+00:00",
+      "interface": "macro_china_fx_gold",
+      "role": "panel",
+      "note": "FX reserves (亿美元); gold unit UNVERIFIED → gold excluded from panel."
+    },
+    "fiscal_revenue": {
+      "file": "data/raw/fiscal_revenue.csv",
+      "sha256": "7f45b864e564a8aa9a46082e471d6ec39c9653fc82bc6115677845a8ca74ed97",
+      "retrieved_utc": "2026-11-05T08:44:20.374955+00:00",
+      "interface": "macro_china_czsr",
+      "role": "panel",
+      "note": ""
+    }
+  },
+  "checks": [
+    {
+      "check": "raw load pmi",
+      "rows": 226,
+      "cols": 5,
+      "sha256": "e10dcba6ebcb"
+    },
+    {
+      "check": "raw load cpi",
+      "rows": 225,
+      "cols": 13,
+      "sha256": "a17d2d1e830f"
+    },
+    {
+      "check": "raw load ppi",
+      "rows": 249,
+      "cols": 4,
+      "sha256": "5a0c4bacd0a6"
+    },
+    {
+      "check": "raw load cgpi",
+      "rows": 261,
+      "cols": 13,
+      "sha256": "42d6951a6aea"
+    },
+    {
+      "check": "raw load industrial_va",
+      "rows": 206,
+      "cols": 4,
+      "sha256": "c1c6ac768721"
+    },
+    {
+      "check": "raw load retail_sales",
+      "rows": 210,
+      "cols": 6,
+      "sha256": "c7e9effca2cc"
+    },
+    {
+      "check": "raw load fai",
+      "rows": 162,
+      "cols": 5,
+      "sha256": "6bcb7ba178d5"
+    },
+    {
+      "check": "raw load consumer_confidence",
+      "rows": 237,
+      "cols": 10,
+      "sha256": "0f4197c21cb2"
+    },
+    {
+      "check": "raw load lpi",
+      "rows": 158,
+      "cols": 8,
+      "sha256": "f3580e80fd71"
+    },
+    {
+      "check": "raw load electricity",
+      "rows": 243,
+      "cols": 17,
+      "sha256": "aeb5bff66e62"
+    },
+    {
+      "check": "raw load traffic",
+      "rows": 2979,
+      "cols": 16,
+      "sha256": "1ae6b89306bc"
+    },
+    {
+      "check": "traffic dedupe",
+      "rows_before": 2979,
+      "rows_total_after_dedupe": 357
+    },
+    {
+      "check": "traffic structural test",
+      "cumulative_mae": 1.778648007644023,
+      "monthly_mae": 289.78617027597096,
+      "treated_as_cumulative": true
+    },
+    {
+      "check": "raw load money_supply",
+      "rows": 225,
+      "cols": 10,
+      "sha256": "59d0954b1db8"
+    },
+    {
+      "check": "raw load new_loans",
+      "rows": 225,
+      "cols": 6,
+      "sha256": "d06d5e166443"
+    },
+    {
+      "check": "raw load tsf",
+      "rows": 136,
+      "cols": 9,
+      "sha256": "a79d04f3b132"
+    },
+    {
+      "check": "raw load central_bank_balance",
+      "rows": 357,
+      "cols": 28,
+      "sha256": "5882f12168e9"
+    },
+    {
+      "check": "raw load lpr",
+      "rows": 1577,
+      "cols": 5,
+      "sha256": "dd3b0de2a08a"
+    },
+    {
+      "check": "raw load shibor",
+      "rows": 2399,
+      "cols": 17,
+      "sha256": "1c836b63ea73"
+    },
+    {
+      "check": "raw load trade_balance_xcheck",
+      "rows": 565,
+      "cols": 5,
+      "sha256": "d42b42a17cef"
+    },
+    {
+      "check": "raw load customs",
+      "rows": 225,
+      "cols": 11,
+      "sha256": "25281e426da8"
+    },
+    {
+      "check": "customs unit calibration vs jin10 trade balance",
+      "n_overlap_months": 206,
+      "months": [
+        "2008-01",
+        "2008-02",
+        "2008-03",
+        "2008-04",
+        "2008-05",
+        "2008-06",
+        "2008-07",
+        "2008-08",
+        "2008-09",
+        "2008-10",
+        "2008-11",
+        "2008-12",
+        "2009-01",
+        "2009-02",
+        "2009-03",
+        "2009-04",
+        "2009-05",
+        "2009-06",
+        "2009-07",
+        "2009-08",
+        "2009-09",
+        "2009-10",
+        "2009-11",
+        "2009-12",
+        "2010-01",
+        "2010-02",
+        "2010-03",
+        "2010-04",
+        "2010-05",
+        "2010-06",
+        "2010-07",
+        "2010-08",
+        "2010-09",
+        "2010-10",
+        "2010-11",
+        "2010-12",
+        "2011-01",
+        "2011-02",
+        "2011-03",
+        "2011-04",
+        "2011-05",
+        "2011-06",
+        "2011-07",
+        "2011-08",
+        "2011-09",
+        "2011-10",
+        "2011-11",
+        "2011-12",
+        "2012-01",
+        "2012-02",
+        "2012-03",
+        "2012-04",
+        "2012-05",
+        "2012-06",
+        "2012-07",
+        "2012-08",
+        "2012-09",
+        "2012-10",
+        "2012-11",
+        "2012-12",
+        "2013-01",
+        "2013-02",
+        "2013-03",
+        "2013-04",
+        "2013-05",
+        "2013-06",
+        "2013-07",
+        "2013-08",
+        "2013-09",
+        "2013-10",
+        "2013-11",
+        "2013-12",
+        "2014-01",
+        "2014-02",
+        "2014-03",
+        "2014-04",
+        "2014-05",
+        "2014-06",
+        "2014-07",
+        "2014-08",
+        "2014-09",
+        "2014-10",
+        "2014-11",
+        "2014-12",
+        "2015-01",
+        "2015-02",
+        "2015-03",
+        "2015-04",
+        "2015-05",
+        "2015-06",
+        "2015-07",
+        "2015-08",
+        "2015-09",
+        "2015-10",
+        "2015-11",
+        "2015-12",
+        "2016-01",
+        "2016-02",
+        "2016-03",
+        "2016-04",
+        "2016-05",
+        "2016-06",
+        "2016-07",
+        "2016-08",
+        "2016-09",
+        "2016-10",
+        "2016-11",
+        "2016-12",
+        "2017-01",
+        "2017-02",
+        "2017-03",
+        "2017-04",
+        "2017-05",
+        "2017-06",
+        "2017-07",
+        "2017-08",
+        "2017-09",
+        "2017-10",
+        "2017-11",
+        "2017-12",
+        "2018-01",
+        "2018-02",
+        "2018-03",
+        "2018-04",
+        "2018-05",
+        "2018-06",
+        "2018-07",
+        "2018-08",
+        "2018-09",
+        "2018-10",
+        "2018-11",
+        "2018-12",
+        "2019-01",
+        "2019-02",
+        "2019-03",
+        "2019-04",
+        "2019-05",
+        "2019-06",
+        "2019-07",
+        "2019-08",
+        "2019-09",
+        "2019-10",
+        "2019-11",
+        "2019-12",
+        "2020-01",
+        "2020-02",
+        "2020-03",
+        "2020-04",
+        "2020-05",
+        "2020-06",
+        "2020-07",
+        "2020-08",
+        "2020-09",
+        "2020-10",
+        "2020-11",
+        "2020-12",
+        "2021-02",
+        "2021-03",
+        "2021-04",
+        "2021-05",
+        "2021-06",
+        "2021-07",
+        "2021-08",
+        "2021-09",
+        "2021-10",
+        "2021-11",
+        "2021-12",
+        "2022-02",
+        "2022-03",
+        "2022-04",
+        "2022-05",
+        "2022-06",
+        "2022-07",
+        "2022-08",
+        "2022-09",
+        "2022-10",
+        "2022-11",
+        "2022-12",
+        "2023-02",
+        "2023-03",
+        "2023-04",
+        "2023-05",
+        "2023-06",
+        "2023-07",
+        "2023-08",
+        "2023-09",
+        "2023-10",
+        "2023-11",
+        "2023-12",
+        "2024-02",
+        "2024-03",
+        "2024-04",
+        "2024-05",
+        "2024-06",
+        "2024-07",
+        "2024-08",
+        "2024-09",
+        "2024-10",
+        "2024-11",
+        "2024-12",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07"
+      ],
+      "median_factor_to_yi_usd": 1.0079558227549803e-05,
+      "median_abs_rel_deviation": 0.014469548783832997,
+      "resolved_unit": "千美元 (USD thousands)",
+      "accepted": true,
+      "note": "factor ×1e-5 ⇒ value×1e3 = USD ⇒ 千美元; residual of ~1pct reflects preliminary-vs-final revision vintages between sources"
+    },
+    {
+      "check": "raw load fx_gold",
+      "rows": 225,
+      "cols": 7,
+      "sha256": "460dd2d0f2d5"
+    },
+    {
+      "check": "raw load fiscal_revenue",
+      "rows": 217,
+      "cols": 6,
+      "sha256": "7f45b864e564"
+    },
+    {
+      "check": "raw load gdp",
+      "rows": 83,
+      "cols": 9,
+      "sha256": "928562490831"
+    },
+    {
+      "check": "GDP quarterly rows",
+      "kept_rows": 83,
+      "note": "Eastmoney publishes YTD windows (第1-2/3/4季度 = H1/9M/FY, 2006Q1-style single-quarter rows for Q1 only): all rows kept AS PUBLISHED with a window tag (ytd_cumulative vs single_quarter); values are cumulative absolute value (亿元) and cumulative YoY (%); single-quarter YoY for Q2–Q4 is not published by this interface and is NOT derived here (no nominal-to-real bridge invented); NO interpolation to monthly frequency"
+    },
+    {
+      "check": "raw load enterprise_boom",
+      "rows": 87,
+      "cols": 7,
+      "sha256": "d84591ff93d8"
+    },
+    {
+      "check": "MAD outlier scan",
+      "rule": "|x − median| > 5.0 × 1.4826·MAD",
+      "n_flagged": 48,
+      "policy": "flags reported only — values NOT modified or removed"
+    }
+  ],
+  "missing": {
+    "pmi_man": {
+      "n_valid": 226,
+      "n_missing": 1,
+      "first_valid": "2008-01",
+      "last_valid": "2026-10",
+      "january_missing": 0,
+      "coverage_years": 18.8
+    },
+    "pmi_nonman": {
+      "n_valid": 226,
+      "n_missing": 1,
+      "first_valid": "2008-01",
+      "last_valid": "2026-10",
+      "january_missing": 0,
+      "coverage_years": 18.8
+    },
+    "cpi_yoy": {
+      "n_valid": 225,
+      "n_missing": 2,
+      "first_valid": "2008-01",
+      "last_valid": "2026-09",
+      "january_missing": 0,
+      "coverage_years": 18.8
+    },
+    "ppi_yoy": {
+      "n_valid": 225,
+      "n_missing": 2,
+      "first_valid": "2008-01",
+      "last_valid": "2026-09",
+      "january_missing": 0,
+      "coverage_years": 18.8
+    },
+    "cgpi_yoy": {
+      "n_valid": 225,
+      "n_missing": 2,
+      "first_valid": "2008-01",
+      "last_valid": "2026-09",
+      "january_missing": 0,
+      "coverage_years": 18.8
+    },
+    "industrial_va_yoy": {
+      "n_valid": 194,
+      "n_missing": 33,
+      "first_valid": "2008-02",
+      "last_valid": "2026-09",
+      "january_missing": 19,
+      "coverage_years": 16.2
+    },
+    "retail_yoy": {
+      "n_valid": 195,
+      "n_missing": 32,
+      "first_valid": "2008-01",
+      "last_valid": "2026-09",
+      "january_missing": 15,
+      "coverage_years": 16.2
+    },
+    "fai_yoy": {
+      "n_valid": 137,
+      "n_missing": 90,
+      "first_valid": "2013-03",
+      "last_valid": "2026-09",
+      "january_missing": 19,
+      "coverage_years": 11.4
+    },
+    "consumer_confidence": {
+      "n_valid": 225,
+      "n_missing": 2,
+      "first_valid": "2008-01",
+      "last_valid": "2026-09",
+      "january_missing": 0,
+      "coverage_years": 18.8
+    },
+    "lpi": {
+      "n_valid": 158,
+      "n_missing": 69,
+      "first_valid": "2013-06",
+      "last_valid": "2026-09",
+      "january_missing": 7,
+      "coverage_years": 13.2
+    },
+    "elec_cons_yoy": {
+      "n_valid": 205,
+      "n_missing": 22,
+      "first_valid": "2008-02",
+      "last_valid": "2026-09",
+      "january_missing": 18,
+      "coverage_years": 17.1
+    },
+    "freight_yoy": {
+      "n_valid": 176,
+      "n_missing": 51,
+      "first_valid": "2008-01",
+      "last_valid": "2026-09",
+      "january_missing": 8,
+      "coverage_years": 14.7
+    },
+    "m2_yoy": {
+      "n_valid": 225,
+      "n_missing": 2,
+      "first_valid": "2008-01",
+      "last_valid": "2026-09",
+      "january_missing": 0,
+      "coverage_years": 18.8
+    },
+    "m1_yoy": {
+      "n_valid": 225,
+      "n_missing": 2,
+      "first_valid": "2008-01",
+      "last_valid": "2026-09",
+      "january_missing": 0,
+      "coverage_years": 18.8
+    },
+    "m0_yoy": {
+      "n_valid": 225,
+      "n_missing": 2,
+      "first_valid": "2008-01",
+      "last_valid": "2026-09",
+      "january_missing": 0,
+      "coverage_years": 18.8
+    },
+    "new_loans_yoy": {
+      "n_valid": 225,
+      "n_missing": 2,
+      "first_valid": "2008-01",
+      "last_valid": "2026-09",
+      "january_missing": 0,
+      "coverage_years": 18.8
+    },
+    "tsf_flow": {
+      "n_valid": 136,
+      "n_missing": 91,
+      "first_valid": "2015-01",
+      "last_valid": "2026-04",
+      "january_missing": 7,
+      "coverage_years": 11.3
+    },
+    "base_money_yoy": {
+      "n_valid": 213,
+      "n_missing": 14,
+      "first_valid": "2008-01",
+      "last_valid": "2025-09",
+      "january_missing": 1,
+      "coverage_years": 17.8
+    },
+    "lpr_1y": {
+      "n_valid": 157,
+      "n_missing": 70,
+      "first_valid": "2013-10",
+      "last_valid": "2026-10",
+      "january_missing": 6,
+      "coverage_years": 13.1
+    },
+    "lpr_5y": {
+      "n_valid": 87,
+      "n_missing": 140,
+      "first_valid": "2019-08",
+      "last_valid": "2026-10",
+      "january_missing": 12,
+      "coverage_years": 7.2
+    },
+    "shibor_on": {
+      "n_valid": 118,
+      "n_missing": 109,
+      "first_valid": "2015-05",
+      "last_valid": "2026-11",
+      "january_missing": 10,
+      "coverage_years": 9.8
+    },
+    "shibor_3m": {
+      "n_valid": 118,
+      "n_missing": 109,
+      "first_valid": "2015-05",
+      "last_valid": "2026-11",
+      "january_missing": 10,
+      "coverage_years": 9.8
+    },
+    "shibor_1y": {
+      "n_valid": 118,
+      "n_missing": 109,
+      "first_valid": "2015-05",
+      "last_valid": "2026-11",
+      "january_missing": 10,
+      "coverage_years": 9.8
+    },
+    "trade_bal_bn_usd": {
+      "n_valid": 225,
+      "n_missing": 2,
+      "first_valid": "2008-01",
+      "last_valid": "2026-09",
+      "january_missing": 0,
+      "coverage_years": 18.8
+    },
+    "export_yoy": {
+      "n_valid": 225,
+      "n_missing": 2,
+      "first_valid": "2008-01",
+      "last_valid": "2026-09",
+      "january_missing": 0,
+      "coverage_years": 18.8
+    },
+    "import_yoy": {
+      "n_valid": 225,
+      "n_missing": 2,
+      "first_valid": "2008-01",
+      "last_valid": "2026-09",
+      "january_missing": 0,
+      "coverage_years": 18.8
+    },
+    "fx_reserves_yoy": {
+      "n_valid": 225,
+      "n_missing": 2,
+      "first_valid": "2008-01",
+      "last_valid": "2026-09",
+      "january_missing": 0,
+      "coverage_years": 18.8
+    },
+    "fiscal_rev_yoy": {
+      "n_valid": 209,
+      "n_missing": 18,
+      "first_valid": "2008-01",
+      "last_valid": "2026-09",
+      "january_missing": 8,
+      "coverage_years": 17.4
+    },
+    "shibor_spread_1y_on": {
+      "n_valid": 118,
+      "n_missing": 109,
+      "first_valid": "2015-05",
+      "last_valid": "2026-11",
+      "january_missing": 10,
+      "coverage_years": 9.8
+    },
+    "lpr_spread_5y_1y": {
+      "n_valid": 87,
+      "n_missing": 140,
+      "first_valid": "2019-08",
+      "last_valid": "2026-10",
+      "january_missing": 12,
+      "coverage_years": 7.2
+    }
+  },
+  "outliers_flagged": [
+    {
+      "indicator": "pmi_man",
+      "month": "2008-03",
+      "value": 6.0704,
+      "median": 50.3,
+      "mad_z": 6.1
+    },
+    {
+      "indicator": "pmi_man",
+      "month": "2008-04",
+      "value": 6.67,
+      "median": 50.3,
+      "mad_z": 6.7
+    },
+    {
+      "indicator": "pmi_man",
+      "month": "2008-11",
+      "value": 8.6185,
+      "median": 50.3,
+      "mad_z": 8.6
+    },
+    {
+      "indicator": "pmi_man",
+      "month": "2008-12",
+      "value": 6.8199,
+      "median": 50.3,
+      "mad_z": 6.8
+    },
+    {
+      "indicator": "pmi_man",
+      "month": "2020-02",
+      "value": 10.9417,
+      "median": 50.3,
+      "mad_z": 10.9
+    },
+    {
+      "indicator": "pmi_nonman",
+      "month": "2020-02",
+      "value": 11.4198,
+      "median": 54.15,
+      "mad_z": 11.4
+    },
+    {
+      "indicator": "pmi_nonman",
+      "month": "2022-04",
+      "value": 5.6983,
+      "median": 54.15,
+      "mad_z": 5.7
+    },
+    {
+      "indicator": "pmi_nonman",
+      "month": "2022-12",
+      "value": 5.8378,
+      "median": 54.15,
+      "mad_z": 5.8
+    },
+    {
+      "indicator": "cpi_yoy",
+      "month": "2008-02",
+      "value": 5.1953,
+      "median": 1.8014,
+      "mad_z": 5.2
+    },
+    {
+      "indicator": "industrial_va_yoy",
+      "month": "2012-02",
+      "value": 5.1019,
+      "median": 6.55,
+      "mad_z": 5.1
+    },
+    {
+      "indicator": "fai_yoy",
+      "month": "2018-12",
+      "value": 6.3079,
+      "median": 3.8357,
+      "mad_z": 6.3
+    },
+    {
+      "indicator": "fai_yoy",
+      "month": "2019-11",
+      "value": 7.3599,
+      "median": 3.8357,
+      "mad_z": 7.4
+    },
+    {
+      "indicator": "fai_yoy",
+      "month": "2021-11",
+      "value": 21.2373,
+      "median": 3.8357,
+      "mad_z": 21.2
+    },
+    {
+      "indicator": "fai_yoy",
+      "month": "2021-12",
+      "value": 17.2932,
+      "median": 3.8357,
+      "mad_z": 17.3
+    },
+    {
+      "indicator": "lpi",
+      "month": "2020-01",
+      "value": 9.2353,
+      "median": 52.9,
+      "mad_z": 9.2
+    },
+    {
+      "indicator": "elec_cons_yoy",
+      "month": "2010-01",
+      "value": 10.6815,
+      "median": 5.3,
+      "mad_z": 10.7
+    },
+    {
+      "indicator": "elec_cons_yoy",
+      "month": "2010-02",
+      "value": 6.331,
+      "median": 5.3,
+      "mad_z": 6.3
+    },
+    {
+      "indicator": "elec_cons_yoy",
+      "month": "2010-03",
+      "value": 5.7914,
+      "median": 5.3,
+      "mad_z": 5.8
+    },
+    {
+      "indicator": "elec_cons_yoy",
+      "month": "2010-04",
+      "value": 5.6872,
+      "median": 5.3,
+      "mad_z": 5.7
+    },
+    {
+      "indicator": "elec_cons_yoy",
+      "month": "2010-05",
+      "value": 5.5216,
+      "median": 5.3,
+      "mad_z": 5.5
+    },
+    {
+      "indicator": "elec_cons_yoy",
+      "month": "2021-02",
+      "value": 5.1813,
+      "median": 5.3,
+      "mad_z": 5.2
+    },
+    {
+      "indicator": "m1_yoy",
+      "month": "2009-10",
+      "value": 5.0448,
+      "median": 6.6,
+      "mad_z": 5.0
+    },
+    {
+      "indicator": "m1_yoy",
+      "month": "2009-11",
+      "value": 5.5606,
+      "median": 6.6,
+      "mad_z": 5.6
+    },
+    {
+      "indicator": "m1_yoy",
+      "month": "2009-12",
+      "value": 5.1083,
+      "median": 6.6,
+      "mad_z": 5.1
+    },
+    {
+      "indicator": "m1_yoy",
+      "month": "2010-01",
+      "value": 6.4196,
+      "median": 6.6,
+      "mad_z": 6.4
+    },
+    {
+      "indicator": "m1_yoy",
+      "month": "2010-02",
+      "value": 5.632,
+      "median": 6.6,
+      "mad_z": 5.6
+    },
+    {
+      "indicator": "m0_yoy",
+      "month": "2011-01",
+      "value": 6.2631,
+      "median": 10.0,
+      "mad_z": 6.3
+    },
+    {
+      "indicator": "m0_yoy",
+      "month": "2015-01",
+      "value": 5.3188,
+      "median": 10.0,
+      "mad_z": 5.3
+    },
+    {
+      "indicator": "new_loans_yoy",
+      "month": "2008-11",
+      "value": 13.875,
+      "median": 5.048,
+      "mad_z": 13.9
+    },
+    {
+      "indicator": "new_loans_yoy",
+      "month": "2008-12",
+      "value": 46.2586,
+      "median": 5.048,
+      "mad_z": 46.3
+    },
+    {
+      "indicator": "new_loans_yoy",
+      "month": "2009-02",
+      "value": 10.5385,
+      "median": 5.048,
+      "mad_z": 10.5
+    },
+    {
+      "indicator": "new_loans_yoy",
+      "month": "2009-03",
+      "value": 17.688,
+      "median": 5.048,
+      "mad_z": 17.7
+    },
+    {
+      "indicator": "new_loans_yoy",
+      "month": "2009-06",
+      "value": 11.1732,
+      "median": 5.048,
+      "mad_z": 11.2
+    },
+    {
+      "indicator": "new_loans_yoy",
+      "month": "2024-07",
+      "value": 10.2823,
+      "median": 5.048,
+      "mad_z": 10.3
+    },
+    {
+      "indicator": "new_loans_yoy",
+      "month": "2025-07",
+      "value": 13.7317,
+      "median": 5.048,
+      "mad_z": 13.7
+    },
+    {
+      "indicator": "new_loans_yoy",
+      "month": "2026-04",
+      "value": 17.5514,
+      "median": 5.048,
+      "mad_z": 17.6
+    },
+    {
+      "indicator": "export_yoy",
+      "month": "2021-02",
+      "value": 10.3773,
+      "median": 7.2,
+      "mad_z": 10.4
+    },
+    {
+      "indicator": "fx_reserves_yoy",
+      "month": "2008-01",
+      "value": 6.4132,
+      "median": 2.5253,
+      "mad_z": 6.4
+    },
+    {
+      "indicator": "fx_reserves_yoy",
+      "month": "2008-02",
+      "value": 6.1656,
+      "median": 2.5253,
+      "mad_z": 6.2
+    },
+    {
+      "indicator": "fx_reserves_yoy",
+      "month": "2008-03",
+      "value": 5.798,
+      "median": 2.5253,
+      "mad_z": 5.8
+    },
+    {
+      "indicator": "fx_reserves_yoy",
+      "month": "2008-04",
+      "value": 5.9491,
+      "median": 2.5253,
+      "mad_z": 5.9
+    },
+    {
+      "indicator": "fx_reserves_yoy",
+      "month": "2008-05",
+      "value": 5.6535,
+      "median": 2.5253,
+      "mad_z": 5.7
+    },
+    {
+      "indicator": "fx_reserves_yoy",
+      "month": "2008-06",
+      "value": 5.1457,
+      "median": 2.5253,
+      "mad_z": 5.1
+    },
+    {
+      "indicator": "fiscal_rev_yoy",
+      "month": "2008-05",
+      "value": 5.6622,
+      "median": 7.2214,
+      "mad_z": 5.7
+    },
+    {
+      "indicator": "fiscal_rev_yoy",
+      "month": "2009-12",
+      "value": 6.1474,
+      "median": 7.2214,
+      "mad_z": 6.1
+    },
+    {
+      "indicator": "fiscal_rev_yoy",
+      "month": "2022-04",
+      "value": 6.0589,
+      "median": 7.2214,
+      "mad_z": 6.1
+    },
+    {
+      "indicator": "fiscal_rev_yoy",
+      "month": "2022-12",
+      "value": 6.7243,
+      "median": 7.2214,
+      "mad_z": 6.7
+    },
+    {
+      "indicator": "fiscal_rev_yoy",
+      "month": "2023-04",
+      "value": 7.8276,
+      "median": 7.2214,
+      "mad_z": 7.8
+    }
+  ],
+  "leakage_policy": "panel values sit at reference month s; use is restricted to F_t = { x_{i,s} : s + L_i <= t } via publication_lag_months per indicator"
+}

@@ -123,8 +123,21 @@ uv sync
   `pyproject.toml` and `uv.lock` exist and are committed** — currently
   neither file exists in this repository.
 - Exact run commands for Q3 scripts belong in this section, one per
-  existing script. **There are no code scripts in the repository yet, so
-  none are listed.** Append each `uv run python <path> --seed 42` command
+  existing script.
+- `data/fetch.py` (Phase 2 data acquisition, raw snapshots under `data/raw/`):
+
+```bash
+uv run python data/fetch.py --seed 42     # live fetch (idempotent, never deletes)
+uv run python data/fetch.py --offline     # verify committed snapshots + SHA-256
+```
+
+- `data/build_panel.py` (Phase 2 cleaning → `data/clean/*`, `data/metadata.json`):
+
+```bash
+uv run python data/build_panel.py --seed 42
+```
+
+Append each `uv run python <path> --seed 42` command
   here at the same commit that introduces the script; never document
   commands for scripts that do not exist.
 - The scripts required by the assignment are `code/approach1_*.py`,

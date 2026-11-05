@@ -1,0 +1,619 @@
+{
+  "version": 1,
+  "retrieved_utc": "2026-11-05T08:44:20.374955+00:00",
+  "interfaces": {
+    "gdp": {
+      "interface": "macro_china_gdp",
+      "role": "panel-quarterly",
+      "note": "Quarterly GDP absolute value + YoY by industry; kept quarterly.",
+      "file": "gdp.csv",
+      "status": "ok",
+      "attempt": 1,
+      "sha256": "928562490831d820e3072d364254cb4db7a6d8588572e6e1b2ab3e5c235f2b5a",
+      "n_rows": 83,
+      "n_cols": 9,
+      "columns": [
+        "季度",
+        "国内生产总值-绝对值",
+        "国内生产总值-同比增长",
+        "第一产业-绝对值",
+        "第一产业-同比增长",
+        "第二产业-绝对值",
+        "第二产业-同比增长",
+        "第三产业-绝对值",
+        "第三产业-同比增长"
+      ],
+      "first_value_sample": [
+        "2026年第1-3季度",
+        "2026年第1-2季度"
+      ]
+    },
+    "enterprise_boom": {
+      "interface": "macro_china_enterprise_boom_index",
+      "role": "panel-quarterly",
+      "note": "Quarterly boom index; 信心指数 NaN in recent quarters (audit §4.20).",
+      "file": "enterprise_boom.csv",
+      "status": "ok",
+      "attempt": 1,
+      "sha256": "d84591ff93d8d564f465b605772029a10ed0977b13601b92467867c8da09a84f",
+      "n_rows": 87,
+      "n_cols": 7,
+      "columns": [
+        "季度",
+        "企业景气指数-指数",
+        "企业景气指数-同比",
+        "企业景气指数-环比",
+        "企业家信心指数-指数",
+        "企业家信心指数-同比",
+        "企业家信心指数-环比"
+      ],
+      "first_value_sample": [
+        "2026年第3季度",
+        "2026年第2季度"
+      ]
+    },
+    "cpi": {
+      "interface": "macro_china_cpi",
+      "role": "panel",
+      "note": "\"当月\" is an implied index (100+yoy); use 同比 columns.",
+      "file": "cpi.csv",
+      "status": "ok",
+      "attempt": 1,
+      "sha256": "a17d2d1e830f1913f9932e21f26d5d7c5ac48f5ccb8fbe168c950ea7e81b40f9",
+      "n_rows": 225,
+      "n_cols": 13,
+      "columns": [
+        "月份",
+        "全国-当月",
+        "全国-同比增长",
+        "全国-环比增长",
+        "全国-累计",
+        "城市-当月",
+        "城市-同比增长",
+        "城市-环比增长",
+        "城市-累计",
+        "农村-当月",
+        "农村-同比增长",
+        "农村-环比增长",
+        "农村-累计"
+      ],
+      "first_value_sample": [
+        "2026年09月份",
+        "2026年08月份"
+      ]
+    },
+    "ppi": {
+      "interface": "macro_china_ppi",
+      "role": "panel",
+      "note": "",
+      "file": "ppi.csv",
+      "status": "ok",
+      "attempt": 1,
+      "sha256": "5a0c4bacd0a6b477170724a64d9ceac4f32f29c918f0858189717d01dc56354e",
+      "n_rows": 249,
+      "n_cols": 4,
+      "columns": [
+        "月份",
+        "当月",
+        "当月同比增长",
+        "累计"
+      ],
+      "first_value_sample": [
+        "2026年09月份",
+        "2026年08月份"
+      ]
+    },
+    "cgpi": {
+      "interface": "macro_china_qyspjg",
+      "role": "panel",
+      "note": "PBOC corporate goods price index; check rebasing history.",
+      "file": "cgpi.csv",
+      "status": "ok",
+      "attempt": 1,
+      "sha256": "42d6951a6aeabd8c5d8597fb4db5aaf3b8cc768ead252c4b0ab61e6f0a352551",
+      "n_rows": 261,
+      "n_cols": 13,
+      "columns": [
+        "月份",
+        "总指数-指数值",
+        "总指数-同比增长",
+        "总指数-环比增长",
+        "农产品-指数值",
+        "农产品-同比增长",
+        "农产品-环比增长",
+        "矿产品-指数值",
+        "矿产品-同比增长",
+        "矿产品-环比增长",
+        "煤油电-指数值",
+        "煤油电-同比增长",
+        "煤油电-环比增长"
+      ],
+      "first_value_sample": [
+        "2026年09月份",
+        "2026年08月份"
+      ]
+    },
+    "pmi": {
+      "interface": "macro_china_pmi",
+      "role": "panel",
+      "note": "Label source (制造业-指数). \"同比\" columns meaningless for PMI.",
+      "file": "pmi.csv",
+      "status": "ok",
+      "attempt": 1,
+      "sha256": "e10dcba6ebcba57100bcc55be7c1a7df06d526d0fb004b2fd2fe35ae425e3b07",
+      "n_rows": 226,
+      "n_cols": 5,
+      "columns": [
+        "月份",
+        "制造业-指数",
+        "制造业-同比增长",
+        "非制造业-指数",
+        "非制造业-同比增长"
+      ],
+      "first_value_sample": [
+        "2026年10月份",
+        "2026年09月份"
+      ]
+    },
+    "industrial_va": {
+      "interface": "macro_china_gyzjz",
+      "role": "panel",
+      "note": "发布时间 column is a period marker, NOT a release date (audit §5.3).",
+      "file": "industrial_va.csv",
+      "status": "ok",
+      "attempt": 1,
+      "sha256": "c1c6ac768721b47afb0fbd228d100a6f052b7cbe10535b24c0442c5acf565a7b",
+      "n_rows": 206,
+      "n_cols": 4,
+      "columns": [
+        "月份",
+        "同比增长",
+        "累计增长",
+        "发布时间"
+      ],
+      "first_value_sample": [
+        "2008年02月份",
+        "2008年03月份"
+      ]
+    },
+    "retail_sales": {
+      "interface": "macro_china_consumer_goods_retail",
+      "role": "panel",
+      "note": "January absent (Jan–Feb combined).",
+      "file": "retail_sales.csv",
+      "status": "ok",
+      "attempt": 1,
+      "sha256": "c7e9effca2ccbaa045dac51e290b3b0a935b3991a5957a7c3b68765cc075b92c",
+      "n_rows": 210,
+      "n_cols": 6,
+      "columns": [
+        "月份",
+        "当月",
+        "同比增长",
+        "环比增长",
+        "累计",
+        "累计-同比增长"
+      ],
+      "first_value_sample": [
+        "2026年09月份",
+        "2026年08月份"
+      ]
+    },
+    "fai": {
+      "interface": "macro_china_gdzctz",
+      "role": "panel",
+      "note": "当月 derived from cumulative; 2026-09 YoY sanity-checked in build step.",
+      "file": "fai.csv",
+      "status": "ok",
+      "attempt": 1,
+      "sha256": "6bcb7ba178d5b1cb18dcc1666a171f0c26ee45425a09969a97137f0e2bb4f452",
+      "n_rows": 162,
+      "n_cols": 5,
+      "columns": [
+        "月份",
+        "当月",
+        "同比增长",
+        "环比增长",
+        "自年初累计"
+      ],
+      "first_value_sample": [
+        "2026年09月份",
+        "2026年08月份"
+      ]
+    },
+    "consumer_confidence": {
+      "interface": "macro_china_xfzxx",
+      "role": "panel",
+      "note": "Source-code bug overwrites 预期指数; only 信心指数-指数值 usable.",
+      "file": "consumer_confidence.csv",
+      "status": "ok",
+      "attempt": 1,
+      "sha256": "0f4197c21cb2607dee0a291bfdab6fef86aca93edc331273d0e97dbecc29d5a0",
+      "n_rows": 237,
+      "n_cols": 10,
+      "columns": [
+        "月份",
+        "消费者信心指数-指数值",
+        "消费者信心指数-同比增长",
+        "消费者信心指数-环比增长",
+        "消费者满意指数-指数值",
+        "消费者满意指数-同比增长",
+        "消费者满意指数-环比增长",
+        "消费者预期指数-指数值",
+        "消费者预期指数-同比增长",
+        "消费者预期指数-环比增长"
+      ],
+      "first_value_sample": [
+        "2026年09月份",
+        "2026年08月份"
+      ]
+    },
+    "lpi": {
+      "interface": "macro_china_lpi_index",
+      "role": "panel",
+      "note": "",
+      "file": "lpi.csv",
+      "status": "ok",
+      "attempt": 1,
+      "sha256": "f3580e80fd717bfc7fe4ad074064f84864a5e5009b2dda685fd72c018f10380c",
+      "n_rows": 158,
+      "n_cols": 8,
+      "columns": [
+        "日期",
+        "最新值",
+        "涨跌幅",
+        "近3月涨跌幅",
+        "近6月涨跌幅",
+        "近1年涨跌幅",
+        "近2年涨跌幅",
+        "近3年涨跌幅"
+      ],
+      "first_value_sample": [
+        "2013-07-01",
+        "2013-08-01"
+      ]
+    },
+    "electricity": {
+      "interface": "macro_china_society_electricity",
+      "role": "panel",
+      "note": "Consumption (万千瓦时), not generation — approved substitution.",
+      "file": "electricity.csv",
+      "status": "ok",
+      "attempt": 1,
+      "sha256": "aeb5bff66e629c2ef3909db64997e2f1c83b8ea7f5f56da009e6b4b41fae065e",
+      "n_rows": 243,
+      "n_cols": 17,
+      "columns": [
+        "统计时间",
+        "全社会用电量",
+        "全社会用电量同比",
+        "各行业用电量合计",
+        "各行业用电量合计同比",
+        "第一产业用电量",
+        "第一产业用电量同比",
+        "第二产业用电量",
+        "第二产业用电量同比",
+        "第三产业用电量",
+        "第三产业用电量同比",
+        "城乡居民生活用电量合计",
+        "城乡居民生活用电量合计同比",
+        "城镇居民用电量",
+        "城镇居民用电量同比",
+        "乡村居民用电量",
+        "乡村居民用电量同比"
+      ],
+      "first_value_sample": [
+        "2003.12",
+        "2004.10"
+      ]
+    },
+    "traffic": {
+      "interface": "macro_china_society_traffic_volume",
+      "role": "panel",
+      "note": "Long format; 合计 rows only; column-name typos normalised in build.",
+      "file": "traffic.csv",
+      "status": "ok",
+      "attempt": 1,
+      "sha256": "1ae6b89306bcb443e0407c3773967a216e5996507a6b1633082c1149f0a005b1",
+      "n_rows": 2979,
+      "n_cols": 16,
+      "columns": [
+        "统计时间",
+        "统计对象",
+        "货运量",
+        "货运量同比增长",
+        "货物周转量",
+        "公里货物周转量同比增长",
+        "客运量",
+        "客运量同比增长",
+        "旅客周转量",
+        "公里旅客周转量同比增长",
+        "沿海主要港口货物吞吐量",
+        "沿海主要港口货物吞吐量同比增长",
+        "其中:外贸货物吞吐量",
+        "其中:外贸货物吞吐量同比增长",
+        "民航总周转量",
+        "公里民航总周转"
+      ],
+      "first_value_sample": [
+        "2026.9",
+        "2026.9"
+      ]
+    },
+    "money_supply": {
+      "interface": "macro_china_money_supply",
+      "role": "panel",
+      "note": "M1 definition change 2024-01 — structural break documented.",
+      "file": "money_supply.csv",
+      "status": "ok",
+      "attempt": 1,
+      "sha256": "59d0954b1db8153905f83a683e9c1e99bf88cacad2543fd19e4066159f5f7542",
+      "n_rows": 225,
+      "n_cols": 10,
+      "columns": [
+        "月份",
+        "货币和准货币(M2)-数量(亿元)",
+        "货币和准货币(M2)-同比增长",
+        "货币和准货币(M2)-环比增长",
+        "货币(M1)-数量(亿元)",
+        "货币(M1)-同比增长",
+        "货币(M1)-环比增长",
+        "流通中的现金(M0)-数量(亿元)",
+        "流通中的现金(M0)-同比增长",
+        "流通中的现金(M0)-环比增长"
+      ],
+      "first_value_sample": [
+        "2026年09月份",
+        "2026年08月份"
+      ]
+    },
+    "new_loans": {
+      "interface": "macro_china_new_financial_credit",
+      "role": "panel",
+      "note": "",
+      "file": "new_loans.csv",
+      "status": "ok",
+      "attempt": 1,
+      "sha256": "d06d5e1664433afd2bfccdde8c2c70eabaccdcceecd09dd1ee170e05d7ae5635",
+      "n_rows": 225,
+      "n_cols": 6,
+      "columns": [
+        "月份",
+        "当月",
+        "当月-同比增长",
+        "当月-环比增长",
+        "累计",
+        "累计-同比增长"
+      ],
+      "first_value_sample": [
+        "2026年09月份",
+        "2026年08月份"
+      ]
+    },
+    "tsf": {
+      "interface": "macro_china_shrzgm",
+      "role": "panel",
+      "note": "mofcom source STALE (ends 2026-04); kept with a documented gap.",
+      "file": "tsf.csv",
+      "status": "ok",
+      "attempt": 1,
+      "sha256": "a79d04f3b132be4054869c12185198bb6080158e7d1b88372f5bd1c3cdb917ad",
+      "n_rows": 136,
+      "n_cols": 9,
+      "columns": [
+        "月份",
+        "社会融资规模增量",
+        "其中-人民币贷款",
+        "其中-委托贷款外币贷款",
+        "其中-委托贷款",
+        "其中-信托贷款",
+        "其中-未贴现银行承兑汇票",
+        "其中-企业债券",
+        "其中-非金融企业境内股票融资"
+      ],
+      "first_value_sample": [
+        "201501",
+        "201502"
+      ]
+    },
+    "central_bank_balance": {
+      "interface": "macro_china_central_bank_balance",
+      "role": "panel",
+      "note": "Base money (储备货币) source.",
+      "file": "central_bank_balance.csv",
+      "status": "ok",
+      "attempt": 1,
+      "sha256": "5882f12168e91519fab4fb9f6cb621321f04aa24183bdd1520ad64032f5ed3a9",
+      "n_rows": 357,
+      "n_cols": 28,
+      "columns": [
+        "统计时间",
+        "国外资产",
+        "外汇",
+        "货币黄金",
+        "其他国外资产",
+        "对政府债权",
+        "其中:中央政府",
+        "对其他存款性公司债权",
+        "对其他金融性公司债权",
+        "对非货币金融机构债权",
+        "对非金融性公司债权",
+        "其他资产",
+        "总资产",
+        "储备货币",
+        "发行货币",
+        "金融性公司存款",
+        "其他存款性公司",
+        "其他金融性公司",
+        "对金融机构负债",
+        "准备金存款",
+        "非金融性公司存款",
+        "活期存款",
+        "债券",
+        "国外负债",
+        "政府存款",
+        "自有资金",
+        "其他负债",
+        "总负债"
+      ],
+      "first_value_sample": [
+        "2026.9",
+        "2026.8"
+      ]
+    },
+    "lpr": {
+      "interface": "macro_china_lpr",
+      "role": "panel",
+      "note": "LPR1Y/5Y post-2019; RATE_1/RATE_2 are the old benchmark (different regime).",
+      "file": "lpr.csv",
+      "status": "ok",
+      "attempt": 1,
+      "sha256": "dd3b0de2a08a83325c8752324b2e29c0d43dd1e2b54c7b388a43cfe20dfc0ffa",
+      "n_rows": 1577,
+      "n_cols": 5,
+      "columns": [
+        "TRADE_DATE",
+        "LPR1Y",
+        "LPR5Y",
+        "RATE_1",
+        "RATE_2"
+      ],
+      "first_value_sample": [
+        "1991-04-21",
+        "1993-05-15"
+      ]
+    },
+    "shibor": {
+      "interface": "macro_china_shibor_all",
+      "role": "panel",
+      "note": "Daily O/N…1Y tenors; monthly means in build step.",
+      "file": "shibor.csv",
+      "status": "ok",
+      "attempt": 1,
+      "sha256": "1c836b63ea737babe843a29fb55f8650058a790626139dce40ba63a09fb4a079",
+      "n_rows": 2399,
+      "n_cols": 17,
+      "columns": [
+        "日期",
+        "O/N-定价",
+        "O/N-涨跌幅",
+        "1W-定价",
+        "1W-涨跌幅",
+        "2W-定价",
+        "2W-涨跌幅",
+        "1M-定价",
+        "1M-涨跌幅",
+        "3M-定价",
+        "3M-涨跌幅",
+        "6M-定价",
+        "6M-涨跌幅",
+        "9M-定价",
+        "9M-涨跌幅",
+        "1Y-定价",
+        "1Y-涨跌幅"
+      ],
+      "first_value_sample": [
+        "2015-05-08",
+        "2017-03-17"
+      ]
+    },
+    "customs": {
+      "interface": "macro_china_hgjck",
+      "role": "panel",
+      "note": "Unit unlabelled — resolved via jin10 trade-balance cross-check.",
+      "file": "customs.csv",
+      "status": "ok",
+      "attempt": 1,
+      "sha256": "25281e426da8b05cd9be688568e173803835f05f727295b812bea6f84de27842",
+      "n_rows": 225,
+      "n_cols": 11,
+      "columns": [
+        "月份",
+        "当月出口额-金额",
+        "当月出口额-同比增长",
+        "当月出口额-环比增长",
+        "当月进口额-金额",
+        "当月进口额-同比增长",
+        "当月进口额-环比增长",
+        "累计出口额-金额",
+        "累计出口额-同比增长",
+        "累计进口额-金额",
+        "累计进口额-同比增长"
+      ],
+      "first_value_sample": [
+        "2026年09月份",
+        "2026年08月份"
+      ]
+    },
+    "trade_balance_xcheck": {
+      "interface": "macro_china_trade_balance",
+      "role": "cross-check",
+      "note": "jin10, frozen ≤2025-08: cross-check ONLY, never panel data.",
+      "file": "trade_balance_xcheck.csv",
+      "status": "ok",
+      "attempt": 1,
+      "sha256": "d42b42a17cefd527eb4692511e975e14b0ea9fed165822a9cf388dd8bec6f2e5",
+      "n_rows": 565,
+      "n_cols": 5,
+      "columns": [
+        "商品",
+        "日期",
+        "今值",
+        "预测值",
+        "前值"
+      ],
+      "first_value_sample": [
+        "中国以美元计算贸易帐报告",
+        "中国以美元计算贸易帐报告"
+      ]
+    },
+    "fx_gold": {
+      "interface": "macro_china_fx_gold",
+      "role": "panel",
+      "note": "FX reserves (亿美元); gold unit UNVERIFIED → gold excluded from panel.",
+      "file": "fx_gold.csv",
+      "status": "ok",
+      "attempt": 1,
+      "sha256": "460dd2d0f2d586912167a0bb4dd7316de126ea8a070cc5d0ffbad3dabf936d92",
+      "n_rows": 225,
+      "n_cols": 7,
+      "columns": [
+        "月份",
+        "黄金储备-数值",
+        "黄金储备-同比",
+        "黄金储备-环比",
+        "国家外汇储备-数值",
+        "国家外汇储备-同比",
+        "国家外汇储备-环比"
+      ],
+      "first_value_sample": [
+        "2008年01月份",
+        "2008年02月份"
+      ]
+    },
+    "fiscal_revenue": {
+      "interface": "macro_china_czsr",
+      "role": "panel",
+      "note": "",
+      "file": "fiscal_revenue.csv",
+      "status": "ok",
+      "attempt": 1,
+      "sha256": "7f45b864e564a8aa9a46082e471d6ec39c9653fc82bc6115677845a8ca74ed97",
+      "n_rows": 217,
+      "n_cols": 6,
+      "columns": [
+        "月份",
+        "当月",
+        "当月-同比增长",
+        "当月-环比增长",
+        "累计",
+        "累计-同比增长"
+      ],
+      "first_value_sample": [
+        "2008年01月份",
+        "2008年02月份"
+      ]
+    }
+  },
+  "global_seed": 42
+}
