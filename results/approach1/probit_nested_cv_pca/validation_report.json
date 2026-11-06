@@ -1,0 +1,193 @@
+{
+  "n_checks": 27,
+  "n_passed": 27,
+  "n_failed": 0,
+  "all_passed": true,
+  "checks": [
+    {
+      "check": "outer: 82 forecasts",
+      "passed": true,
+      "detail": 82
+    },
+    {
+      "check": "outer: no duplicates",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "outer: target periods identical to primary",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "outer: forecast origins identical to primary",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "outer: realized labels identical to primary",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "outer: rank selection rows = 82",
+      "passed": true,
+      "detail": 82
+    },
+    {
+      "check": "outer: no fallback",
+      "passed": true,
+      "detail": 0
+    },
+    {
+      "check": "metrics: brier recomputed",
+      "passed": true,
+      "detail": [
+        0.23109838546839548,
+        0.23109838546839548
+      ]
+    },
+    {
+      "check": "metrics: auc recomputed",
+      "passed": true,
+      "detail": [
+        0.5878787878787879,
+        0.5878787878787879
+      ]
+    },
+    {
+      "check": "metrics: accuracy recomputed",
+      "passed": true,
+      "detail": [
+        0.6341463414634146,
+        0.6341463414634146
+      ]
+    },
+    {
+      "check": "metrics: balanced_accuracy recomputed",
+      "passed": true,
+      "detail": [
+        0.5292929292929293,
+        0.5292929292929293
+      ]
+    },
+    {
+      "check": "metrics: selected-rank frequencies",
+      "passed": true,
+      "detail": [
+        {
+          "2": 82
+        },
+        {
+          "2": 82
+        }
+      ]
+    },
+    {
+      "check": "audit: all rows passed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "audit: no validation row in training",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "audit: scaler fitted on training only",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "audit: PCA fitted on training only",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "audit: validation target not in estimation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "audit: outer test not in inner CV",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "audit: outer test not in outer training",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "audit: every inner fold has a preprocessing hash or documented skip",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "inner: fold rows have candidates 1..8",
+      "passed": true,
+      "detail": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "check": "inner: used rows have finite Brier",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "inner: used Brier in [0,1]",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "inner: no Brier computed from a skipped/infeasible fold",
+      "passed": true,
+      "detail": 0
+    },
+    {
+      "check": "inner: sample recomputation matches saved Brier",
+      "passed": true,
+      "detail": [
+        120,
+        120
+      ]
+    },
+    {
+      "check": "determinism: output hashes match manifest",
+      "passed": true,
+      "detail": [
+        {
+          "nested_cv_predictions.csv": "6354b286775383c90c072e11e0d391895dcce51bdf89e191b0f851f72f0270a8",
+          "outer_rank_selection.csv": "50f0e6f9a0d98698ab3e1ae888795528119f5234113fb96d7a5806711eec614c",
+          "nested_cv_fold_results.csv": "cde96ab85ba297bd81939949de3e336c2e216c9f9b095c3d19e26689bdace12b",
+          "leakage_audit.csv": "e2696a1275038617f6123e7c88fe91e95ffe0411afa636bd610531aabe0cb698"
+        },
+        {
+          "nested_cv_predictions.csv": "6354b286775383c90c072e11e0d391895dcce51bdf89e191b0f851f72f0270a8",
+          "outer_rank_selection.csv": "50f0e6f9a0d98698ab3e1ae888795528119f5234113fb96d7a5806711eec614c",
+          "nested_cv_fold_results.csv": "cde96ab85ba297bd81939949de3e336c2e216c9f9b095c3d19e26689bdace12b",
+          "leakage_audit.csv": "e2696a1275038617f6123e7c88fe91e95ffe0411afa636bd610531aabe0cb698"
+        }
+      ]
+    },
+    {
+      "check": "primary: unchanged since full run",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "primary_hashes": {
+    "predictions.csv": "bc7b8c42fc481b4f9051f62496a24a78c39fdbd2781ecce0aca6f0e415bc5b95",
+    "metrics.json": "a5de2b23dc5dada76a02fe79b68f585139713eca1600cf4b9219ec4ba7c4b65c",
+    "coefficients.csv": "21eebb99bf9e099bff5b315c6a5a80efaed098be66bfc4e4683255a0860f17f1",
+    "folds.csv": "b0d055af83ec82e7969247f9048d8ef4015e80d8a5a5ac98e9e5ce022dc72df7"
+  }
+}

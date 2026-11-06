@@ -1,0 +1,15 @@
+{
+  "seed": 42,
+  "hashes": {
+    "nested_cv_predictions.csv": "6354b286775383c90c072e11e0d391895dcce51bdf89e191b0f851f72f0270a8",
+    "outer_rank_selection.csv": "50f0e6f9a0d98698ab3e1ae888795528119f5234113fb96d7a5806711eec614c",
+    "nested_cv_fold_results.csv": "cde96ab85ba297bd81939949de3e336c2e216c9f9b095c3d19e26689bdace12b",
+    "leakage_audit.csv": "e2696a1275038617f6123e7c88fe91e95ffe0411afa636bd610531aabe0cb698"
+  },
+  "primary_hashes_before": {
+    "predictions.csv": "bc7b8c42fc481b4f9051f62496a24a78c39fdbd2781ecce0aca6f0e415bc5b95",
+    "metrics.json": "a5de2b23dc5dada76a02fe79b68f585139713eca1600cf4b9219ec4ba7c4b65c",
+    "coefficients.csv": "21eebb99bf9e099bff5b315c6a5a80efaed098be66bfc4e4683255a0860f17f1",
+    "folds.csv": "b0d055af83ec82e7969247f9048d8ef4015e80d8a5a5ac98e9e5ce022dc72df7"
+  }
+}
