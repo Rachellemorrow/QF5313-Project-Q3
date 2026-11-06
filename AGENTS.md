@@ -142,6 +142,8 @@ uv sync
   project dependencies change.
 - Exact run commands for Q3 scripts belong in this section, one per
   existing script.
+**Frozen snapshot warning:** The live-fetch and panel-build commands below document the original data acquisition pipeline only. The current data snapshot is frozen. Do NOT execute the live-fetch or panel-build commands unless both group members explicitly approve. For routine snapshot verification, use only `uv run python data/fetch.py --offline`.
+
 - `data/fetch.py` (Phase 2 data acquisition, raw snapshots under `data/raw/`):
 
 ```bash
@@ -171,6 +173,27 @@ uv run python code/approach1_gdp_nowcast.py --seed 42
 
 ```bash
 uv run python code/approach1_regime.py --seed 42
+```
+
+- `code/approach1_regime_diagnostics.py` (Option A Probit diagnostics and sensitivity experiments → `results/approach1/regime/diagnostics/`):
+
+```bash
+uv run python code/approach1_regime_diagnostics.py --seed 42
+uv run python code/approach1_regime_diagnostics.py --validate-only --seed 42
+```
+
+- `code/approach1_probit_nested_cv_pca.py` (strictly nested inner-CV Probit rank sensitivity experiment → `results/approach1/probit_nested_cv_pca/`):
+
+```bash
+uv run python code/approach1_probit_nested_cv_pca.py --seed 42
+uv run python code/approach1_probit_nested_cv_pca.py --validate-only --seed 42
+```
+
+- `code/approach1_probit_nested_cv_pca_optimizer_audit.py` (optimizer-convergence audit of the nested Probit experiment → `results/approach1/probit_nested_cv_pca_optimizer_audit/`):
+
+```bash
+uv run python code/approach1_probit_nested_cv_pca_optimizer_audit.py --seed 42
+uv run python code/approach1_probit_nested_cv_pca_optimizer_audit.py --validate-only --seed 42
 ```
 
 - `code/approach1_cluster.py` (Option A rolling 3-year Ward indicator clustering → `results/approach1/clustering/`):
