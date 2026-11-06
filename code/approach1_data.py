@@ -607,17 +607,18 @@ def gdp_training_quarters(target: pd.DataFrame, origin_idx: int, panel: pd.DataF
 # Main verification pipeline
 # ---------------------------------------------------------------------------
 
-def run(seed: int) -> dict[str, Any]:
+def run(seed: int, write: bool = True, verbose: bool = True) -> dict[str, Any]:
     t0 = time.perf_counter()
     np.random.seed(seed)
 
-    CONSOLE.print(Panel.fit(
-        "[bold]Option A - data, information sets, and target construction[/bold]\n"
-        f"seed={seed}  |  frozen inputs only",
-        border_style="cyan",
-    ))
+    if verbose:
+        CONSOLE.print(Panel.fit(
+            "[bold]Option A - data, information sets, and target construction[/bold]\n"
+            f"seed={seed}  |  frozen inputs only",
+            border_style="cyan",
+        ))
 
-    panel, gdp, metadata = load_frozen_inputs()
+    panel, gdp, metadata = load_frozen_inputs(verbose=verbose)
     indicators = indicator_columns(panel)
     lags = lags_from_metadata(metadata, indicators)
     model_panel = panel_without_partial_month(panel)
@@ -695,67 +696,68 @@ def run(seed: int) -> dict[str, Any]:
             raise RuntimeError(f"target {tq} leaked into its own training set at {row.forecast_origin}")
 
     # Write artifacts --------------------------------------------------------
-    DATA_OUT_DIR.mkdir(parents=True, exist_ok=True)
-    target.to_csv(DATA_OUT_DIR / "gdp_target_derived.csv", index=False)
-    write_json(DATA_OUT_DIR / "target_checks.json", target_checks)
-    write_json(DATA_OUT_DIR / "label_counts.json", {
-        "primary_threshold_50": counts50,
-        "sensitivity_threshold_49_5": counts495,
-    })
-    write_json(DATA_OUT_DIR / "availability_checks.json", {
-        "rule": "F_t = { x_{i,s} : s + L_i <= t }",
-        "excluded_month": EXCLUDED_MONTH,
-        "n_indicators": len(indicators),
-        "lags": lags,
-        "regime_schedule": {
-            "n_records": int(len(rs)),
-            "first_origin": rs["forecast_origin"].iloc[0],
-            "last_origin": rs["forecast_origin"].iloc[-1],
-            "first_target": rs["target_period"].iloc[0],
-            "last_target": rs["target_period"].iloc[-1],
-        },
-        "gdp_schedule": {
-            "n_records": int(len(gs)),
-            "n_quarters": int(gs["target_period"].nunique()),
-            "vintages": list(VINTAGES),
-            "first_origin": gs["forecast_origin"].iloc[0],
-            "last_origin": gs["forecast_origin"].iloc[-1],
-        },
-        "feature_panel": "row t stores x[i, t-L_i]; NaN where unreleased",
-        "checks": {
-            "feature_rows_match_panel_shift": True,
-            "gdp_target_never_in_own_training": True,
-            "partial_month_excluded": True,
-        },
-        "availability_sample": avail.to_dict(orient="records"),
-    })
-
     elapsed = time.perf_counter() - t0
-    write_json(DATA_OUT_DIR / "run_summary.json", {
-        "seed": seed,
-        "fit_seconds": elapsed,
-        "panel_shape": list(panel.shape),
-        "n_indicators": len(indicators),
-        "target_quarters_available": int(target["gdp_yoy_single_derived"].notna().sum()),
-    })
+    if write:
+        DATA_OUT_DIR.mkdir(parents=True, exist_ok=True)
+        target.to_csv(DATA_OUT_DIR / "gdp_target_derived.csv", index=False)
+        write_json(DATA_OUT_DIR / "target_checks.json", target_checks)
+        write_json(DATA_OUT_DIR / "label_counts.json", {
+            "primary_threshold_50": counts50,
+            "sensitivity_threshold_49_5": counts495,
+        })
+        write_json(DATA_OUT_DIR / "availability_checks.json", {
+            "rule": "F_t = { x_{i,s} : s + L_i <= t }",
+            "excluded_month": EXCLUDED_MONTH,
+            "n_indicators": len(indicators),
+            "lags": lags,
+            "regime_schedule": {
+                "n_records": int(len(rs)),
+                "first_origin": rs["forecast_origin"].iloc[0],
+                "last_origin": rs["forecast_origin"].iloc[-1],
+                "first_target": rs["target_period"].iloc[0],
+                "last_target": rs["target_period"].iloc[-1],
+            },
+            "gdp_schedule": {
+                "n_records": int(len(gs)),
+                "n_quarters": int(gs["target_period"].nunique()),
+                "vintages": list(VINTAGES),
+                "first_origin": gs["forecast_origin"].iloc[0],
+                "last_origin": gs["forecast_origin"].iloc[-1],
+            },
+            "feature_panel": "row t stores x[i, t-L_i]; NaN where unreleased",
+            "checks": {
+                "feature_rows_match_panel_shift": True,
+                "gdp_target_never_in_own_training": True,
+                "partial_month_excluded": True,
+            },
+            "availability_sample": avail.to_dict(orient="records"),
+        })
+        write_json(DATA_OUT_DIR / "run_summary.json", {
+            "seed": seed,
+            "fit_seconds": elapsed,
+            "panel_shape": list(panel.shape),
+            "n_indicators": len(indicators),
+            "target_quarters_available": int(target["gdp_yoy_single_derived"].notna().sum()),
+        })
 
     # Terminal report --------------------------------------------------------
-    tbl = Table(title="Frozen inputs and derived schedules", show_lines=False)
-    tbl.add_column("Item", style="bold")
-    tbl.add_column("Value", justify="right")
-    tbl.add_row("Panel", f"{len(panel)} rows x {len(indicators)} indicators")
-    tbl.add_row("Panel span", f"{panel['month'].iloc[0]} ... {panel['month'].iloc[-1]}")
-    tbl.add_row("Derived GDP targets", f"{target_checks['n_derived_targets']} ({target_checks['derived_first_quarter']} ... {target_checks['derived_last_quarter']})")
-    tbl.add_row("Q1 max abs diff (pp)", f"{target_checks['q1_max_abs_difference_pp']:.3e}")
-    tbl.add_row("Cumulative max abs diff (pp)", f"{target_checks['cumulative_recovery_max_abs_difference_pp']:.3e}")
-    tbl.add_row("Regime records", f"{len(rs)} (targets {rs['target_period'].iloc[0]} ... {rs['target_period'].iloc[-1]})")
-    tbl.add_row("GDP forecast records", f"{len(gs)} (35 quarters x 3 vintages)")
-    tbl.add_row("Initial labels @50", f"{counts50['initial']['n_valid_labels']} ({counts50['initial']['n_contraction']} contraction)")
-    tbl.add_row("OOS labels @50", f"{counts50['out_of_sample']['n_valid_labels']} ({counts50['out_of_sample']['n_contraction']} contraction)")
-    tbl.add_row("OOS labels @49.5", f"{counts495['out_of_sample']['n_valid_labels']} ({counts495['out_of_sample']['n_contraction']} contraction)")
-    tbl.add_row("Elapsed", f"{elapsed:.2f}s")
-    CONSOLE.print(tbl)
-    CONSOLE.print("[green]All data / target / leakage checks passed.[/green]")
+    if verbose:
+        tbl = Table(title="Frozen inputs and derived schedules", show_lines=False)
+        tbl.add_column("Item", style="bold")
+        tbl.add_column("Value", justify="right")
+        tbl.add_row("Panel", f"{len(panel)} rows x {len(indicators)} indicators")
+        tbl.add_row("Panel span", f"{panel['month'].iloc[0]} ... {panel['month'].iloc[-1]}")
+        tbl.add_row("Derived GDP targets", f"{target_checks['n_derived_targets']} ({target_checks['derived_first_quarter']} ... {target_checks['derived_last_quarter']})")
+        tbl.add_row("Q1 max abs diff (pp)", f"{target_checks['q1_max_abs_difference_pp']:.3e}")
+        tbl.add_row("Cumulative max abs diff (pp)", f"{target_checks['cumulative_recovery_max_abs_difference_pp']:.3e}")
+        tbl.add_row("Regime records", f"{len(rs)} (targets {rs['target_period'].iloc[0]} ... {rs['target_period'].iloc[-1]})")
+        tbl.add_row("GDP forecast records", f"{len(gs)} (35 quarters x 3 vintages)")
+        tbl.add_row("Initial labels @50", f"{counts50['initial']['n_valid_labels']} ({counts50['initial']['n_contraction']} contraction)")
+        tbl.add_row("OOS labels @50", f"{counts50['out_of_sample']['n_valid_labels']} ({counts50['out_of_sample']['n_contraction']} contraction)")
+        tbl.add_row("OOS labels @49.5", f"{counts495['out_of_sample']['n_valid_labels']} ({counts495['out_of_sample']['n_contraction']} contraction)")
+        tbl.add_row("Elapsed", f"{elapsed:.2f}s")
+        CONSOLE.print(tbl)
+        CONSOLE.print("[green]All data / target / leakage checks passed.[/green]")
 
     return {
         "panel": panel,

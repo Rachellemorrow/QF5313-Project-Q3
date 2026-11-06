@@ -161,6 +161,12 @@ uv run python data/build_panel.py --seed 42
 uv run python code/approach1_data.py --seed 42
 ```
 
+- `code/approach1_gdp_nowcast.py` (Option A PCA bridge GDP nowcasting, M1/M2/M3 → `results/approach1/gdp_nowcasting/`):
+
+```bash
+uv run python code/approach1_gdp_nowcast.py --seed 42
+```
+
 Append each `uv run python <path> --seed 42` command
   here at the same commit that introduces the script; never document
   commands for scripts that do not exist.
