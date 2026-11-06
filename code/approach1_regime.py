@@ -290,17 +290,26 @@ def model_run(
         })
 
     preds = pd.DataFrame(rows)
+    preds["error"] = preds["y_true"] - preds["y_pred_proba"]
+    preds["brier"] = preds["error"] ** 2
+    preds["correct"] = (preds["y_pred"] == preds["y_true"]).astype(int)
     coefs = pd.DataFrame(coef_rows)
     if len(preds) != 82:
         raise RuntimeError(f"regime model must produce 82 predictions, got {len(preds)}")
     if preds["y_pred_proba"].isna().any():
         raise RuntimeError("NaN predicted probabilities")
 
+    folds = pd.DataFrame(fold_detail)
+    folds = folds.merge(
+        preds[["fold", "y_true", "y_pred_proba", "y_pred", "base_rate", "brier", "correct"]],
+        on="fold", how="left", validate="one_to_one",
+    )
+
     metrics = regime_metrics(preds)
     return {
         "predictions": preds,
         "coefficients": coefs,
-        "folds": pd.DataFrame(fold_detail),
+        "folds": folds,
         "metrics": metrics,
         "use_control": use_control,
         "start_label_month": start_label_month,
@@ -618,6 +627,14 @@ def run(seed: int) -> dict[str, Any]:
             "rank_cv_detail": rank_detail,
             "coefficients_final": final.to_dict(orient="records"),
             "coefficients_summary": summary.to_dict(orient="records"),
+            "history": {
+                "r_path": [
+                    {"origin_month": panel.iloc[oi]["month"], "r": int(r)}
+                    for oi, r in sorted(rank_by_origin.items())
+                ],
+                "fold_brier": result["folds"][["fold", "brier", "correct"]].to_dict(orient="records"),
+                "coefficient_summary": summary.to_dict(orient="records"),
+            },
             "fit_seconds": fit_seconds,
             "environment": {"python": sys.version.split()[0], "numpy": np.__version__, "pandas": pd.__version__},
             "outputs": {

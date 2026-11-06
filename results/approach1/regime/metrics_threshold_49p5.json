@@ -128,7 +128,13 @@
       "n_positive": 7,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.10303826990147946,
+      "y_pred": 0,
+      "base_rate": 0.04895104895104895,
+      "brier": 0.010616885064290128,
+      "correct": 1
     },
     {
       "fold": "2020-02",
@@ -140,7 +146,13 @@
       "n_positive": 7,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.09805983181344091,
+      "y_pred": 0,
+      "base_rate": 0.04861111111111111,
+      "brier": 0.00961573061528032,
+      "correct": 1
     },
     {
       "fold": "2020-03",
@@ -152,7 +164,13 @@
       "n_positive": 7,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.9999999999999704,
+      "y_pred": 1,
+      "base_rate": 0.04827586206896552,
+      "brier": 0.9999999999999407,
+      "correct": 0
     },
     {
       "fold": "2020-04",
@@ -164,7 +182,13 @@
       "n_positive": 7,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.027200526971528943,
+      "y_pred": 0,
+      "base_rate": 0.04794520547945205,
+      "brier": 0.0007398686675288735,
+      "correct": 1
     },
     {
       "fold": "2020-05",
@@ -176,7 +200,13 @@
       "n_positive": 7,
       "r": 4,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.0491952364015992,
+      "y_pred": 0,
+      "base_rate": 0.047619047619047616,
+      "brier": 0.002420171284609231,
+      "correct": 1
     },
     {
       "fold": "2020-06",
@@ -188,7 +218,13 @@
       "n_positive": 7,
       "r": 4,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.040999316678239944,
+      "y_pred": 0,
+      "base_rate": 0.0472972972972973,
+      "brier": 0.0016809439680826042,
+      "correct": 1
     },
     {
       "fold": "2020-07",
@@ -200,7 +236,13 @@
       "n_positive": 7,
       "r": 4,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.02450019950659345,
+      "y_pred": 0,
+      "base_rate": 0.04697986577181208,
+      "brier": 0.000600259775862882,
+      "correct": 1
     },
     {
       "fold": "2020-08",
@@ -212,7 +254,13 @@
       "n_positive": 7,
       "r": 4,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.019950935102091883,
+      "y_pred": 0,
+      "base_rate": 0.04666666666666667,
+      "brier": 0.0003980398114478821,
+      "correct": 1
     },
     {
       "fold": "2020-09",
@@ -224,7 +272,13 @@
       "n_positive": 7,
       "r": 4,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.014766241056898744,
+      "y_pred": 0,
+      "base_rate": 0.046357615894039736,
+      "brier": 0.00021804187495044213,
+      "correct": 1
     },
     {
       "fold": "2020-10",
@@ -236,7 +290,13 @@
       "n_positive": 7,
       "r": 4,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.011823974460094318,
+      "y_pred": 0,
+      "base_rate": 0.046052631578947366,
+      "brier": 0.0001398063720329627,
+      "correct": 1
     },
     {
       "fold": "2020-11",
@@ -248,7 +308,13 @@
       "n_positive": 7,
       "r": 4,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.012654404208622065,
+      "y_pred": 0,
+      "base_rate": 0.0457516339869281,
+      "brier": 0.00016013394587519183,
+      "correct": 1
     },
     {
       "fold": "2020-12",
@@ -260,7 +326,13 @@
       "n_positive": 7,
       "r": 4,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.005033981593723501,
+      "y_pred": 0,
+      "base_rate": 0.045454545454545456,
+      "brier": 2.5340970685946998e-05,
+      "correct": 1
     },
     {
       "fold": "2021-01",
@@ -272,7 +344,13 @@
       "n_positive": 7,
       "r": 4,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.005636320804636334,
+      "y_pred": 0,
+      "base_rate": 0.04516129032258064,
+      "brier": 3.1768112212776375e-05,
+      "correct": 1
     },
     {
       "fold": "2021-02",
@@ -284,7 +362,13 @@
       "n_positive": 7,
       "r": 4,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.006937861250285401,
+      "y_pred": 0,
+      "base_rate": 0.04487179487179487,
+      "brier": 4.813391872821171e-05,
+      "correct": 1
     },
     {
       "fold": "2021-03",
@@ -296,7 +380,13 @@
       "n_positive": 7,
       "r": 4,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.003836040526712323,
+      "y_pred": 0,
+      "base_rate": 0.044585987261146494,
+      "brier": 1.4715206922579356e-05,
+      "correct": 1
     },
     {
       "fold": "2021-04",
@@ -308,7 +398,13 @@
       "n_positive": 7,
       "r": 4,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.003133913484628881,
+      "y_pred": 0,
+      "base_rate": 0.04430379746835443,
+      "brier": 9.821413729138737e-06,
+      "correct": 1
     },
     {
       "fold": "2021-05",
@@ -320,7 +416,13 @@
       "n_positive": 7,
       "r": 4,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.002950192124942262,
+      "y_pred": 0,
+      "base_rate": 0.0440251572327044,
+      "brier": 8.70363357407134e-06,
+      "correct": 1
     },
     {
       "fold": "2021-06",
@@ -332,7 +434,13 @@
       "n_positive": 7,
       "r": 4,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.001998356300594828,
+      "y_pred": 0,
+      "base_rate": 0.04375,
+      "brier": 3.993427904127046e-06,
+      "correct": 1
     },
     {
       "fold": "2021-07",
@@ -344,7 +452,13 @@
       "n_positive": 7,
       "r": 4,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.003004347074815059,
+      "y_pred": 0,
+      "base_rate": 0.043478260869565216,
+      "brier": 9.026101345949803e-06,
+      "correct": 1
     },
     {
       "fold": "2021-08",
@@ -356,7 +470,13 @@
       "n_positive": 7,
       "r": 4,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.008407092995039446,
+      "y_pred": 0,
+      "base_rate": 0.043209876543209874,
+      "brier": 7.067921262724133e-05,
+      "correct": 1
     },
     {
       "fold": "2021-09",
@@ -368,7 +488,13 @@
       "n_positive": 7,
       "r": 4,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.01098822908280307,
+      "y_pred": 0,
+      "base_rate": 0.04294478527607362,
+      "brier": 0.00012074117837615921,
+      "correct": 1
     },
     {
       "fold": "2021-10",
@@ -380,7 +506,13 @@
       "n_positive": 7,
       "r": 4,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.007090716735151091,
+      "y_pred": 0,
+      "base_rate": 0.042682926829268296,
+      "brier": 5.0278263818151754e-05,
+      "correct": 1
     },
     {
       "fold": "2021-11",
@@ -392,7 +524,13 @@
       "n_positive": 7,
       "r": 4,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.006751941578918133,
+      "y_pred": 0,
+      "base_rate": 0.04242424242424243,
+      "brier": 4.558871508512349e-05,
+      "correct": 1
     },
     {
       "fold": "2021-12",
@@ -404,7 +542,13 @@
       "n_positive": 7,
       "r": 4,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.006392216877430704,
+      "y_pred": 0,
+      "base_rate": 0.04216867469879518,
+      "brier": 4.0860436608109935e-05,
+      "correct": 1
     },
     {
       "fold": "2022-01",
@@ -416,7 +560,13 @@
       "n_positive": 7,
       "r": 4,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.008166447902119654,
+      "y_pred": 0,
+      "base_rate": 0.041916167664670656,
+      "brier": 6.66908713380345e-05,
+      "correct": 1
     },
     {
       "fold": "2022-02",
@@ -428,7 +578,13 @@
       "n_positive": 7,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.011868894590592352,
+      "y_pred": 0,
+      "base_rate": 0.041666666666666664,
+      "brier": 0.0001408706588025924,
+      "correct": 1
     },
     {
       "fold": "2022-03",
@@ -440,7 +596,13 @@
       "n_positive": 7,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.03376272322270436,
+      "y_pred": 0,
+      "base_rate": 0.04142011834319527,
+      "brier": 0.0011399214794129405,
+      "correct": 1
     },
     {
       "fold": "2022-04",
@@ -452,7 +614,13 @@
       "n_positive": 7,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.021262488044811446,
+      "y_pred": 0,
+      "base_rate": 0.041176470588235294,
+      "brier": 0.00045209339785574963,
+      "correct": 1
     },
     {
       "fold": "2022-05",
@@ -464,7 +632,13 @@
       "n_positive": 7,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.11671747634931234,
+      "y_pred": 0,
+      "base_rate": 0.04093567251461988,
+      "brier": 0.013622969285352286,
+      "correct": 1
     },
     {
       "fold": "2022-06",
@@ -476,7 +650,13 @@
       "n_positive": 7,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.0346434474568574,
+      "y_pred": 0,
+      "base_rate": 0.040697674418604654,
+      "brier": 0.0012001684516960395,
+      "correct": 1
     },
     {
       "fold": "2022-07",
@@ -488,7 +668,13 @@
       "n_positive": 7,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.022899196415306116,
+      "y_pred": 0,
+      "base_rate": 0.04046242774566474,
+      "brier": 0.0005243731964667685,
+      "correct": 1
     },
     {
       "fold": "2022-08",
@@ -500,7 +686,13 @@
       "n_positive": 7,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 1.0,
+      "y_pred_proba": 0.07313017310374022,
+      "y_pred": 0,
+      "base_rate": 0.040229885057471264,
+      "brier": 0.8590876760107025,
+      "correct": 0
     },
     {
       "fold": "2022-09",
@@ -512,7 +704,13 @@
       "n_positive": 8,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.07003375969283614,
+      "y_pred": 0,
+      "base_rate": 0.045714285714285714,
+      "brier": 0.004904727496713919,
+      "correct": 1
     },
     {
       "fold": "2022-10",
@@ -524,7 +722,13 @@
       "n_positive": 8,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.08582841510403427,
+      "y_pred": 0,
+      "base_rate": 0.045454545454545456,
+      "brier": 0.007366516839270419,
+      "correct": 1
     },
     {
       "fold": "2022-11",
@@ -536,7 +740,13 @@
       "n_positive": 8,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 1.0,
+      "y_pred_proba": 0.11652465887262808,
+      "y_pred": 0,
+      "base_rate": 0.04519774011299435,
+      "brier": 0.7805286783801262,
+      "correct": 0
     },
     {
       "fold": "2022-12",
@@ -548,7 +758,13 @@
       "n_positive": 9,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 1.0,
+      "y_pred_proba": 0.196662050752557,
+      "y_pred": 0,
+      "base_rate": 0.05056179775280899,
+      "brier": 0.6453518607010874,
+      "correct": 0
     },
     {
       "fold": "2023-01",
@@ -560,7 +776,13 @@
       "n_positive": 10,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.4163929562966498,
+      "y_pred": 0,
+      "base_rate": 0.055865921787709494,
+      "brier": 0.17338309405346372,
+      "correct": 1
     },
     {
       "fold": "2023-02",
@@ -572,7 +794,13 @@
       "n_positive": 10,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.18643717266130527,
+      "y_pred": 0,
+      "base_rate": 0.05555555555555555,
+      "brier": 0.03475881934994136,
+      "correct": 1
     },
     {
       "fold": "2023-03",
@@ -584,7 +812,13 @@
       "n_positive": 10,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.08537711124298253,
+      "y_pred": 0,
+      "base_rate": 0.055248618784530384,
+      "brier": 0.007289251124196614,
+      "correct": 1
     },
     {
       "fold": "2023-04",
@@ -596,7 +830,13 @@
       "n_positive": 10,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.01442370960821294,
+      "y_pred": 0,
+      "base_rate": 0.054945054945054944,
+      "brier": 0.0002080433988620543,
+      "correct": 1
     },
     {
       "fold": "2023-05",
@@ -608,7 +848,13 @@
       "n_positive": 10,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 1.0,
+      "y_pred_proba": 0.06963742734755154,
+      "y_pred": 0,
+      "base_rate": 0.0546448087431694,
+      "brier": 0.8655745165924825,
+      "correct": 0
     },
     {
       "fold": "2023-06",
@@ -620,7 +866,13 @@
       "n_positive": 11,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 1.0,
+      "y_pred_proba": 0.07071922716121629,
+      "y_pred": 0,
+      "base_rate": 0.059782608695652176,
+      "brier": 0.8635627547678472,
+      "correct": 0
     },
     {
       "fold": "2023-07",
@@ -632,7 +884,13 @@
       "n_positive": 12,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 1.0,
+      "y_pred_proba": 0.10248066265155226,
+      "y_pred": 0,
+      "base_rate": 0.06486486486486487,
+      "brier": 0.8055409609143969,
+      "correct": 0
     },
     {
       "fold": "2023-08",
@@ -644,7 +902,13 @@
       "n_positive": 13,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.21211209082710714,
+      "y_pred": 0,
+      "base_rate": 0.06989247311827956,
+      "brier": 0.044991539075046945,
+      "correct": 1
     },
     {
       "fold": "2023-09",
@@ -656,7 +920,13 @@
       "n_positive": 13,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.130045944488771,
+      "y_pred": 0,
+      "base_rate": 0.06951871657754011,
+      "brier": 0.016911947677976505,
+      "correct": 1
     },
     {
       "fold": "2023-10",
@@ -668,7 +938,13 @@
       "n_positive": 13,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.11918873995145429,
+      "y_pred": 0,
+      "base_rate": 0.06914893617021277,
+      "brier": 0.014205955731215397,
+      "correct": 1
     },
     {
       "fold": "2023-11",
@@ -680,7 +956,13 @@
       "n_positive": 13,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.1459680387071609,
+      "y_pred": 0,
+      "base_rate": 0.06878306878306878,
+      "brier": 0.021306668324015225,
+      "correct": 1
     },
     {
       "fold": "2023-12",
@@ -692,7 +974,13 @@
       "n_positive": 13,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 1.0,
+      "y_pred_proba": 0.0897337273942106,
+      "y_pred": 0,
+      "base_rate": 0.06842105263157895,
+      "brier": 0.8285846870436373,
+      "correct": 0
     },
     {
       "fold": "2024-01",
@@ -704,7 +992,13 @@
       "n_positive": 14,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 1.0,
+      "y_pred_proba": 0.1112399762437224,
+      "y_pred": 0,
+      "base_rate": 0.07329842931937172,
+      "brier": 0.7898943798272592,
+      "correct": 0
     },
     {
       "fold": "2024-02",
@@ -716,7 +1010,13 @@
       "n_positive": 15,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 1.0,
+      "y_pred_proba": 0.12508240526337905,
+      "y_pred": 0,
+      "base_rate": 0.078125,
+      "brier": 0.7654807975797142,
+      "correct": 0
     },
     {
       "fold": "2024-03",
@@ -728,7 +1028,13 @@
       "n_positive": 16,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.12913653871145303,
+      "y_pred": 0,
+      "base_rate": 0.08290155440414508,
+      "brier": 0.016676245630374606,
+      "correct": 1
     },
     {
       "fold": "2024-04",
@@ -740,7 +1046,13 @@
       "n_positive": 16,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.094795024789039,
+      "y_pred": 0,
+      "base_rate": 0.08247422680412371,
+      "brier": 0.00898609672475452,
+      "correct": 1
     },
     {
       "fold": "2024-05",
@@ -752,7 +1064,13 @@
       "n_positive": 16,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.15414227465154995,
+      "y_pred": 0,
+      "base_rate": 0.08205128205128205,
+      "brier": 0.023759840834753857,
+      "correct": 1
     },
     {
       "fold": "2024-06",
@@ -764,7 +1082,13 @@
       "n_positive": 16,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.101086956934063,
+      "y_pred": 0,
+      "base_rate": 0.08163265306122448,
+      "brier": 0.010218572862189107,
+      "correct": 1
     },
     {
       "fold": "2024-07",
@@ -776,7 +1100,13 @@
       "n_positive": 16,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.13954947120796973,
+      "y_pred": 0,
+      "base_rate": 0.08121827411167512,
+      "brier": 0.019474054914423975,
+      "correct": 1
     },
     {
       "fold": "2024-08",
@@ -788,7 +1118,13 @@
       "n_positive": 16,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 1.0,
+      "y_pred_proba": 0.177611647270685,
+      "y_pred": 0,
+      "base_rate": 0.08080808080808081,
+      "brier": 0.6763226027048362,
+      "correct": 0
     },
     {
       "fold": "2024-09",
@@ -800,7 +1136,13 @@
       "n_positive": 17,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.1360484261749937,
+      "y_pred": 0,
+      "base_rate": 0.08542713567839195,
+      "brier": 0.01850917426469271,
+      "correct": 1
     },
     {
       "fold": "2024-10",
@@ -812,7 +1154,13 @@
       "n_positive": 17,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.2176073119223555,
+      "y_pred": 0,
+      "base_rate": 0.085,
+      "brier": 0.04735294220207332,
+      "correct": 1
     },
     {
       "fold": "2024-11",
@@ -824,7 +1172,13 @@
       "n_positive": 17,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.22628526493906997,
+      "y_pred": 0,
+      "base_rate": 0.0845771144278607,
+      "brier": 0.05120502112854509,
+      "correct": 1
     },
     {
       "fold": "2024-12",
@@ -836,7 +1190,13 @@
       "n_positive": 17,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.18276536160268253,
+      "y_pred": 0,
+      "base_rate": 0.08415841584158416,
+      "brier": 0.0334031774017593,
+      "correct": 1
     },
     {
       "fold": "2025-01",
@@ -848,7 +1208,13 @@
       "n_positive": 17,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.1556845331806132,
+      "y_pred": 0,
+      "base_rate": 0.08374384236453201,
+      "brier": 0.024237673871665453,
+      "correct": 1
     },
     {
       "fold": "2025-02",
@@ -860,7 +1226,13 @@
       "n_positive": 17,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.15986037926986346,
+      "y_pred": 0,
+      "base_rate": 0.08333333333333333,
+      "brier": 0.02555534086030459,
+      "correct": 1
     },
     {
       "fold": "2025-03",
@@ -872,7 +1244,13 @@
       "n_positive": 17,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.39600416867450755,
+      "y_pred": 0,
+      "base_rate": 0.08292682926829269,
+      "brier": 0.15681930160758784,
+      "correct": 1
     },
     {
       "fold": "2025-04",
@@ -884,7 +1262,13 @@
       "n_positive": 17,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.09802632371532632,
+      "y_pred": 0,
+      "base_rate": 0.0825242718446602,
+      "brier": 0.009609160141141947,
+      "correct": 1
     },
     {
       "fold": "2025-05",
@@ -896,7 +1280,13 @@
       "n_positive": 17,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.252989520194692,
+      "y_pred": 0,
+      "base_rate": 0.0821256038647343,
+      "brier": 0.06400369732834048,
+      "correct": 1
     },
     {
       "fold": "2025-06",
@@ -908,7 +1298,13 @@
       "n_positive": 17,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.17351023204947996,
+      "y_pred": 0,
+      "base_rate": 0.08173076923076923,
+      "brier": 0.030105800625864383,
+      "correct": 1
     },
     {
       "fold": "2025-07",
@@ -920,7 +1316,13 @@
       "n_positive": 17,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.21035301510420917,
+      "y_pred": 0,
+      "base_rate": 0.08133971291866028,
+      "brier": 0.04424839096343165,
+      "correct": 1
     },
     {
       "fold": "2025-08",
@@ -932,7 +1334,13 @@
       "n_positive": 17,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 1.0,
+      "y_pred_proba": 0.26144435567186547,
+      "y_pred": 0,
+      "base_rate": 0.08095238095238096,
+      "brier": 0.5454644397689459,
+      "correct": 0
     },
     {
       "fold": "2025-09",
@@ -944,7 +1352,13 @@
       "n_positive": 18,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.14234062255123225,
+      "y_pred": 0,
+      "base_rate": 0.08530805687203792,
+      "brier": 0.020260852828272367,
+      "correct": 1
     },
     {
       "fold": "2025-10",
@@ -956,7 +1370,13 @@
       "n_positive": 18,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.196116871866448,
+      "y_pred": 0,
+      "base_rate": 0.08490566037735849,
+      "brier": 0.03846182743068078,
+      "correct": 1
     },
     {
       "fold": "2025-11",
@@ -968,7 +1388,13 @@
       "n_positive": 18,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 1.0,
+      "y_pred_proba": 0.18865887420963873,
+      "y_pred": 0,
+      "base_rate": 0.08450704225352113,
+      "brier": 0.6582744223987709,
+      "correct": 0
     },
     {
       "fold": "2025-12",
@@ -980,7 +1406,13 @@
       "n_positive": 19,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.18158338348035324,
+      "y_pred": 0,
+      "base_rate": 0.08878504672897196,
+      "brier": 0.03297252515617302,
+      "correct": 1
     },
     {
       "fold": "2026-01",
@@ -992,7 +1424,13 @@
       "n_positive": 19,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.20394842037950806,
+      "y_pred": 0,
+      "base_rate": 0.08837209302325581,
+      "brier": 0.041594958175296536,
+      "correct": 1
     },
     {
       "fold": "2026-02",
@@ -1004,7 +1442,13 @@
       "n_positive": 19,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 1.0,
+      "y_pred_proba": 0.23030962714312636,
+      "y_pred": 0,
+      "base_rate": 0.08796296296296297,
+      "brier": 0.5924232700685531,
+      "correct": 0
     },
     {
       "fold": "2026-03",
@@ -1016,7 +1460,13 @@
       "n_positive": 20,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.2539408269334825,
+      "y_pred": 0,
+      "base_rate": 0.09216589861751152,
+      "brier": 0.06448594358366093,
+      "correct": 1
     },
     {
       "fold": "2026-04",
@@ -1028,7 +1478,13 @@
       "n_positive": 20,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.24862859570458118,
+      "y_pred": 0,
+      "base_rate": 0.09174311926605505,
+      "brier": 0.06181617860203208,
+      "correct": 1
     },
     {
       "fold": "2026-05",
@@ -1040,7 +1496,13 @@
       "n_positive": 20,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.19849798552744802,
+      "y_pred": 0,
+      "base_rate": 0.091324200913242,
+      "brier": 0.03940145025845496,
+      "correct": 1
     },
     {
       "fold": "2026-06",
@@ -1052,7 +1514,13 @@
       "n_positive": 20,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.10896373017289918,
+      "y_pred": 0,
+      "base_rate": 0.09090909090909091,
+      "brier": 0.011873094493192378,
+      "correct": 1
     },
     {
       "fold": "2026-07",
@@ -1064,7 +1532,13 @@
       "n_positive": 20,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.1610016138588819,
+      "y_pred": 0,
+      "base_rate": 0.09049773755656108,
+      "brier": 0.02592151966516451,
+      "correct": 1
     },
     {
       "fold": "2026-08",
@@ -1076,7 +1550,13 @@
       "n_positive": 20,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.1861763635457115,
+      "y_pred": 0,
+      "base_rate": 0.09009009009009009,
+      "brier": 0.03466163834310493,
+      "correct": 1
     },
     {
       "fold": "2026-09",
@@ -1088,7 +1568,13 @@
       "n_positive": 20,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.1870470998976833,
+      "y_pred": 0,
+      "base_rate": 0.08968609865470852,
+      "brier": 0.03498661758013392,
+      "correct": 1
     },
     {
       "fold": "2026-10",
@@ -1100,7 +1586,13 @@
       "n_positive": 20,
       "r": 3,
       "control_used": false,
-      "fit_method": "statsmodels_probit_newton"
+      "fit_method": "statsmodels_probit_newton",
+      "y_true": 0.0,
+      "y_pred_proba": 0.15871916706335315,
+      "y_pred": 0,
+      "base_rate": 0.08928571428571429,
+      "brier": 0.025191773993284608,
+      "correct": 1
     }
   ],
   "rank_path": [
@@ -5472,7 +5964,798 @@
       "sign_stability": 1.0
     }
   ],
-  "fit_seconds": 27.4808223,
+  "history": {
+    "r_path": [
+      {
+        "origin_month": "2019-12",
+        "r": 3
+      },
+      {
+        "origin_month": "2020-01",
+        "r": 3
+      },
+      {
+        "origin_month": "2020-02",
+        "r": 3
+      },
+      {
+        "origin_month": "2020-03",
+        "r": 3
+      },
+      {
+        "origin_month": "2020-04",
+        "r": 4
+      },
+      {
+        "origin_month": "2020-05",
+        "r": 4
+      },
+      {
+        "origin_month": "2020-06",
+        "r": 4
+      },
+      {
+        "origin_month": "2020-07",
+        "r": 4
+      },
+      {
+        "origin_month": "2020-08",
+        "r": 4
+      },
+      {
+        "origin_month": "2020-09",
+        "r": 4
+      },
+      {
+        "origin_month": "2020-10",
+        "r": 4
+      },
+      {
+        "origin_month": "2020-11",
+        "r": 4
+      },
+      {
+        "origin_month": "2020-12",
+        "r": 4
+      },
+      {
+        "origin_month": "2021-01",
+        "r": 4
+      },
+      {
+        "origin_month": "2021-02",
+        "r": 4
+      },
+      {
+        "origin_month": "2021-03",
+        "r": 4
+      },
+      {
+        "origin_month": "2021-04",
+        "r": 4
+      },
+      {
+        "origin_month": "2021-05",
+        "r": 4
+      },
+      {
+        "origin_month": "2021-06",
+        "r": 4
+      },
+      {
+        "origin_month": "2021-07",
+        "r": 4
+      },
+      {
+        "origin_month": "2021-08",
+        "r": 4
+      },
+      {
+        "origin_month": "2021-09",
+        "r": 4
+      },
+      {
+        "origin_month": "2021-10",
+        "r": 4
+      },
+      {
+        "origin_month": "2021-11",
+        "r": 4
+      },
+      {
+        "origin_month": "2021-12",
+        "r": 4
+      },
+      {
+        "origin_month": "2022-01",
+        "r": 3
+      },
+      {
+        "origin_month": "2022-02",
+        "r": 3
+      },
+      {
+        "origin_month": "2022-03",
+        "r": 3
+      },
+      {
+        "origin_month": "2022-04",
+        "r": 3
+      },
+      {
+        "origin_month": "2022-05",
+        "r": 3
+      },
+      {
+        "origin_month": "2022-06",
+        "r": 3
+      },
+      {
+        "origin_month": "2022-07",
+        "r": 3
+      },
+      {
+        "origin_month": "2022-08",
+        "r": 3
+      },
+      {
+        "origin_month": "2022-09",
+        "r": 3
+      },
+      {
+        "origin_month": "2022-10",
+        "r": 3
+      },
+      {
+        "origin_month": "2022-11",
+        "r": 3
+      },
+      {
+        "origin_month": "2022-12",
+        "r": 3
+      },
+      {
+        "origin_month": "2023-01",
+        "r": 3
+      },
+      {
+        "origin_month": "2023-02",
+        "r": 3
+      },
+      {
+        "origin_month": "2023-03",
+        "r": 3
+      },
+      {
+        "origin_month": "2023-04",
+        "r": 3
+      },
+      {
+        "origin_month": "2023-05",
+        "r": 3
+      },
+      {
+        "origin_month": "2023-06",
+        "r": 3
+      },
+      {
+        "origin_month": "2023-07",
+        "r": 3
+      },
+      {
+        "origin_month": "2023-08",
+        "r": 3
+      },
+      {
+        "origin_month": "2023-09",
+        "r": 3
+      },
+      {
+        "origin_month": "2023-10",
+        "r": 3
+      },
+      {
+        "origin_month": "2023-11",
+        "r": 3
+      },
+      {
+        "origin_month": "2023-12",
+        "r": 3
+      },
+      {
+        "origin_month": "2024-01",
+        "r": 3
+      },
+      {
+        "origin_month": "2024-02",
+        "r": 3
+      },
+      {
+        "origin_month": "2024-03",
+        "r": 3
+      },
+      {
+        "origin_month": "2024-04",
+        "r": 3
+      },
+      {
+        "origin_month": "2024-05",
+        "r": 3
+      },
+      {
+        "origin_month": "2024-06",
+        "r": 3
+      },
+      {
+        "origin_month": "2024-07",
+        "r": 3
+      },
+      {
+        "origin_month": "2024-08",
+        "r": 3
+      },
+      {
+        "origin_month": "2024-09",
+        "r": 3
+      },
+      {
+        "origin_month": "2024-10",
+        "r": 3
+      },
+      {
+        "origin_month": "2024-11",
+        "r": 3
+      },
+      {
+        "origin_month": "2024-12",
+        "r": 3
+      },
+      {
+        "origin_month": "2025-01",
+        "r": 3
+      },
+      {
+        "origin_month": "2025-02",
+        "r": 3
+      },
+      {
+        "origin_month": "2025-03",
+        "r": 3
+      },
+      {
+        "origin_month": "2025-04",
+        "r": 3
+      },
+      {
+        "origin_month": "2025-05",
+        "r": 3
+      },
+      {
+        "origin_month": "2025-06",
+        "r": 3
+      },
+      {
+        "origin_month": "2025-07",
+        "r": 3
+      },
+      {
+        "origin_month": "2025-08",
+        "r": 3
+      },
+      {
+        "origin_month": "2025-09",
+        "r": 3
+      },
+      {
+        "origin_month": "2025-10",
+        "r": 3
+      },
+      {
+        "origin_month": "2025-11",
+        "r": 3
+      },
+      {
+        "origin_month": "2025-12",
+        "r": 3
+      },
+      {
+        "origin_month": "2026-01",
+        "r": 3
+      },
+      {
+        "origin_month": "2026-02",
+        "r": 3
+      },
+      {
+        "origin_month": "2026-03",
+        "r": 3
+      },
+      {
+        "origin_month": "2026-04",
+        "r": 3
+      },
+      {
+        "origin_month": "2026-05",
+        "r": 3
+      },
+      {
+        "origin_month": "2026-06",
+        "r": 3
+      },
+      {
+        "origin_month": "2026-07",
+        "r": 3
+      },
+      {
+        "origin_month": "2026-08",
+        "r": 3
+      },
+      {
+        "origin_month": "2026-09",
+        "r": 3
+      }
+    ],
+    "fold_brier": [
+      {
+        "fold": "2020-01",
+        "brier": 0.010616885064290128,
+        "correct": 1
+      },
+      {
+        "fold": "2020-02",
+        "brier": 0.00961573061528032,
+        "correct": 1
+      },
+      {
+        "fold": "2020-03",
+        "brier": 0.9999999999999407,
+        "correct": 0
+      },
+      {
+        "fold": "2020-04",
+        "brier": 0.0007398686675288735,
+        "correct": 1
+      },
+      {
+        "fold": "2020-05",
+        "brier": 0.002420171284609231,
+        "correct": 1
+      },
+      {
+        "fold": "2020-06",
+        "brier": 0.0016809439680826042,
+        "correct": 1
+      },
+      {
+        "fold": "2020-07",
+        "brier": 0.000600259775862882,
+        "correct": 1
+      },
+      {
+        "fold": "2020-08",
+        "brier": 0.0003980398114478821,
+        "correct": 1
+      },
+      {
+        "fold": "2020-09",
+        "brier": 0.00021804187495044213,
+        "correct": 1
+      },
+      {
+        "fold": "2020-10",
+        "brier": 0.0001398063720329627,
+        "correct": 1
+      },
+      {
+        "fold": "2020-11",
+        "brier": 0.00016013394587519183,
+        "correct": 1
+      },
+      {
+        "fold": "2020-12",
+        "brier": 2.5340970685946998e-05,
+        "correct": 1
+      },
+      {
+        "fold": "2021-01",
+        "brier": 3.1768112212776375e-05,
+        "correct": 1
+      },
+      {
+        "fold": "2021-02",
+        "brier": 4.813391872821171e-05,
+        "correct": 1
+      },
+      {
+        "fold": "2021-03",
+        "brier": 1.4715206922579356e-05,
+        "correct": 1
+      },
+      {
+        "fold": "2021-04",
+        "brier": 9.821413729138737e-06,
+        "correct": 1
+      },
+      {
+        "fold": "2021-05",
+        "brier": 8.70363357407134e-06,
+        "correct": 1
+      },
+      {
+        "fold": "2021-06",
+        "brier": 3.993427904127046e-06,
+        "correct": 1
+      },
+      {
+        "fold": "2021-07",
+        "brier": 9.026101345949803e-06,
+        "correct": 1
+      },
+      {
+        "fold": "2021-08",
+        "brier": 7.067921262724133e-05,
+        "correct": 1
+      },
+      {
+        "fold": "2021-09",
+        "brier": 0.00012074117837615921,
+        "correct": 1
+      },
+      {
+        "fold": "2021-10",
+        "brier": 5.0278263818151754e-05,
+        "correct": 1
+      },
+      {
+        "fold": "2021-11",
+        "brier": 4.558871508512349e-05,
+        "correct": 1
+      },
+      {
+        "fold": "2021-12",
+        "brier": 4.0860436608109935e-05,
+        "correct": 1
+      },
+      {
+        "fold": "2022-01",
+        "brier": 6.66908713380345e-05,
+        "correct": 1
+      },
+      {
+        "fold": "2022-02",
+        "brier": 0.0001408706588025924,
+        "correct": 1
+      },
+      {
+        "fold": "2022-03",
+        "brier": 0.0011399214794129405,
+        "correct": 1
+      },
+      {
+        "fold": "2022-04",
+        "brier": 0.00045209339785574963,
+        "correct": 1
+      },
+      {
+        "fold": "2022-05",
+        "brier": 0.013622969285352286,
+        "correct": 1
+      },
+      {
+        "fold": "2022-06",
+        "brier": 0.0012001684516960395,
+        "correct": 1
+      },
+      {
+        "fold": "2022-07",
+        "brier": 0.0005243731964667685,
+        "correct": 1
+      },
+      {
+        "fold": "2022-08",
+        "brier": 0.8590876760107025,
+        "correct": 0
+      },
+      {
+        "fold": "2022-09",
+        "brier": 0.004904727496713919,
+        "correct": 1
+      },
+      {
+        "fold": "2022-10",
+        "brier": 0.007366516839270419,
+        "correct": 1
+      },
+      {
+        "fold": "2022-11",
+        "brier": 0.7805286783801262,
+        "correct": 0
+      },
+      {
+        "fold": "2022-12",
+        "brier": 0.6453518607010874,
+        "correct": 0
+      },
+      {
+        "fold": "2023-01",
+        "brier": 0.17338309405346372,
+        "correct": 1
+      },
+      {
+        "fold": "2023-02",
+        "brier": 0.03475881934994136,
+        "correct": 1
+      },
+      {
+        "fold": "2023-03",
+        "brier": 0.007289251124196614,
+        "correct": 1
+      },
+      {
+        "fold": "2023-04",
+        "brier": 0.0002080433988620543,
+        "correct": 1
+      },
+      {
+        "fold": "2023-05",
+        "brier": 0.8655745165924825,
+        "correct": 0
+      },
+      {
+        "fold": "2023-06",
+        "brier": 0.8635627547678472,
+        "correct": 0
+      },
+      {
+        "fold": "2023-07",
+        "brier": 0.8055409609143969,
+        "correct": 0
+      },
+      {
+        "fold": "2023-08",
+        "brier": 0.044991539075046945,
+        "correct": 1
+      },
+      {
+        "fold": "2023-09",
+        "brier": 0.016911947677976505,
+        "correct": 1
+      },
+      {
+        "fold": "2023-10",
+        "brier": 0.014205955731215397,
+        "correct": 1
+      },
+      {
+        "fold": "2023-11",
+        "brier": 0.021306668324015225,
+        "correct": 1
+      },
+      {
+        "fold": "2023-12",
+        "brier": 0.8285846870436373,
+        "correct": 0
+      },
+      {
+        "fold": "2024-01",
+        "brier": 0.7898943798272592,
+        "correct": 0
+      },
+      {
+        "fold": "2024-02",
+        "brier": 0.7654807975797142,
+        "correct": 0
+      },
+      {
+        "fold": "2024-03",
+        "brier": 0.016676245630374606,
+        "correct": 1
+      },
+      {
+        "fold": "2024-04",
+        "brier": 0.00898609672475452,
+        "correct": 1
+      },
+      {
+        "fold": "2024-05",
+        "brier": 0.023759840834753857,
+        "correct": 1
+      },
+      {
+        "fold": "2024-06",
+        "brier": 0.010218572862189107,
+        "correct": 1
+      },
+      {
+        "fold": "2024-07",
+        "brier": 0.019474054914423975,
+        "correct": 1
+      },
+      {
+        "fold": "2024-08",
+        "brier": 0.6763226027048362,
+        "correct": 0
+      },
+      {
+        "fold": "2024-09",
+        "brier": 0.01850917426469271,
+        "correct": 1
+      },
+      {
+        "fold": "2024-10",
+        "brier": 0.04735294220207332,
+        "correct": 1
+      },
+      {
+        "fold": "2024-11",
+        "brier": 0.05120502112854509,
+        "correct": 1
+      },
+      {
+        "fold": "2024-12",
+        "brier": 0.0334031774017593,
+        "correct": 1
+      },
+      {
+        "fold": "2025-01",
+        "brier": 0.024237673871665453,
+        "correct": 1
+      },
+      {
+        "fold": "2025-02",
+        "brier": 0.02555534086030459,
+        "correct": 1
+      },
+      {
+        "fold": "2025-03",
+        "brier": 0.15681930160758784,
+        "correct": 1
+      },
+      {
+        "fold": "2025-04",
+        "brier": 0.009609160141141947,
+        "correct": 1
+      },
+      {
+        "fold": "2025-05",
+        "brier": 0.06400369732834048,
+        "correct": 1
+      },
+      {
+        "fold": "2025-06",
+        "brier": 0.030105800625864383,
+        "correct": 1
+      },
+      {
+        "fold": "2025-07",
+        "brier": 0.04424839096343165,
+        "correct": 1
+      },
+      {
+        "fold": "2025-08",
+        "brier": 0.5454644397689459,
+        "correct": 0
+      },
+      {
+        "fold": "2025-09",
+        "brier": 0.020260852828272367,
+        "correct": 1
+      },
+      {
+        "fold": "2025-10",
+        "brier": 0.03846182743068078,
+        "correct": 1
+      },
+      {
+        "fold": "2025-11",
+        "brier": 0.6582744223987709,
+        "correct": 0
+      },
+      {
+        "fold": "2025-12",
+        "brier": 0.03297252515617302,
+        "correct": 1
+      },
+      {
+        "fold": "2026-01",
+        "brier": 0.041594958175296536,
+        "correct": 1
+      },
+      {
+        "fold": "2026-02",
+        "brier": 0.5924232700685531,
+        "correct": 0
+      },
+      {
+        "fold": "2026-03",
+        "brier": 0.06448594358366093,
+        "correct": 1
+      },
+      {
+        "fold": "2026-04",
+        "brier": 0.06181617860203208,
+        "correct": 1
+      },
+      {
+        "fold": "2026-05",
+        "brier": 0.03940145025845496,
+        "correct": 1
+      },
+      {
+        "fold": "2026-06",
+        "brier": 0.011873094493192378,
+        "correct": 1
+      },
+      {
+        "fold": "2026-07",
+        "brier": 0.02592151966516451,
+        "correct": 1
+      },
+      {
+        "fold": "2026-08",
+        "brier": 0.03466163834310493,
+        "correct": 1
+      },
+      {
+        "fold": "2026-09",
+        "brier": 0.03498661758013392,
+        "correct": 1
+      },
+      {
+        "fold": "2026-10",
+        "brier": 0.025191773993284608,
+        "correct": 1
+      }
+    ],
+    "coefficient_summary": [
+      {
+        "term": "const",
+        "n_folds": 82,
+        "mean_coef": -1.851361744903361,
+        "sd_coef": 0.19875630582320788,
+        "min_coef": -2.363922773574007,
+        "max_coef": -1.6091945204652651,
+        "sign_stability": 1.0
+      },
+      {
+        "term": "f1",
+        "n_folds": 82,
+        "mean_coef": -0.05783889668548459,
+        "sd_coef": 0.046888029069758884,
+        "min_coef": -0.19459961516382093,
+        "max_coef": 0.010304922304279587,
+        "sign_stability": 0.8902439024390244
+      },
+      {
+        "term": "f2",
+        "n_folds": 82,
+        "mean_coef": -0.07427219765928418,
+        "sd_coef": 0.057044518798837776,
+        "min_coef": -0.32769172940751634,
+        "max_coef": 0.05377104322495069,
+        "sign_stability": 0.9146341463414634
+      },
+      {
+        "term": "f3",
+        "n_folds": 82,
+        "mean_coef": -0.15520469693084274,
+        "sd_coef": 0.38326942496223715,
+        "min_coef": -0.7743922171604869,
+        "max_coef": 0.4075101050599849,
+        "sign_stability": 0.6829268292682927
+      },
+      {
+        "term": "f4",
+        "n_folds": 21,
+        "mean_coef": -0.11384669304594842,
+        "sd_coef": 0.03593696021127302,
+        "min_coef": -0.1720128340476221,
+        "max_coef": -0.03008688034264229,
+        "sign_stability": 1.0
+      }
+    ]
+  },
+  "fit_seconds": 19.29126019999967,
   "environment": {
     "python": "3.13.15",
     "numpy": "2.5.4",

@@ -179,6 +179,24 @@ uv run python code/approach1_regime.py --seed 42
 uv run python code/approach1_cluster.py --seed 42
 ```
 
+- `code/approach1_validate.py` (independent Option A validation → `results/approach1/validation/`):
+
+```bash
+uv run python code/approach1_validate.py --seed 42
+```
+
+- `code/compare.py` (task-specific consolidated comparison → `results/comparison.html`):
+
+```bash
+uv run python code/compare.py --seed 42
+```
+
+- `code/run_option_a.py` (one-command Option A reproduction, runs all steps above in order):
+
+```bash
+uv run python code/run_option_a.py --seed 42
+```
+
 Append each `uv run python <path> --seed 42` command
   here at the same commit that introduces the script; never document
   commands for scripts that do not exist.

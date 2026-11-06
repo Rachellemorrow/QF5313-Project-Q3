@@ -641,6 +641,11 @@ def run(seed: int) -> dict[str, Any]:
             for w in window_results
         ],
         "adjacent_ari": ari_df.to_dict(orient="records"),
+        "history": {
+            "silhouette_by_window": sil_df.to_dict(orient="records"),
+            "adjacent_ari": ari_df.to_dict(orient="records"),
+            "k_curve_by_window": {w["window_end"]: w["k_curve"] for w in window_results},
+        },
         "fit_seconds": fit_seconds,
         "environment": {"python": sys.version.split()[0], "numpy": np.__version__, "pandas": pd.__version__},
         "outputs": {

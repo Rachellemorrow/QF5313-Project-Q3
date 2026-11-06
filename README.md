@@ -1,13 +1,11 @@
 # QF5313 Question 3
 
-China macro panel: regimes, nowcasting, and indicator clustering.
+China macro panel: regimes, nowcasting, and indicator clustering. Option A (Classical) is implemented; Option B is delivered by the teammate.
 
-This project implements Option A (Classical) and Option B (Sequence Learning).
+Setup: `uv venv --python 3.13`, then `uv sync`.
 
-## Environment
+Reproduce all Option A outputs and validation with one command:
 
-Python 3.13, managed with uv.
+`uv run python code/run_option_a.py --seed 42`
 
-## Setup
-
-Reproduction instructions will be added after the shared dependencies and scripts are finalized.
+Outputs: `results/approach1/`; consolidated report: `results/comparison.html`.

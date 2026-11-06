@@ -157,7 +157,10 @@
       "train_start": "2008Q1",
       "train_end": "2017Q4",
       "n_train_quarters": 40,
-      "r": 3
+      "r": 3,
+      "error": 0.8640437453830678,
+      "abs_error": 0.8640437453830678,
+      "squared_error": 0.7465715939355998
     },
     {
       "forecast_origin": "2018-02-28",
@@ -170,7 +173,10 @@
       "train_start": "2008Q1",
       "train_end": "2017Q4",
       "n_train_quarters": 40,
-      "r": 3
+      "r": 3,
+      "error": -0.4252681509407372,
+      "abs_error": 0.4252681509407372,
+      "squared_error": 0.18085300020455367
     },
     {
       "forecast_origin": "2018-03-31",
@@ -183,7 +189,10 @@
       "train_start": "2008Q1",
       "train_end": "2017Q4",
       "n_train_quarters": 40,
-      "r": 3
+      "r": 3,
+      "error": -0.5107146299488274,
+      "abs_error": 0.5107146299488274,
+      "squared_error": 0.2608294332437677
     },
     {
       "forecast_origin": "2018-04-30",
@@ -196,7 +205,10 @@
       "train_start": "2008Q1",
       "train_end": "2018Q1",
       "n_train_quarters": 41,
-      "r": 3
+      "r": 3,
+      "error": -0.13522182975384123,
+      "abs_error": 0.13522182975384123,
+      "squared_error": 0.018284943241976822
     },
     {
       "forecast_origin": "2018-05-31",
@@ -209,7 +221,10 @@
       "train_start": "2008Q1",
       "train_end": "2018Q1",
       "n_train_quarters": 41,
-      "r": 3
+      "r": 3,
+      "error": 0.014306013750941204,
+      "abs_error": 0.014306013750941204,
+      "squared_error": 0.00020466202944211884
     },
     {
       "forecast_origin": "2018-06-30",
@@ -222,7 +237,10 @@
       "train_start": "2008Q1",
       "train_end": "2018Q1",
       "n_train_quarters": 41,
-      "r": 3
+      "r": 3,
+      "error": 0.05378283634996173,
+      "abs_error": 0.05378283634996173,
+      "squared_error": 0.0028925934858467645
     },
     {
       "forecast_origin": "2018-07-31",
@@ -235,7 +253,10 @@
       "train_start": "2008Q1",
       "train_end": "2018Q2",
       "n_train_quarters": 42,
-      "r": 3
+      "r": 3,
+      "error": 0.45445766620837347,
+      "abs_error": 0.45445766620837347,
+      "squared_error": 0.2065317703755614
     },
     {
       "forecast_origin": "2018-08-31",
@@ -248,7 +269,10 @@
       "train_start": "2008Q1",
       "train_end": "2018Q2",
       "n_train_quarters": 42,
-      "r": 3
+      "r": 3,
+      "error": 0.05920667164895299,
+      "abs_error": 0.05920667164895299,
+      "squared_error": 0.003505429967746934
     },
     {
       "forecast_origin": "2018-09-30",
@@ -261,7 +285,10 @@
       "train_start": "2008Q1",
       "train_end": "2018Q2",
       "n_train_quarters": 42,
-      "r": 3
+      "r": 3,
+      "error": 0.02613394590617979,
+      "abs_error": 0.02613394590617979,
+      "squared_error": 0.0006829831286271314
     },
     {
       "forecast_origin": "2018-10-31",
@@ -274,7 +301,10 @@
       "train_start": "2008Q1",
       "train_end": "2018Q3",
       "n_train_quarters": 43,
-      "r": 3
+      "r": 3,
+      "error": 0.6729294039825273,
+      "abs_error": 0.6729294039825273,
+      "squared_error": 0.45283398274427944
     },
     {
       "forecast_origin": "2018-11-30",
@@ -287,7 +317,10 @@
       "train_start": "2008Q1",
       "train_end": "2018Q3",
       "n_train_quarters": 43,
-      "r": 3
+      "r": 3,
+      "error": 0.8208030636613692,
+      "abs_error": 0.8208030636613692,
+      "squared_error": 0.6737176693158897
     },
     {
       "forecast_origin": "2018-12-31",
@@ -300,7 +333,10 @@
       "train_start": "2008Q1",
       "train_end": "2018Q3",
       "n_train_quarters": 43,
-      "r": 3
+      "r": 3,
+      "error": 0.9796953001395732,
+      "abs_error": 0.9796953001395732,
+      "squared_error": 0.9598028811155683
     },
     {
       "forecast_origin": "2019-01-31",
@@ -313,7 +349,10 @@
       "train_start": "2008Q1",
       "train_end": "2018Q4",
       "n_train_quarters": 44,
-      "r": 3
+      "r": 3,
+      "error": 0.8527269526878776,
+      "abs_error": 0.8527269526878776,
+      "squared_error": 0.7271432558403538
     },
     {
       "forecast_origin": "2019-02-28",
@@ -326,7 +365,10 @@
       "train_start": "2008Q1",
       "train_end": "2018Q4",
       "n_train_quarters": 44,
-      "r": 3
+      "r": 3,
+      "error": -0.2218228206673265,
+      "abs_error": 0.2218228206673265,
+      "squared_error": 0.049205363768808894
     },
     {
       "forecast_origin": "2019-03-31",
@@ -339,7 +381,10 @@
       "train_start": "2008Q1",
       "train_end": "2018Q4",
       "n_train_quarters": 44,
-      "r": 3
+      "r": 3,
+      "error": -0.32997471002997525,
+      "abs_error": 0.32997471002997525,
+      "squared_error": 0.10888330925936625
     },
     {
       "forecast_origin": "2019-04-30",
@@ -352,7 +397,10 @@
       "train_start": "2008Q1",
       "train_end": "2019Q1",
       "n_train_quarters": 45,
-      "r": 3
+      "r": 3,
+      "error": -0.1475032611036191,
+      "abs_error": 0.1475032611036191,
+      "squared_error": 0.021757212036202435
     },
     {
       "forecast_origin": "2019-05-31",
@@ -365,7 +413,10 @@
       "train_start": "2008Q1",
       "train_end": "2019Q1",
       "n_train_quarters": 45,
-      "r": 3
+      "r": 3,
+      "error": -0.00788041910318249,
+      "abs_error": 0.00788041910318249,
+      "squared_error": 6.210100524180351e-05
     },
     {
       "forecast_origin": "2019-06-30",
@@ -378,7 +429,10 @@
       "train_start": "2008Q1",
       "train_end": "2019Q1",
       "n_train_quarters": 45,
-      "r": 3
+      "r": 3,
+      "error": 0.1997748527189529,
+      "abs_error": 0.1997748527189529,
+      "squared_error": 0.03990999177887932
     },
     {
       "forecast_origin": "2019-07-31",
@@ -391,7 +445,10 @@
       "train_start": "2008Q1",
       "train_end": "2019Q2",
       "n_train_quarters": 46,
-      "r": 3
+      "r": 3,
+      "error": 0.07011983208524963,
+      "abs_error": 0.07011983208524963,
+      "squared_error": 0.004916790851663604
     },
     {
       "forecast_origin": "2019-08-31",
@@ -404,7 +461,10 @@
       "train_start": "2008Q1",
       "train_end": "2019Q2",
       "n_train_quarters": 46,
-      "r": 3
+      "r": 3,
+      "error": 0.43963255165706006,
+      "abs_error": 0.43963255165706006,
+      "squared_error": 0.19327678047649757
     },
     {
       "forecast_origin": "2019-09-30",
@@ -417,7 +477,10 @@
       "train_start": "2008Q1",
       "train_end": "2019Q2",
       "n_train_quarters": 46,
-      "r": 3
+      "r": 3,
+      "error": 0.15767375597341182,
+      "abs_error": 0.15767375597341182,
+      "squared_error": 0.02486101332276302
     },
     {
       "forecast_origin": "2019-10-31",
@@ -430,7 +493,10 @@
       "train_start": "2008Q1",
       "train_end": "2019Q3",
       "n_train_quarters": 47,
-      "r": 3
+      "r": 3,
+      "error": 0.47885754824074134,
+      "abs_error": 0.47885754824074134,
+      "squared_error": 0.2293045515071339
     },
     {
       "forecast_origin": "2019-11-30",
@@ -443,7 +509,10 @@
       "train_start": "2008Q1",
       "train_end": "2019Q3",
       "n_train_quarters": 47,
-      "r": 3
+      "r": 3,
+      "error": 0.18435613140374052,
+      "abs_error": 0.18435613140374052,
+      "squared_error": 0.03398718318615324
     },
     {
       "forecast_origin": "2019-12-31",
@@ -456,7 +525,10 @@
       "train_start": "2008Q1",
       "train_end": "2019Q3",
       "n_train_quarters": 47,
-      "r": 3
+      "r": 3,
+      "error": 0.23964817465533628,
+      "abs_error": 0.23964817465533628,
+      "squared_error": 0.05743124761563456
     },
     {
       "forecast_origin": "2020-01-31",
@@ -469,7 +541,10 @@
       "train_start": "2008Q1",
       "train_end": "2019Q4",
       "n_train_quarters": 48,
-      "r": 3
+      "r": 3,
+      "error": -12.629378386027835,
+      "abs_error": 12.629378386027835,
+      "squared_error": 159.50119841746704
     },
     {
       "forecast_origin": "2020-02-29",
@@ -482,7 +557,10 @@
       "train_start": "2008Q1",
       "train_end": "2019Q4",
       "n_train_quarters": 48,
-      "r": 3
+      "r": 3,
+      "error": -7.588901092927513,
+      "abs_error": 7.588901092927513,
+      "squared_error": 57.591419798236394
     },
     {
       "forecast_origin": "2020-03-31",
@@ -495,7 +573,10 @@
       "train_start": "2008Q1",
       "train_end": "2019Q4",
       "n_train_quarters": 48,
-      "r": 3
+      "r": 3,
+      "error": -14.003028956669244,
+      "abs_error": 14.003028956669244,
+      "squared_error": 196.08481996131732
     },
     {
       "forecast_origin": "2020-04-30",
@@ -508,7 +589,10 @@
       "train_start": "2008Q1",
       "train_end": "2020Q1",
       "n_train_quarters": 49,
-      "r": 3
+      "r": 3,
+      "error": 0.21927488829143638,
+      "abs_error": 0.21927488829143638,
+      "squared_error": 0.0480814766352219
     },
     {
       "forecast_origin": "2020-05-31",
@@ -521,7 +605,10 @@
       "train_start": "2008Q1",
       "train_end": "2020Q1",
       "n_train_quarters": 49,
-      "r": 3
+      "r": 3,
+      "error": -1.010849738553154,
+      "abs_error": 1.010849738553154,
+      "squared_error": 1.0218171939329799
     },
     {
       "forecast_origin": "2020-06-30",
@@ -534,7 +621,10 @@
       "train_start": "2008Q1",
       "train_end": "2020Q1",
       "n_train_quarters": 49,
-      "r": 3
+      "r": 3,
+      "error": -1.7126211665809663,
+      "abs_error": 1.7126211665809663,
+      "squared_error": 2.93307126022115
     },
     {
       "forecast_origin": "2020-07-31",
@@ -547,7 +637,10 @@
       "train_start": "2008Q1",
       "train_end": "2020Q2",
       "n_train_quarters": 50,
-      "r": 3
+      "r": 3,
+      "error": -0.4403049437383846,
+      "abs_error": 0.4403049437383846,
+      "squared_error": 0.193868443480462
     },
     {
       "forecast_origin": "2020-08-31",
@@ -560,7 +653,10 @@
       "train_start": "2008Q1",
       "train_end": "2020Q2",
       "n_train_quarters": 50,
-      "r": 3
+      "r": 3,
+      "error": -0.20057238834387459,
+      "abs_error": 0.20057238834387459,
+      "squared_error": 0.040229282965966034
     },
     {
       "forecast_origin": "2020-09-30",
@@ -573,7 +669,10 @@
       "train_start": "2008Q1",
       "train_end": "2020Q2",
       "n_train_quarters": 50,
-      "r": 3
+      "r": 3,
+      "error": -0.4717096096576423,
+      "abs_error": 0.4717096096576423,
+      "squared_error": 0.22250995584336528
     },
     {
       "forecast_origin": "2020-10-31",
@@ -586,7 +685,10 @@
       "train_start": "2008Q1",
       "train_end": "2020Q3",
       "n_train_quarters": 51,
-      "r": 3
+      "r": 3,
+      "error": 0.28485959463748944,
+      "abs_error": 0.28485959463748944,
+      "squared_error": 0.0811449886570348
     },
     {
       "forecast_origin": "2020-11-30",
@@ -599,7 +701,10 @@
       "train_start": "2008Q1",
       "train_end": "2020Q3",
       "n_train_quarters": 51,
-      "r": 3
+      "r": 3,
+      "error": -0.23558030550303055,
+      "abs_error": 0.23558030550303055,
+      "squared_error": 0.05549808034090121
     },
     {
       "forecast_origin": "2020-12-31",
@@ -612,7 +717,10 @@
       "train_start": "2008Q1",
       "train_end": "2020Q3",
       "n_train_quarters": 51,
-      "r": 3
+      "r": 3,
+      "error": 0.5578685040516635,
+      "abs_error": 0.5578685040516635,
+      "squared_error": 0.3112172678128409
     },
     {
       "forecast_origin": "2021-01-31",
@@ -625,7 +733,10 @@
       "train_start": "2008Q1",
       "train_end": "2020Q4",
       "n_train_quarters": 52,
-      "r": 3
+      "r": 3,
+      "error": 13.475444075051215,
+      "abs_error": 13.475444075051215,
+      "squared_error": 181.5875930198329
     },
     {
       "forecast_origin": "2021-02-28",
@@ -638,7 +749,10 @@
       "train_start": "2008Q1",
       "train_end": "2020Q4",
       "n_train_quarters": 52,
-      "r": 3
+      "r": 3,
+      "error": 12.466750032120025,
+      "abs_error": 12.466750032120025,
+      "squared_error": 155.41985636336466
     },
     {
       "forecast_origin": "2021-03-31",
@@ -651,7 +765,10 @@
       "train_start": "2008Q1",
       "train_end": "2020Q4",
       "n_train_quarters": 52,
-      "r": 3
+      "r": 3,
+      "error": 11.698139517241382,
+      "abs_error": 11.698139517241382,
+      "squared_error": 136.84646816484442
     },
     {
       "forecast_origin": "2021-04-30",
@@ -664,7 +781,10 @@
       "train_start": "2008Q1",
       "train_end": "2021Q1",
       "n_train_quarters": 53,
-      "r": 3
+      "r": 3,
+      "error": -0.34170811420204217,
+      "abs_error": 0.34170811420204217,
+      "squared_error": 0.1167644353115159
     },
     {
       "forecast_origin": "2021-05-31",
@@ -677,7 +797,10 @@
       "train_start": "2008Q1",
       "train_end": "2021Q1",
       "n_train_quarters": 53,
-      "r": 3
+      "r": 3,
+      "error": -0.4055774441840043,
+      "abs_error": 0.4055774441840043,
+      "squared_error": 0.16449306323082913
     },
     {
       "forecast_origin": "2021-06-30",
@@ -690,7 +813,10 @@
       "train_start": "2008Q1",
       "train_end": "2021Q1",
       "n_train_quarters": 53,
-      "r": 3
+      "r": 3,
+      "error": -0.14210079832602318,
+      "abs_error": 0.14210079832602318,
+      "squared_error": 0.020192636884893114
     },
     {
       "forecast_origin": "2021-07-31",
@@ -703,7 +829,10 @@
       "train_start": "2008Q1",
       "train_end": "2021Q2",
       "n_train_quarters": 54,
-      "r": 3
+      "r": 3,
+      "error": -0.008325438722021516,
+      "abs_error": 0.008325438722021516,
+      "squared_error": 6.931292991413527e-05
     },
     {
       "forecast_origin": "2021-08-31",
@@ -716,7 +845,10 @@
       "train_start": "2008Q1",
       "train_end": "2021Q2",
       "n_train_quarters": 54,
-      "r": 3
+      "r": 3,
+      "error": -0.07088483095645604,
+      "abs_error": 0.07088483095645604,
+      "squared_error": 0.005024659259725348
     },
     {
       "forecast_origin": "2021-09-30",
@@ -729,7 +861,10 @@
       "train_start": "2008Q1",
       "train_end": "2021Q2",
       "n_train_quarters": 54,
-      "r": 3
+      "r": 3,
+      "error": -1.1631961708104495,
+      "abs_error": 1.1631961708104495,
+      "squared_error": 1.3530253317880923
     },
     {
       "forecast_origin": "2021-10-31",
@@ -742,7 +877,10 @@
       "train_start": "2008Q1",
       "train_end": "2021Q3",
       "n_train_quarters": 55,
-      "r": 3
+      "r": 3,
+      "error": 0.2472134454147472,
+      "abs_error": 0.2472134454147472,
+      "squared_error": 0.0611144875938302
     },
     {
       "forecast_origin": "2021-11-30",
@@ -755,7 +893,10 @@
       "train_start": "2008Q1",
       "train_end": "2021Q3",
       "n_train_quarters": 55,
-      "r": 3
+      "r": 3,
+      "error": -0.5086431248177536,
+      "abs_error": 0.5086431248177536,
+      "squared_error": 0.2587178284243689
     },
     {
       "forecast_origin": "2021-12-31",
@@ -768,7 +909,10 @@
       "train_start": "2008Q1",
       "train_end": "2021Q3",
       "n_train_quarters": 55,
-      "r": 3
+      "r": 3,
+      "error": -1.4103554494552597,
+      "abs_error": 1.4103554494552597,
+      "squared_error": 1.9891024938081476
     },
     {
       "forecast_origin": "2022-01-31",
@@ -781,7 +925,10 @@
       "train_start": "2008Q1",
       "train_end": "2021Q4",
       "n_train_quarters": 56,
-      "r": 3
+      "r": 3,
+      "error": 1.0524575546210264,
+      "abs_error": 1.0524575546210264,
+      "squared_error": 1.1076669042788707
     },
     {
       "forecast_origin": "2022-02-28",
@@ -794,7 +941,10 @@
       "train_start": "2008Q1",
       "train_end": "2021Q4",
       "n_train_quarters": 56,
-      "r": 3
+      "r": 3,
+      "error": -0.01405074947116347,
+      "abs_error": 0.01405074947116347,
+      "squared_error": 0.00019742356070140055
     },
     {
       "forecast_origin": "2022-03-31",
@@ -807,7 +957,10 @@
       "train_start": "2008Q1",
       "train_end": "2021Q4",
       "n_train_quarters": 56,
-      "r": 3
+      "r": 3,
+      "error": -1.4261279588381566,
+      "abs_error": 1.4261279588381566,
+      "squared_error": 2.033840954979887
     },
     {
       "forecast_origin": "2022-04-30",
@@ -820,7 +973,10 @@
       "train_start": "2008Q1",
       "train_end": "2022Q1",
       "n_train_quarters": 57,
-      "r": 3
+      "r": 3,
+      "error": -1.554344302134301,
+      "abs_error": 1.554344302134301,
+      "squared_error": 2.4159862095773676
     },
     {
       "forecast_origin": "2022-05-31",
@@ -833,7 +989,10 @@
       "train_start": "2008Q1",
       "train_end": "2022Q1",
       "n_train_quarters": 57,
-      "r": 3
+      "r": 3,
+      "error": -0.817793934642097,
+      "abs_error": 0.817793934642097,
+      "squared_error": 0.6687869195374024
     },
     {
       "forecast_origin": "2022-06-30",
@@ -846,7 +1005,10 @@
       "train_start": "2008Q1",
       "train_end": "2022Q1",
       "n_train_quarters": 57,
-      "r": 3
+      "r": 3,
+      "error": -3.48993239438253,
+      "abs_error": 3.48993239438253,
+      "squared_error": 12.179628117360577
     },
     {
       "forecast_origin": "2022-07-31",
@@ -859,7 +1021,10 @@
       "train_start": "2008Q1",
       "train_end": "2022Q2",
       "n_train_quarters": 58,
-      "r": 3
+      "r": 3,
+      "error": 0.29536693039315143,
+      "abs_error": 0.29536693039315143,
+      "squared_error": 0.08724162356987276
     },
     {
       "forecast_origin": "2022-08-31",
@@ -872,7 +1037,10 @@
       "train_start": "2008Q1",
       "train_end": "2022Q2",
       "n_train_quarters": 58,
-      "r": 3
+      "r": 3,
+      "error": 1.0055704398131908,
+      "abs_error": 1.0055704398131908,
+      "squared_error": 1.011171909426094
     },
     {
       "forecast_origin": "2022-09-30",
@@ -885,7 +1053,10 @@
       "train_start": "2008Q1",
       "train_end": "2022Q2",
       "n_train_quarters": 58,
-      "r": 3
+      "r": 3,
+      "error": 0.09892048458071567,
+      "abs_error": 0.09892048458071567,
+      "squared_error": 0.009785262269683606
     },
     {
       "forecast_origin": "2022-10-31",
@@ -898,7 +1069,10 @@
       "train_start": "2008Q1",
       "train_end": "2022Q3",
       "n_train_quarters": 59,
-      "r": 3
+      "r": 3,
+      "error": -1.4547155469147537,
+      "abs_error": 1.4547155469147537,
+      "squared_error": 2.116197322435491
     },
     {
       "forecast_origin": "2022-11-30",
@@ -911,7 +1085,10 @@
       "train_start": "2008Q1",
       "train_end": "2022Q3",
       "n_train_quarters": 59,
-      "r": 3
+      "r": 3,
+      "error": 0.2981936425808689,
+      "abs_error": 0.2981936425808689,
+      "squared_error": 0.08891944847564698
     },
     {
       "forecast_origin": "2022-12-31",
@@ -924,7 +1101,10 @@
       "train_start": "2008Q1",
       "train_end": "2022Q3",
       "n_train_quarters": 59,
-      "r": 3
+      "r": 3,
+      "error": 0.4852209605373492,
+      "abs_error": 0.4852209605373492,
+      "squared_error": 0.2354393805447878
     },
     {
       "forecast_origin": "2023-01-31",
@@ -937,7 +1117,10 @@
       "train_start": "2008Q1",
       "train_end": "2022Q4",
       "n_train_quarters": 60,
-      "r": 3
+      "r": 3,
+      "error": -0.3896306858847707,
+      "abs_error": 0.3896306858847707,
+      "squared_error": 0.15181207138303685
     },
     {
       "forecast_origin": "2023-02-28",
@@ -950,7 +1133,10 @@
       "train_start": "2008Q1",
       "train_end": "2022Q4",
       "n_train_quarters": 60,
-      "r": 3
+      "r": 3,
+      "error": -0.4914078982348382,
+      "abs_error": 0.4914078982348382,
+      "squared_error": 0.24148172244758112
     },
     {
       "forecast_origin": "2023-03-31",
@@ -963,7 +1149,10 @@
       "train_start": "2008Q1",
       "train_end": "2022Q4",
       "n_train_quarters": 60,
-      "r": 3
+      "r": 3,
+      "error": -2.470014714996232,
+      "abs_error": 2.470014714996232,
+      "squared_error": 6.100972692297917
     },
     {
       "forecast_origin": "2023-04-30",
@@ -976,7 +1165,10 @@
       "train_start": "2008Q1",
       "train_end": "2023Q1",
       "n_train_quarters": 61,
-      "r": 3
+      "r": 3,
+      "error": 0.9986614301442742,
+      "abs_error": 0.9986614301442742,
+      "squared_error": 0.9973246520578071
     },
     {
       "forecast_origin": "2023-05-31",
@@ -989,7 +1181,10 @@
       "train_start": "2008Q1",
       "train_end": "2023Q1",
       "n_train_quarters": 61,
-      "r": 3
+      "r": 3,
+      "error": 0.3085733768439498,
+      "abs_error": 0.3085733768439498,
+      "squared_error": 0.09521752889687826
     },
     {
       "forecast_origin": "2023-06-30",
@@ -1002,7 +1197,10 @@
       "train_start": "2008Q1",
       "train_end": "2023Q1",
       "n_train_quarters": 61,
-      "r": 3
+      "r": 3,
+      "error": 1.7148633265008026,
+      "abs_error": 1.7148633265008026,
+      "squared_error": 2.9407562285773983
     },
     {
       "forecast_origin": "2023-07-31",
@@ -1015,7 +1213,10 @@
       "train_start": "2008Q1",
       "train_end": "2023Q2",
       "n_train_quarters": 62,
-      "r": 3
+      "r": 3,
+      "error": 0.0865682129669052,
+      "abs_error": 0.0865682129669052,
+      "squared_error": 0.007494055496283454
     },
     {
       "forecast_origin": "2023-08-31",
@@ -1028,7 +1229,10 @@
       "train_start": "2008Q1",
       "train_end": "2023Q2",
       "n_train_quarters": 62,
-      "r": 3
+      "r": 3,
+      "error": 1.2109058508753088,
+      "abs_error": 1.2109058508753088,
+      "squared_error": 1.4662929796840556
     },
     {
       "forecast_origin": "2023-09-30",
@@ -1041,7 +1245,10 @@
       "train_start": "2008Q1",
       "train_end": "2023Q2",
       "n_train_quarters": 62,
-      "r": 3
+      "r": 3,
+      "error": 0.4336673660822479,
+      "abs_error": 0.4336673660822479,
+      "squared_error": 0.1880673844047144
     },
     {
       "forecast_origin": "2023-10-31",
@@ -1054,7 +1261,10 @@
       "train_start": "2008Q1",
       "train_end": "2023Q3",
       "n_train_quarters": 63,
-      "r": 3
+      "r": 3,
+      "error": 0.7414702862048568,
+      "abs_error": 0.7414702862048568,
+      "squared_error": 0.5497781853247122
     },
     {
       "forecast_origin": "2023-11-30",
@@ -1067,7 +1277,10 @@
       "train_start": "2008Q1",
       "train_end": "2023Q3",
       "n_train_quarters": 63,
-      "r": 3
+      "r": 3,
+      "error": 0.739970801704045,
+      "abs_error": 0.739970801704045,
+      "squared_error": 0.547556787374527
     },
     {
       "forecast_origin": "2023-12-31",
@@ -1080,7 +1293,10 @@
       "train_start": "2008Q1",
       "train_end": "2023Q3",
       "n_train_quarters": 63,
-      "r": 3
+      "r": 3,
+      "error": 0.38007934716026526,
+      "abs_error": 0.38007934716026526,
+      "squared_error": 0.14446031013777344
     },
     {
       "forecast_origin": "2024-01-31",
@@ -1093,7 +1309,10 @@
       "train_start": "2008Q1",
       "train_end": "2023Q4",
       "n_train_quarters": 64,
-      "r": 3
+      "r": 3,
+      "error": 0.41249854569558586,
+      "abs_error": 0.41249854569558586,
+      "squared_error": 0.17015505020097332
     },
     {
       "forecast_origin": "2024-02-29",
@@ -1106,7 +1325,10 @@
       "train_start": "2008Q1",
       "train_end": "2023Q4",
       "n_train_quarters": 64,
-      "r": 3
+      "r": 3,
+      "error": 1.0640325480816255,
+      "abs_error": 1.0640325480816255,
+      "squared_error": 1.1321652633770767
     },
     {
       "forecast_origin": "2024-03-31",
@@ -1119,7 +1341,10 @@
       "train_start": "2008Q1",
       "train_end": "2023Q4",
       "n_train_quarters": 64,
-      "r": 3
+      "r": 3,
+      "error": -0.37885466479893903,
+      "abs_error": 0.37885466479893903,
+      "squared_error": 0.14353085703991644
     },
     {
       "forecast_origin": "2024-04-30",
@@ -1132,7 +1357,10 @@
       "train_start": "2008Q1",
       "train_end": "2024Q1",
       "n_train_quarters": 65,
-      "r": 3
+      "r": 3,
+      "error": 0.37822614386677955,
+      "abs_error": 0.37822614386677955,
+      "squared_error": 0.1430550159043338
     },
     {
       "forecast_origin": "2024-05-31",
@@ -1145,7 +1373,10 @@
       "train_start": "2008Q1",
       "train_end": "2024Q1",
       "n_train_quarters": 65,
-      "r": 3
+      "r": 3,
+      "error": 1.2357986601364392,
+      "abs_error": 1.2357986601364392,
+      "squared_error": 1.5271983283950186
     },
     {
       "forecast_origin": "2024-06-30",
@@ -1158,7 +1389,10 @@
       "train_start": "2008Q1",
       "train_end": "2024Q1",
       "n_train_quarters": 65,
-      "r": 3
+      "r": 3,
+      "error": 0.584879999320183,
+      "abs_error": 0.584879999320183,
+      "squared_error": 0.3420846136047772
     },
     {
       "forecast_origin": "2024-07-31",
@@ -1171,7 +1405,10 @@
       "train_start": "2008Q1",
       "train_end": "2024Q2",
       "n_train_quarters": 66,
-      "r": 3
+      "r": 3,
+      "error": 1.2988727839378145,
+      "abs_error": 1.2988727839378145,
+      "squared_error": 1.6870705088543685
     },
     {
       "forecast_origin": "2024-08-31",
@@ -1184,7 +1421,10 @@
       "train_start": "2008Q1",
       "train_end": "2024Q2",
       "n_train_quarters": 66,
-      "r": 3
+      "r": 3,
+      "error": 2.2477491905557807,
+      "abs_error": 2.2477491905557807,
+      "squared_error": 5.0523764236441675
     },
     {
       "forecast_origin": "2024-09-30",
@@ -1197,7 +1437,10 @@
       "train_start": "2008Q1",
       "train_end": "2024Q2",
       "n_train_quarters": 66,
-      "r": 3
+      "r": 3,
+      "error": 0.6987368553126969,
+      "abs_error": 0.6987368553126969,
+      "squared_error": 0.48823319297227674
     },
     {
       "forecast_origin": "2024-10-31",
@@ -1210,7 +1453,10 @@
       "train_start": "2008Q1",
       "train_end": "2024Q3",
       "n_train_quarters": 67,
-      "r": 3
+      "r": 3,
+      "error": 1.7354712416595648,
+      "abs_error": 1.7354712416595648,
+      "squared_error": 3.0118604306273915
     },
     {
       "forecast_origin": "2024-11-30",
@@ -1223,7 +1469,10 @@
       "train_start": "2008Q1",
       "train_end": "2024Q3",
       "n_train_quarters": 67,
-      "r": 3
+      "r": 3,
+      "error": 2.722234938513763,
+      "abs_error": 2.722234938513763,
+      "squared_error": 7.410563060465031
     },
     {
       "forecast_origin": "2024-12-31",
@@ -1236,7 +1485,10 @@
       "train_start": "2008Q1",
       "train_end": "2024Q3",
       "n_train_quarters": 67,
-      "r": 3
+      "r": 3,
+      "error": 1.2880929029368176,
+      "abs_error": 1.2880929029368176,
+      "squared_error": 1.6591833265961977
     },
     {
       "forecast_origin": "2025-01-31",
@@ -1249,7 +1501,10 @@
       "train_start": "2008Q1",
       "train_end": "2024Q4",
       "n_train_quarters": 68,
-      "r": 3
+      "r": 3,
+      "error": 1.431083628012766,
+      "abs_error": 1.431083628012766,
+      "squared_error": 2.0480003503661806
     },
     {
       "forecast_origin": "2025-02-28",
@@ -1262,7 +1517,10 @@
       "train_start": "2008Q1",
       "train_end": "2024Q4",
       "n_train_quarters": 68,
-      "r": 3
+      "r": 3,
+      "error": 2.7387069998093745,
+      "abs_error": 2.7387069998093745,
+      "squared_error": 7.5005160308048655
     },
     {
       "forecast_origin": "2025-03-31",
@@ -1275,7 +1533,10 @@
       "train_start": "2008Q1",
       "train_end": "2024Q4",
       "n_train_quarters": 68,
-      "r": 3
+      "r": 3,
+      "error": 0.2902584719846937,
+      "abs_error": 0.2902584719846937,
+      "squared_error": 0.0842499805588892
     },
     {
       "forecast_origin": "2025-04-30",
@@ -1288,7 +1549,10 @@
       "train_start": "2008Q1",
       "train_end": "2025Q1",
       "n_train_quarters": 69,
-      "r": 3
+      "r": 3,
+      "error": 1.1678701674972505,
+      "abs_error": 1.1678701674972505,
+      "squared_error": 1.3639207281300558
     },
     {
       "forecast_origin": "2025-05-31",
@@ -1301,7 +1565,10 @@
       "train_start": "2008Q1",
       "train_end": "2025Q1",
       "n_train_quarters": 69,
-      "r": 3
+      "r": 3,
+      "error": 1.933835414333509,
+      "abs_error": 1.933835414333509,
+      "squared_error": 3.7397194097304545
     },
     {
       "forecast_origin": "2025-06-30",
@@ -1314,7 +1581,10 @@
       "train_start": "2008Q1",
       "train_end": "2025Q1",
       "n_train_quarters": 69,
-      "r": 3
+      "r": 3,
+      "error": 1.0391283147761756,
+      "abs_error": 1.0391283147761756,
+      "squared_error": 1.0797876545695748
     },
     {
       "forecast_origin": "2025-07-31",
@@ -1327,7 +1597,10 @@
       "train_start": "2008Q1",
       "train_end": "2025Q2",
       "n_train_quarters": 70,
-      "r": 4
+      "r": 4,
+      "error": 0.09871490843058872,
+      "abs_error": 0.09871490843058872,
+      "squared_error": 0.009744633146459515
     },
     {
       "forecast_origin": "2025-08-31",
@@ -1340,7 +1613,10 @@
       "train_start": "2008Q1",
       "train_end": "2025Q2",
       "n_train_quarters": 70,
-      "r": 4
+      "r": 4,
+      "error": -0.29625006367282936,
+      "abs_error": 0.29625006367282936,
+      "squared_error": 0.08776410022615545
     },
     {
       "forecast_origin": "2025-09-30",
@@ -1353,7 +1629,10 @@
       "train_start": "2008Q1",
       "train_end": "2025Q2",
       "n_train_quarters": 70,
-      "r": 4
+      "r": 4,
+      "error": -0.036926274718326546,
+      "abs_error": 0.036926274718326546,
+      "squared_error": 0.0013635497645733223
     },
     {
       "forecast_origin": "2025-10-31",
@@ -1366,7 +1645,10 @@
       "train_start": "2008Q1",
       "train_end": "2025Q3",
       "n_train_quarters": 71,
-      "r": 4
+      "r": 4,
+      "error": -0.7343148466199159,
+      "abs_error": 0.7343148466199159,
+      "squared_error": 0.5392182939664305
     },
     {
       "forecast_origin": "2025-11-30",
@@ -1379,7 +1661,10 @@
       "train_start": "2008Q1",
       "train_end": "2025Q3",
       "n_train_quarters": 71,
-      "r": 4
+      "r": 4,
+      "error": -0.05515034555606313,
+      "abs_error": 0.05515034555606313,
+      "squared_error": 0.003041560614953172
     },
     {
       "forecast_origin": "2025-12-31",
@@ -1392,7 +1677,10 @@
       "train_start": "2008Q1",
       "train_end": "2025Q3",
       "n_train_quarters": 71,
-      "r": 4
+      "r": 4,
+      "error": -0.4461284321060841,
+      "abs_error": 0.4461284321060841,
+      "squared_error": 0.1990305779334329
     },
     {
       "forecast_origin": "2026-01-31",
@@ -1405,7 +1693,10 @@
       "train_start": "2008Q1",
       "train_end": "2025Q4",
       "n_train_quarters": 72,
-      "r": 4
+      "r": 4,
+      "error": 0.8020492525298977,
+      "abs_error": 0.8020492525298977,
+      "squared_error": 0.6432830034837675
     },
     {
       "forecast_origin": "2026-02-28",
@@ -1418,7 +1709,10 @@
       "train_start": "2008Q1",
       "train_end": "2025Q4",
       "n_train_quarters": 72,
-      "r": 4
+      "r": 4,
+      "error": 0.3210593749511821,
+      "abs_error": 0.3210593749511821,
+      "squared_error": 0.10307912224404372
     },
     {
       "forecast_origin": "2026-03-31",
@@ -1431,7 +1725,10 @@
       "train_start": "2008Q1",
       "train_end": "2025Q4",
       "n_train_quarters": 72,
-      "r": 4
+      "r": 4,
+      "error": -0.9206248428074799,
+      "abs_error": 0.9206248428074799,
+      "squared_error": 0.8475501011942971
     },
     {
       "forecast_origin": "2026-04-30",
@@ -1444,7 +1741,10 @@
       "train_start": "2008Q1",
       "train_end": "2026Q1",
       "n_train_quarters": 73,
-      "r": 4
+      "r": 4,
+      "error": -0.7351870542648076,
+      "abs_error": 0.7351870542648076,
+      "squared_error": 0.5405000047585651
     },
     {
       "forecast_origin": "2026-05-31",
@@ -1457,7 +1757,10 @@
       "train_start": "2008Q1",
       "train_end": "2026Q1",
       "n_train_quarters": 73,
-      "r": 4
+      "r": 4,
+      "error": -1.0749911515117203,
+      "abs_error": 1.0749911515117203,
+      "squared_error": 1.1556059758284944
     },
     {
       "forecast_origin": "2026-06-30",
@@ -1470,7 +1773,10 @@
       "train_start": "2008Q1",
       "train_end": "2026Q1",
       "n_train_quarters": 73,
-      "r": 4
+      "r": 4,
+      "error": -1.3571238944430375,
+      "abs_error": 1.3571238944430375,
+      "squared_error": 1.8417852648682367
     },
     {
       "forecast_origin": "2026-07-31",
@@ -1483,7 +1789,10 @@
       "train_start": "2008Q1",
       "train_end": "2026Q2",
       "n_train_quarters": 74,
-      "r": 4
+      "r": 4,
+      "error": -0.038584834541584456,
+      "abs_error": 0.038584834541584456,
+      "squared_error": 0.001488789456601449
     },
     {
       "forecast_origin": "2026-08-31",
@@ -1496,7 +1805,10 @@
       "train_start": "2008Q1",
       "train_end": "2026Q2",
       "n_train_quarters": 74,
-      "r": 4
+      "r": 4,
+      "error": 0.032515319373517926,
+      "abs_error": 0.032515319373517926,
+      "squared_error": 0.0010572459939618701
     },
     {
       "forecast_origin": "2026-09-30",
@@ -1509,7 +1821,10 @@
       "train_start": "2008Q1",
       "train_end": "2026Q2",
       "n_train_quarters": 74,
-      "r": 4
+      "r": 4,
+      "error": -1.0878046298849693,
+      "abs_error": 1.0878046298849693,
+      "squared_error": 1.183318912799175
     }
   ],
   "rank_path": [
@@ -11345,7 +11660,7 @@
     "cumulative_check_passed": true,
     "note": "Derived chain-linked single-quarter volume estimate, not an official separately published NBS single-quarter series."
   },
-  "fit_seconds": 24.67937559999973,
+  "fit_seconds": 22.194698100000096,
   "environment": {
     "python": "3.13.15",
     "numpy": "2.5.4",

@@ -1679,7 +1679,892 @@
       "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fx_reserves_yoy;import_yoy;lpr_1y;lpr_5y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;shibor_1y;shibor_3m;shibor_on;trade_bal_bn_usd"
     }
   ],
-  "fit_seconds": 13.927201200000127,
+  "history": {
+    "silhouette_by_window": [
+      {
+        "window_end": "2010-12",
+        "window_start": "2008-01",
+        "n_retained": 16,
+        "n_common_months": 35,
+        "n_dropped_collinear": 0,
+        "dropped_collinear": "",
+        "min_eigenvalue": 0.0045430336778304195,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 6.661338147750939e-16,
+        "euclidean_ok": true,
+        "k_selected": 3,
+        "silhouette_selected": 0.29849977612328255,
+        "silhouette_k4": 0.2576816665272018
+      },
+      {
+        "window_end": "2011-12",
+        "window_start": "2009-01",
+        "n_retained": 16,
+        "n_common_months": 35,
+        "n_dropped_collinear": 0,
+        "dropped_collinear": "",
+        "min_eigenvalue": 0.007617633426907456,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 8.881784197001252e-16,
+        "euclidean_ok": true,
+        "k_selected": 3,
+        "silhouette_selected": 0.24396476809601636,
+        "silhouette_k4": 0.2343772286558593
+      },
+      {
+        "window_end": "2012-12",
+        "window_start": "2010-01",
+        "n_retained": 15,
+        "n_common_months": 35,
+        "n_dropped_collinear": 0,
+        "dropped_collinear": "",
+        "min_eigenvalue": 0.002156433875364741,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 5.551115123125783e-16,
+        "euclidean_ok": true,
+        "k_selected": 2,
+        "silhouette_selected": 0.3321806052111596,
+        "silhouette_k4": 0.22885414842188317
+      },
+      {
+        "window_end": "2013-12",
+        "window_start": "2011-01",
+        "n_retained": 15,
+        "n_common_months": 35,
+        "n_dropped_collinear": 0,
+        "dropped_collinear": "",
+        "min_eigenvalue": 0.008137200297512331,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 9.43689570931383e-16,
+        "euclidean_ok": true,
+        "k_selected": 2,
+        "silhouette_selected": 0.340851859351626,
+        "silhouette_k4": 0.1955263638952806
+      },
+      {
+        "window_end": "2014-12",
+        "window_start": "2012-01",
+        "n_retained": 15,
+        "n_common_months": 35,
+        "n_dropped_collinear": 0,
+        "dropped_collinear": "",
+        "min_eigenvalue": 0.02635696858749156,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 6.661338147750939e-16,
+        "euclidean_ok": true,
+        "k_selected": 7,
+        "silhouette_selected": 0.20418300412932394,
+        "silhouette_k4": 0.17919629894188638
+      },
+      {
+        "window_end": "2015-12",
+        "window_start": "2013-01",
+        "n_retained": 15,
+        "n_common_months": 35,
+        "n_dropped_collinear": 0,
+        "dropped_collinear": "",
+        "min_eigenvalue": 0.023967574946069155,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 5.551115123125783e-16,
+        "euclidean_ok": true,
+        "k_selected": 2,
+        "silhouette_selected": 0.2257154076360524,
+        "silhouette_k4": 0.14800974425848365
+      },
+      {
+        "window_end": "2016-12",
+        "window_start": "2014-01",
+        "n_retained": 17,
+        "n_common_months": 35,
+        "n_dropped_collinear": 0,
+        "dropped_collinear": "",
+        "min_eigenvalue": 0.005519829318929917,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 1.4432899320127035e-15,
+        "euclidean_ok": true,
+        "k_selected": 5,
+        "silhouette_selected": 0.16184377697381677,
+        "silhouette_k4": 0.16027648249105142
+      },
+      {
+        "window_end": "2017-12",
+        "window_start": "2015-01",
+        "n_retained": 18,
+        "n_common_months": 35,
+        "n_dropped_collinear": 0,
+        "dropped_collinear": "",
+        "min_eigenvalue": 0.006236799654534889,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 1.0547118733938987e-15,
+        "euclidean_ok": true,
+        "k_selected": 2,
+        "silhouette_selected": 0.17974169120755498,
+        "silhouette_k4": 0.1441419746596307
+      },
+      {
+        "window_end": "2018-12",
+        "window_start": "2016-01",
+        "n_retained": 18,
+        "n_common_months": 35,
+        "n_dropped_collinear": 0,
+        "dropped_collinear": "",
+        "min_eigenvalue": 0.005857066048901928,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 6.661338147750939e-16,
+        "euclidean_ok": true,
+        "k_selected": 2,
+        "silhouette_selected": 0.17791939197774134,
+        "silhouette_k4": 0.17403989502126385
+      },
+      {
+        "window_end": "2019-12",
+        "window_start": "2017-01",
+        "n_retained": 17,
+        "n_common_months": 35,
+        "n_dropped_collinear": 0,
+        "dropped_collinear": "",
+        "min_eigenvalue": 0.00486857469622739,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 4.440892098500626e-16,
+        "euclidean_ok": true,
+        "k_selected": 2,
+        "silhouette_selected": 0.1768245600018539,
+        "silhouette_k4": 0.150820289002141
+      },
+      {
+        "window_end": "2020-12",
+        "window_start": "2018-01",
+        "n_retained": 20,
+        "n_common_months": 35,
+        "n_dropped_collinear": 1,
+        "dropped_collinear": "shibor_spread_1y_on",
+        "min_eigenvalue": 0.0032568108462992236,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 1.942890293094024e-15,
+        "euclidean_ok": true,
+        "k_selected": 5,
+        "silhouette_selected": 0.2450356860616457,
+        "silhouette_k4": 0.24469122520785028
+      },
+      {
+        "window_end": "2021-12",
+        "window_start": "2019-01",
+        "n_retained": 20,
+        "n_common_months": 35,
+        "n_dropped_collinear": 1,
+        "dropped_collinear": "shibor_spread_1y_on",
+        "min_eigenvalue": 0.002968785045325685,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 9.71445146547012e-16,
+        "euclidean_ok": true,
+        "k_selected": 8,
+        "silhouette_selected": 0.25903297864740515,
+        "silhouette_k4": 0.22848015872103783
+      },
+      {
+        "window_end": "2022-12",
+        "window_start": "2020-01",
+        "n_retained": 21,
+        "n_common_months": 35,
+        "n_dropped_collinear": 2,
+        "dropped_collinear": "shibor_spread_1y_on;lpr_spread_5y_1y",
+        "min_eigenvalue": 0.0016396853767790345,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 4.440892098500626e-16,
+        "euclidean_ok": true,
+        "k_selected": 6,
+        "silhouette_selected": 0.21060560764842573,
+        "silhouette_k4": 0.16529263706550332
+      },
+      {
+        "window_end": "2023-12",
+        "window_start": "2021-01",
+        "n_retained": 21,
+        "n_common_months": 35,
+        "n_dropped_collinear": 2,
+        "dropped_collinear": "shibor_spread_1y_on;lpr_spread_5y_1y",
+        "min_eigenvalue": 0.0016594714337827593,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 1.1102230246251565e-15,
+        "euclidean_ok": true,
+        "k_selected": 2,
+        "silhouette_selected": 0.3051069044202287,
+        "silhouette_k4": 0.18362852852985162
+      },
+      {
+        "window_end": "2024-12",
+        "window_start": "2022-01",
+        "n_retained": 20,
+        "n_common_months": 35,
+        "n_dropped_collinear": 2,
+        "dropped_collinear": "shibor_spread_1y_on;lpr_spread_5y_1y",
+        "min_eigenvalue": 0.0021365576060871183,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 8.326672684688674e-16,
+        "euclidean_ok": true,
+        "k_selected": 8,
+        "silhouette_selected": 0.18928528433656652,
+        "silhouette_k4": 0.17837470539966194
+      },
+      {
+        "window_end": "2025-12",
+        "window_start": "2023-01",
+        "n_retained": 20,
+        "n_common_months": 35,
+        "n_dropped_collinear": 2,
+        "dropped_collinear": "shibor_spread_1y_on;lpr_spread_5y_1y",
+        "min_eigenvalue": 0.0007488085980470043,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 2.831068712794149e-15,
+        "euclidean_ok": true,
+        "k_selected": 2,
+        "silhouette_selected": 0.253097106953402,
+        "silhouette_k4": 0.18084206727816957
+      },
+      {
+        "window_end": "2026-10",
+        "window_start": "2023-11",
+        "n_retained": 19,
+        "n_common_months": 35,
+        "n_dropped_collinear": 2,
+        "dropped_collinear": "shibor_spread_1y_on;lpr_spread_5y_1y",
+        "min_eigenvalue": 0.0008680317417860627,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 1.6375789613221059e-15,
+        "euclidean_ok": true,
+        "k_selected": 2,
+        "silhouette_selected": 0.28413286265988935,
+        "silhouette_k4": 0.26262888130331813
+      }
+    ],
+    "adjacent_ari": [
+      {
+        "window_prev": "2010-12",
+        "window_curr": "2011-12",
+        "n_common_indicators": 16,
+        "ari": 0.7700471698113207,
+        "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fiscal_rev_yoy;fx_reserves_yoy;import_yoy;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;retail_yoy;trade_bal_bn_usd"
+      },
+      {
+        "window_prev": "2011-12",
+        "window_curr": "2012-12",
+        "n_common_indicators": 15,
+        "ari": 0.3037574992106094,
+        "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fiscal_rev_yoy;fx_reserves_yoy;import_yoy;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd"
+      },
+      {
+        "window_prev": "2012-12",
+        "window_curr": "2013-12",
+        "n_common_indicators": 15,
+        "ari": 1.0,
+        "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fiscal_rev_yoy;fx_reserves_yoy;import_yoy;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd"
+      },
+      {
+        "window_prev": "2013-12",
+        "window_curr": "2014-12",
+        "n_common_indicators": 15,
+        "ari": 0.046939834024896265,
+        "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fiscal_rev_yoy;fx_reserves_yoy;import_yoy;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd"
+      },
+      {
+        "window_prev": "2014-12",
+        "window_curr": "2015-12",
+        "n_common_indicators": 15,
+        "ari": 0.12190414924412994,
+        "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fiscal_rev_yoy;fx_reserves_yoy;import_yoy;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd"
+      },
+      {
+        "window_prev": "2015-12",
+        "window_curr": "2016-12",
+        "n_common_indicators": 15,
+        "ari": 0.22528283325135268,
+        "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fiscal_rev_yoy;fx_reserves_yoy;import_yoy;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd"
+      },
+      {
+        "window_prev": "2016-12",
+        "window_curr": "2017-12",
+        "n_common_indicators": 17,
+        "ari": 0.22005097706032287,
+        "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fiscal_rev_yoy;fx_reserves_yoy;import_yoy;lpi;lpr_1y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd"
+      },
+      {
+        "window_prev": "2017-12",
+        "window_curr": "2018-12",
+        "n_common_indicators": 18,
+        "ari": 0.15007264336381507,
+        "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fiscal_rev_yoy;fx_reserves_yoy;import_yoy;lpi;lpr_1y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd;tsf_flow"
+      },
+      {
+        "window_prev": "2018-12",
+        "window_curr": "2019-12",
+        "n_common_indicators": 17,
+        "ari": 0.026041666666666668,
+        "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fx_reserves_yoy;import_yoy;lpi;lpr_1y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd;tsf_flow"
+      },
+      {
+        "window_prev": "2019-12",
+        "window_curr": "2020-12",
+        "n_common_indicators": 17,
+        "ari": -0.05201793721973094,
+        "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fx_reserves_yoy;import_yoy;lpi;lpr_1y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd;tsf_flow"
+      },
+      {
+        "window_prev": "2020-12",
+        "window_curr": "2021-12",
+        "n_common_indicators": 20,
+        "ari": 0.1332484617016762,
+        "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fx_reserves_yoy;import_yoy;lpi;lpr_1y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;shibor_1y;shibor_3m;shibor_on;trade_bal_bn_usd;tsf_flow"
+      },
+      {
+        "window_prev": "2021-12",
+        "window_curr": "2022-12",
+        "n_common_indicators": 20,
+        "ari": 0.4233306941145421,
+        "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fx_reserves_yoy;import_yoy;lpi;lpr_1y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;shibor_1y;shibor_3m;shibor_on;trade_bal_bn_usd;tsf_flow"
+      },
+      {
+        "window_prev": "2022-12",
+        "window_curr": "2023-12",
+        "n_common_indicators": 21,
+        "ari": 0.16653696498054474,
+        "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fx_reserves_yoy;import_yoy;lpi;lpr_1y;lpr_5y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;shibor_1y;shibor_3m;shibor_on;trade_bal_bn_usd;tsf_flow"
+      },
+      {
+        "window_prev": "2023-12",
+        "window_curr": "2024-12",
+        "n_common_indicators": 20,
+        "ari": 0.001893043066729768,
+        "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fx_reserves_yoy;import_yoy;lpr_1y;lpr_5y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;shibor_1y;shibor_3m;shibor_on;trade_bal_bn_usd;tsf_flow"
+      },
+      {
+        "window_prev": "2024-12",
+        "window_curr": "2025-12",
+        "n_common_indicators": 20,
+        "ari": 0.09407478838529948,
+        "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fx_reserves_yoy;import_yoy;lpr_1y;lpr_5y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;shibor_1y;shibor_3m;shibor_on;trade_bal_bn_usd;tsf_flow"
+      },
+      {
+        "window_prev": "2025-12",
+        "window_curr": "2026-10",
+        "n_common_indicators": 19,
+        "ari": 0.1820418204182042,
+        "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fx_reserves_yoy;import_yoy;lpr_1y;lpr_5y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;shibor_1y;shibor_3m;shibor_on;trade_bal_bn_usd"
+      }
+    ],
+    "k_curve_by_window": {
+      "2010-12": [
+        {
+          "k": 2,
+          "silhouette": 0.2727579767055255
+        },
+        {
+          "k": 3,
+          "silhouette": 0.29849977612328255
+        },
+        {
+          "k": 4,
+          "silhouette": 0.2576816665272018
+        },
+        {
+          "k": 5,
+          "silhouette": 0.2637786566543669
+        },
+        {
+          "k": 6,
+          "silhouette": 0.2603237648794889
+        },
+        {
+          "k": 7,
+          "silhouette": 0.23933185763540255
+        },
+        {
+          "k": 8,
+          "silhouette": 0.22245134378870332
+        }
+      ],
+      "2011-12": [
+        {
+          "k": 2,
+          "silhouette": 0.22470791325373896
+        },
+        {
+          "k": 3,
+          "silhouette": 0.24396476809601636
+        },
+        {
+          "k": 4,
+          "silhouette": 0.2343772286558593
+        },
+        {
+          "k": 5,
+          "silhouette": 0.23668720454289682
+        },
+        {
+          "k": 6,
+          "silhouette": 0.23171170594676543
+        },
+        {
+          "k": 7,
+          "silhouette": 0.21807591178513203
+        },
+        {
+          "k": 8,
+          "silhouette": 0.20350782057728978
+        }
+      ],
+      "2012-12": [
+        {
+          "k": 2,
+          "silhouette": 0.3321806052111596
+        },
+        {
+          "k": 3,
+          "silhouette": 0.23829261580762695
+        },
+        {
+          "k": 4,
+          "silhouette": 0.22885414842188317
+        },
+        {
+          "k": 5,
+          "silhouette": 0.210532253779438
+        },
+        {
+          "k": 6,
+          "silhouette": 0.19897055427799687
+        },
+        {
+          "k": 7,
+          "silhouette": 0.20657521107020754
+        },
+        {
+          "k": 8,
+          "silhouette": 0.18382455776830747
+        }
+      ],
+      "2013-12": [
+        {
+          "k": 2,
+          "silhouette": 0.340851859351626
+        },
+        {
+          "k": 3,
+          "silhouette": 0.20009268650584197
+        },
+        {
+          "k": 4,
+          "silhouette": 0.1955263638952806
+        },
+        {
+          "k": 5,
+          "silhouette": 0.20097706560521394
+        },
+        {
+          "k": 6,
+          "silhouette": 0.22910358233212974
+        },
+        {
+          "k": 7,
+          "silhouette": 0.21852199940257142
+        },
+        {
+          "k": 8,
+          "silhouette": 0.2100101285878923
+        }
+      ],
+      "2014-12": [
+        {
+          "k": 2,
+          "silhouette": 0.1329918742986477
+        },
+        {
+          "k": 3,
+          "silhouette": 0.15525104963034325
+        },
+        {
+          "k": 4,
+          "silhouette": 0.17919629894188638
+        },
+        {
+          "k": 5,
+          "silhouette": 0.19685895519712984
+        },
+        {
+          "k": 6,
+          "silhouette": 0.20152444810889975
+        },
+        {
+          "k": 7,
+          "silhouette": 0.20418300412932394
+        },
+        {
+          "k": 8,
+          "silhouette": 0.2022142366908584
+        }
+      ],
+      "2015-12": [
+        {
+          "k": 2,
+          "silhouette": 0.2257154076360524
+        },
+        {
+          "k": 3,
+          "silhouette": 0.14153463772325917
+        },
+        {
+          "k": 4,
+          "silhouette": 0.14800974425848365
+        },
+        {
+          "k": 5,
+          "silhouette": 0.162448654504639
+        },
+        {
+          "k": 6,
+          "silhouette": 0.12159045215713424
+        },
+        {
+          "k": 7,
+          "silhouette": 0.1076790421214133
+        },
+        {
+          "k": 8,
+          "silhouette": 0.09046111098760162
+        }
+      ],
+      "2016-12": [
+        {
+          "k": 2,
+          "silhouette": 0.12731336373774754
+        },
+        {
+          "k": 3,
+          "silhouette": 0.13595971797897669
+        },
+        {
+          "k": 4,
+          "silhouette": 0.16027648249105142
+        },
+        {
+          "k": 5,
+          "silhouette": 0.16184377697381677
+        },
+        {
+          "k": 6,
+          "silhouette": 0.1419866128127808
+        },
+        {
+          "k": 7,
+          "silhouette": 0.15481717807674072
+        },
+        {
+          "k": 8,
+          "silhouette": 0.14050727039010244
+        }
+      ],
+      "2017-12": [
+        {
+          "k": 2,
+          "silhouette": 0.17974169120755498
+        },
+        {
+          "k": 3,
+          "silhouette": 0.1506119224686763
+        },
+        {
+          "k": 4,
+          "silhouette": 0.1441419746596307
+        },
+        {
+          "k": 5,
+          "silhouette": 0.15655162845647902
+        },
+        {
+          "k": 6,
+          "silhouette": 0.15210831465378394
+        },
+        {
+          "k": 7,
+          "silhouette": 0.14646800127772144
+        },
+        {
+          "k": 8,
+          "silhouette": 0.14801760706741754
+        }
+      ],
+      "2018-12": [
+        {
+          "k": 2,
+          "silhouette": 0.17791939197774134
+        },
+        {
+          "k": 3,
+          "silhouette": 0.17402621782827804
+        },
+        {
+          "k": 4,
+          "silhouette": 0.17403989502126385
+        },
+        {
+          "k": 5,
+          "silhouette": 0.17565867746673314
+        },
+        {
+          "k": 6,
+          "silhouette": 0.173006113561105
+        },
+        {
+          "k": 7,
+          "silhouette": 0.17380823555017272
+        },
+        {
+          "k": 8,
+          "silhouette": 0.16820716046510917
+        }
+      ],
+      "2019-12": [
+        {
+          "k": 2,
+          "silhouette": 0.1768245600018539
+        },
+        {
+          "k": 3,
+          "silhouette": 0.1659622105200839
+        },
+        {
+          "k": 4,
+          "silhouette": 0.150820289002141
+        },
+        {
+          "k": 5,
+          "silhouette": 0.1522342979019212
+        },
+        {
+          "k": 6,
+          "silhouette": 0.16130600811186777
+        },
+        {
+          "k": 7,
+          "silhouette": 0.12933861873584632
+        },
+        {
+          "k": 8,
+          "silhouette": 0.1286674437319542
+        }
+      ],
+      "2020-12": [
+        {
+          "k": 2,
+          "silhouette": 0.2085090513442794
+        },
+        {
+          "k": 3,
+          "silhouette": 0.19973156303471937
+        },
+        {
+          "k": 4,
+          "silhouette": 0.24469122520785028
+        },
+        {
+          "k": 5,
+          "silhouette": 0.2450356860616457
+        },
+        {
+          "k": 6,
+          "silhouette": 0.23561554264515175
+        },
+        {
+          "k": 7,
+          "silhouette": 0.237488436707268
+        },
+        {
+          "k": 8,
+          "silhouette": 0.24013492008875076
+        }
+      ],
+      "2021-12": [
+        {
+          "k": 2,
+          "silhouette": 0.21482391474632018
+        },
+        {
+          "k": 3,
+          "silhouette": 0.20014175082857627
+        },
+        {
+          "k": 4,
+          "silhouette": 0.22848015872103783
+        },
+        {
+          "k": 5,
+          "silhouette": 0.2427997500132284
+        },
+        {
+          "k": 6,
+          "silhouette": 0.2491044486138018
+        },
+        {
+          "k": 7,
+          "silhouette": 0.25735162190920524
+        },
+        {
+          "k": 8,
+          "silhouette": 0.25903297864740515
+        }
+      ],
+      "2022-12": [
+        {
+          "k": 2,
+          "silhouette": 0.20851637235086395
+        },
+        {
+          "k": 3,
+          "silhouette": 0.20553265562246695
+        },
+        {
+          "k": 4,
+          "silhouette": 0.16529263706550332
+        },
+        {
+          "k": 5,
+          "silhouette": 0.1889462073546641
+        },
+        {
+          "k": 6,
+          "silhouette": 0.21060560764842573
+        },
+        {
+          "k": 7,
+          "silhouette": 0.19927150477909852
+        },
+        {
+          "k": 8,
+          "silhouette": 0.20463683337676353
+        }
+      ],
+      "2023-12": [
+        {
+          "k": 2,
+          "silhouette": 0.3051069044202287
+        },
+        {
+          "k": 3,
+          "silhouette": 0.23388412782734025
+        },
+        {
+          "k": 4,
+          "silhouette": 0.18362852852985162
+        },
+        {
+          "k": 5,
+          "silhouette": 0.19603673697336652
+        },
+        {
+          "k": 6,
+          "silhouette": 0.1833562551169627
+        },
+        {
+          "k": 7,
+          "silhouette": 0.19398453465622442
+        },
+        {
+          "k": 8,
+          "silhouette": 0.19163875945952885
+        }
+      ],
+      "2024-12": [
+        {
+          "k": 2,
+          "silhouette": 0.16252240177014515
+        },
+        {
+          "k": 3,
+          "silhouette": 0.16839241940533003
+        },
+        {
+          "k": 4,
+          "silhouette": 0.17837470539966194
+        },
+        {
+          "k": 5,
+          "silhouette": 0.16906659444877095
+        },
+        {
+          "k": 6,
+          "silhouette": 0.16806611158320875
+        },
+        {
+          "k": 7,
+          "silhouette": 0.16950185005897278
+        },
+        {
+          "k": 8,
+          "silhouette": 0.18928528433656652
+        }
+      ],
+      "2025-12": [
+        {
+          "k": 2,
+          "silhouette": 0.253097106953402
+        },
+        {
+          "k": 3,
+          "silhouette": 0.1926247201013037
+        },
+        {
+          "k": 4,
+          "silhouette": 0.18084206727816957
+        },
+        {
+          "k": 5,
+          "silhouette": 0.18591427502008306
+        },
+        {
+          "k": 6,
+          "silhouette": 0.17023731016086735
+        },
+        {
+          "k": 7,
+          "silhouette": 0.17056880874747127
+        },
+        {
+          "k": 8,
+          "silhouette": 0.18010418504707054
+        }
+      ],
+      "2026-10": [
+        {
+          "k": 2,
+          "silhouette": 0.28413286265988935
+        },
+        {
+          "k": 3,
+          "silhouette": 0.27897067606622544
+        },
+        {
+          "k": 4,
+          "silhouette": 0.26262888130331813
+        },
+        {
+          "k": 5,
+          "silhouette": 0.26809756870284945
+        },
+        {
+          "k": 6,
+          "silhouette": 0.2678232800294192
+        },
+        {
+          "k": 7,
+          "silhouette": 0.2755764901448801
+        },
+        {
+          "k": 8,
+          "silhouette": 0.2725055150499479
+        }
+      ]
+    }
+  },
+  "fit_seconds": 15.463648900000408,
   "environment": {
     "python": "3.13.15",
     "numpy": "2.5.4",

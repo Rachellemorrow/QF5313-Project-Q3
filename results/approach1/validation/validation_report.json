@@ -1,0 +1,1408 @@
+{
+  "seed": 42,
+  "n_checks": 189,
+  "n_passed": 189,
+  "n_failed": 0,
+  "all_passed": true,
+  "summary": {
+    "gdp": {
+      "n": 105,
+      "rmse": 3.058216606212316,
+      "mae": 1.355067496927943,
+      "rw_rmse": 4.154919347714021
+    },
+    "regime": {
+      "n": 82,
+      "brier": 0.25174912360714735,
+      "auc": 0.5952861952861953,
+      "accuracy": 0.5975609756097561,
+      "prior_brier": 0.23207198790490358,
+      "persistence_brier": 0.24390243902439024
+    },
+    "clustering": {
+      "n_windows": 17,
+      "max_eigenvalue_diff": 7.433290094560618e-16,
+      "max_euclidean_diff": 9.43689570931383e-16,
+      "max_silhouette_diff": 1.1102230246251565e-16,
+      "max_ari_diff": 0.0,
+      "mean_silhouette": 0.2404718394962348,
+      "mean_ari": 0.2383252880050237
+    },
+    "preprocessing": {
+      "n_checked": 4786,
+      "n_bad": 0
+    },
+    "files": {
+      "n_figures": 18
+    },
+    "leakage_audit_rows": 204
+  },
+  "failed_checks": [],
+  "checks": [
+    {
+      "check": "frozen inputs: SHA-256 verified",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "regime: required prediction columns",
+      "passed": true,
+      "detail": [
+        "model",
+        "forecast_origin",
+        "target_period",
+        "y_true",
+        "y_pred_proba",
+        "y_pred",
+        "fold",
+        "seed",
+        "leakage_discipline",
+        "train_start",
+        "train_end",
+        "n_train_labels",
+        "n_positive",
+        "base_rate",
+        "r",
+        "control_used",
+        "fit_method",
+        "y_lag1",
+        "error",
+        "brier",
+        "correct"
+      ]
+    },
+    {
+      "check": "regime: 82 predictions",
+      "passed": true,
+      "detail": 82
+    },
+    {
+      "check": "regime: unique folds",
+      "passed": true,
+      "detail": 82
+    },
+    {
+      "check": "regime: no missing probabilities",
+      "passed": true,
+      "detail": 0
+    },
+    {
+      "check": "regime: probabilities in [0,1]",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "regime: exact scheduled target months",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "regime: fold equals target period",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "regime: origins are month-end",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "regime: target = origin + 1 month",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "regime: realized labels match primary PMI labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "regime: training labels observable at origin",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "regime: Brier recomputed",
+      "passed": true,
+      "detail": [
+        0.25174912360714735,
+        0.25174912360714735
+      ]
+    },
+    {
+      "check": "regime: AUC recomputed",
+      "passed": true,
+      "detail": [
+        0.5952861952861953,
+        0.5952861952861953
+      ]
+    },
+    {
+      "check": "regime: accuracy recomputed",
+      "passed": true,
+      "detail": [
+        0.5975609756097561,
+        0.5975609756097561
+      ]
+    },
+    {
+      "check": "regime: prior baseline Brier recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "regime: persistence baseline Brier recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "regime: 49.5 predictions 82 rows",
+      "passed": true,
+      "detail": 82
+    },
+    {
+      "check": "regime: 49.5 target months",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "regime: 49.5 labels independently reconstructed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "regime: 49.5 labels differ from 50 labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "regime: 49.5 positives = 13",
+      "passed": true,
+      "detail": 13
+    },
+    {
+      "check": "regime: factors-only sensitivity 82 rows",
+      "passed": true,
+      "detail": 82
+    },
+    {
+      "check": "regime: factors-only has no control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "regime: metrics.json base schema",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "regime: metrics_factors_only.json base schema",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "regime: metrics_threshold_49p5.json base schema",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "regime: metrics_threshold_49p5_controls.json base schema",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "gdp: required prediction columns",
+      "passed": true,
+      "detail": [
+        "model",
+        "target",
+        "forecast_origin",
+        "target_period",
+        "y_true",
+        "y_pred",
+        "vintage",
+        "fold",
+        "seed",
+        "train_start",
+        "train_end",
+        "n_train_quarters",
+        "r",
+        "leakage_discipline",
+        "error",
+        "abs_error",
+        "squared_error"
+      ]
+    },
+    {
+      "check": "gdp: 105 model records",
+      "passed": true,
+      "detail": 105
+    },
+    {
+      "check": "gdp: 105 rw-drift records",
+      "passed": true,
+      "detail": 105
+    },
+    {
+      "check": "gdp: 35 quarters",
+      "passed": true,
+      "detail": 35
+    },
+    {
+      "check": "gdp: 3 vintages",
+      "passed": true,
+      "detail": [
+        "M1",
+        "M2",
+        "M3"
+      ]
+    },
+    {
+      "check": "gdp: unique quarter-vintage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "gdp: fold equals target quarter",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "gdp: realized target values match derived series",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "gdp: origins are correct month-end vintages",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "gdp: train_end published by origin",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "gdp: target never in own training set",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "gdp: M1 RMSE recomputed",
+      "passed": true,
+      "detail": [
+        3.214204973975276,
+        3.214204973975276
+      ]
+    },
+    {
+      "check": "gdp: M1 MAE recomputed",
+      "passed": true,
+      "detail": [
+        1.3350987851957448,
+        1.3350987851957448
+      ]
+    },
+    {
+      "check": "gdp: M2 RMSE recomputed",
+      "passed": true,
+      "detail": [
+        2.659347823919226,
+        2.659347823919226
+      ]
+    },
+    {
+      "check": "gdp: M2 MAE recomputed",
+      "passed": true,
+      "detail": [
+        1.236280728025725,
+        1.236280728025725
+      ]
+    },
+    {
+      "check": "gdp: M3 RMSE recomputed",
+      "passed": true,
+      "detail": [
+        3.2641724783208064,
+        3.2641724783208064
+      ]
+    },
+    {
+      "check": "gdp: M3 MAE recomputed",
+      "passed": true,
+      "detail": [
+        1.4938229775623584,
+        1.4938229775623584
+      ]
+    },
+    {
+      "check": "gdp: overall RMSE recomputed",
+      "passed": true,
+      "detail": [
+        3.058216606212316,
+        3.058216606212316
+      ]
+    },
+    {
+      "check": "gdp: overall MAE recomputed",
+      "passed": true,
+      "detail": [
+        1.355067496927943,
+        1.355067496927943
+      ]
+    },
+    {
+      "check": "gdp: benchmark RMSE recomputed",
+      "passed": true,
+      "detail": [
+        4.154919347714021,
+        4.154919347714021
+      ]
+    },
+    {
+      "check": "gdp: revision path 35 quarters",
+      "passed": true,
+      "detail": 35
+    },
+    {
+      "check": "gdp: revision metric recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "gdp: metrics base schema",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "gdp: target checks embedded",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "clustering: 17 windows",
+      "passed": true,
+      "detail": 17
+    },
+    {
+      "check": "clustering: all PSD ok",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "clustering: all Euclidean ok",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "clustering: no 2026-11",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "clustering 2010-12: common months match",
+      "passed": true,
+      "detail": [
+        35,
+        35
+      ]
+    },
+    {
+      "check": "clustering 2010-12: eigenvalue match",
+      "passed": true,
+      "detail": [
+        0.004543033677831163,
+        0.0045430336778304195
+      ]
+    },
+    {
+      "check": "clustering 2010-12: Euclidean identity match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "clustering 2010-12: silhouette recomputed",
+      "passed": true,
+      "detail": [
+        0.2984997761232825,
+        0.29849977612328255
+      ]
+    },
+    {
+      "check": "clustering 2010-12: k matches labels",
+      "passed": true,
+      "detail": [
+        3,
+        3
+      ]
+    },
+    {
+      "check": "clustering 2011-12: common months match",
+      "passed": true,
+      "detail": [
+        35,
+        35
+      ]
+    },
+    {
+      "check": "clustering 2011-12: eigenvalue match",
+      "passed": true,
+      "detail": [
+        0.007617633426907001,
+        0.007617633426907456
+      ]
+    },
+    {
+      "check": "clustering 2011-12: Euclidean identity match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "clustering 2011-12: silhouette recomputed",
+      "passed": true,
+      "detail": [
+        0.2439647680960163,
+        0.24396476809601636
+      ]
+    },
+    {
+      "check": "clustering 2011-12: k matches labels",
+      "passed": true,
+      "detail": [
+        3,
+        3
+      ]
+    },
+    {
+      "check": "clustering 2012-12: common months match",
+      "passed": true,
+      "detail": [
+        35,
+        35
+      ]
+    },
+    {
+      "check": "clustering 2012-12: eigenvalue match",
+      "passed": true,
+      "detail": [
+        0.0021564338753647452,
+        0.002156433875364741
+      ]
+    },
+    {
+      "check": "clustering 2012-12: Euclidean identity match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "clustering 2012-12: silhouette recomputed",
+      "passed": true,
+      "detail": [
+        0.33218060521115955,
+        0.3321806052111596
+      ]
+    },
+    {
+      "check": "clustering 2012-12: k matches labels",
+      "passed": true,
+      "detail": [
+        2,
+        2
+      ]
+    },
+    {
+      "check": "clustering 2013-12: common months match",
+      "passed": true,
+      "detail": [
+        35,
+        35
+      ]
+    },
+    {
+      "check": "clustering 2013-12: eigenvalue match",
+      "passed": true,
+      "detail": [
+        0.008137200297512241,
+        0.008137200297512331
+      ]
+    },
+    {
+      "check": "clustering 2013-12: Euclidean identity match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "clustering 2013-12: silhouette recomputed",
+      "passed": true,
+      "detail": [
+        0.3408518593516259,
+        0.340851859351626
+      ]
+    },
+    {
+      "check": "clustering 2013-12: k matches labels",
+      "passed": true,
+      "detail": [
+        2,
+        2
+      ]
+    },
+    {
+      "check": "clustering 2014-12: common months match",
+      "passed": true,
+      "detail": [
+        35,
+        35
+      ]
+    },
+    {
+      "check": "clustering 2014-12: eigenvalue match",
+      "passed": true,
+      "detail": [
+        0.0263569685874919,
+        0.02635696858749156
+      ]
+    },
+    {
+      "check": "clustering 2014-12: Euclidean identity match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "clustering 2014-12: silhouette recomputed",
+      "passed": true,
+      "detail": [
+        0.20418300412932391,
+        0.20418300412932394
+      ]
+    },
+    {
+      "check": "clustering 2014-12: k matches labels",
+      "passed": true,
+      "detail": [
+        7,
+        7
+      ]
+    },
+    {
+      "check": "clustering 2015-12: common months match",
+      "passed": true,
+      "detail": [
+        35,
+        35
+      ]
+    },
+    {
+      "check": "clustering 2015-12: eigenvalue match",
+      "passed": true,
+      "detail": [
+        0.0239675749460691,
+        0.023967574946069155
+      ]
+    },
+    {
+      "check": "clustering 2015-12: Euclidean identity match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "clustering 2015-12: silhouette recomputed",
+      "passed": true,
+      "detail": [
+        0.22571540763605244,
+        0.2257154076360524
+      ]
+    },
+    {
+      "check": "clustering 2015-12: k matches labels",
+      "passed": true,
+      "detail": [
+        2,
+        2
+      ]
+    },
+    {
+      "check": "clustering 2016-12: common months match",
+      "passed": true,
+      "detail": [
+        35,
+        35
+      ]
+    },
+    {
+      "check": "clustering 2016-12: eigenvalue match",
+      "passed": true,
+      "detail": [
+        0.005519829318930428,
+        0.005519829318929917
+      ]
+    },
+    {
+      "check": "clustering 2016-12: Euclidean identity match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "clustering 2016-12: silhouette recomputed",
+      "passed": true,
+      "detail": [
+        0.1618437769738168,
+        0.16184377697381677
+      ]
+    },
+    {
+      "check": "clustering 2016-12: k matches labels",
+      "passed": true,
+      "detail": [
+        5,
+        5
+      ]
+    },
+    {
+      "check": "clustering 2017-12: common months match",
+      "passed": true,
+      "detail": [
+        35,
+        35
+      ]
+    },
+    {
+      "check": "clustering 2017-12: eigenvalue match",
+      "passed": true,
+      "detail": [
+        0.006236799654535231,
+        0.006236799654534889
+      ]
+    },
+    {
+      "check": "clustering 2017-12: Euclidean identity match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "clustering 2017-12: silhouette recomputed",
+      "passed": true,
+      "detail": [
+        0.179741691207555,
+        0.17974169120755498
+      ]
+    },
+    {
+      "check": "clustering 2017-12: k matches labels",
+      "passed": true,
+      "detail": [
+        2,
+        2
+      ]
+    },
+    {
+      "check": "clustering 2018-12: common months match",
+      "passed": true,
+      "detail": [
+        35,
+        35
+      ]
+    },
+    {
+      "check": "clustering 2018-12: eigenvalue match",
+      "passed": true,
+      "detail": [
+        0.00585706604890193,
+        0.005857066048901928
+      ]
+    },
+    {
+      "check": "clustering 2018-12: Euclidean identity match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "clustering 2018-12: silhouette recomputed",
+      "passed": true,
+      "detail": [
+        0.17791939197774134,
+        0.17791939197774134
+      ]
+    },
+    {
+      "check": "clustering 2018-12: k matches labels",
+      "passed": true,
+      "detail": [
+        2,
+        2
+      ]
+    },
+    {
+      "check": "clustering 2019-12: common months match",
+      "passed": true,
+      "detail": [
+        35,
+        35
+      ]
+    },
+    {
+      "check": "clustering 2019-12: eigenvalue match",
+      "passed": true,
+      "detail": [
+        0.004868574696227967,
+        0.00486857469622739
+      ]
+    },
+    {
+      "check": "clustering 2019-12: Euclidean identity match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "clustering 2019-12: silhouette recomputed",
+      "passed": true,
+      "detail": [
+        0.1768245600018539,
+        0.1768245600018539
+      ]
+    },
+    {
+      "check": "clustering 2019-12: k matches labels",
+      "passed": true,
+      "detail": [
+        2,
+        2
+      ]
+    },
+    {
+      "check": "clustering 2020-12: common months match",
+      "passed": true,
+      "detail": [
+        35,
+        35
+      ]
+    },
+    {
+      "check": "clustering 2020-12: eigenvalue match",
+      "passed": true,
+      "detail": [
+        0.003256810846299115,
+        0.0032568108462992236
+      ]
+    },
+    {
+      "check": "clustering 2020-12: Euclidean identity match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "clustering 2020-12: silhouette recomputed",
+      "passed": true,
+      "detail": [
+        0.24503568606164575,
+        0.2450356860616457
+      ]
+    },
+    {
+      "check": "clustering 2020-12: k matches labels",
+      "passed": true,
+      "detail": [
+        5,
+        5
+      ]
+    },
+    {
+      "check": "clustering 2021-12: common months match",
+      "passed": true,
+      "detail": [
+        35,
+        35
+      ]
+    },
+    {
+      "check": "clustering 2021-12: eigenvalue match",
+      "passed": true,
+      "detail": [
+        0.0029687850453258306,
+        0.002968785045325685
+      ]
+    },
+    {
+      "check": "clustering 2021-12: Euclidean identity match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "clustering 2021-12: silhouette recomputed",
+      "passed": true,
+      "detail": [
+        0.25903297864740515,
+        0.25903297864740515
+      ]
+    },
+    {
+      "check": "clustering 2021-12: k matches labels",
+      "passed": true,
+      "detail": [
+        8,
+        8
+      ]
+    },
+    {
+      "check": "clustering 2022-12: common months match",
+      "passed": true,
+      "detail": [
+        35,
+        35
+      ]
+    },
+    {
+      "check": "clustering 2022-12: eigenvalue match",
+      "passed": true,
+      "detail": [
+        0.0016396853767789224,
+        0.0016396853767790345
+      ]
+    },
+    {
+      "check": "clustering 2022-12: Euclidean identity match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "clustering 2022-12: silhouette recomputed",
+      "passed": true,
+      "detail": [
+        0.21060560764842579,
+        0.21060560764842573
+      ]
+    },
+    {
+      "check": "clustering 2022-12: k matches labels",
+      "passed": true,
+      "detail": [
+        6,
+        6
+      ]
+    },
+    {
+      "check": "clustering 2023-12: common months match",
+      "passed": true,
+      "detail": [
+        35,
+        35
+      ]
+    },
+    {
+      "check": "clustering 2023-12: eigenvalue match",
+      "passed": true,
+      "detail": [
+        0.0016594714337824302,
+        0.0016594714337827593
+      ]
+    },
+    {
+      "check": "clustering 2023-12: Euclidean identity match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "clustering 2023-12: silhouette recomputed",
+      "passed": true,
+      "detail": [
+        0.3051069044202287,
+        0.3051069044202287
+      ]
+    },
+    {
+      "check": "clustering 2023-12: k matches labels",
+      "passed": true,
+      "detail": [
+        2,
+        2
+      ]
+    },
+    {
+      "check": "clustering 2024-12: common months match",
+      "passed": true,
+      "detail": [
+        35,
+        35
+      ]
+    },
+    {
+      "check": "clustering 2024-12: eigenvalue match",
+      "passed": true,
+      "detail": [
+        0.0021365576060868863,
+        0.0021365576060871183
+      ]
+    },
+    {
+      "check": "clustering 2024-12: Euclidean identity match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "clustering 2024-12: silhouette recomputed",
+      "passed": true,
+      "detail": [
+        0.18928528433656652,
+        0.18928528433656652
+      ]
+    },
+    {
+      "check": "clustering 2024-12: k matches labels",
+      "passed": true,
+      "detail": [
+        8,
+        8
+      ]
+    },
+    {
+      "check": "clustering 2025-12: common months match",
+      "passed": true,
+      "detail": [
+        35,
+        35
+      ]
+    },
+    {
+      "check": "clustering 2025-12: eigenvalue match",
+      "passed": true,
+      "detail": [
+        0.0007488085980470226,
+        0.0007488085980470043
+      ]
+    },
+    {
+      "check": "clustering 2025-12: Euclidean identity match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "clustering 2025-12: silhouette recomputed",
+      "passed": true,
+      "detail": [
+        0.25309710695340204,
+        0.253097106953402
+      ]
+    },
+    {
+      "check": "clustering 2025-12: k matches labels",
+      "passed": true,
+      "detail": [
+        2,
+        2
+      ]
+    },
+    {
+      "check": "clustering 2026-10: common months match",
+      "passed": true,
+      "detail": [
+        35,
+        35
+      ]
+    },
+    {
+      "check": "clustering 2026-10: eigenvalue match",
+      "passed": true,
+      "detail": [
+        0.0008680317417862921,
+        0.0008680317417860627
+      ]
+    },
+    {
+      "check": "clustering 2026-10: Euclidean identity match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "clustering 2026-10: silhouette recomputed",
+      "passed": true,
+      "detail": [
+        0.2841328626598894,
+        0.28413286265988935
+      ]
+    },
+    {
+      "check": "clustering 2026-10: k matches labels",
+      "passed": true,
+      "detail": [
+        2,
+        2
+      ]
+    },
+    {
+      "check": "clustering ARI 2011-12: recomputed",
+      "passed": true,
+      "detail": [
+        0.7700471698113207,
+        0.7700471698113207
+      ]
+    },
+    {
+      "check": "clustering ARI 2012-12: recomputed",
+      "passed": true,
+      "detail": [
+        0.3037574992106094,
+        0.3037574992106094
+      ]
+    },
+    {
+      "check": "clustering ARI 2013-12: recomputed",
+      "passed": true,
+      "detail": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "check": "clustering ARI 2014-12: recomputed",
+      "passed": true,
+      "detail": [
+        0.046939834024896265,
+        0.046939834024896265
+      ]
+    },
+    {
+      "check": "clustering ARI 2015-12: recomputed",
+      "passed": true,
+      "detail": [
+        0.12190414924412994,
+        0.12190414924412994
+      ]
+    },
+    {
+      "check": "clustering ARI 2016-12: recomputed",
+      "passed": true,
+      "detail": [
+        0.22528283325135268,
+        0.22528283325135268
+      ]
+    },
+    {
+      "check": "clustering ARI 2017-12: recomputed",
+      "passed": true,
+      "detail": [
+        0.22005097706032287,
+        0.22005097706032287
+      ]
+    },
+    {
+      "check": "clustering ARI 2018-12: recomputed",
+      "passed": true,
+      "detail": [
+        0.15007264336381507,
+        0.15007264336381507
+      ]
+    },
+    {
+      "check": "clustering ARI 2019-12: recomputed",
+      "passed": true,
+      "detail": [
+        0.026041666666666668,
+        0.026041666666666668
+      ]
+    },
+    {
+      "check": "clustering ARI 2020-12: recomputed",
+      "passed": true,
+      "detail": [
+        -0.05201793721973094,
+        -0.05201793721973094
+      ]
+    },
+    {
+      "check": "clustering ARI 2021-12: recomputed",
+      "passed": true,
+      "detail": [
+        0.1332484617016762,
+        0.1332484617016762
+      ]
+    },
+    {
+      "check": "clustering ARI 2022-12: recomputed",
+      "passed": true,
+      "detail": [
+        0.4233306941145421,
+        0.4233306941145421
+      ]
+    },
+    {
+      "check": "clustering ARI 2023-12: recomputed",
+      "passed": true,
+      "detail": [
+        0.16653696498054474,
+        0.16653696498054474
+      ]
+    },
+    {
+      "check": "clustering ARI 2024-12: recomputed",
+      "passed": true,
+      "detail": [
+        0.001893043066729768,
+        0.001893043066729768
+      ]
+    },
+    {
+      "check": "clustering ARI 2025-12: recomputed",
+      "passed": true,
+      "detail": [
+        0.09407478838529948,
+        0.09407478838529948
+      ]
+    },
+    {
+      "check": "clustering ARI 2026-10: recomputed",
+      "passed": true,
+      "detail": [
+        0.1820418204182042,
+        0.1820418204182042
+      ]
+    },
+    {
+      "check": "clustering: metrics base schema",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "clustering: headline mean silhouette matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "clustering: headline mean ARI matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "target: Q1 reconstruction check",
+      "passed": true,
+      "detail": 1.2434497875801753e-14
+    },
+    {
+      "check": "target: cumulative recovery check",
+      "passed": true,
+      "detail": 1.0658141036401503e-14
+    },
+    {
+      "check": "target: all volumes positive",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "target: 79 derived observations",
+      "passed": true,
+      "detail": 79
+    },
+    {
+      "check": "labels: initial 143 / 20 contraction",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "labels: OOS 82 / 27 contraction",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "preprocessing: training-window mu/sd and r verified",
+      "passed": true,
+      "detail": {
+        "checked": 4786,
+        "bad": 0
+      }
+    },
+    {
+      "check": "gdp: figures present",
+      "passed": true,
+      "detail": 6
+    },
+    {
+      "check": "gdp: self-contained figure fig_factor_loadings.html",
+      "passed": true,
+      "detail": 4829074
+    },
+    {
+      "check": "gdp: self-contained figure fig_gdp_target.html",
+      "passed": true,
+      "detail": 4829906
+    },
+    {
+      "check": "gdp: self-contained figure fig_nowcast_vs_realized.html",
+      "passed": true,
+      "detail": 4830395
+    },
+    {
+      "check": "gdp: self-contained figure fig_pca_scree.html",
+      "passed": true,
+      "detail": 4827729
+    },
+    {
+      "check": "gdp: self-contained figure fig_revision_path.html",
+      "passed": true,
+      "detail": 4831907
+    },
+    {
+      "check": "gdp: self-contained figure fig_rmse_by_vintage.html",
+      "passed": true,
+      "detail": 4827475
+    },
+    {
+      "check": "regime: figures present",
+      "passed": true,
+      "detail": 5
+    },
+    {
+      "check": "regime: self-contained figure fig_regime_brier.html",
+      "passed": true,
+      "detail": 4833112
+    },
+    {
+      "check": "regime: self-contained figure fig_regime_calibration.html",
+      "passed": true,
+      "detail": 4827501
+    },
+    {
+      "check": "regime: self-contained figure fig_regime_coefficients.html",
+      "passed": true,
+      "detail": 4827414
+    },
+    {
+      "check": "regime: self-contained figure fig_regime_probabilities.html",
+      "passed": true,
+      "detail": 4831366
+    },
+    {
+      "check": "regime: self-contained figure fig_regime_roc.html",
+      "passed": true,
+      "detail": 4828182
+    },
+    {
+      "check": "clustering: figures present",
+      "passed": true,
+      "detail": 7
+    },
+    {
+      "check": "clustering: self-contained figure fig_adjacent_ari.html",
+      "passed": true,
+      "detail": 4827605
+    },
+    {
+      "check": "clustering: self-contained figure fig_cluster_membership.html",
+      "passed": true,
+      "detail": 4832407
+    },
+    {
+      "check": "clustering: self-contained figure fig_cluster_regime_profile.html",
+      "passed": true,
+      "detail": 4827307
+    },
+    {
+      "check": "clustering: self-contained figure fig_dendrograms.html",
+      "passed": true,
+      "detail": 4898429
+    },
+    {
+      "check": "clustering: self-contained figure fig_lead_lag_gdp.html",
+      "passed": true,
+      "detail": 4830045
+    },
+    {
+      "check": "clustering: self-contained figure fig_silhouette.html",
+      "passed": true,
+      "detail": 4828008
+    },
+    {
+      "check": "clustering: self-contained figure fig_silhouette_k_curve.html",
+      "passed": true,
+      "detail": 4830777
+    },
+    {
+      "check": "2026-11 excluded from all model predictions",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "targets": {
+    "target_checks": {
+      "base_year": 2006,
+      "source_file": "data/clean/gdp_quarterly.csv",
+      "source_columns": [
+        "quarter",
+        "gdp_abs_cum_bn",
+        "gdp_yoy",
+        "window"
+      ],
+      "unit_note": "gdp_abs_cum_bn is RMB 100 million (亿元); target is in percent",
+      "formula": {
+        "C_2006": "C(2006,q) = A(2006,q)",
+        "C_chain": "C(y,q) = C(y-1,q) * (1 + g(y,q))",
+        "V_deaccumulate": "V(y,1)=C(y,1); V(y,q)=C(y,q)-C(y,q-1), q=2,3,4",
+        "target": "100 * (V(y,q)/V(y-1,q) - 1)"
+      },
+      "n_source_rows": 83,
+      "n_derived_targets": 79,
+      "derived_first_quarter": "2007Q1",
+      "derived_last_quarter": "2026Q3",
+      "all_reconstructed_volumes_positive": true,
+      "q1_max_abs_difference_pp": 1.2434497875801753e-14,
+      "cumulative_recovery_max_abs_difference_pp": 1.0658141036401503e-14,
+      "q1_validation_n": 20,
+      "cumulative_validation_n": 59,
+      "q1_check_passed": true,
+      "cumulative_check_passed": true,
+      "note": "Derived chain-linked single-quarter volume estimate, not an official separately published NBS single-quarter series."
+    },
+    "label_counts": {
+      "primary_threshold_50": {
+        "total": {
+          "start": "2008-02",
+          "end": "2026-10",
+          "n_months": 225,
+          "n_valid_labels": 225,
+          "n_contraction": 47,
+          "n_expansion": 178
+        },
+        "initial": {
+          "start": "2008-02",
+          "end": "2019-12",
+          "n_months": 143,
+          "n_valid_labels": 143,
+          "n_contraction": 20,
+          "n_expansion": 123
+        },
+        "out_of_sample": {
+          "start": "2020-01",
+          "end": "2026-10",
+          "n_months": 82,
+          "n_valid_labels": 82,
+          "n_contraction": 27,
+          "n_expansion": 55
+        }
+      },
+      "sensitivity_threshold_49_5": {
+        "total": {
+          "start": "2008-02",
+          "end": "2026-10",
+          "n_months": 225,
+          "n_valid_labels": 225,
+          "n_contraction": 20,
+          "n_expansion": 205
+        },
+        "initial": {
+          "start": "2008-02",
+          "end": "2019-12",
+          "n_months": 143,
+          "n_valid_labels": 143,
+          "n_contraction": 7,
+          "n_expansion": 136
+        },
+        "out_of_sample": {
+          "start": "2020-01",
+          "end": "2026-10",
+          "n_months": 82,
+          "n_valid_labels": 82,
+          "n_contraction": 13,
+          "n_expansion": 69
+        }
+      }
+    }
+  }
+}

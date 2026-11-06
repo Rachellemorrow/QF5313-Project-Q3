@@ -334,6 +334,9 @@ def run(seed: int) -> dict[str, Any]:
             })
 
     preds = pd.DataFrame(records)
+    preds["error"] = preds["y_true"] - preds["y_pred"]
+    preds["abs_error"] = preds["error"].abs()
+    preds["squared_error"] = preds["error"] ** 2
     if len(preds) != 105 * 3:
         raise RuntimeError(f"expected 315 prediction rows, got {len(preds)}")
     if preds.duplicated(["model", "target_period", "vintage", "fold"]).any():
