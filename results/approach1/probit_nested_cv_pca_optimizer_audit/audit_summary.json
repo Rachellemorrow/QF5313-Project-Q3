@@ -1,0 +1,161 @@
+{
+  "audit_task": "optimizer_convergence_audit_strictly_nested_probit",
+  "seed": 42,
+  "inner": {
+    "folds_total": 4469,
+    "folds_usable_under_audit": 4223,
+    "folds_unusable": 246,
+    "candidate_fits_total": 35752,
+    "candidate_fits_expected": 35752,
+    "existing_method_counts": {
+      "bfgs": 246,
+      "newton": 35506
+    },
+    "existing_converged_status_counts": {
+      "false": 738,
+      "true": 35014
+    },
+    "existing_warnflag_nonzero": 738,
+    "existing_fits_with_warnings": 984,
+    "existing_warning_messages_total": 1722,
+    "existing_convergence_warnings": 984,
+    "existing_numerical_warnings": 0,
+    "existing_by_method_status": {
+      "bfgs": {
+        "true": 246
+      },
+      "newton": {
+        "true": 34768,
+        "false": 738
+      }
+    },
+    "existing_rejection_reason_counts": {
+      "nonconverged;nonzero_warnflag;convergence_warning": 738,
+      "convergence_warning": 246
+    },
+    "existing_accepted_by_rule": 34768,
+    "existing_rejected_by_rule": 984,
+    "newton_accepted": 34768,
+    "newton_rejected": 984,
+    "newton_rejection_reason_counts": {
+      "nonconverged;nonzero_warnflag;convergence_warning": 738,
+      "exception:LinAlgError('Singular matrix')": 246
+    },
+    "newton_fits_with_warnings": 984,
+    "bfgs_retry_count": 984,
+    "bfgs_attempted": 984,
+    "bfgs_accepted": 82,
+    "bfgs_rejection_reason_counts": {
+      "convergence_warning": 902
+    },
+    "bfgs_fits_with_warnings": 902,
+    "audit_method_counts": {
+      "bfgs": 82,
+      "newton": 34768,
+      "none": 902
+    },
+    "audit_accepted": 34850,
+    "audit_rejected": 902,
+    "audit_unknown_status": 902,
+    "audit_accepted_fits_with_warnings": 0,
+    "audit_numerical_warnings": 0,
+    "audit_convergence_warnings": 0,
+    "audit_rejection_reason_counts": {
+      "newton:nonconverged;nonzero_warnflag;convergence_warning;bfgs:convergence_warning": 656,
+      "newton:exception:LinAlgError('Singular matrix');bfgs:convergence_warning": 246
+    }
+  },
+  "outer": {
+    "fits_total": 82,
+    "existing_method_counts": {
+      "newton": 82
+    },
+    "existing_converged_status_counts": {
+      "true": 82
+    },
+    "existing_warnflag_nonzero": 0,
+    "existing_fits_with_warnings": 0,
+    "existing_warning_messages_total": 0,
+    "existing_convergence_warnings": 0,
+    "existing_numerical_warnings": 0,
+    "existing_by_method_status": {
+      "newton": {
+        "true": 82
+      }
+    },
+    "existing_accepted_by_rule": 82,
+    "existing_rejected_by_rule": 0,
+    "existing_ridge_fallbacks": 0,
+    "newton_accepted": 82,
+    "bfgs_retry_count": 0,
+    "bfgs_attempted": 0,
+    "bfgs_accepted": 0,
+    "ridge_fallbacks": 0,
+    "audit_method_counts": {
+      "newton": 82
+    },
+    "audit_accepted": 82,
+    "audit_rejected": 0,
+    "audit_unknown_status": 0,
+    "audit_accepted_fits_with_warnings": 0,
+    "audit_numerical_warnings": 0,
+    "audit_convergence_warnings": 0,
+    "existing_prediction_max_abs_diff": 0.0,
+    "audit_prediction_max_abs_diff_vs_saved": 0.0
+  },
+  "group_common_set": {
+    "inner_groups_total": 4469,
+    "inner_groups_usable": 4223,
+    "common_set_reduced": true,
+    "outer_folds_with_reduced_common_set": 82,
+    "outer_folds_with_rank_change": 0,
+    "rank_selection_unchanged": true,
+    "mean_abs_change_in_selected_inner_brier": 0.005567439617543645
+  },
+  "existing_results_valid": false,
+  "corrected_experiment_required": true,
+  "corrected_experiment_created": false,
+  "existing_files_unchanged": true,
+  "existing_hashes": {
+    "script_before": "d6b5c166b1d5facfe35bf65af154ce2c5f5ee669896d08d8c891a252177c4ae8",
+    "script_after": "d6b5c166b1d5facfe35bf65af154ce2c5f5ee669896d08d8c891a252177c4ae8",
+    "outputs_before": {
+      "results\\approach1\\probit_nested_cv_pca\\comparison_table.csv": "c20f8b8b22d0827972db408545a37f53c5e7fa38d456e42a11ca93ba4e7aa7b5",
+      "results\\approach1\\probit_nested_cv_pca\\diagnostic_note.md": "38f425c433fa765bddbfcbd53b82f4181f2673dddff45432f01d13020b2208b6",
+      "results\\approach1\\probit_nested_cv_pca\\figures\\fig_nested_cv_probabilities.html": "041ae61f2b4766a1e665e70844e099f7be1ada7185e1eb607cbb351cb10c3ff3",
+      "results\\approach1\\probit_nested_cv_pca\\figures\\fig_nested_rank_selection.html": "2b0a3f34a41d3362bcf39e2630e1e2fbde965f158d2c2ff2db0d444d5ab88319",
+      "results\\approach1\\probit_nested_cv_pca\\inner_cv_preprocessing_audit.csv": "49ce817da91dba4a3c198bca019f1494bba9fb7cd6f91b7dc5a076cd96bedf8a",
+      "results\\approach1\\probit_nested_cv_pca\\leakage_audit.csv": "e2696a1275038617f6123e7c88fe91e95ffe0411afa636bd610531aabe0cb698",
+      "results\\approach1\\probit_nested_cv_pca\\metrics.json": "5a2a8155e36dd4aa8473e0a37e1cc35a3f52074be8723bb8bd2e51137d846213",
+      "results\\approach1\\probit_nested_cv_pca\\nested_cv_fold_results.csv": "cde96ab85ba297bd81939949de3e336c2e216c9f9b095c3d19e26689bdace12b",
+      "results\\approach1\\probit_nested_cv_pca\\nested_cv_predictions.csv": "6354b286775383c90c072e11e0d391895dcce51bdf89e191b0f851f72f0270a8",
+      "results\\approach1\\probit_nested_cv_pca\\outer_fold_audit.csv": "457a7f134b1725dc6e39a19dedbb77e9feb321344a97f447378c9b8c780c74c6",
+      "results\\approach1\\probit_nested_cv_pca\\outer_rank_selection.csv": "50f0e6f9a0d98698ab3e1ae888795528119f5234113fb96d7a5806711eec614c",
+      "results\\approach1\\probit_nested_cv_pca\\run_manifest.json": "a904137b1feaec8994d2b877c24b43ff65bce5fe14421a179b501de85a2253d6",
+      "results\\approach1\\probit_nested_cv_pca\\validation_report.json": "91af29c8f54a749d58f11965a98af42bb0bdecec6f79a543f77016bca337ab12"
+    },
+    "outputs_after": {
+      "results\\approach1\\probit_nested_cv_pca\\comparison_table.csv": "c20f8b8b22d0827972db408545a37f53c5e7fa38d456e42a11ca93ba4e7aa7b5",
+      "results\\approach1\\probit_nested_cv_pca\\diagnostic_note.md": "38f425c433fa765bddbfcbd53b82f4181f2673dddff45432f01d13020b2208b6",
+      "results\\approach1\\probit_nested_cv_pca\\figures\\fig_nested_cv_probabilities.html": "041ae61f2b4766a1e665e70844e099f7be1ada7185e1eb607cbb351cb10c3ff3",
+      "results\\approach1\\probit_nested_cv_pca\\figures\\fig_nested_rank_selection.html": "2b0a3f34a41d3362bcf39e2630e1e2fbde965f158d2c2ff2db0d444d5ab88319",
+      "results\\approach1\\probit_nested_cv_pca\\inner_cv_preprocessing_audit.csv": "49ce817da91dba4a3c198bca019f1494bba9fb7cd6f91b7dc5a076cd96bedf8a",
+      "results\\approach1\\probit_nested_cv_pca\\leakage_audit.csv": "e2696a1275038617f6123e7c88fe91e95ffe0411afa636bd610531aabe0cb698",
+      "results\\approach1\\probit_nested_cv_pca\\metrics.json": "5a2a8155e36dd4aa8473e0a37e1cc35a3f52074be8723bb8bd2e51137d846213",
+      "results\\approach1\\probit_nested_cv_pca\\nested_cv_fold_results.csv": "cde96ab85ba297bd81939949de3e336c2e216c9f9b095c3d19e26689bdace12b",
+      "results\\approach1\\probit_nested_cv_pca\\nested_cv_predictions.csv": "6354b286775383c90c072e11e0d391895dcce51bdf89e191b0f851f72f0270a8",
+      "results\\approach1\\probit_nested_cv_pca\\outer_fold_audit.csv": "457a7f134b1725dc6e39a19dedbb77e9feb321344a97f447378c9b8c780c74c6",
+      "results\\approach1\\probit_nested_cv_pca\\outer_rank_selection.csv": "50f0e6f9a0d98698ab3e1ae888795528119f5234113fb96d7a5806711eec614c",
+      "results\\approach1\\probit_nested_cv_pca\\run_manifest.json": "a904137b1feaec8994d2b877c24b43ff65bce5fe14421a179b501de85a2253d6",
+      "results\\approach1\\probit_nested_cv_pca\\validation_report.json": "91af29c8f54a749d58f11965a98af42bb0bdecec6f79a543f77016bca337ab12"
+    }
+  },
+  "audit_elapsed_seconds": 134.89255400000002,
+  "outputs": {
+    "inner": "results/approach1/probit_nested_cv_pca_optimizer_audit/inner_optimizer_audit.csv",
+    "outer": "results/approach1/probit_nested_cv_pca_optimizer_audit/outer_optimizer_audit.csv",
+    "summary": "results/approach1/probit_nested_cv_pca_optimizer_audit/audit_summary.json",
+    "validation": "results/approach1/probit_nested_cv_pca_optimizer_audit/validation_report.json",
+    "note": "results/approach1/probit_nested_cv_pca_optimizer_audit/diagnostic_note.md"
+  }
+}

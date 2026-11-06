@@ -1,0 +1,26 @@
+{
+  "seed": 42,
+  "hashes": {
+    "inner_optimizer_audit.csv": "526f6e9238dd4547e5af4bfc38f3710f707434d4e3e14ce7f6dc301aa4d486b5",
+    "outer_optimizer_audit.csv": "27575a09aa5411fe95ac9002c01209d01a2f8cfe8e5a6a4194c1437a7f43bb51",
+    "rank_selection_comparison.csv": "2bf501e7e4c5982918581543eae0f7b96b9eebb0728f7f87ed8ca2960aa6632e"
+  },
+  "existing_before": {
+    "script": "d6b5c166b1d5facfe35bf65af154ce2c5f5ee669896d08d8c891a252177c4ae8",
+    "outputs": {
+      "results\\approach1\\probit_nested_cv_pca\\comparison_table.csv": "c20f8b8b22d0827972db408545a37f53c5e7fa38d456e42a11ca93ba4e7aa7b5",
+      "results\\approach1\\probit_nested_cv_pca\\diagnostic_note.md": "38f425c433fa765bddbfcbd53b82f4181f2673dddff45432f01d13020b2208b6",
+      "results\\approach1\\probit_nested_cv_pca\\figures\\fig_nested_cv_probabilities.html": "041ae61f2b4766a1e665e70844e099f7be1ada7185e1eb607cbb351cb10c3ff3",
+      "results\\approach1\\probit_nested_cv_pca\\figures\\fig_nested_rank_selection.html": "2b0a3f34a41d3362bcf39e2630e1e2fbde965f158d2c2ff2db0d444d5ab88319",
+      "results\\approach1\\probit_nested_cv_pca\\inner_cv_preprocessing_audit.csv": "49ce817da91dba4a3c198bca019f1494bba9fb7cd6f91b7dc5a076cd96bedf8a",
+      "results\\approach1\\probit_nested_cv_pca\\leakage_audit.csv": "e2696a1275038617f6123e7c88fe91e95ffe0411afa636bd610531aabe0cb698",
+      "results\\approach1\\probit_nested_cv_pca\\metrics.json": "5a2a8155e36dd4aa8473e0a37e1cc35a3f52074be8723bb8bd2e51137d846213",
+      "results\\approach1\\probit_nested_cv_pca\\nested_cv_fold_results.csv": "cde96ab85ba297bd81939949de3e336c2e216c9f9b095c3d19e26689bdace12b",
+      "results\\approach1\\probit_nested_cv_pca\\nested_cv_predictions.csv": "6354b286775383c90c072e11e0d391895dcce51bdf89e191b0f851f72f0270a8",
+      "results\\approach1\\probit_nested_cv_pca\\outer_fold_audit.csv": "457a7f134b1725dc6e39a19dedbb77e9feb321344a97f447378c9b8c780c74c6",
+      "results\\approach1\\probit_nested_cv_pca\\outer_rank_selection.csv": "50f0e6f9a0d98698ab3e1ae888795528119f5234113fb96d7a5806711eec614c",
+      "results\\approach1\\probit_nested_cv_pca\\run_manifest.json": "a904137b1feaec8994d2b877c24b43ff65bce5fe14421a179b501de85a2253d6",
+      "results\\approach1\\probit_nested_cv_pca\\validation_report.json": "91af29c8f54a749d58f11965a98af42bb0bdecec6f79a543f77016bca337ab12"
+    }
+  }
+}

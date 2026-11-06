@@ -1,0 +1,174 @@
+{
+  "n_checks": 24,
+  "n_passed": 24,
+  "n_failed": 0,
+  "all_passed": true,
+  "checks": [
+    {
+      "check": "inner: 35,752 candidate fits",
+      "passed": true,
+      "detail": 35752
+    },
+    {
+      "check": "inner: 4,469 folds",
+      "passed": true,
+      "detail": 4469
+    },
+    {
+      "check": "inner: exactly 8 candidate ranks per fold",
+      "passed": true,
+      "detail": {
+        "8": 4469
+      }
+    },
+    {
+      "check": "inner: ranks 1..8 present",
+      "passed": true,
+      "detail": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "check": "inner: statuses classified",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "inner: audit statuses classified",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "inner: no validation row in training",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "inner: no outer test in inner CV",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "inner: preprocessing hash matches saved for every fold",
+      "passed": true,
+      "detail": 0
+    },
+    {
+      "check": "inner: common set defined per fold",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "outer: 82 fits",
+      "passed": true,
+      "detail": 82
+    },
+    {
+      "check": "outer: 82 unique target periods",
+      "passed": true,
+      "detail": 82
+    },
+    {
+      "check": "outer: targets match nested predictions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "outer: origins match nested predictions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "outer: no outer test in training",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "outer: statuses classified",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "outer: audit statuses classified",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "rank comparison: 82 rows",
+      "passed": true,
+      "detail": 82
+    },
+    {
+      "check": "rank comparison: all outer origins match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "rank comparison: existing ranks preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "independent sample: inner fits reproduced",
+      "passed": true,
+      "detail": [
+        40,
+        40
+      ]
+    },
+    {
+      "check": "independent sample: outer fits reproduced",
+      "passed": true,
+      "detail": [
+        5,
+        5
+      ]
+    },
+    {
+      "check": "determinism: audit output hashes match manifest",
+      "passed": true,
+      "detail": [
+        {
+          "inner_optimizer_audit.csv": "526f6e9238dd4547e5af4bfc38f3710f707434d4e3e14ce7f6dc301aa4d486b5",
+          "outer_optimizer_audit.csv": "27575a09aa5411fe95ac9002c01209d01a2f8cfe8e5a6a4194c1437a7f43bb51",
+          "rank_selection_comparison.csv": "2bf501e7e4c5982918581543eae0f7b96b9eebb0728f7f87ed8ca2960aa6632e"
+        },
+        {
+          "inner_optimizer_audit.csv": "526f6e9238dd4547e5af4bfc38f3710f707434d4e3e14ce7f6dc301aa4d486b5",
+          "outer_optimizer_audit.csv": "27575a09aa5411fe95ac9002c01209d01a2f8cfe8e5a6a4194c1437a7f43bb51",
+          "rank_selection_comparison.csv": "2bf501e7e4c5982918581543eae0f7b96b9eebb0728f7f87ed8ca2960aa6632e"
+        }
+      ]
+    },
+    {
+      "check": "existing: nested script and outputs unchanged",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "existing_hashes_now": {
+    "script": "d6b5c166b1d5facfe35bf65af154ce2c5f5ee669896d08d8c891a252177c4ae8",
+    "outputs": {
+      "results\\approach1\\probit_nested_cv_pca\\comparison_table.csv": "c20f8b8b22d0827972db408545a37f53c5e7fa38d456e42a11ca93ba4e7aa7b5",
+      "results\\approach1\\probit_nested_cv_pca\\diagnostic_note.md": "38f425c433fa765bddbfcbd53b82f4181f2673dddff45432f01d13020b2208b6",
+      "results\\approach1\\probit_nested_cv_pca\\figures\\fig_nested_cv_probabilities.html": "041ae61f2b4766a1e665e70844e099f7be1ada7185e1eb607cbb351cb10c3ff3",
+      "results\\approach1\\probit_nested_cv_pca\\figures\\fig_nested_rank_selection.html": "2b0a3f34a41d3362bcf39e2630e1e2fbde965f158d2c2ff2db0d444d5ab88319",
+      "results\\approach1\\probit_nested_cv_pca\\inner_cv_preprocessing_audit.csv": "49ce817da91dba4a3c198bca019f1494bba9fb7cd6f91b7dc5a076cd96bedf8a",
+      "results\\approach1\\probit_nested_cv_pca\\leakage_audit.csv": "e2696a1275038617f6123e7c88fe91e95ffe0411afa636bd610531aabe0cb698",
+      "results\\approach1\\probit_nested_cv_pca\\metrics.json": "5a2a8155e36dd4aa8473e0a37e1cc35a3f52074be8723bb8bd2e51137d846213",
+      "results\\approach1\\probit_nested_cv_pca\\nested_cv_fold_results.csv": "cde96ab85ba297bd81939949de3e336c2e216c9f9b095c3d19e26689bdace12b",
+      "results\\approach1\\probit_nested_cv_pca\\nested_cv_predictions.csv": "6354b286775383c90c072e11e0d391895dcce51bdf89e191b0f851f72f0270a8",
+      "results\\approach1\\probit_nested_cv_pca\\outer_fold_audit.csv": "457a7f134b1725dc6e39a19dedbb77e9feb321344a97f447378c9b8c780c74c6",
+      "results\\approach1\\probit_nested_cv_pca\\outer_rank_selection.csv": "50f0e6f9a0d98698ab3e1ae888795528119f5234113fb96d7a5806711eec614c",
+      "results\\approach1\\probit_nested_cv_pca\\run_manifest.json": "a904137b1feaec8994d2b877c24b43ff65bce5fe14421a179b501de85a2253d6",
+      "results\\approach1\\probit_nested_cv_pca\\validation_report.json": "91af29c8f54a749d58f11965a98af42bb0bdecec6f79a543f77016bca337ab12"
+    }
+  }
+}
