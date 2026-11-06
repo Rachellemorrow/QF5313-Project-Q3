@@ -1,0 +1,27 @@
+metric,value
+n_folds,82
+accepted_method_counts,"{""statsmodels_probit_newton"": 82}"
+n_converged_true,82
+n_converged_false,0
+n_converged_missing,0
+n_warnflag_nonzero,0
+n_folds_with_warnings,0
+n_ridge_fallbacks,0
+n_nonconverged,0
+n_potential_instability_flags,0
+hessian_cond_median,64.2553650017809
+hessian_cond_max,436.6827342361249
+hessian_min_eig_min,0.006295661255736232
+max_abs_coef_max,4.692196891508889
+max_abs_t_max,4.580463791151011
+min_sign_stability_nonconst,0.5609756097560976
+n_terms_sign_stability_below_0.8,4
+train_prob_min_min,4.955729915792981e-14
+train_prob_max_max,0.9311786073103355
+n_folds_train_prob_extreme_share_gt_0.25,0
+test_prob_min,2.7632482654054758e-08
+test_prob_max,1.0
+n_test_prob_below_0.01,7
+n_test_prob_above_0.99,2
+max_abs_diff_vs_primary,0.0
+n_abs_diff_vs_primary_gt_1e-8,0

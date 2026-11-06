@@ -1,0 +1,177 @@
+{
+  "n_checks": 24,
+  "n_passed": 24,
+  "n_failed": 0,
+  "all_passed": true,
+  "primary_hashes": {
+    "predictions.csv": "bc7b8c42fc481b4f9051f62496a24a78c39fdbd2781ecce0aca6f0e415bc5b95",
+    "metrics.json": "a5de2b23dc5dada76a02fe79b68f585139713eca1600cf4b9219ec4ba7c4b65c",
+    "coefficients.csv": "21eebb99bf9e099bff5b315c6a5a80efaed098be66bfc4e4683255a0860f17f1",
+    "folds.csv": "b0d055af83ec82e7969247f9048d8ef4015e80d8a5a5ac98e9e5ce022dc72df7"
+  },
+  "checks": [
+    {
+      "check": "rank: 82 observations",
+      "passed": true,
+      "detail": 82
+    },
+    {
+      "check": "rank: target periods identical to primary",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "rank: forecast origins identical to primary",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "rank: realized labels identical to primary",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "dynamic: 82 observations",
+      "passed": true,
+      "detail": 82
+    },
+    {
+      "check": "dynamic: target periods identical to primary",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "dynamic: forecast origins identical to primary",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "dynamic: realized labels identical to primary",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "primary_probit: Brier recomputed",
+      "passed": true,
+      "detail": [
+        0.25174912360714735,
+        0.25174912360714735
+      ]
+    },
+    {
+      "check": "primary_probit: AUC recomputed",
+      "passed": true,
+      "detail": [
+        0.5952861952861953,
+        0.5952861952861953
+      ]
+    },
+    {
+      "check": "primary_probit: accuracy recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "inner_cv_rank_probit: Brier recomputed",
+      "passed": true,
+      "detail": [
+        0.24768117997090958,
+        0.24768117997090958
+      ]
+    },
+    {
+      "check": "inner_cv_rank_probit: AUC recomputed",
+      "passed": true,
+      "detail": [
+        0.6114478114478115,
+        0.6114478114478115
+      ]
+    },
+    {
+      "check": "inner_cv_rank_probit: accuracy recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "dynamic_probit: Brier recomputed",
+      "passed": true,
+      "detail": [
+        0.28604663287700316,
+        0.28604663287700316
+      ]
+    },
+    {
+      "check": "dynamic_probit: AUC recomputed",
+      "passed": true,
+      "detail": [
+        0.5252525252525252,
+        0.5252525252525252
+      ]
+    },
+    {
+      "check": "dynamic_probit: accuracy recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "prior_frequency: Brier recomputed",
+      "passed": true,
+      "detail": [
+        0.23207198790490358,
+        0.23207198790490358
+      ]
+    },
+    {
+      "check": "prior_frequency: AUC recomputed",
+      "passed": true,
+      "detail": [
+        0.5996632996632996,
+        0.5996632996632996
+      ]
+    },
+    {
+      "check": "prior_frequency: accuracy recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "persistence: Brier recomputed",
+      "passed": true,
+      "detail": [
+        0.24390243902439024,
+        0.24390243902439024
+      ]
+    },
+    {
+      "check": "persistence: AUC recomputed",
+      "passed": true,
+      "detail": [
+        0.7239057239057238,
+        0.7239057239057238
+      ]
+    },
+    {
+      "check": "persistence: accuracy recomputed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "primary files unchanged since diagnostic run",
+      "passed": true,
+      "detail": [
+        {
+          "predictions.csv": "bc7b8c42fc481b4f9051f62496a24a78c39fdbd2781ecce0aca6f0e415bc5b95",
+          "metrics.json": "a5de2b23dc5dada76a02fe79b68f585139713eca1600cf4b9219ec4ba7c4b65c",
+          "coefficients.csv": "21eebb99bf9e099bff5b315c6a5a80efaed098be66bfc4e4683255a0860f17f1",
+          "folds.csv": "b0d055af83ec82e7969247f9048d8ef4015e80d8a5a5ac98e9e5ce022dc72df7"
+        },
+        {
+          "predictions.csv": "bc7b8c42fc481b4f9051f62496a24a78c39fdbd2781ecce0aca6f0e415bc5b95",
+          "metrics.json": "a5de2b23dc5dada76a02fe79b68f585139713eca1600cf4b9219ec4ba7c4b65c",
+          "coefficients.csv": "21eebb99bf9e099bff5b315c6a5a80efaed098be66bfc4e4683255a0860f17f1",
+          "folds.csv": "b0d055af83ec82e7969247f9048d8ef4015e80d8a5a5ac98e9e5ce022dc72df7"
+        }
+      ]
+    }
+  ]
+}
