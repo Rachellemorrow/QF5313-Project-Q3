@@ -173,6 +173,12 @@ uv run python code/approach1_gdp_nowcast.py --seed 42
 uv run python code/approach1_regime.py --seed 42
 ```
 
+- `code/approach1_cluster.py` (Option A rolling 3-year Ward indicator clustering → `results/approach1/clustering/`):
+
+```bash
+uv run python code/approach1_cluster.py --seed 42
+```
+
 Append each `uv run python <path> --seed 42` command
   here at the same commit that introduces the script; never document
   commands for scripts that do not exist.

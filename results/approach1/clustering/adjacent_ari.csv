@@ -1,0 +1,17 @@
+window_prev,window_curr,n_common_indicators,ari,common_indicators
+2010-12,2011-12,16,0.7700471698113207,base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fiscal_rev_yoy;fx_reserves_yoy;import_yoy;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;retail_yoy;trade_bal_bn_usd
+2011-12,2012-12,15,0.3037574992106094,base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fiscal_rev_yoy;fx_reserves_yoy;import_yoy;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd
+2012-12,2013-12,15,1.0,base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fiscal_rev_yoy;fx_reserves_yoy;import_yoy;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd
+2013-12,2014-12,15,0.046939834024896265,base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fiscal_rev_yoy;fx_reserves_yoy;import_yoy;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd
+2014-12,2015-12,15,0.12190414924412994,base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fiscal_rev_yoy;fx_reserves_yoy;import_yoy;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd
+2015-12,2016-12,15,0.22528283325135268,base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fiscal_rev_yoy;fx_reserves_yoy;import_yoy;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd
+2016-12,2017-12,17,0.22005097706032287,base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fiscal_rev_yoy;fx_reserves_yoy;import_yoy;lpi;lpr_1y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd
+2017-12,2018-12,18,0.15007264336381507,base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fiscal_rev_yoy;fx_reserves_yoy;import_yoy;lpi;lpr_1y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd;tsf_flow
+2018-12,2019-12,17,0.026041666666666668,base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fx_reserves_yoy;import_yoy;lpi;lpr_1y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd;tsf_flow
+2019-12,2020-12,17,-0.05201793721973094,base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fx_reserves_yoy;import_yoy;lpi;lpr_1y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd;tsf_flow
+2020-12,2021-12,20,0.1332484617016762,base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fx_reserves_yoy;import_yoy;lpi;lpr_1y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;shibor_1y;shibor_3m;shibor_on;trade_bal_bn_usd;tsf_flow
+2021-12,2022-12,20,0.4233306941145421,base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fx_reserves_yoy;import_yoy;lpi;lpr_1y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;shibor_1y;shibor_3m;shibor_on;trade_bal_bn_usd;tsf_flow
+2022-12,2023-12,21,0.16653696498054474,base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fx_reserves_yoy;import_yoy;lpi;lpr_1y;lpr_5y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;shibor_1y;shibor_3m;shibor_on;trade_bal_bn_usd;tsf_flow
+2023-12,2024-12,20,0.001893043066729768,base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fx_reserves_yoy;import_yoy;lpr_1y;lpr_5y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;shibor_1y;shibor_3m;shibor_on;trade_bal_bn_usd;tsf_flow
+2024-12,2025-12,20,0.09407478838529948,base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fx_reserves_yoy;import_yoy;lpr_1y;lpr_5y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;shibor_1y;shibor_3m;shibor_on;trade_bal_bn_usd;tsf_flow
+2025-12,2026-10,19,0.1820418204182042,base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fx_reserves_yoy;import_yoy;lpr_1y;lpr_5y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;shibor_1y;shibor_3m;shibor_on;trade_bal_bn_usd

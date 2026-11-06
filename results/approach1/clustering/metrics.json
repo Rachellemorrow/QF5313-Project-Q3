@@ -1,0 +1,1694 @@
+{
+  "task": "indicator_clustering",
+  "target": "rolling_3y_indicator_correlations",
+  "approach": "A",
+  "leakage_discipline": "safe",
+  "seed": 42,
+  "params": {
+    "window_months": 36,
+    "step_months": 12,
+    "coverage_min": 0.95,
+    "distance": "d_ij = sqrt(2*(1-rho_ij)), Pearson correlation on common complete sample",
+    "linkage": "ward",
+    "k_selection": "max silhouette over k=2..8; fixed k=4 sensitivity",
+    "publication_lag_masking": "s + L_i <= window_end",
+    "euclidean_requirement": "PSD correlation matrix + distance identity to normalized-vector Euclidean distance",
+    "collinearity_rule": "derived spreads and deterministic rank screen; recorded per window",
+    "lead_lag": {
+      "max_quarters": 4,
+      "min_observations": 12,
+      "gdp_target": "gdp_yoy_single_derived",
+      "monthly_to_quarterly": "mean of available months"
+    }
+  },
+  "metrics": {
+    "n_windows": 17,
+    "mean_silhouette_selected": 0.2404718394962348,
+    "min_silhouette_selected": 0.16184377697381677,
+    "max_silhouette_selected": 0.340851859351626,
+    "mean_silhouette_k4": 0.19510954678706321,
+    "mean_adjacent_ari": 0.2383252880050237,
+    "min_adjacent_ari": -0.05201793721973094,
+    "max_adjacent_ari": 1.0,
+    "mean_retained_indicators": 17.823529411764707,
+    "mean_common_months": 35.0,
+    "all_psd_ok": true,
+    "all_euclidean_ok": true,
+    "max_euclidean_abs_diff": 2.831068712794149e-15,
+    "n_windows_with_collinearity_drop": 7
+  },
+  "windows": [
+    {
+      "window_end": "2010-12",
+      "window_start": "2008-01",
+      "n_retained": 16,
+      "retained": [
+        "pmi_man",
+        "pmi_nonman",
+        "cpi_yoy",
+        "ppi_yoy",
+        "cgpi_yoy",
+        "retail_yoy",
+        "m2_yoy",
+        "m1_yoy",
+        "m0_yoy",
+        "new_loans_yoy",
+        "base_money_yoy",
+        "trade_bal_bn_usd",
+        "export_yoy",
+        "import_yoy",
+        "fx_reserves_yoy",
+        "fiscal_rev_yoy"
+      ],
+      "dropped": [],
+      "n_common_months": 35,
+      "checks": {
+        "min_eigenvalue": 0.0045430336778304195,
+        "max_eigenvalue": 6.531405891064353,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 6.661338147750939e-16,
+        "euclidean_ok": true,
+        "symmetric": true,
+        "zero_diagonal": true
+      },
+      "k_selected": 3,
+      "silhouette_selected": 0.29849977612328255,
+      "silhouette_k4": 0.2576816665272018,
+      "k_curve": [
+        {
+          "k": 2,
+          "silhouette": 0.2727579767055255
+        },
+        {
+          "k": 3,
+          "silhouette": 0.29849977612328255
+        },
+        {
+          "k": 4,
+          "silhouette": 0.2576816665272018
+        },
+        {
+          "k": 5,
+          "silhouette": 0.2637786566543669
+        },
+        {
+          "k": 6,
+          "silhouette": 0.2603237648794889
+        },
+        {
+          "k": 7,
+          "silhouette": 0.23933185763540255
+        },
+        {
+          "k": 8,
+          "silhouette": 0.22245134378870332
+        }
+      ],
+      "membership": {
+        "pmi_man": 1,
+        "pmi_nonman": 1,
+        "cpi_yoy": 3,
+        "ppi_yoy": 3,
+        "cgpi_yoy": 3,
+        "retail_yoy": 3,
+        "m2_yoy": 1,
+        "m1_yoy": 1,
+        "m0_yoy": 3,
+        "new_loans_yoy": 2,
+        "base_money_yoy": 3,
+        "trade_bal_bn_usd": 2,
+        "export_yoy": 3,
+        "import_yoy": 3,
+        "fx_reserves_yoy": 3,
+        "fiscal_rev_yoy": 1
+      }
+    },
+    {
+      "window_end": "2011-12",
+      "window_start": "2009-01",
+      "n_retained": 16,
+      "retained": [
+        "pmi_man",
+        "pmi_nonman",
+        "cpi_yoy",
+        "ppi_yoy",
+        "cgpi_yoy",
+        "retail_yoy",
+        "m2_yoy",
+        "m1_yoy",
+        "m0_yoy",
+        "new_loans_yoy",
+        "base_money_yoy",
+        "trade_bal_bn_usd",
+        "export_yoy",
+        "import_yoy",
+        "fx_reserves_yoy",
+        "fiscal_rev_yoy"
+      ],
+      "dropped": [],
+      "n_common_months": 35,
+      "checks": {
+        "min_eigenvalue": 0.007617633426907456,
+        "max_eigenvalue": 6.76606621507044,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 8.881784197001252e-16,
+        "euclidean_ok": true,
+        "symmetric": true,
+        "zero_diagonal": true
+      },
+      "k_selected": 3,
+      "silhouette_selected": 0.24396476809601636,
+      "silhouette_k4": 0.2343772286558593,
+      "k_curve": [
+        {
+          "k": 2,
+          "silhouette": 0.22470791325373896
+        },
+        {
+          "k": 3,
+          "silhouette": 0.24396476809601636
+        },
+        {
+          "k": 4,
+          "silhouette": 0.2343772286558593
+        },
+        {
+          "k": 5,
+          "silhouette": 0.23668720454289682
+        },
+        {
+          "k": 6,
+          "silhouette": 0.23171170594676543
+        },
+        {
+          "k": 7,
+          "silhouette": 0.21807591178513203
+        },
+        {
+          "k": 8,
+          "silhouette": 0.20350782057728978
+        }
+      ],
+      "membership": {
+        "pmi_man": 3,
+        "pmi_nonman": 3,
+        "cpi_yoy": 1,
+        "ppi_yoy": 1,
+        "cgpi_yoy": 1,
+        "retail_yoy": 1,
+        "m2_yoy": 3,
+        "m1_yoy": 3,
+        "m0_yoy": 1,
+        "new_loans_yoy": 2,
+        "base_money_yoy": 1,
+        "trade_bal_bn_usd": 2,
+        "export_yoy": 1,
+        "import_yoy": 1,
+        "fx_reserves_yoy": 3,
+        "fiscal_rev_yoy": 3
+      }
+    },
+    {
+      "window_end": "2012-12",
+      "window_start": "2010-01",
+      "n_retained": 15,
+      "retained": [
+        "pmi_man",
+        "pmi_nonman",
+        "cpi_yoy",
+        "ppi_yoy",
+        "cgpi_yoy",
+        "m2_yoy",
+        "m1_yoy",
+        "m0_yoy",
+        "new_loans_yoy",
+        "base_money_yoy",
+        "trade_bal_bn_usd",
+        "export_yoy",
+        "import_yoy",
+        "fx_reserves_yoy",
+        "fiscal_rev_yoy"
+      ],
+      "dropped": [],
+      "n_common_months": 35,
+      "checks": {
+        "min_eigenvalue": 0.002156433875364741,
+        "max_eigenvalue": 7.335117206541712,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 5.551115123125783e-16,
+        "euclidean_ok": true,
+        "symmetric": true,
+        "zero_diagonal": true
+      },
+      "k_selected": 2,
+      "silhouette_selected": 0.3321806052111596,
+      "silhouette_k4": 0.22885414842188317,
+      "k_curve": [
+        {
+          "k": 2,
+          "silhouette": 0.3321806052111596
+        },
+        {
+          "k": 3,
+          "silhouette": 0.23829261580762695
+        },
+        {
+          "k": 4,
+          "silhouette": 0.22885414842188317
+        },
+        {
+          "k": 5,
+          "silhouette": 0.210532253779438
+        },
+        {
+          "k": 6,
+          "silhouette": 0.19897055427799687
+        },
+        {
+          "k": 7,
+          "silhouette": 0.20657521107020754
+        },
+        {
+          "k": 8,
+          "silhouette": 0.18382455776830747
+        }
+      ],
+      "membership": {
+        "pmi_man": 2,
+        "pmi_nonman": 2,
+        "cpi_yoy": 2,
+        "ppi_yoy": 2,
+        "cgpi_yoy": 2,
+        "m2_yoy": 2,
+        "m1_yoy": 2,
+        "m0_yoy": 2,
+        "new_loans_yoy": 1,
+        "base_money_yoy": 2,
+        "trade_bal_bn_usd": 1,
+        "export_yoy": 2,
+        "import_yoy": 2,
+        "fx_reserves_yoy": 2,
+        "fiscal_rev_yoy": 2
+      }
+    },
+    {
+      "window_end": "2013-12",
+      "window_start": "2011-01",
+      "n_retained": 15,
+      "retained": [
+        "pmi_man",
+        "pmi_nonman",
+        "cpi_yoy",
+        "ppi_yoy",
+        "cgpi_yoy",
+        "m2_yoy",
+        "m1_yoy",
+        "m0_yoy",
+        "new_loans_yoy",
+        "base_money_yoy",
+        "trade_bal_bn_usd",
+        "export_yoy",
+        "import_yoy",
+        "fx_reserves_yoy",
+        "fiscal_rev_yoy"
+      ],
+      "dropped": [],
+      "n_common_months": 35,
+      "checks": {
+        "min_eigenvalue": 0.008137200297512331,
+        "max_eigenvalue": 7.525632522554435,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 9.43689570931383e-16,
+        "euclidean_ok": true,
+        "symmetric": true,
+        "zero_diagonal": true
+      },
+      "k_selected": 2,
+      "silhouette_selected": 0.340851859351626,
+      "silhouette_k4": 0.1955263638952806,
+      "k_curve": [
+        {
+          "k": 2,
+          "silhouette": 0.340851859351626
+        },
+        {
+          "k": 3,
+          "silhouette": 0.20009268650584197
+        },
+        {
+          "k": 4,
+          "silhouette": 0.1955263638952806
+        },
+        {
+          "k": 5,
+          "silhouette": 0.20097706560521394
+        },
+        {
+          "k": 6,
+          "silhouette": 0.22910358233212974
+        },
+        {
+          "k": 7,
+          "silhouette": 0.21852199940257142
+        },
+        {
+          "k": 8,
+          "silhouette": 0.2100101285878923
+        }
+      ],
+      "membership": {
+        "pmi_man": 2,
+        "pmi_nonman": 2,
+        "cpi_yoy": 2,
+        "ppi_yoy": 2,
+        "cgpi_yoy": 2,
+        "m2_yoy": 2,
+        "m1_yoy": 2,
+        "m0_yoy": 2,
+        "new_loans_yoy": 1,
+        "base_money_yoy": 2,
+        "trade_bal_bn_usd": 1,
+        "export_yoy": 2,
+        "import_yoy": 2,
+        "fx_reserves_yoy": 2,
+        "fiscal_rev_yoy": 2
+      }
+    },
+    {
+      "window_end": "2014-12",
+      "window_start": "2012-01",
+      "n_retained": 15,
+      "retained": [
+        "pmi_man",
+        "pmi_nonman",
+        "cpi_yoy",
+        "ppi_yoy",
+        "cgpi_yoy",
+        "m2_yoy",
+        "m1_yoy",
+        "m0_yoy",
+        "new_loans_yoy",
+        "base_money_yoy",
+        "trade_bal_bn_usd",
+        "export_yoy",
+        "import_yoy",
+        "fx_reserves_yoy",
+        "fiscal_rev_yoy"
+      ],
+      "dropped": [],
+      "n_common_months": 35,
+      "checks": {
+        "min_eigenvalue": 0.02635696858749156,
+        "max_eigenvalue": 3.4437843395068524,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 6.661338147750939e-16,
+        "euclidean_ok": true,
+        "symmetric": true,
+        "zero_diagonal": true
+      },
+      "k_selected": 7,
+      "silhouette_selected": 0.20418300412932394,
+      "silhouette_k4": 0.17919629894188638,
+      "k_curve": [
+        {
+          "k": 2,
+          "silhouette": 0.1329918742986477
+        },
+        {
+          "k": 3,
+          "silhouette": 0.15525104963034325
+        },
+        {
+          "k": 4,
+          "silhouette": 0.17919629894188638
+        },
+        {
+          "k": 5,
+          "silhouette": 0.19685895519712984
+        },
+        {
+          "k": 6,
+          "silhouette": 0.20152444810889975
+        },
+        {
+          "k": 7,
+          "silhouette": 0.20418300412932394
+        },
+        {
+          "k": 8,
+          "silhouette": 0.2022142366908584
+        }
+      ],
+      "membership": {
+        "pmi_man": 2,
+        "pmi_nonman": 1,
+        "cpi_yoy": 2,
+        "ppi_yoy": 2,
+        "cgpi_yoy": 3,
+        "m2_yoy": 5,
+        "m1_yoy": 5,
+        "m0_yoy": 7,
+        "new_loans_yoy": 6,
+        "base_money_yoy": 2,
+        "trade_bal_bn_usd": 4,
+        "export_yoy": 7,
+        "import_yoy": 6,
+        "fx_reserves_yoy": 3,
+        "fiscal_rev_yoy": 1
+      }
+    },
+    {
+      "window_end": "2015-12",
+      "window_start": "2013-01",
+      "n_retained": 15,
+      "retained": [
+        "pmi_man",
+        "pmi_nonman",
+        "cpi_yoy",
+        "ppi_yoy",
+        "cgpi_yoy",
+        "m2_yoy",
+        "m1_yoy",
+        "m0_yoy",
+        "new_loans_yoy",
+        "base_money_yoy",
+        "trade_bal_bn_usd",
+        "export_yoy",
+        "import_yoy",
+        "fx_reserves_yoy",
+        "fiscal_rev_yoy"
+      ],
+      "dropped": [],
+      "n_common_months": 35,
+      "checks": {
+        "min_eigenvalue": 0.023967574946069155,
+        "max_eigenvalue": 6.924599817517505,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 5.551115123125783e-16,
+        "euclidean_ok": true,
+        "symmetric": true,
+        "zero_diagonal": true
+      },
+      "k_selected": 2,
+      "silhouette_selected": 0.2257154076360524,
+      "silhouette_k4": 0.14800974425848365,
+      "k_curve": [
+        {
+          "k": 2,
+          "silhouette": 0.2257154076360524
+        },
+        {
+          "k": 3,
+          "silhouette": 0.14153463772325917
+        },
+        {
+          "k": 4,
+          "silhouette": 0.14800974425848365
+        },
+        {
+          "k": 5,
+          "silhouette": 0.162448654504639
+        },
+        {
+          "k": 6,
+          "silhouette": 0.12159045215713424
+        },
+        {
+          "k": 7,
+          "silhouette": 0.1076790421214133
+        },
+        {
+          "k": 8,
+          "silhouette": 0.09046111098760162
+        }
+      ],
+      "membership": {
+        "pmi_man": 2,
+        "pmi_nonman": 2,
+        "cpi_yoy": 2,
+        "ppi_yoy": 2,
+        "cgpi_yoy": 2,
+        "m2_yoy": 2,
+        "m1_yoy": 2,
+        "m0_yoy": 1,
+        "new_loans_yoy": 1,
+        "base_money_yoy": 2,
+        "trade_bal_bn_usd": 1,
+        "export_yoy": 1,
+        "import_yoy": 2,
+        "fx_reserves_yoy": 2,
+        "fiscal_rev_yoy": 2
+      }
+    },
+    {
+      "window_end": "2016-12",
+      "window_start": "2014-01",
+      "n_retained": 17,
+      "retained": [
+        "pmi_man",
+        "pmi_nonman",
+        "cpi_yoy",
+        "ppi_yoy",
+        "cgpi_yoy",
+        "lpi",
+        "m2_yoy",
+        "m1_yoy",
+        "m0_yoy",
+        "new_loans_yoy",
+        "base_money_yoy",
+        "lpr_1y",
+        "trade_bal_bn_usd",
+        "export_yoy",
+        "import_yoy",
+        "fx_reserves_yoy",
+        "fiscal_rev_yoy"
+      ],
+      "dropped": [],
+      "n_common_months": 35,
+      "checks": {
+        "min_eigenvalue": 0.005519829318929917,
+        "max_eigenvalue": 5.412506303279232,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 1.4432899320127035e-15,
+        "euclidean_ok": true,
+        "symmetric": true,
+        "zero_diagonal": true
+      },
+      "k_selected": 5,
+      "silhouette_selected": 0.16184377697381677,
+      "silhouette_k4": 0.16027648249105142,
+      "k_curve": [
+        {
+          "k": 2,
+          "silhouette": 0.12731336373774754
+        },
+        {
+          "k": 3,
+          "silhouette": 0.13595971797897669
+        },
+        {
+          "k": 4,
+          "silhouette": 0.16027648249105142
+        },
+        {
+          "k": 5,
+          "silhouette": 0.16184377697381677
+        },
+        {
+          "k": 6,
+          "silhouette": 0.1419866128127808
+        },
+        {
+          "k": 7,
+          "silhouette": 0.15481717807674072
+        },
+        {
+          "k": 8,
+          "silhouette": 0.14050727039010244
+        }
+      ],
+      "membership": {
+        "pmi_man": 2,
+        "pmi_nonman": 2,
+        "cpi_yoy": 5,
+        "ppi_yoy": 1,
+        "cgpi_yoy": 1,
+        "lpi": 1,
+        "m2_yoy": 4,
+        "m1_yoy": 1,
+        "m0_yoy": 5,
+        "new_loans_yoy": 3,
+        "base_money_yoy": 2,
+        "lpr_1y": 2,
+        "trade_bal_bn_usd": 3,
+        "export_yoy": 3,
+        "import_yoy": 2,
+        "fx_reserves_yoy": 2,
+        "fiscal_rev_yoy": 4
+      }
+    },
+    {
+      "window_end": "2017-12",
+      "window_start": "2015-01",
+      "n_retained": 18,
+      "retained": [
+        "pmi_man",
+        "pmi_nonman",
+        "cpi_yoy",
+        "ppi_yoy",
+        "cgpi_yoy",
+        "lpi",
+        "m2_yoy",
+        "m1_yoy",
+        "m0_yoy",
+        "new_loans_yoy",
+        "tsf_flow",
+        "base_money_yoy",
+        "lpr_1y",
+        "trade_bal_bn_usd",
+        "export_yoy",
+        "import_yoy",
+        "fx_reserves_yoy",
+        "fiscal_rev_yoy"
+      ],
+      "dropped": [],
+      "n_common_months": 35,
+      "checks": {
+        "min_eigenvalue": 0.006236799654534889,
+        "max_eigenvalue": 6.449649709871265,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 1.0547118733938987e-15,
+        "euclidean_ok": true,
+        "symmetric": true,
+        "zero_diagonal": true
+      },
+      "k_selected": 2,
+      "silhouette_selected": 0.17974169120755498,
+      "silhouette_k4": 0.1441419746596307,
+      "k_curve": [
+        {
+          "k": 2,
+          "silhouette": 0.17974169120755498
+        },
+        {
+          "k": 3,
+          "silhouette": 0.1506119224686763
+        },
+        {
+          "k": 4,
+          "silhouette": 0.1441419746596307
+        },
+        {
+          "k": 5,
+          "silhouette": 0.15655162845647902
+        },
+        {
+          "k": 6,
+          "silhouette": 0.15210831465378394
+        },
+        {
+          "k": 7,
+          "silhouette": 0.14646800127772144
+        },
+        {
+          "k": 8,
+          "silhouette": 0.14801760706741754
+        }
+      ],
+      "membership": {
+        "pmi_man": 2,
+        "pmi_nonman": 2,
+        "cpi_yoy": 1,
+        "ppi_yoy": 2,
+        "cgpi_yoy": 2,
+        "lpi": 2,
+        "m2_yoy": 1,
+        "m1_yoy": 1,
+        "m0_yoy": 1,
+        "new_loans_yoy": 2,
+        "tsf_flow": 1,
+        "base_money_yoy": 2,
+        "lpr_1y": 2,
+        "trade_bal_bn_usd": 1,
+        "export_yoy": 2,
+        "import_yoy": 2,
+        "fx_reserves_yoy": 2,
+        "fiscal_rev_yoy": 1
+      }
+    },
+    {
+      "window_end": "2018-12",
+      "window_start": "2016-01",
+      "n_retained": 18,
+      "retained": [
+        "pmi_man",
+        "pmi_nonman",
+        "cpi_yoy",
+        "ppi_yoy",
+        "cgpi_yoy",
+        "lpi",
+        "m2_yoy",
+        "m1_yoy",
+        "m0_yoy",
+        "new_loans_yoy",
+        "tsf_flow",
+        "base_money_yoy",
+        "lpr_1y",
+        "trade_bal_bn_usd",
+        "export_yoy",
+        "import_yoy",
+        "fx_reserves_yoy",
+        "fiscal_rev_yoy"
+      ],
+      "dropped": [],
+      "n_common_months": 35,
+      "checks": {
+        "min_eigenvalue": 0.005857066048901928,
+        "max_eigenvalue": 6.212680551848035,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 6.661338147750939e-16,
+        "euclidean_ok": true,
+        "symmetric": true,
+        "zero_diagonal": true
+      },
+      "k_selected": 2,
+      "silhouette_selected": 0.17791939197774134,
+      "silhouette_k4": 0.17403989502126385,
+      "k_curve": [
+        {
+          "k": 2,
+          "silhouette": 0.17791939197774134
+        },
+        {
+          "k": 3,
+          "silhouette": 0.17402621782827804
+        },
+        {
+          "k": 4,
+          "silhouette": 0.17403989502126385
+        },
+        {
+          "k": 5,
+          "silhouette": 0.17565867746673314
+        },
+        {
+          "k": 6,
+          "silhouette": 0.173006113561105
+        },
+        {
+          "k": 7,
+          "silhouette": 0.17380823555017272
+        },
+        {
+          "k": 8,
+          "silhouette": 0.16820716046510917
+        }
+      ],
+      "membership": {
+        "pmi_man": 2,
+        "pmi_nonman": 2,
+        "cpi_yoy": 2,
+        "ppi_yoy": 2,
+        "cgpi_yoy": 1,
+        "lpi": 1,
+        "m2_yoy": 1,
+        "m1_yoy": 1,
+        "m0_yoy": 1,
+        "new_loans_yoy": 1,
+        "tsf_flow": 1,
+        "base_money_yoy": 1,
+        "lpr_1y": 2,
+        "trade_bal_bn_usd": 1,
+        "export_yoy": 2,
+        "import_yoy": 2,
+        "fx_reserves_yoy": 2,
+        "fiscal_rev_yoy": 1
+      }
+    },
+    {
+      "window_end": "2019-12",
+      "window_start": "2017-01",
+      "n_retained": 17,
+      "retained": [
+        "pmi_man",
+        "pmi_nonman",
+        "cpi_yoy",
+        "ppi_yoy",
+        "cgpi_yoy",
+        "lpi",
+        "m2_yoy",
+        "m1_yoy",
+        "m0_yoy",
+        "new_loans_yoy",
+        "tsf_flow",
+        "base_money_yoy",
+        "lpr_1y",
+        "trade_bal_bn_usd",
+        "export_yoy",
+        "import_yoy",
+        "fx_reserves_yoy"
+      ],
+      "dropped": [],
+      "n_common_months": 35,
+      "checks": {
+        "min_eigenvalue": 0.00486857469622739,
+        "max_eigenvalue": 6.461877015959278,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 4.440892098500626e-16,
+        "euclidean_ok": true,
+        "symmetric": true,
+        "zero_diagonal": true
+      },
+      "k_selected": 2,
+      "silhouette_selected": 0.1768245600018539,
+      "silhouette_k4": 0.150820289002141,
+      "k_curve": [
+        {
+          "k": 2,
+          "silhouette": 0.1768245600018539
+        },
+        {
+          "k": 3,
+          "silhouette": 0.1659622105200839
+        },
+        {
+          "k": 4,
+          "silhouette": 0.150820289002141
+        },
+        {
+          "k": 5,
+          "silhouette": 0.1522342979019212
+        },
+        {
+          "k": 6,
+          "silhouette": 0.16130600811186777
+        },
+        {
+          "k": 7,
+          "silhouette": 0.12933861873584632
+        },
+        {
+          "k": 8,
+          "silhouette": 0.1286674437319542
+        }
+      ],
+      "membership": {
+        "pmi_man": 1,
+        "pmi_nonman": 2,
+        "cpi_yoy": 2,
+        "ppi_yoy": 1,
+        "cgpi_yoy": 1,
+        "lpi": 1,
+        "m2_yoy": 1,
+        "m1_yoy": 1,
+        "m0_yoy": 2,
+        "new_loans_yoy": 1,
+        "tsf_flow": 2,
+        "base_money_yoy": 1,
+        "lpr_1y": 2,
+        "trade_bal_bn_usd": 2,
+        "export_yoy": 2,
+        "import_yoy": 1,
+        "fx_reserves_yoy": 2
+      }
+    },
+    {
+      "window_end": "2020-12",
+      "window_start": "2018-01",
+      "n_retained": 20,
+      "retained": [
+        "pmi_man",
+        "pmi_nonman",
+        "cpi_yoy",
+        "ppi_yoy",
+        "cgpi_yoy",
+        "lpi",
+        "m2_yoy",
+        "m1_yoy",
+        "m0_yoy",
+        "new_loans_yoy",
+        "tsf_flow",
+        "base_money_yoy",
+        "lpr_1y",
+        "shibor_on",
+        "shibor_3m",
+        "shibor_1y",
+        "trade_bal_bn_usd",
+        "export_yoy",
+        "import_yoy",
+        "fx_reserves_yoy"
+      ],
+      "dropped": [
+        "shibor_spread_1y_on"
+      ],
+      "n_common_months": 35,
+      "checks": {
+        "min_eigenvalue": 0.0032568108462992236,
+        "max_eigenvalue": 6.422983373546525,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 1.942890293094024e-15,
+        "euclidean_ok": true,
+        "symmetric": true,
+        "zero_diagonal": true
+      },
+      "k_selected": 5,
+      "silhouette_selected": 0.2450356860616457,
+      "silhouette_k4": 0.24469122520785028,
+      "k_curve": [
+        {
+          "k": 2,
+          "silhouette": 0.2085090513442794
+        },
+        {
+          "k": 3,
+          "silhouette": 0.19973156303471937
+        },
+        {
+          "k": 4,
+          "silhouette": 0.24469122520785028
+        },
+        {
+          "k": 5,
+          "silhouette": 0.2450356860616457
+        },
+        {
+          "k": 6,
+          "silhouette": 0.23561554264515175
+        },
+        {
+          "k": 7,
+          "silhouette": 0.237488436707268
+        },
+        {
+          "k": 8,
+          "silhouette": 0.24013492008875076
+        }
+      ],
+      "membership": {
+        "pmi_man": 3,
+        "pmi_nonman": 3,
+        "cpi_yoy": 2,
+        "ppi_yoy": 1,
+        "cgpi_yoy": 2,
+        "lpi": 5,
+        "m2_yoy": 2,
+        "m1_yoy": 4,
+        "m0_yoy": 2,
+        "new_loans_yoy": 2,
+        "tsf_flow": 2,
+        "base_money_yoy": 4,
+        "lpr_1y": 1,
+        "shibor_on": 1,
+        "shibor_3m": 1,
+        "shibor_1y": 1,
+        "trade_bal_bn_usd": 3,
+        "export_yoy": 3,
+        "import_yoy": 1,
+        "fx_reserves_yoy": 4
+      }
+    },
+    {
+      "window_end": "2021-12",
+      "window_start": "2019-01",
+      "n_retained": 20,
+      "retained": [
+        "pmi_man",
+        "pmi_nonman",
+        "cpi_yoy",
+        "ppi_yoy",
+        "cgpi_yoy",
+        "lpi",
+        "m2_yoy",
+        "m1_yoy",
+        "m0_yoy",
+        "new_loans_yoy",
+        "tsf_flow",
+        "base_money_yoy",
+        "lpr_1y",
+        "shibor_on",
+        "shibor_3m",
+        "shibor_1y",
+        "trade_bal_bn_usd",
+        "export_yoy",
+        "import_yoy",
+        "fx_reserves_yoy"
+      ],
+      "dropped": [
+        "shibor_spread_1y_on"
+      ],
+      "n_common_months": 35,
+      "checks": {
+        "min_eigenvalue": 0.002968785045325685,
+        "max_eigenvalue": 5.426754932452698,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 9.71445146547012e-16,
+        "euclidean_ok": true,
+        "symmetric": true,
+        "zero_diagonal": true
+      },
+      "k_selected": 8,
+      "silhouette_selected": 0.25903297864740515,
+      "silhouette_k4": 0.22848015872103783,
+      "k_curve": [
+        {
+          "k": 2,
+          "silhouette": 0.21482391474632018
+        },
+        {
+          "k": 3,
+          "silhouette": 0.20014175082857627
+        },
+        {
+          "k": 4,
+          "silhouette": 0.22848015872103783
+        },
+        {
+          "k": 5,
+          "silhouette": 0.2427997500132284
+        },
+        {
+          "k": 6,
+          "silhouette": 0.2491044486138018
+        },
+        {
+          "k": 7,
+          "silhouette": 0.25735162190920524
+        },
+        {
+          "k": 8,
+          "silhouette": 0.25903297864740515
+        }
+      ],
+      "membership": {
+        "pmi_man": 4,
+        "pmi_nonman": 4,
+        "cpi_yoy": 1,
+        "ppi_yoy": 3,
+        "cgpi_yoy": 3,
+        "lpi": 5,
+        "m2_yoy": 5,
+        "m1_yoy": 5,
+        "m0_yoy": 6,
+        "new_loans_yoy": 7,
+        "tsf_flow": 8,
+        "base_money_yoy": 6,
+        "lpr_1y": 1,
+        "shibor_on": 2,
+        "shibor_3m": 2,
+        "shibor_1y": 2,
+        "trade_bal_bn_usd": 4,
+        "export_yoy": 7,
+        "import_yoy": 3,
+        "fx_reserves_yoy": 3
+      }
+    },
+    {
+      "window_end": "2022-12",
+      "window_start": "2020-01",
+      "n_retained": 21,
+      "retained": [
+        "pmi_man",
+        "pmi_nonman",
+        "cpi_yoy",
+        "ppi_yoy",
+        "cgpi_yoy",
+        "lpi",
+        "m2_yoy",
+        "m1_yoy",
+        "m0_yoy",
+        "new_loans_yoy",
+        "tsf_flow",
+        "base_money_yoy",
+        "lpr_1y",
+        "lpr_5y",
+        "shibor_on",
+        "shibor_3m",
+        "shibor_1y",
+        "trade_bal_bn_usd",
+        "export_yoy",
+        "import_yoy",
+        "fx_reserves_yoy"
+      ],
+      "dropped": [
+        "shibor_spread_1y_on",
+        "lpr_spread_5y_1y"
+      ],
+      "n_common_months": 35,
+      "checks": {
+        "min_eigenvalue": 0.0016396853767790345,
+        "max_eigenvalue": 7.261486564936348,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 4.440892098500626e-16,
+        "euclidean_ok": true,
+        "symmetric": true,
+        "zero_diagonal": true
+      },
+      "k_selected": 6,
+      "silhouette_selected": 0.21060560764842573,
+      "silhouette_k4": 0.16529263706550332,
+      "k_curve": [
+        {
+          "k": 2,
+          "silhouette": 0.20851637235086395
+        },
+        {
+          "k": 3,
+          "silhouette": 0.20553265562246695
+        },
+        {
+          "k": 4,
+          "silhouette": 0.16529263706550332
+        },
+        {
+          "k": 5,
+          "silhouette": 0.1889462073546641
+        },
+        {
+          "k": 6,
+          "silhouette": 0.21060560764842573
+        },
+        {
+          "k": 7,
+          "silhouette": 0.19927150477909852
+        },
+        {
+          "k": 8,
+          "silhouette": 0.20463683337676353
+        }
+      ],
+      "membership": {
+        "pmi_man": 6,
+        "pmi_nonman": 6,
+        "cpi_yoy": 3,
+        "ppi_yoy": 1,
+        "cgpi_yoy": 1,
+        "lpi": 4,
+        "m2_yoy": 3,
+        "m1_yoy": 4,
+        "m0_yoy": 3,
+        "new_loans_yoy": 5,
+        "tsf_flow": 5,
+        "base_money_yoy": 3,
+        "lpr_1y": 2,
+        "lpr_5y": 2,
+        "shibor_on": 2,
+        "shibor_3m": 2,
+        "shibor_1y": 2,
+        "trade_bal_bn_usd": 6,
+        "export_yoy": 1,
+        "import_yoy": 1,
+        "fx_reserves_yoy": 2
+      }
+    },
+    {
+      "window_end": "2023-12",
+      "window_start": "2021-01",
+      "n_retained": 21,
+      "retained": [
+        "pmi_man",
+        "pmi_nonman",
+        "cpi_yoy",
+        "ppi_yoy",
+        "cgpi_yoy",
+        "lpi",
+        "m2_yoy",
+        "m1_yoy",
+        "m0_yoy",
+        "new_loans_yoy",
+        "tsf_flow",
+        "base_money_yoy",
+        "lpr_1y",
+        "lpr_5y",
+        "shibor_on",
+        "shibor_3m",
+        "shibor_1y",
+        "trade_bal_bn_usd",
+        "export_yoy",
+        "import_yoy",
+        "fx_reserves_yoy"
+      ],
+      "dropped": [
+        "shibor_spread_1y_on",
+        "lpr_spread_5y_1y"
+      ],
+      "n_common_months": 35,
+      "checks": {
+        "min_eigenvalue": 0.0016594714337827593,
+        "max_eigenvalue": 9.056952112097651,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 1.1102230246251565e-15,
+        "euclidean_ok": true,
+        "symmetric": true,
+        "zero_diagonal": true
+      },
+      "k_selected": 2,
+      "silhouette_selected": 0.3051069044202287,
+      "silhouette_k4": 0.18362852852985162,
+      "k_curve": [
+        {
+          "k": 2,
+          "silhouette": 0.3051069044202287
+        },
+        {
+          "k": 3,
+          "silhouette": 0.23388412782734025
+        },
+        {
+          "k": 4,
+          "silhouette": 0.18362852852985162
+        },
+        {
+          "k": 5,
+          "silhouette": 0.19603673697336652
+        },
+        {
+          "k": 6,
+          "silhouette": 0.1833562551169627
+        },
+        {
+          "k": 7,
+          "silhouette": 0.19398453465622442
+        },
+        {
+          "k": 8,
+          "silhouette": 0.19163875945952885
+        }
+      ],
+      "membership": {
+        "pmi_man": 2,
+        "pmi_nonman": 2,
+        "cpi_yoy": 1,
+        "ppi_yoy": 2,
+        "cgpi_yoy": 2,
+        "lpi": 2,
+        "m2_yoy": 1,
+        "m1_yoy": 2,
+        "m0_yoy": 1,
+        "new_loans_yoy": 2,
+        "tsf_flow": 2,
+        "base_money_yoy": 1,
+        "lpr_1y": 2,
+        "lpr_5y": 2,
+        "shibor_on": 2,
+        "shibor_3m": 2,
+        "shibor_1y": 2,
+        "trade_bal_bn_usd": 1,
+        "export_yoy": 2,
+        "import_yoy": 2,
+        "fx_reserves_yoy": 2
+      }
+    },
+    {
+      "window_end": "2024-12",
+      "window_start": "2022-01",
+      "n_retained": 20,
+      "retained": [
+        "pmi_man",
+        "pmi_nonman",
+        "cpi_yoy",
+        "ppi_yoy",
+        "cgpi_yoy",
+        "m2_yoy",
+        "m1_yoy",
+        "m0_yoy",
+        "new_loans_yoy",
+        "tsf_flow",
+        "base_money_yoy",
+        "lpr_1y",
+        "lpr_5y",
+        "shibor_on",
+        "shibor_3m",
+        "shibor_1y",
+        "trade_bal_bn_usd",
+        "export_yoy",
+        "import_yoy",
+        "fx_reserves_yoy"
+      ],
+      "dropped": [
+        "shibor_spread_1y_on",
+        "lpr_spread_5y_1y"
+      ],
+      "n_common_months": 35,
+      "checks": {
+        "min_eigenvalue": 0.0021365576060871183,
+        "max_eigenvalue": 5.990408474881633,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 8.326672684688674e-16,
+        "euclidean_ok": true,
+        "symmetric": true,
+        "zero_diagonal": true
+      },
+      "k_selected": 8,
+      "silhouette_selected": 0.18928528433656652,
+      "silhouette_k4": 0.17837470539966194,
+      "k_curve": [
+        {
+          "k": 2,
+          "silhouette": 0.16252240177014515
+        },
+        {
+          "k": 3,
+          "silhouette": 0.16839241940533003
+        },
+        {
+          "k": 4,
+          "silhouette": 0.17837470539966194
+        },
+        {
+          "k": 5,
+          "silhouette": 0.16906659444877095
+        },
+        {
+          "k": 6,
+          "silhouette": 0.16806611158320875
+        },
+        {
+          "k": 7,
+          "silhouette": 0.16950185005897278
+        },
+        {
+          "k": 8,
+          "silhouette": 0.18928528433656652
+        }
+      ],
+      "membership": {
+        "pmi_man": 7,
+        "pmi_nonman": 7,
+        "cpi_yoy": 4,
+        "ppi_yoy": 4,
+        "cgpi_yoy": 6,
+        "m2_yoy": 1,
+        "m1_yoy": 1,
+        "m0_yoy": 4,
+        "new_loans_yoy": 8,
+        "tsf_flow": 8,
+        "base_money_yoy": 2,
+        "lpr_1y": 1,
+        "lpr_5y": 1,
+        "shibor_on": 6,
+        "shibor_3m": 2,
+        "shibor_1y": 2,
+        "trade_bal_bn_usd": 5,
+        "export_yoy": 3,
+        "import_yoy": 3,
+        "fx_reserves_yoy": 6
+      }
+    },
+    {
+      "window_end": "2025-12",
+      "window_start": "2023-01",
+      "n_retained": 20,
+      "retained": [
+        "pmi_man",
+        "pmi_nonman",
+        "cpi_yoy",
+        "ppi_yoy",
+        "cgpi_yoy",
+        "m2_yoy",
+        "m1_yoy",
+        "m0_yoy",
+        "new_loans_yoy",
+        "tsf_flow",
+        "base_money_yoy",
+        "lpr_1y",
+        "lpr_5y",
+        "shibor_on",
+        "shibor_3m",
+        "shibor_1y",
+        "trade_bal_bn_usd",
+        "export_yoy",
+        "import_yoy",
+        "fx_reserves_yoy"
+      ],
+      "dropped": [
+        "shibor_spread_1y_on",
+        "lpr_spread_5y_1y"
+      ],
+      "n_common_months": 35,
+      "checks": {
+        "min_eigenvalue": 0.0007488085980470043,
+        "max_eigenvalue": 7.653527685365853,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 2.831068712794149e-15,
+        "euclidean_ok": true,
+        "symmetric": true,
+        "zero_diagonal": true
+      },
+      "k_selected": 2,
+      "silhouette_selected": 0.253097106953402,
+      "silhouette_k4": 0.18084206727816957,
+      "k_curve": [
+        {
+          "k": 2,
+          "silhouette": 0.253097106953402
+        },
+        {
+          "k": 3,
+          "silhouette": 0.1926247201013037
+        },
+        {
+          "k": 4,
+          "silhouette": 0.18084206727816957
+        },
+        {
+          "k": 5,
+          "silhouette": 0.18591427502008306
+        },
+        {
+          "k": 6,
+          "silhouette": 0.17023731016086735
+        },
+        {
+          "k": 7,
+          "silhouette": 0.17056880874747127
+        },
+        {
+          "k": 8,
+          "silhouette": 0.18010418504707054
+        }
+      ],
+      "membership": {
+        "pmi_man": 2,
+        "pmi_nonman": 2,
+        "cpi_yoy": 2,
+        "ppi_yoy": 1,
+        "cgpi_yoy": 1,
+        "m2_yoy": 2,
+        "m1_yoy": 2,
+        "m0_yoy": 1,
+        "new_loans_yoy": 2,
+        "tsf_flow": 2,
+        "base_money_yoy": 2,
+        "lpr_1y": 2,
+        "lpr_5y": 2,
+        "shibor_on": 2,
+        "shibor_3m": 2,
+        "shibor_1y": 2,
+        "trade_bal_bn_usd": 1,
+        "export_yoy": 1,
+        "import_yoy": 1,
+        "fx_reserves_yoy": 1
+      }
+    },
+    {
+      "window_end": "2026-10",
+      "window_start": "2023-11",
+      "n_retained": 19,
+      "retained": [
+        "pmi_man",
+        "pmi_nonman",
+        "cpi_yoy",
+        "ppi_yoy",
+        "cgpi_yoy",
+        "m2_yoy",
+        "m1_yoy",
+        "m0_yoy",
+        "new_loans_yoy",
+        "base_money_yoy",
+        "lpr_1y",
+        "lpr_5y",
+        "shibor_on",
+        "shibor_3m",
+        "shibor_1y",
+        "trade_bal_bn_usd",
+        "export_yoy",
+        "import_yoy",
+        "fx_reserves_yoy"
+      ],
+      "dropped": [
+        "shibor_spread_1y_on",
+        "lpr_spread_5y_1y"
+      ],
+      "n_common_months": 35,
+      "checks": {
+        "min_eigenvalue": 0.0008680317417860627,
+        "max_eigenvalue": 7.495484666890137,
+        "psd_ok": true,
+        "euclidean_max_abs_diff": 1.6375789613221059e-15,
+        "euclidean_ok": true,
+        "symmetric": true,
+        "zero_diagonal": true
+      },
+      "k_selected": 2,
+      "silhouette_selected": 0.28413286265988935,
+      "silhouette_k4": 0.26262888130331813,
+      "k_curve": [
+        {
+          "k": 2,
+          "silhouette": 0.28413286265988935
+        },
+        {
+          "k": 3,
+          "silhouette": 0.27897067606622544
+        },
+        {
+          "k": 4,
+          "silhouette": 0.26262888130331813
+        },
+        {
+          "k": 5,
+          "silhouette": 0.26809756870284945
+        },
+        {
+          "k": 6,
+          "silhouette": 0.2678232800294192
+        },
+        {
+          "k": 7,
+          "silhouette": 0.2755764901448801
+        },
+        {
+          "k": 8,
+          "silhouette": 0.2725055150499479
+        }
+      ],
+      "membership": {
+        "pmi_man": 2,
+        "pmi_nonman": 2,
+        "cpi_yoy": 1,
+        "ppi_yoy": 1,
+        "cgpi_yoy": 1,
+        "m2_yoy": 1,
+        "m1_yoy": 1,
+        "m0_yoy": 2,
+        "new_loans_yoy": 2,
+        "base_money_yoy": 1,
+        "lpr_1y": 2,
+        "lpr_5y": 2,
+        "shibor_on": 2,
+        "shibor_3m": 2,
+        "shibor_1y": 2,
+        "trade_bal_bn_usd": 1,
+        "export_yoy": 1,
+        "import_yoy": 1,
+        "fx_reserves_yoy": 1
+      }
+    }
+  ],
+  "adjacent_ari": [
+    {
+      "window_prev": "2010-12",
+      "window_curr": "2011-12",
+      "n_common_indicators": 16,
+      "ari": 0.7700471698113207,
+      "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fiscal_rev_yoy;fx_reserves_yoy;import_yoy;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;retail_yoy;trade_bal_bn_usd"
+    },
+    {
+      "window_prev": "2011-12",
+      "window_curr": "2012-12",
+      "n_common_indicators": 15,
+      "ari": 0.3037574992106094,
+      "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fiscal_rev_yoy;fx_reserves_yoy;import_yoy;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd"
+    },
+    {
+      "window_prev": "2012-12",
+      "window_curr": "2013-12",
+      "n_common_indicators": 15,
+      "ari": 1.0,
+      "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fiscal_rev_yoy;fx_reserves_yoy;import_yoy;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd"
+    },
+    {
+      "window_prev": "2013-12",
+      "window_curr": "2014-12",
+      "n_common_indicators": 15,
+      "ari": 0.046939834024896265,
+      "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fiscal_rev_yoy;fx_reserves_yoy;import_yoy;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd"
+    },
+    {
+      "window_prev": "2014-12",
+      "window_curr": "2015-12",
+      "n_common_indicators": 15,
+      "ari": 0.12190414924412994,
+      "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fiscal_rev_yoy;fx_reserves_yoy;import_yoy;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd"
+    },
+    {
+      "window_prev": "2015-12",
+      "window_curr": "2016-12",
+      "n_common_indicators": 15,
+      "ari": 0.22528283325135268,
+      "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fiscal_rev_yoy;fx_reserves_yoy;import_yoy;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd"
+    },
+    {
+      "window_prev": "2016-12",
+      "window_curr": "2017-12",
+      "n_common_indicators": 17,
+      "ari": 0.22005097706032287,
+      "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fiscal_rev_yoy;fx_reserves_yoy;import_yoy;lpi;lpr_1y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd"
+    },
+    {
+      "window_prev": "2017-12",
+      "window_curr": "2018-12",
+      "n_common_indicators": 18,
+      "ari": 0.15007264336381507,
+      "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fiscal_rev_yoy;fx_reserves_yoy;import_yoy;lpi;lpr_1y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd;tsf_flow"
+    },
+    {
+      "window_prev": "2018-12",
+      "window_curr": "2019-12",
+      "n_common_indicators": 17,
+      "ari": 0.026041666666666668,
+      "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fx_reserves_yoy;import_yoy;lpi;lpr_1y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd;tsf_flow"
+    },
+    {
+      "window_prev": "2019-12",
+      "window_curr": "2020-12",
+      "n_common_indicators": 17,
+      "ari": -0.05201793721973094,
+      "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fx_reserves_yoy;import_yoy;lpi;lpr_1y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;trade_bal_bn_usd;tsf_flow"
+    },
+    {
+      "window_prev": "2020-12",
+      "window_curr": "2021-12",
+      "n_common_indicators": 20,
+      "ari": 0.1332484617016762,
+      "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fx_reserves_yoy;import_yoy;lpi;lpr_1y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;shibor_1y;shibor_3m;shibor_on;trade_bal_bn_usd;tsf_flow"
+    },
+    {
+      "window_prev": "2021-12",
+      "window_curr": "2022-12",
+      "n_common_indicators": 20,
+      "ari": 0.4233306941145421,
+      "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fx_reserves_yoy;import_yoy;lpi;lpr_1y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;shibor_1y;shibor_3m;shibor_on;trade_bal_bn_usd;tsf_flow"
+    },
+    {
+      "window_prev": "2022-12",
+      "window_curr": "2023-12",
+      "n_common_indicators": 21,
+      "ari": 0.16653696498054474,
+      "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fx_reserves_yoy;import_yoy;lpi;lpr_1y;lpr_5y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;shibor_1y;shibor_3m;shibor_on;trade_bal_bn_usd;tsf_flow"
+    },
+    {
+      "window_prev": "2023-12",
+      "window_curr": "2024-12",
+      "n_common_indicators": 20,
+      "ari": 0.001893043066729768,
+      "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fx_reserves_yoy;import_yoy;lpr_1y;lpr_5y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;shibor_1y;shibor_3m;shibor_on;trade_bal_bn_usd;tsf_flow"
+    },
+    {
+      "window_prev": "2024-12",
+      "window_curr": "2025-12",
+      "n_common_indicators": 20,
+      "ari": 0.09407478838529948,
+      "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fx_reserves_yoy;import_yoy;lpr_1y;lpr_5y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;shibor_1y;shibor_3m;shibor_on;trade_bal_bn_usd;tsf_flow"
+    },
+    {
+      "window_prev": "2025-12",
+      "window_curr": "2026-10",
+      "n_common_indicators": 19,
+      "ari": 0.1820418204182042,
+      "common_indicators": "base_money_yoy;cgpi_yoy;cpi_yoy;export_yoy;fx_reserves_yoy;import_yoy;lpr_1y;lpr_5y;m0_yoy;m1_yoy;m2_yoy;new_loans_yoy;pmi_man;pmi_nonman;ppi_yoy;shibor_1y;shibor_3m;shibor_on;trade_bal_bn_usd"
+    }
+  ],
+  "fit_seconds": 13.927201200000127,
+  "environment": {
+    "python": "3.13.15",
+    "numpy": "2.5.4",
+    "pandas": "3.1.0"
+  },
+  "outputs": {
+    "clusters": "results/approach1/clustering/window_clusters.csv",
+    "silhouette": "results/approach1/clustering/silhouette_by_window.csv",
+    "adjacent_ari": "results/approach1/clustering/adjacent_ari.csv",
+    "lead_lag": "results/approach1/clustering/lead_lag_gdp.csv"
+  }
+}
