@@ -13,6 +13,9 @@ repository root.
   assignment requirements; do not modify or overwrite it.
 - `AGENTS.md` defines the project objectives, implementation
   constraints, coding conventions, and agent behavior rules.
+- `interface.md` defines the shared data, target, timing, and output
+  contracts for Option A and Option B. Read it before implementing
+  or modifying any shared input/output logic.
 - The root-level `report.md` is the group's final, human-authored
   project report, not the original assignment specification.
   Report writing, mathematical decisions, verification, and final
@@ -47,14 +50,13 @@ exports/imports YoY, trade balance, consumer confidence, electricity output,
    the corresponding validation/test data. Select the factor count `r` by
    cross-validated nowcasting error.
 2. **Bridge regression nowcasting** via `y_t = b0 + b' f_t`, estimated on
-   `F_t` only, with two distinct targets:
-   - **quarterly GDP growth**: construct the monthly information sets used
-     for the quarterly target and report the within-quarter nowcast
-     revision path;
-   - **monthly industrial value-added growth** (use the term
-     *industrial value-added growth* consistently wherever the underlying
-     series represents value-added growth rather than industrial output in
-     a broader sense).
+   `F_t` only, with **quarterly GDP as the sole nowcasting target**.
+   Read `data/clean/gdp_quarterly.csv` and construct the derived
+   single-quarter GDP growth target exactly as specified in `interface.md`.
+   Preserve the published source fields; do not label cumulative Q2–Q4
+   growth as single-quarter growth. Report the within-quarter nowcast
+   revision path. Industrial value-added growth remains a monthly predictor,
+   not a second nowcasting target.
 3. **Probit regime classifier**: `P(d_{t+1}=1) = Phi(beta' z_t)`, with `z_t`
    the factors plus yield/spread controls; coefficient table with standard
    errors. Forecast-timing requirements:
@@ -68,8 +70,10 @@ exports/imports YoY, trade balance, consumer confidence, electricity output,
    49.5 threshold.
 5. **Indicator clustering**: Ward linkage on
    `d_ij = sqrt(2(1 - rho_ij))` computed from rolling 3-year correlations;
-   dendrogram; stability via adjusted Rand index across adjacent windows;
-   relate clusters to lead–lag cross-correlations with GDP. **Ward linkage
+   dendrogram; report silhouette scores for each valid rolling window and
+   stability via adjusted Rand index across adjacent windows on the common
+   retained indicator universe; relate clusters to lead–lag cross-correlations
+   with GDP. **Ward linkage
    requires Euclidean-compatible input distances**: verify and document
    that this distance construction is Euclidean-compatible for the data
    actually used (for example, the sample correlation matrix is positive
@@ -93,8 +97,15 @@ exports/imports YoY, trade balance, consumer confidence, electricity output,
    **42** must be one of them; **all seeds are recorded in the
    corresponding `metrics.json`**; results are reported as **mean ± std
    across seeds, alongside each individual per-seed result**.
-3. **Latent states**: k-means on hidden-state embeddings `h_t`; compare with
-   the Option-A correlation clusters (ARI/NMI) and with regime labels.
+3. **Latent states and clustering evaluation**: apply k-means to hidden-state
+   embeddings `h_t`, preserving the time observation represented by each
+   embedding. For each seed, report the silhouette score in that seed's
+   embedding space. Assess state-clustering stability across random seeds by
+   pairwise ARI on the same common set of time observations (report the
+   pairwise results and their mean). Compare latent-state assignments with
+   the aligned PMI contraction labels using ARI/NMI where the time alignment
+   is explicit. Do **not** calculate ARI/NMI directly against Option A's
+   indicator clusters: the two approaches cluster different kinds of objects.
 4. **Leakage ablation (mandatory)**: compare walk-forward Brier/AUC of
    (i) the leakage-safe probit, (ii) the leakage-safe LSTM/GRU, and
    (iii) an LSTM/GRU **without** lag discipline. The leaky experiment is an
@@ -108,6 +119,14 @@ exports/imports YoY, trade balance, consumer confidence, electricity output,
 - Metrics: Brier score, AUC, accuracy.
 - Naive prior-frequency baseline reported alongside every headline result.
 - Standardization statistics computed from **training windows only**.
+- Shared regime-classification schedule (see `interface.md`): initial historical labels `2008-02`–`2019-12`; out-of-sample target months `2020-01`–`2026-10`; month-end forecast origins `2019-12-31`–`2026-09-30`; one-month-ahead expanding-window evaluation. Use the target month as the fold ID. Option A Probit and Option B LSTM/GRU must use the same target months, folds, and realized labels.
+- GDP Nowcasting is Option A's only Nowcasting target: initial training quarters `2008Q1`–`2017Q4`; out-of-sample quarters `2018Q1`–`2026Q3`; generate M1/M2/M3 month-end vintages for each target quarter as specified in `interface.md`.
+- Evaluate the two clustering tasks under the three-layer comparison framework
+  in `interface.md` Section 9: (1) method-specific clustering quality and
+  stability, (2) economic interpretation against common macroeconomic
+  references, and (3) task-oriented practical value. Do not compare raw
+  silhouette scores across A and B or calculate direct ARI/NMI between
+  indicator clusters and time-point hidden-state clusters.
 
 ## 2. Environment facts and run commands
 
@@ -118,10 +137,9 @@ uv venv --python 3.13
 uv sync
 ```
 
-- Dependencies must be declared in `pyproject.toml` and locked by `uv.lock`
-  (written by `uv sync`). **Do not describe versions as pinned until
-  `pyproject.toml` and `uv.lock` exist and are committed** — currently
-  neither file exists in this repository.
+- Dependencies must be declared in `pyproject.toml` and locked in
+  `uv.lock`. Both files must be committed and kept in sync whenever
+  project dependencies change.
 - Exact run commands for Q3 scripts belong in this section, one per
   existing script.
 - `data/fetch.py` (Phase 2 data acquisition, raw snapshots under `data/raw/`):
@@ -175,9 +193,13 @@ Append each `uv run python <path> --seed 42` command
   `code/compare.py` reads every relevant `metrics.json`, **groups
   experiments by task and target**, and compares only methodologically
   comparable experiments — GDP nowcasting, regime classification and
-  indicator clustering are separate, task-specific comparison tables and
-  are **never ranked against one another in a single table**; consolidated
-  results are written to `results/comparison.html`.
+  clustering are separate, task-specific sections and are **never ranked
+  against one another in a single table**. The clustering section must use
+  the three-layer A/B comparison in `interface.md` Section 9: method-specific
+  quality/stability, shared economic interpretation, and practical value.
+  Do not compare raw A/B silhouette values or calculate direct cross-method
+  ARI/NMI between indicator clusters and time-point hidden-state clusters.
+  Write the consolidated result to `results/comparison.html`.
 - Terminal output via `rich` (panel + metrics table); no blob text dumps.
 - Panel hygiene: missing-value report with every fetch; outlier rule (MAD)
   stated; log/YoY/seasonal-adjust transformations documented per series;
@@ -186,6 +208,16 @@ Append each `uv run python <path> --seed 42` command
 
 ## 4. Agent rules
 
+- Read `interface.md` before implementing or modifying shared data inputs,
+  target construction, forecast timing, prediction outputs, or comparison
+  logic. Treat its approved conventions as the shared contract. Do not
+  change shared schemas or definitions unilaterally.
+- The current data snapshot is frozen for model development. Do not run
+  live data fetches or rebuild the panel, and do not modify `data/raw/`,
+  `data/clean/`, `data/metadata.json`, `data/fetch.py`, or
+  `data/build_panel.py` unless both group members explicitly approve the
+  change. Write derived model targets, predictions, metrics, and figures
+  under the appropriate `results/` directories.
 - Write **nothing** outside the repository root.
 - Tool and library caches live in-repo and are gitignored.
 - Propose-then-act for destructive operations: deleting data files, wiping
