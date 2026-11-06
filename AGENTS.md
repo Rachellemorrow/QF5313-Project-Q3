@@ -155,6 +155,12 @@ uv run python data/fetch.py --offline     # verify committed snapshots + SHA-256
 uv run python data/build_panel.py --seed 42
 ```
 
+- `code/approach1_data.py` (Option A data, schedule, target, and leakage checks → `results/approach1/data/`):
+
+```bash
+uv run python code/approach1_data.py --seed 42
+```
+
 Append each `uv run python <path> --seed 42` command
   here at the same commit that introduces the script; never document
   commands for scripts that do not exist.

@@ -1,0 +1,1023 @@
+{
+  "rule": "F_t = { x_{i,s} : s + L_i <= t }",
+  "excluded_month": "2026-11",
+  "n_indicators": 30,
+  "lags": {
+    "pmi_man": 0,
+    "pmi_nonman": 0,
+    "cpi_yoy": 1,
+    "ppi_yoy": 1,
+    "cgpi_yoy": 1,
+    "industrial_va_yoy": 1,
+    "retail_yoy": 1,
+    "fai_yoy": 1,
+    "consumer_confidence": 2,
+    "lpi": 1,
+    "elec_cons_yoy": 1,
+    "freight_yoy": 1,
+    "m2_yoy": 1,
+    "m1_yoy": 1,
+    "m0_yoy": 1,
+    "new_loans_yoy": 1,
+    "tsf_flow": 1,
+    "base_money_yoy": 1,
+    "lpr_1y": 0,
+    "lpr_5y": 0,
+    "shibor_on": 0,
+    "shibor_3m": 0,
+    "shibor_1y": 0,
+    "trade_bal_bn_usd": 1,
+    "export_yoy": 1,
+    "import_yoy": 1,
+    "fx_reserves_yoy": 1,
+    "fiscal_rev_yoy": 1,
+    "shibor_spread_1y_on": 0,
+    "lpr_spread_5y_1y": 0
+  },
+  "regime_schedule": {
+    "n_records": 82,
+    "first_origin": "2019-12-31",
+    "last_origin": "2026-09-30",
+    "first_target": "2020-01",
+    "last_target": "2026-10"
+  },
+  "gdp_schedule": {
+    "n_records": 105,
+    "n_quarters": 35,
+    "vintages": [
+      "M1",
+      "M2",
+      "M3"
+    ],
+    "first_origin": "2018-01-31",
+    "last_origin": "2026-09-30"
+  },
+  "feature_panel": "row t stores x[i, t-L_i]; NaN where unreleased",
+  "checks": {
+    "feature_rows_match_panel_shift": true,
+    "gdp_target_never_in_own_training": true,
+    "partial_month_excluded": true
+  },
+  "availability_sample": [
+    {
+      "indicator": "pmi_man",
+      "lag": 0,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-12",
+      "eligible": true
+    },
+    {
+      "indicator": "pmi_man",
+      "lag": 0,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-09",
+      "eligible": true
+    },
+    {
+      "indicator": "pmi_man",
+      "lag": 0,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-03",
+      "eligible": true
+    },
+    {
+      "indicator": "pmi_man",
+      "lag": 0,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-03",
+      "eligible": true
+    },
+    {
+      "indicator": "pmi_nonman",
+      "lag": 0,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-12",
+      "eligible": true
+    },
+    {
+      "indicator": "pmi_nonman",
+      "lag": 0,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-09",
+      "eligible": true
+    },
+    {
+      "indicator": "pmi_nonman",
+      "lag": 0,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-03",
+      "eligible": true
+    },
+    {
+      "indicator": "pmi_nonman",
+      "lag": 0,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-03",
+      "eligible": true
+    },
+    {
+      "indicator": "cpi_yoy",
+      "lag": 1,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-11",
+      "eligible": true
+    },
+    {
+      "indicator": "cpi_yoy",
+      "lag": 1,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-08",
+      "eligible": true
+    },
+    {
+      "indicator": "cpi_yoy",
+      "lag": 1,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-02",
+      "eligible": true
+    },
+    {
+      "indicator": "cpi_yoy",
+      "lag": 1,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-02",
+      "eligible": true
+    },
+    {
+      "indicator": "ppi_yoy",
+      "lag": 1,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-11",
+      "eligible": true
+    },
+    {
+      "indicator": "ppi_yoy",
+      "lag": 1,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-08",
+      "eligible": true
+    },
+    {
+      "indicator": "ppi_yoy",
+      "lag": 1,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-02",
+      "eligible": true
+    },
+    {
+      "indicator": "ppi_yoy",
+      "lag": 1,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-02",
+      "eligible": true
+    },
+    {
+      "indicator": "cgpi_yoy",
+      "lag": 1,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-11",
+      "eligible": true
+    },
+    {
+      "indicator": "cgpi_yoy",
+      "lag": 1,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-08",
+      "eligible": true
+    },
+    {
+      "indicator": "cgpi_yoy",
+      "lag": 1,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-02",
+      "eligible": true
+    },
+    {
+      "indicator": "cgpi_yoy",
+      "lag": 1,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-02",
+      "eligible": true
+    },
+    {
+      "indicator": "industrial_va_yoy",
+      "lag": 1,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-11",
+      "eligible": true
+    },
+    {
+      "indicator": "industrial_va_yoy",
+      "lag": 1,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-08",
+      "eligible": true
+    },
+    {
+      "indicator": "industrial_va_yoy",
+      "lag": 1,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-02",
+      "eligible": true
+    },
+    {
+      "indicator": "industrial_va_yoy",
+      "lag": 1,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-02",
+      "eligible": true
+    },
+    {
+      "indicator": "retail_yoy",
+      "lag": 1,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-11",
+      "eligible": true
+    },
+    {
+      "indicator": "retail_yoy",
+      "lag": 1,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-08",
+      "eligible": true
+    },
+    {
+      "indicator": "retail_yoy",
+      "lag": 1,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-02",
+      "eligible": true
+    },
+    {
+      "indicator": "retail_yoy",
+      "lag": 1,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-02",
+      "eligible": true
+    },
+    {
+      "indicator": "fai_yoy",
+      "lag": 1,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-11",
+      "eligible": true
+    },
+    {
+      "indicator": "fai_yoy",
+      "lag": 1,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-08",
+      "eligible": true
+    },
+    {
+      "indicator": "fai_yoy",
+      "lag": 1,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-02",
+      "eligible": true
+    },
+    {
+      "indicator": "fai_yoy",
+      "lag": 1,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-02",
+      "eligible": true
+    },
+    {
+      "indicator": "consumer_confidence",
+      "lag": 2,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-10",
+      "eligible": true
+    },
+    {
+      "indicator": "consumer_confidence",
+      "lag": 2,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-07",
+      "eligible": true
+    },
+    {
+      "indicator": "consumer_confidence",
+      "lag": 2,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-01",
+      "eligible": true
+    },
+    {
+      "indicator": "consumer_confidence",
+      "lag": 2,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-01",
+      "eligible": true
+    },
+    {
+      "indicator": "lpi",
+      "lag": 1,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-11",
+      "eligible": true
+    },
+    {
+      "indicator": "lpi",
+      "lag": 1,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-08",
+      "eligible": true
+    },
+    {
+      "indicator": "lpi",
+      "lag": 1,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-02",
+      "eligible": true
+    },
+    {
+      "indicator": "lpi",
+      "lag": 1,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-02",
+      "eligible": true
+    },
+    {
+      "indicator": "elec_cons_yoy",
+      "lag": 1,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-11",
+      "eligible": true
+    },
+    {
+      "indicator": "elec_cons_yoy",
+      "lag": 1,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-08",
+      "eligible": true
+    },
+    {
+      "indicator": "elec_cons_yoy",
+      "lag": 1,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-02",
+      "eligible": true
+    },
+    {
+      "indicator": "elec_cons_yoy",
+      "lag": 1,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-02",
+      "eligible": true
+    },
+    {
+      "indicator": "freight_yoy",
+      "lag": 1,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-11",
+      "eligible": true
+    },
+    {
+      "indicator": "freight_yoy",
+      "lag": 1,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-08",
+      "eligible": true
+    },
+    {
+      "indicator": "freight_yoy",
+      "lag": 1,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-02",
+      "eligible": true
+    },
+    {
+      "indicator": "freight_yoy",
+      "lag": 1,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-02",
+      "eligible": true
+    },
+    {
+      "indicator": "m2_yoy",
+      "lag": 1,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-11",
+      "eligible": true
+    },
+    {
+      "indicator": "m2_yoy",
+      "lag": 1,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-08",
+      "eligible": true
+    },
+    {
+      "indicator": "m2_yoy",
+      "lag": 1,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-02",
+      "eligible": true
+    },
+    {
+      "indicator": "m2_yoy",
+      "lag": 1,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-02",
+      "eligible": true
+    },
+    {
+      "indicator": "m1_yoy",
+      "lag": 1,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-11",
+      "eligible": true
+    },
+    {
+      "indicator": "m1_yoy",
+      "lag": 1,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-08",
+      "eligible": true
+    },
+    {
+      "indicator": "m1_yoy",
+      "lag": 1,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-02",
+      "eligible": true
+    },
+    {
+      "indicator": "m1_yoy",
+      "lag": 1,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-02",
+      "eligible": true
+    },
+    {
+      "indicator": "m0_yoy",
+      "lag": 1,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-11",
+      "eligible": true
+    },
+    {
+      "indicator": "m0_yoy",
+      "lag": 1,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-08",
+      "eligible": true
+    },
+    {
+      "indicator": "m0_yoy",
+      "lag": 1,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-02",
+      "eligible": true
+    },
+    {
+      "indicator": "m0_yoy",
+      "lag": 1,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-02",
+      "eligible": true
+    },
+    {
+      "indicator": "new_loans_yoy",
+      "lag": 1,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-11",
+      "eligible": true
+    },
+    {
+      "indicator": "new_loans_yoy",
+      "lag": 1,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-08",
+      "eligible": true
+    },
+    {
+      "indicator": "new_loans_yoy",
+      "lag": 1,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-02",
+      "eligible": true
+    },
+    {
+      "indicator": "new_loans_yoy",
+      "lag": 1,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-02",
+      "eligible": true
+    },
+    {
+      "indicator": "tsf_flow",
+      "lag": 1,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-11",
+      "eligible": true
+    },
+    {
+      "indicator": "tsf_flow",
+      "lag": 1,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-08",
+      "eligible": true
+    },
+    {
+      "indicator": "tsf_flow",
+      "lag": 1,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-02",
+      "eligible": true
+    },
+    {
+      "indicator": "tsf_flow",
+      "lag": 1,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-02",
+      "eligible": true
+    },
+    {
+      "indicator": "base_money_yoy",
+      "lag": 1,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-11",
+      "eligible": true
+    },
+    {
+      "indicator": "base_money_yoy",
+      "lag": 1,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-08",
+      "eligible": true
+    },
+    {
+      "indicator": "base_money_yoy",
+      "lag": 1,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-02",
+      "eligible": true
+    },
+    {
+      "indicator": "base_money_yoy",
+      "lag": 1,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-02",
+      "eligible": true
+    },
+    {
+      "indicator": "lpr_1y",
+      "lag": 0,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-12",
+      "eligible": true
+    },
+    {
+      "indicator": "lpr_1y",
+      "lag": 0,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-09",
+      "eligible": true
+    },
+    {
+      "indicator": "lpr_1y",
+      "lag": 0,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-03",
+      "eligible": true
+    },
+    {
+      "indicator": "lpr_1y",
+      "lag": 0,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-03",
+      "eligible": true
+    },
+    {
+      "indicator": "lpr_5y",
+      "lag": 0,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-12",
+      "eligible": true
+    },
+    {
+      "indicator": "lpr_5y",
+      "lag": 0,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-09",
+      "eligible": true
+    },
+    {
+      "indicator": "lpr_5y",
+      "lag": 0,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-03",
+      "eligible": true
+    },
+    {
+      "indicator": "lpr_5y",
+      "lag": 0,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-03",
+      "eligible": true
+    },
+    {
+      "indicator": "shibor_on",
+      "lag": 0,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-12",
+      "eligible": true
+    },
+    {
+      "indicator": "shibor_on",
+      "lag": 0,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-09",
+      "eligible": true
+    },
+    {
+      "indicator": "shibor_on",
+      "lag": 0,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-03",
+      "eligible": true
+    },
+    {
+      "indicator": "shibor_on",
+      "lag": 0,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-03",
+      "eligible": true
+    },
+    {
+      "indicator": "shibor_3m",
+      "lag": 0,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-12",
+      "eligible": true
+    },
+    {
+      "indicator": "shibor_3m",
+      "lag": 0,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-09",
+      "eligible": true
+    },
+    {
+      "indicator": "shibor_3m",
+      "lag": 0,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-03",
+      "eligible": true
+    },
+    {
+      "indicator": "shibor_3m",
+      "lag": 0,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-03",
+      "eligible": true
+    },
+    {
+      "indicator": "shibor_1y",
+      "lag": 0,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-12",
+      "eligible": true
+    },
+    {
+      "indicator": "shibor_1y",
+      "lag": 0,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-09",
+      "eligible": true
+    },
+    {
+      "indicator": "shibor_1y",
+      "lag": 0,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-03",
+      "eligible": true
+    },
+    {
+      "indicator": "shibor_1y",
+      "lag": 0,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-03",
+      "eligible": true
+    },
+    {
+      "indicator": "trade_bal_bn_usd",
+      "lag": 1,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-11",
+      "eligible": true
+    },
+    {
+      "indicator": "trade_bal_bn_usd",
+      "lag": 1,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-08",
+      "eligible": true
+    },
+    {
+      "indicator": "trade_bal_bn_usd",
+      "lag": 1,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-02",
+      "eligible": true
+    },
+    {
+      "indicator": "trade_bal_bn_usd",
+      "lag": 1,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-02",
+      "eligible": true
+    },
+    {
+      "indicator": "export_yoy",
+      "lag": 1,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-11",
+      "eligible": true
+    },
+    {
+      "indicator": "export_yoy",
+      "lag": 1,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-08",
+      "eligible": true
+    },
+    {
+      "indicator": "export_yoy",
+      "lag": 1,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-02",
+      "eligible": true
+    },
+    {
+      "indicator": "export_yoy",
+      "lag": 1,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-02",
+      "eligible": true
+    },
+    {
+      "indicator": "import_yoy",
+      "lag": 1,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-11",
+      "eligible": true
+    },
+    {
+      "indicator": "import_yoy",
+      "lag": 1,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-08",
+      "eligible": true
+    },
+    {
+      "indicator": "import_yoy",
+      "lag": 1,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-02",
+      "eligible": true
+    },
+    {
+      "indicator": "import_yoy",
+      "lag": 1,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-02",
+      "eligible": true
+    },
+    {
+      "indicator": "fx_reserves_yoy",
+      "lag": 1,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-11",
+      "eligible": true
+    },
+    {
+      "indicator": "fx_reserves_yoy",
+      "lag": 1,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-08",
+      "eligible": true
+    },
+    {
+      "indicator": "fx_reserves_yoy",
+      "lag": 1,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-02",
+      "eligible": true
+    },
+    {
+      "indicator": "fx_reserves_yoy",
+      "lag": 1,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-02",
+      "eligible": true
+    },
+    {
+      "indicator": "fiscal_rev_yoy",
+      "lag": 1,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-11",
+      "eligible": true
+    },
+    {
+      "indicator": "fiscal_rev_yoy",
+      "lag": 1,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-08",
+      "eligible": true
+    },
+    {
+      "indicator": "fiscal_rev_yoy",
+      "lag": 1,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-02",
+      "eligible": true
+    },
+    {
+      "indicator": "fiscal_rev_yoy",
+      "lag": 1,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-02",
+      "eligible": true
+    },
+    {
+      "indicator": "shibor_spread_1y_on",
+      "lag": 0,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-12",
+      "eligible": true
+    },
+    {
+      "indicator": "shibor_spread_1y_on",
+      "lag": 0,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-09",
+      "eligible": true
+    },
+    {
+      "indicator": "shibor_spread_1y_on",
+      "lag": 0,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-03",
+      "eligible": true
+    },
+    {
+      "indicator": "shibor_spread_1y_on",
+      "lag": 0,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-03",
+      "eligible": true
+    },
+    {
+      "indicator": "lpr_spread_5y_1y",
+      "lag": 0,
+      "origin_month": "2019-12",
+      "forecast_origin": "2019-12-31",
+      "latest_eligible_reference_month": "2019-12",
+      "eligible": true
+    },
+    {
+      "indicator": "lpr_spread_5y_1y",
+      "lag": 0,
+      "origin_month": "2026-09",
+      "forecast_origin": "2026-09-30",
+      "latest_eligible_reference_month": "2026-09",
+      "eligible": true
+    },
+    {
+      "indicator": "lpr_spread_5y_1y",
+      "lag": 0,
+      "origin_month": "2018-03",
+      "forecast_origin": "2018-03-31",
+      "latest_eligible_reference_month": "2018-03",
+      "eligible": true
+    },
+    {
+      "indicator": "lpr_spread_5y_1y",
+      "lag": 0,
+      "origin_month": "2026-03",
+      "forecast_origin": "2026-03-31",
+      "latest_eligible_reference_month": "2026-03",
+      "eligible": true
+    }
+  ]
+}

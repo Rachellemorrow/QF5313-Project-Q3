@@ -1,0 +1,29 @@
+{
+  "base_year": 2006,
+  "source_file": "data/clean/gdp_quarterly.csv",
+  "source_columns": [
+    "quarter",
+    "gdp_abs_cum_bn",
+    "gdp_yoy",
+    "window"
+  ],
+  "unit_note": "gdp_abs_cum_bn is RMB 100 million (亿元); target is in percent",
+  "formula": {
+    "C_2006": "C(2006,q) = A(2006,q)",
+    "C_chain": "C(y,q) = C(y-1,q) * (1 + g(y,q))",
+    "V_deaccumulate": "V(y,1)=C(y,1); V(y,q)=C(y,q)-C(y,q-1), q=2,3,4",
+    "target": "100 * (V(y,q)/V(y-1,q) - 1)"
+  },
+  "n_source_rows": 83,
+  "n_derived_targets": 79,
+  "derived_first_quarter": "2007Q1",
+  "derived_last_quarter": "2026Q3",
+  "all_reconstructed_volumes_positive": true,
+  "q1_max_abs_difference_pp": 1.2434497875801753e-14,
+  "cumulative_recovery_max_abs_difference_pp": 1.0658141036401503e-14,
+  "q1_validation_n": 20,
+  "cumulative_validation_n": 59,
+  "q1_check_passed": true,
+  "cumulative_check_passed": true,
+  "note": "Derived chain-linked single-quarter volume estimate, not an official separately published NBS single-quarter series."
+}

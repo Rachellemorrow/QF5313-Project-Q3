@@ -1,0 +1,54 @@
+{
+  "primary_threshold_50": {
+    "total": {
+      "start": "2008-02",
+      "end": "2026-10",
+      "n_months": 225,
+      "n_valid_labels": 225,
+      "n_contraction": 47,
+      "n_expansion": 178
+    },
+    "initial": {
+      "start": "2008-02",
+      "end": "2019-12",
+      "n_months": 143,
+      "n_valid_labels": 143,
+      "n_contraction": 20,
+      "n_expansion": 123
+    },
+    "out_of_sample": {
+      "start": "2020-01",
+      "end": "2026-10",
+      "n_months": 82,
+      "n_valid_labels": 82,
+      "n_contraction": 27,
+      "n_expansion": 55
+    }
+  },
+  "sensitivity_threshold_49_5": {
+    "total": {
+      "start": "2008-02",
+      "end": "2026-10",
+      "n_months": 225,
+      "n_valid_labels": 225,
+      "n_contraction": 20,
+      "n_expansion": 205
+    },
+    "initial": {
+      "start": "2008-02",
+      "end": "2019-12",
+      "n_months": 143,
+      "n_valid_labels": 143,
+      "n_contraction": 7,
+      "n_expansion": 136
+    },
+    "out_of_sample": {
+      "start": "2020-01",
+      "end": "2026-10",
+      "n_months": 82,
+      "n_valid_labels": 82,
+      "n_contraction": 13,
+      "n_expansion": 69
+    }
+  }
+}
