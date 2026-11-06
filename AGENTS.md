@@ -167,6 +167,12 @@ uv run python code/approach1_data.py --seed 42
 uv run python code/approach1_gdp_nowcast.py --seed 42
 ```
 
+- `code/approach1_regime.py` (Option A Probit regime classifier + 49.5 sensitivity → `results/approach1/regime/`):
+
+```bash
+uv run python code/approach1_regime.py --seed 42
+```
+
 Append each `uv run python <path> --seed 42` command
   here at the same commit that introduces the script; never document
   commands for scripts that do not exist.

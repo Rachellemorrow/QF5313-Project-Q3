@@ -1,0 +1,5750 @@
+{
+  "task": "regime_classification",
+  "target": "pmi_contraction_next_50p0",
+  "approach": "A",
+  "leakage_discipline": "safe",
+  "seed": 42,
+  "params": {
+    "model": "Probit: P(d_(t+1)=1) = Phi(beta' z_t)",
+    "label_definition": "d_t = 1{pmi_man_t < threshold and pmi_man_(t-1) < threshold}",
+    "threshold": 50.0,
+    "z_t": "PCA factors + lpr_1y control (training-standardized)",
+    "factor_universe": "panel excluding the rate/spread block reserved for controls",
+    "control": "lpr_1y",
+    "factor_screen": {
+      "recent_months": 60,
+      "min_recent_coverage": 0.7,
+      "min_observations": 24
+    },
+    "rank_candidates": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "rank_selection": "inner expanding-window CV, pooled M1/M2/M3 GDP nowcast RMSE",
+    "train_label_start": "2013-11",
+    "initial_label_window": [
+      "2008-02",
+      "2019-12"
+    ],
+    "oos_target_months": [
+      "2020-01",
+      "2026-10"
+    ],
+    "forecast_origins": "month-end 2019-12-31 … 2026-09-30",
+    "decision_threshold": 0.5
+  },
+  "metrics": {
+    "overall": {
+      "n": 82,
+      "n_positive": 27,
+      "n_negative": 55,
+      "brier": 0.25174912360714735,
+      "auc": 0.5952861952861953,
+      "accuracy": 0.5975609756097561,
+      "balanced_accuracy": 0.5491582491582492,
+      "sensitivity": 0.4074074074074074,
+      "specificity": 0.6909090909090909,
+      "log_loss": 1.1023062525831997,
+      "confusion": {
+        "tp": 11,
+        "tn": 38,
+        "fp": 17,
+        "fn": 16
+      }
+    },
+    "baseline_prior_frequency": {
+      "brier": 0.23207198790490358,
+      "auc": 0.5996632996632996,
+      "accuracy": 0.6707317073170732,
+      "note": "per-fold training base rate used as the constant probability"
+    },
+    "baseline_persistence": {
+      "brier": 0.24390243902439024,
+      "auc": 0.7239057239057238,
+      "accuracy": 0.7560975609756098,
+      "note": "predict d_(t+1) = d_t; probabilities are 0/1",
+      "n_evaluated": 82
+    },
+    "brier_skill_score_vs_prior": -0.084788930710185,
+    "by_year": {
+      "2020": {
+        "n": 12,
+        "brier": 0.3262654459501926,
+        "auc": null,
+        "accuracy": 0.5833333333333334
+      },
+      "2021": {
+        "n": 12,
+        "brier": 0.09082614868598338,
+        "auc": 0.6363636363636364,
+        "accuracy": 0.9166666666666666
+      },
+      "2022": {
+        "n": 12,
+        "brier": 0.3455092309080878,
+        "auc": 0.4571428571428572,
+        "accuracy": 0.5
+      },
+      "2023": {
+        "n": 12,
+        "brier": 0.3137732681845877,
+        "auc": 0.4444444444444444,
+        "accuracy": 0.3333333333333333
+      },
+      "2024": {
+        "n": 12,
+        "brier": 0.2691192481726064,
+        "auc": 0.36111111111111116,
+        "accuracy": 0.3333333333333333
+      },
+      "2025": {
+        "n": 12,
+        "brier": 0.22500700087498618,
+        "auc": 0.7428571428571429,
+        "accuracy": 0.75
+      },
+      "2026": {
+        "n": 10,
+        "brier": 0.17974240224687513,
+        "auc": 0.5,
+        "accuracy": 0.8
+      }
+    }
+  },
+  "folds": [
+    {
+      "fold": "2020-01",
+      "forecast_origin": "2019-12-31",
+      "target_period": "2020-01",
+      "train_start": "2013-11",
+      "train_end": "2019-12",
+      "n_train_labels": 74,
+      "n_positive": 14,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2020-02",
+      "forecast_origin": "2020-01-31",
+      "target_period": "2020-02",
+      "train_start": "2013-11",
+      "train_end": "2020-01",
+      "n_train_labels": 75,
+      "n_positive": 14,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2020-03",
+      "forecast_origin": "2020-02-29",
+      "target_period": "2020-03",
+      "train_start": "2013-11",
+      "train_end": "2020-02",
+      "n_train_labels": 76,
+      "n_positive": 14,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2020-04",
+      "forecast_origin": "2020-03-31",
+      "target_period": "2020-04",
+      "train_start": "2013-11",
+      "train_end": "2020-03",
+      "n_train_labels": 77,
+      "n_positive": 14,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2020-05",
+      "forecast_origin": "2020-04-30",
+      "target_period": "2020-05",
+      "train_start": "2013-11",
+      "train_end": "2020-04",
+      "n_train_labels": 78,
+      "n_positive": 14,
+      "r": 4,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2020-06",
+      "forecast_origin": "2020-05-31",
+      "target_period": "2020-06",
+      "train_start": "2013-11",
+      "train_end": "2020-05",
+      "n_train_labels": 79,
+      "n_positive": 14,
+      "r": 4,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2020-07",
+      "forecast_origin": "2020-06-30",
+      "target_period": "2020-07",
+      "train_start": "2013-11",
+      "train_end": "2020-06",
+      "n_train_labels": 80,
+      "n_positive": 14,
+      "r": 4,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2020-08",
+      "forecast_origin": "2020-07-31",
+      "target_period": "2020-08",
+      "train_start": "2013-11",
+      "train_end": "2020-07",
+      "n_train_labels": 81,
+      "n_positive": 14,
+      "r": 4,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2020-09",
+      "forecast_origin": "2020-08-31",
+      "target_period": "2020-09",
+      "train_start": "2013-11",
+      "train_end": "2020-08",
+      "n_train_labels": 82,
+      "n_positive": 14,
+      "r": 4,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2020-10",
+      "forecast_origin": "2020-09-30",
+      "target_period": "2020-10",
+      "train_start": "2013-11",
+      "train_end": "2020-09",
+      "n_train_labels": 83,
+      "n_positive": 14,
+      "r": 4,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2020-11",
+      "forecast_origin": "2020-10-31",
+      "target_period": "2020-11",
+      "train_start": "2013-11",
+      "train_end": "2020-10",
+      "n_train_labels": 84,
+      "n_positive": 14,
+      "r": 4,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2020-12",
+      "forecast_origin": "2020-11-30",
+      "target_period": "2020-12",
+      "train_start": "2013-11",
+      "train_end": "2020-11",
+      "n_train_labels": 85,
+      "n_positive": 14,
+      "r": 4,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2021-01",
+      "forecast_origin": "2020-12-31",
+      "target_period": "2021-01",
+      "train_start": "2013-11",
+      "train_end": "2020-12",
+      "n_train_labels": 86,
+      "n_positive": 14,
+      "r": 4,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2021-02",
+      "forecast_origin": "2021-01-31",
+      "target_period": "2021-02",
+      "train_start": "2013-11",
+      "train_end": "2021-01",
+      "n_train_labels": 87,
+      "n_positive": 14,
+      "r": 4,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2021-03",
+      "forecast_origin": "2021-02-28",
+      "target_period": "2021-03",
+      "train_start": "2013-11",
+      "train_end": "2021-02",
+      "n_train_labels": 88,
+      "n_positive": 14,
+      "r": 4,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2021-04",
+      "forecast_origin": "2021-03-31",
+      "target_period": "2021-04",
+      "train_start": "2013-11",
+      "train_end": "2021-03",
+      "n_train_labels": 89,
+      "n_positive": 14,
+      "r": 4,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2021-05",
+      "forecast_origin": "2021-04-30",
+      "target_period": "2021-05",
+      "train_start": "2013-11",
+      "train_end": "2021-04",
+      "n_train_labels": 90,
+      "n_positive": 14,
+      "r": 4,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2021-06",
+      "forecast_origin": "2021-05-31",
+      "target_period": "2021-06",
+      "train_start": "2013-11",
+      "train_end": "2021-05",
+      "n_train_labels": 91,
+      "n_positive": 14,
+      "r": 4,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2021-07",
+      "forecast_origin": "2021-06-30",
+      "target_period": "2021-07",
+      "train_start": "2013-11",
+      "train_end": "2021-06",
+      "n_train_labels": 92,
+      "n_positive": 14,
+      "r": 4,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2021-08",
+      "forecast_origin": "2021-07-31",
+      "target_period": "2021-08",
+      "train_start": "2013-11",
+      "train_end": "2021-07",
+      "n_train_labels": 93,
+      "n_positive": 14,
+      "r": 4,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2021-09",
+      "forecast_origin": "2021-08-31",
+      "target_period": "2021-09",
+      "train_start": "2013-11",
+      "train_end": "2021-08",
+      "n_train_labels": 94,
+      "n_positive": 14,
+      "r": 4,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2021-10",
+      "forecast_origin": "2021-09-30",
+      "target_period": "2021-10",
+      "train_start": "2013-11",
+      "train_end": "2021-09",
+      "n_train_labels": 95,
+      "n_positive": 14,
+      "r": 4,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2021-11",
+      "forecast_origin": "2021-10-31",
+      "target_period": "2021-11",
+      "train_start": "2013-11",
+      "train_end": "2021-10",
+      "n_train_labels": 96,
+      "n_positive": 15,
+      "r": 4,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2021-12",
+      "forecast_origin": "2021-11-30",
+      "target_period": "2021-12",
+      "train_start": "2013-11",
+      "train_end": "2021-11",
+      "n_train_labels": 97,
+      "n_positive": 15,
+      "r": 4,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2022-01",
+      "forecast_origin": "2021-12-31",
+      "target_period": "2022-01",
+      "train_start": "2013-11",
+      "train_end": "2021-12",
+      "n_train_labels": 98,
+      "n_positive": 15,
+      "r": 4,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2022-02",
+      "forecast_origin": "2022-01-31",
+      "target_period": "2022-02",
+      "train_start": "2013-11",
+      "train_end": "2022-01",
+      "n_train_labels": 99,
+      "n_positive": 15,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2022-03",
+      "forecast_origin": "2022-02-28",
+      "target_period": "2022-03",
+      "train_start": "2013-11",
+      "train_end": "2022-02",
+      "n_train_labels": 100,
+      "n_positive": 15,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2022-04",
+      "forecast_origin": "2022-03-31",
+      "target_period": "2022-04",
+      "train_start": "2013-11",
+      "train_end": "2022-03",
+      "n_train_labels": 101,
+      "n_positive": 15,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2022-05",
+      "forecast_origin": "2022-04-30",
+      "target_period": "2022-05",
+      "train_start": "2013-11",
+      "train_end": "2022-04",
+      "n_train_labels": 102,
+      "n_positive": 16,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2022-06",
+      "forecast_origin": "2022-05-31",
+      "target_period": "2022-06",
+      "train_start": "2013-11",
+      "train_end": "2022-05",
+      "n_train_labels": 103,
+      "n_positive": 17,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2022-07",
+      "forecast_origin": "2022-06-30",
+      "target_period": "2022-07",
+      "train_start": "2013-11",
+      "train_end": "2022-06",
+      "n_train_labels": 104,
+      "n_positive": 17,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2022-08",
+      "forecast_origin": "2022-07-31",
+      "target_period": "2022-08",
+      "train_start": "2013-11",
+      "train_end": "2022-07",
+      "n_train_labels": 105,
+      "n_positive": 17,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2022-09",
+      "forecast_origin": "2022-08-31",
+      "target_period": "2022-09",
+      "train_start": "2013-11",
+      "train_end": "2022-08",
+      "n_train_labels": 106,
+      "n_positive": 18,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2022-10",
+      "forecast_origin": "2022-09-30",
+      "target_period": "2022-10",
+      "train_start": "2013-11",
+      "train_end": "2022-09",
+      "n_train_labels": 107,
+      "n_positive": 18,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2022-11",
+      "forecast_origin": "2022-10-31",
+      "target_period": "2022-11",
+      "train_start": "2013-11",
+      "train_end": "2022-10",
+      "n_train_labels": 108,
+      "n_positive": 18,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2022-12",
+      "forecast_origin": "2022-11-30",
+      "target_period": "2022-12",
+      "train_start": "2013-11",
+      "train_end": "2022-11",
+      "n_train_labels": 109,
+      "n_positive": 19,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2023-01",
+      "forecast_origin": "2022-12-31",
+      "target_period": "2023-01",
+      "train_start": "2013-11",
+      "train_end": "2022-12",
+      "n_train_labels": 110,
+      "n_positive": 20,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2023-02",
+      "forecast_origin": "2023-01-31",
+      "target_period": "2023-02",
+      "train_start": "2013-11",
+      "train_end": "2023-01",
+      "n_train_labels": 111,
+      "n_positive": 20,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2023-03",
+      "forecast_origin": "2023-02-28",
+      "target_period": "2023-03",
+      "train_start": "2013-11",
+      "train_end": "2023-02",
+      "n_train_labels": 112,
+      "n_positive": 20,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2023-04",
+      "forecast_origin": "2023-03-31",
+      "target_period": "2023-04",
+      "train_start": "2013-11",
+      "train_end": "2023-03",
+      "n_train_labels": 113,
+      "n_positive": 20,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2023-05",
+      "forecast_origin": "2023-04-30",
+      "target_period": "2023-05",
+      "train_start": "2013-11",
+      "train_end": "2023-04",
+      "n_train_labels": 114,
+      "n_positive": 20,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2023-06",
+      "forecast_origin": "2023-05-31",
+      "target_period": "2023-06",
+      "train_start": "2013-11",
+      "train_end": "2023-05",
+      "n_train_labels": 115,
+      "n_positive": 21,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2023-07",
+      "forecast_origin": "2023-06-30",
+      "target_period": "2023-07",
+      "train_start": "2013-11",
+      "train_end": "2023-06",
+      "n_train_labels": 116,
+      "n_positive": 22,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2023-08",
+      "forecast_origin": "2023-07-31",
+      "target_period": "2023-08",
+      "train_start": "2013-11",
+      "train_end": "2023-07",
+      "n_train_labels": 117,
+      "n_positive": 23,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2023-09",
+      "forecast_origin": "2023-08-31",
+      "target_period": "2023-09",
+      "train_start": "2013-11",
+      "train_end": "2023-08",
+      "n_train_labels": 118,
+      "n_positive": 24,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2023-10",
+      "forecast_origin": "2023-09-30",
+      "target_period": "2023-10",
+      "train_start": "2013-11",
+      "train_end": "2023-09",
+      "n_train_labels": 119,
+      "n_positive": 24,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2023-11",
+      "forecast_origin": "2023-10-31",
+      "target_period": "2023-11",
+      "train_start": "2013-11",
+      "train_end": "2023-10",
+      "n_train_labels": 120,
+      "n_positive": 24,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2023-12",
+      "forecast_origin": "2023-11-30",
+      "target_period": "2023-12",
+      "train_start": "2013-11",
+      "train_end": "2023-11",
+      "n_train_labels": 121,
+      "n_positive": 25,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2024-01",
+      "forecast_origin": "2023-12-31",
+      "target_period": "2024-01",
+      "train_start": "2013-11",
+      "train_end": "2023-12",
+      "n_train_labels": 122,
+      "n_positive": 26,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2024-02",
+      "forecast_origin": "2024-01-31",
+      "target_period": "2024-02",
+      "train_start": "2013-11",
+      "train_end": "2024-01",
+      "n_train_labels": 123,
+      "n_positive": 27,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2024-03",
+      "forecast_origin": "2024-02-29",
+      "target_period": "2024-03",
+      "train_start": "2013-11",
+      "train_end": "2024-02",
+      "n_train_labels": 124,
+      "n_positive": 28,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2024-04",
+      "forecast_origin": "2024-03-31",
+      "target_period": "2024-04",
+      "train_start": "2013-11",
+      "train_end": "2024-03",
+      "n_train_labels": 125,
+      "n_positive": 28,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2024-05",
+      "forecast_origin": "2024-04-30",
+      "target_period": "2024-05",
+      "train_start": "2013-11",
+      "train_end": "2024-04",
+      "n_train_labels": 126,
+      "n_positive": 28,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2024-06",
+      "forecast_origin": "2024-05-31",
+      "target_period": "2024-06",
+      "train_start": "2013-11",
+      "train_end": "2024-05",
+      "n_train_labels": 127,
+      "n_positive": 28,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2024-07",
+      "forecast_origin": "2024-06-30",
+      "target_period": "2024-07",
+      "train_start": "2013-11",
+      "train_end": "2024-06",
+      "n_train_labels": 128,
+      "n_positive": 29,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2024-08",
+      "forecast_origin": "2024-07-31",
+      "target_period": "2024-08",
+      "train_start": "2013-11",
+      "train_end": "2024-07",
+      "n_train_labels": 129,
+      "n_positive": 30,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2024-09",
+      "forecast_origin": "2024-08-31",
+      "target_period": "2024-09",
+      "train_start": "2013-11",
+      "train_end": "2024-08",
+      "n_train_labels": 130,
+      "n_positive": 31,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2024-10",
+      "forecast_origin": "2024-09-30",
+      "target_period": "2024-10",
+      "train_start": "2013-11",
+      "train_end": "2024-09",
+      "n_train_labels": 131,
+      "n_positive": 32,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2024-11",
+      "forecast_origin": "2024-10-31",
+      "target_period": "2024-11",
+      "train_start": "2013-11",
+      "train_end": "2024-10",
+      "n_train_labels": 132,
+      "n_positive": 32,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2024-12",
+      "forecast_origin": "2024-11-30",
+      "target_period": "2024-12",
+      "train_start": "2013-11",
+      "train_end": "2024-11",
+      "n_train_labels": 133,
+      "n_positive": 32,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2025-01",
+      "forecast_origin": "2024-12-31",
+      "target_period": "2025-01",
+      "train_start": "2013-11",
+      "train_end": "2024-12",
+      "n_train_labels": 134,
+      "n_positive": 32,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2025-02",
+      "forecast_origin": "2025-01-31",
+      "target_period": "2025-02",
+      "train_start": "2013-11",
+      "train_end": "2025-01",
+      "n_train_labels": 135,
+      "n_positive": 32,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2025-03",
+      "forecast_origin": "2025-02-28",
+      "target_period": "2025-03",
+      "train_start": "2013-11",
+      "train_end": "2025-02",
+      "n_train_labels": 136,
+      "n_positive": 32,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2025-04",
+      "forecast_origin": "2025-03-31",
+      "target_period": "2025-04",
+      "train_start": "2013-11",
+      "train_end": "2025-03",
+      "n_train_labels": 137,
+      "n_positive": 32,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2025-05",
+      "forecast_origin": "2025-04-30",
+      "target_period": "2025-05",
+      "train_start": "2013-11",
+      "train_end": "2025-04",
+      "n_train_labels": 138,
+      "n_positive": 32,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2025-06",
+      "forecast_origin": "2025-05-31",
+      "target_period": "2025-06",
+      "train_start": "2013-11",
+      "train_end": "2025-05",
+      "n_train_labels": 139,
+      "n_positive": 33,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2025-07",
+      "forecast_origin": "2025-06-30",
+      "target_period": "2025-07",
+      "train_start": "2013-11",
+      "train_end": "2025-06",
+      "n_train_labels": 140,
+      "n_positive": 34,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2025-08",
+      "forecast_origin": "2025-07-31",
+      "target_period": "2025-08",
+      "train_start": "2013-11",
+      "train_end": "2025-07",
+      "n_train_labels": 141,
+      "n_positive": 35,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2025-09",
+      "forecast_origin": "2025-08-31",
+      "target_period": "2025-09",
+      "train_start": "2013-11",
+      "train_end": "2025-08",
+      "n_train_labels": 142,
+      "n_positive": 36,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2025-10",
+      "forecast_origin": "2025-09-30",
+      "target_period": "2025-10",
+      "train_start": "2013-11",
+      "train_end": "2025-09",
+      "n_train_labels": 143,
+      "n_positive": 37,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2025-11",
+      "forecast_origin": "2025-10-31",
+      "target_period": "2025-11",
+      "train_start": "2013-11",
+      "train_end": "2025-10",
+      "n_train_labels": 144,
+      "n_positive": 38,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2025-12",
+      "forecast_origin": "2025-11-30",
+      "target_period": "2025-12",
+      "train_start": "2013-11",
+      "train_end": "2025-11",
+      "n_train_labels": 145,
+      "n_positive": 39,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2026-01",
+      "forecast_origin": "2025-12-31",
+      "target_period": "2026-01",
+      "train_start": "2013-11",
+      "train_end": "2025-12",
+      "n_train_labels": 146,
+      "n_positive": 39,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2026-02",
+      "forecast_origin": "2026-01-31",
+      "target_period": "2026-02",
+      "train_start": "2013-11",
+      "train_end": "2026-01",
+      "n_train_labels": 147,
+      "n_positive": 39,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2026-03",
+      "forecast_origin": "2026-02-28",
+      "target_period": "2026-03",
+      "train_start": "2013-11",
+      "train_end": "2026-02",
+      "n_train_labels": 148,
+      "n_positive": 40,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2026-04",
+      "forecast_origin": "2026-03-31",
+      "target_period": "2026-04",
+      "train_start": "2013-11",
+      "train_end": "2026-03",
+      "n_train_labels": 149,
+      "n_positive": 40,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2026-05",
+      "forecast_origin": "2026-04-30",
+      "target_period": "2026-05",
+      "train_start": "2013-11",
+      "train_end": "2026-04",
+      "n_train_labels": 150,
+      "n_positive": 40,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2026-06",
+      "forecast_origin": "2026-05-31",
+      "target_period": "2026-06",
+      "train_start": "2013-11",
+      "train_end": "2026-05",
+      "n_train_labels": 151,
+      "n_positive": 40,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2026-07",
+      "forecast_origin": "2026-06-30",
+      "target_period": "2026-07",
+      "train_start": "2013-11",
+      "train_end": "2026-06",
+      "n_train_labels": 152,
+      "n_positive": 40,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2026-08",
+      "forecast_origin": "2026-07-31",
+      "target_period": "2026-08",
+      "train_start": "2013-11",
+      "train_end": "2026-07",
+      "n_train_labels": 153,
+      "n_positive": 40,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2026-09",
+      "forecast_origin": "2026-08-31",
+      "target_period": "2026-09",
+      "train_start": "2013-11",
+      "train_end": "2026-08",
+      "n_train_labels": 154,
+      "n_positive": 41,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2026-10",
+      "forecast_origin": "2026-09-30",
+      "target_period": "2026-10",
+      "train_start": "2013-11",
+      "train_end": "2026-09",
+      "n_train_labels": 155,
+      "n_positive": 41,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    }
+  ],
+  "rank_path": [
+    {
+      "origin_month": "2019-12",
+      "r": 3
+    },
+    {
+      "origin_month": "2020-01",
+      "r": 3
+    },
+    {
+      "origin_month": "2020-02",
+      "r": 3
+    },
+    {
+      "origin_month": "2020-03",
+      "r": 3
+    },
+    {
+      "origin_month": "2020-04",
+      "r": 4
+    },
+    {
+      "origin_month": "2020-05",
+      "r": 4
+    },
+    {
+      "origin_month": "2020-06",
+      "r": 4
+    },
+    {
+      "origin_month": "2020-07",
+      "r": 4
+    },
+    {
+      "origin_month": "2020-08",
+      "r": 4
+    },
+    {
+      "origin_month": "2020-09",
+      "r": 4
+    },
+    {
+      "origin_month": "2020-10",
+      "r": 4
+    },
+    {
+      "origin_month": "2020-11",
+      "r": 4
+    },
+    {
+      "origin_month": "2020-12",
+      "r": 4
+    },
+    {
+      "origin_month": "2021-01",
+      "r": 4
+    },
+    {
+      "origin_month": "2021-02",
+      "r": 4
+    },
+    {
+      "origin_month": "2021-03",
+      "r": 4
+    },
+    {
+      "origin_month": "2021-04",
+      "r": 4
+    },
+    {
+      "origin_month": "2021-05",
+      "r": 4
+    },
+    {
+      "origin_month": "2021-06",
+      "r": 4
+    },
+    {
+      "origin_month": "2021-07",
+      "r": 4
+    },
+    {
+      "origin_month": "2021-08",
+      "r": 4
+    },
+    {
+      "origin_month": "2021-09",
+      "r": 4
+    },
+    {
+      "origin_month": "2021-10",
+      "r": 4
+    },
+    {
+      "origin_month": "2021-11",
+      "r": 4
+    },
+    {
+      "origin_month": "2021-12",
+      "r": 4
+    },
+    {
+      "origin_month": "2022-01",
+      "r": 3
+    },
+    {
+      "origin_month": "2022-02",
+      "r": 3
+    },
+    {
+      "origin_month": "2022-03",
+      "r": 3
+    },
+    {
+      "origin_month": "2022-04",
+      "r": 3
+    },
+    {
+      "origin_month": "2022-05",
+      "r": 3
+    },
+    {
+      "origin_month": "2022-06",
+      "r": 3
+    },
+    {
+      "origin_month": "2022-07",
+      "r": 3
+    },
+    {
+      "origin_month": "2022-08",
+      "r": 3
+    },
+    {
+      "origin_month": "2022-09",
+      "r": 3
+    },
+    {
+      "origin_month": "2022-10",
+      "r": 3
+    },
+    {
+      "origin_month": "2022-11",
+      "r": 3
+    },
+    {
+      "origin_month": "2022-12",
+      "r": 3
+    },
+    {
+      "origin_month": "2023-01",
+      "r": 3
+    },
+    {
+      "origin_month": "2023-02",
+      "r": 3
+    },
+    {
+      "origin_month": "2023-03",
+      "r": 3
+    },
+    {
+      "origin_month": "2023-04",
+      "r": 3
+    },
+    {
+      "origin_month": "2023-05",
+      "r": 3
+    },
+    {
+      "origin_month": "2023-06",
+      "r": 3
+    },
+    {
+      "origin_month": "2023-07",
+      "r": 3
+    },
+    {
+      "origin_month": "2023-08",
+      "r": 3
+    },
+    {
+      "origin_month": "2023-09",
+      "r": 3
+    },
+    {
+      "origin_month": "2023-10",
+      "r": 3
+    },
+    {
+      "origin_month": "2023-11",
+      "r": 3
+    },
+    {
+      "origin_month": "2023-12",
+      "r": 3
+    },
+    {
+      "origin_month": "2024-01",
+      "r": 3
+    },
+    {
+      "origin_month": "2024-02",
+      "r": 3
+    },
+    {
+      "origin_month": "2024-03",
+      "r": 3
+    },
+    {
+      "origin_month": "2024-04",
+      "r": 3
+    },
+    {
+      "origin_month": "2024-05",
+      "r": 3
+    },
+    {
+      "origin_month": "2024-06",
+      "r": 3
+    },
+    {
+      "origin_month": "2024-07",
+      "r": 3
+    },
+    {
+      "origin_month": "2024-08",
+      "r": 3
+    },
+    {
+      "origin_month": "2024-09",
+      "r": 3
+    },
+    {
+      "origin_month": "2024-10",
+      "r": 3
+    },
+    {
+      "origin_month": "2024-11",
+      "r": 3
+    },
+    {
+      "origin_month": "2024-12",
+      "r": 3
+    },
+    {
+      "origin_month": "2025-01",
+      "r": 3
+    },
+    {
+      "origin_month": "2025-02",
+      "r": 3
+    },
+    {
+      "origin_month": "2025-03",
+      "r": 3
+    },
+    {
+      "origin_month": "2025-04",
+      "r": 3
+    },
+    {
+      "origin_month": "2025-05",
+      "r": 3
+    },
+    {
+      "origin_month": "2025-06",
+      "r": 3
+    },
+    {
+      "origin_month": "2025-07",
+      "r": 3
+    },
+    {
+      "origin_month": "2025-08",
+      "r": 3
+    },
+    {
+      "origin_month": "2025-09",
+      "r": 3
+    },
+    {
+      "origin_month": "2025-10",
+      "r": 3
+    },
+    {
+      "origin_month": "2025-11",
+      "r": 3
+    },
+    {
+      "origin_month": "2025-12",
+      "r": 3
+    },
+    {
+      "origin_month": "2026-01",
+      "r": 3
+    },
+    {
+      "origin_month": "2026-02",
+      "r": 3
+    },
+    {
+      "origin_month": "2026-03",
+      "r": 3
+    },
+    {
+      "origin_month": "2026-04",
+      "r": 3
+    },
+    {
+      "origin_month": "2026-05",
+      "r": 3
+    },
+    {
+      "origin_month": "2026-06",
+      "r": 3
+    },
+    {
+      "origin_month": "2026-07",
+      "r": 3
+    },
+    {
+      "origin_month": "2026-08",
+      "r": 3
+    },
+    {
+      "origin_month": "2026-09",
+      "r": 3
+    }
+  ],
+  "rank_cv_detail": [
+    {
+      "origin_month": "2019-12",
+      "r": 1,
+      "inner_mse": 0.7717658551709714,
+      "n_inner_records": 117
+    },
+    {
+      "origin_month": "2019-12",
+      "r": 2,
+      "inner_mse": 0.4785476140668418,
+      "n_inner_records": 117
+    },
+    {
+      "origin_month": "2019-12",
+      "r": 3,
+      "inner_mse": 0.4581984607015172,
+      "n_inner_records": 117
+    },
+    {
+      "origin_month": "2019-12",
+      "r": 4,
+      "inner_mse": 0.48714854951870773,
+      "n_inner_records": 117
+    },
+    {
+      "origin_month": "2019-12",
+      "r": 5,
+      "inner_mse": 0.5550749274606229,
+      "n_inner_records": 117
+    },
+    {
+      "origin_month": "2019-12",
+      "r": 6,
+      "inner_mse": 1.2892482204511337,
+      "n_inner_records": 117
+    },
+    {
+      "origin_month": "2019-12",
+      "r": 7,
+      "inner_mse": 1.786551572069215,
+      "n_inner_records": 117
+    },
+    {
+      "origin_month": "2019-12",
+      "r": 8,
+      "inner_mse": 8.093608548108618,
+      "n_inner_records": 117
+    },
+    {
+      "origin_month": "2020-01",
+      "r": 1,
+      "inner_mse": 0.7556108853256218,
+      "n_inner_records": 120
+    },
+    {
+      "origin_month": "2020-01",
+      "r": 2,
+      "inner_mse": 0.4688016312820741,
+      "n_inner_records": 120
+    },
+    {
+      "origin_month": "2020-01",
+      "r": 3,
+      "inner_mse": 0.4492350547927422,
+      "n_inner_records": 120
+    },
+    {
+      "origin_month": "2020-01",
+      "r": 4,
+      "inner_mse": 0.47723753535439245,
+      "n_inner_records": 120
+    },
+    {
+      "origin_month": "2020-01",
+      "r": 5,
+      "inner_mse": 0.5426802738736776,
+      "n_inner_records": 120
+    },
+    {
+      "origin_month": "2020-01",
+      "r": 6,
+      "inner_mse": 1.2577806093153372,
+      "n_inner_records": 120
+    },
+    {
+      "origin_month": "2020-01",
+      "r": 7,
+      "inner_mse": 1.7422879541598024,
+      "n_inner_records": 120
+    },
+    {
+      "origin_month": "2020-01",
+      "r": 8,
+      "inner_mse": 7.8921947434901885,
+      "n_inner_records": 120
+    },
+    {
+      "origin_month": "2020-02",
+      "r": 1,
+      "inner_mse": 0.7556108853256218,
+      "n_inner_records": 120
+    },
+    {
+      "origin_month": "2020-02",
+      "r": 2,
+      "inner_mse": 0.4688016312820741,
+      "n_inner_records": 120
+    },
+    {
+      "origin_month": "2020-02",
+      "r": 3,
+      "inner_mse": 0.4492350547927422,
+      "n_inner_records": 120
+    },
+    {
+      "origin_month": "2020-02",
+      "r": 4,
+      "inner_mse": 0.47723753535439245,
+      "n_inner_records": 120
+    },
+    {
+      "origin_month": "2020-02",
+      "r": 5,
+      "inner_mse": 0.5426802738736776,
+      "n_inner_records": 120
+    },
+    {
+      "origin_month": "2020-02",
+      "r": 6,
+      "inner_mse": 1.2577806093153372,
+      "n_inner_records": 120
+    },
+    {
+      "origin_month": "2020-02",
+      "r": 7,
+      "inner_mse": 1.7422879541598024,
+      "n_inner_records": 120
+    },
+    {
+      "origin_month": "2020-02",
+      "r": 8,
+      "inner_mse": 7.8921947434901885,
+      "n_inner_records": 120
+    },
+    {
+      "origin_month": "2020-03",
+      "r": 1,
+      "inner_mse": 0.7556108853256218,
+      "n_inner_records": 120
+    },
+    {
+      "origin_month": "2020-03",
+      "r": 2,
+      "inner_mse": 0.4688016312820741,
+      "n_inner_records": 120
+    },
+    {
+      "origin_month": "2020-03",
+      "r": 3,
+      "inner_mse": 0.4492350547927422,
+      "n_inner_records": 120
+    },
+    {
+      "origin_month": "2020-03",
+      "r": 4,
+      "inner_mse": 0.47723753535439245,
+      "n_inner_records": 120
+    },
+    {
+      "origin_month": "2020-03",
+      "r": 5,
+      "inner_mse": 0.5426802738736776,
+      "n_inner_records": 120
+    },
+    {
+      "origin_month": "2020-03",
+      "r": 6,
+      "inner_mse": 1.2577806093153372,
+      "n_inner_records": 120
+    },
+    {
+      "origin_month": "2020-03",
+      "r": 7,
+      "inner_mse": 1.7422879541598024,
+      "n_inner_records": 120
+    },
+    {
+      "origin_month": "2020-03",
+      "r": 8,
+      "inner_mse": 7.8921947434901885,
+      "n_inner_records": 120
+    },
+    {
+      "origin_month": "2020-04",
+      "r": 1,
+      "inner_mse": 4.972230711493071,
+      "n_inner_records": 123
+    },
+    {
+      "origin_month": "2020-04",
+      "r": 2,
+      "inner_mse": 4.083570777260765,
+      "n_inner_records": 123
+    },
+    {
+      "origin_month": "2020-04",
+      "r": 3,
+      "inner_mse": 3.8223473673744484,
+      "n_inner_records": 123
+    },
+    {
+      "origin_month": "2020-04",
+      "r": 4,
+      "inner_mse": 3.7961119634576574,
+      "n_inner_records": 123
+    },
+    {
+      "origin_month": "2020-04",
+      "r": 5,
+      "inner_mse": 4.253634813962298,
+      "n_inner_records": 123
+    },
+    {
+      "origin_month": "2020-04",
+      "r": 6,
+      "inner_mse": 5.085588467951716,
+      "n_inner_records": 123
+    },
+    {
+      "origin_month": "2020-04",
+      "r": 7,
+      "inner_mse": 5.448532382138152,
+      "n_inner_records": 123
+    },
+    {
+      "origin_month": "2020-04",
+      "r": 8,
+      "inner_mse": 11.02876135227007,
+      "n_inner_records": 123
+    },
+    {
+      "origin_month": "2020-05",
+      "r": 1,
+      "inner_mse": 4.972230711493071,
+      "n_inner_records": 123
+    },
+    {
+      "origin_month": "2020-05",
+      "r": 2,
+      "inner_mse": 4.083570777260765,
+      "n_inner_records": 123
+    },
+    {
+      "origin_month": "2020-05",
+      "r": 3,
+      "inner_mse": 3.8223473673744484,
+      "n_inner_records": 123
+    },
+    {
+      "origin_month": "2020-05",
+      "r": 4,
+      "inner_mse": 3.7961119634576574,
+      "n_inner_records": 123
+    },
+    {
+      "origin_month": "2020-05",
+      "r": 5,
+      "inner_mse": 4.253634813962298,
+      "n_inner_records": 123
+    },
+    {
+      "origin_month": "2020-05",
+      "r": 6,
+      "inner_mse": 5.085588467951716,
+      "n_inner_records": 123
+    },
+    {
+      "origin_month": "2020-05",
+      "r": 7,
+      "inner_mse": 5.448532382138152,
+      "n_inner_records": 123
+    },
+    {
+      "origin_month": "2020-05",
+      "r": 8,
+      "inner_mse": 11.02876135227007,
+      "n_inner_records": 123
+    },
+    {
+      "origin_month": "2020-06",
+      "r": 1,
+      "inner_mse": 4.972230711493071,
+      "n_inner_records": 123
+    },
+    {
+      "origin_month": "2020-06",
+      "r": 2,
+      "inner_mse": 4.083570777260765,
+      "n_inner_records": 123
+    },
+    {
+      "origin_month": "2020-06",
+      "r": 3,
+      "inner_mse": 3.8223473673744484,
+      "n_inner_records": 123
+    },
+    {
+      "origin_month": "2020-06",
+      "r": 4,
+      "inner_mse": 3.7961119634576574,
+      "n_inner_records": 123
+    },
+    {
+      "origin_month": "2020-06",
+      "r": 5,
+      "inner_mse": 4.253634813962298,
+      "n_inner_records": 123
+    },
+    {
+      "origin_month": "2020-06",
+      "r": 6,
+      "inner_mse": 5.085588467951716,
+      "n_inner_records": 123
+    },
+    {
+      "origin_month": "2020-06",
+      "r": 7,
+      "inner_mse": 5.448532382138152,
+      "n_inner_records": 123
+    },
+    {
+      "origin_month": "2020-06",
+      "r": 8,
+      "inner_mse": 11.02876135227007,
+      "n_inner_records": 123
+    },
+    {
+      "origin_month": "2020-07",
+      "r": 1,
+      "inner_mse": 4.910886760337024,
+      "n_inner_records": 126
+    },
+    {
+      "origin_month": "2020-07",
+      "r": 2,
+      "inner_mse": 4.018039762806606,
+      "n_inner_records": 126
+    },
+    {
+      "origin_month": "2020-07",
+      "r": 3,
+      "inner_mse": 3.7663025207818372,
+      "n_inner_records": 126
+    },
+    {
+      "origin_month": "2020-07",
+      "r": 4,
+      "inner_mse": 3.753475117570582,
+      "n_inner_records": 126
+    },
+    {
+      "origin_month": "2020-07",
+      "r": 5,
+      "inner_mse": 4.225508667630707,
+      "n_inner_records": 126
+    },
+    {
+      "origin_month": "2020-07",
+      "r": 6,
+      "inner_mse": 5.053082800179116,
+      "n_inner_records": 126
+    },
+    {
+      "origin_month": "2020-07",
+      "r": 7,
+      "inner_mse": 5.764495399640288,
+      "n_inner_records": 126
+    },
+    {
+      "origin_month": "2020-07",
+      "r": 8,
+      "inner_mse": 11.30661365494311,
+      "n_inner_records": 126
+    },
+    {
+      "origin_month": "2020-08",
+      "r": 1,
+      "inner_mse": 4.910886760337024,
+      "n_inner_records": 126
+    },
+    {
+      "origin_month": "2020-08",
+      "r": 2,
+      "inner_mse": 4.018039762806606,
+      "n_inner_records": 126
+    },
+    {
+      "origin_month": "2020-08",
+      "r": 3,
+      "inner_mse": 3.7663025207818372,
+      "n_inner_records": 126
+    },
+    {
+      "origin_month": "2020-08",
+      "r": 4,
+      "inner_mse": 3.753475117570582,
+      "n_inner_records": 126
+    },
+    {
+      "origin_month": "2020-08",
+      "r": 5,
+      "inner_mse": 4.225508667630707,
+      "n_inner_records": 126
+    },
+    {
+      "origin_month": "2020-08",
+      "r": 6,
+      "inner_mse": 5.053082800179116,
+      "n_inner_records": 126
+    },
+    {
+      "origin_month": "2020-08",
+      "r": 7,
+      "inner_mse": 5.764495399640288,
+      "n_inner_records": 126
+    },
+    {
+      "origin_month": "2020-08",
+      "r": 8,
+      "inner_mse": 11.30661365494311,
+      "n_inner_records": 126
+    },
+    {
+      "origin_month": "2020-09",
+      "r": 1,
+      "inner_mse": 4.910886760337024,
+      "n_inner_records": 126
+    },
+    {
+      "origin_month": "2020-09",
+      "r": 2,
+      "inner_mse": 4.018039762806606,
+      "n_inner_records": 126
+    },
+    {
+      "origin_month": "2020-09",
+      "r": 3,
+      "inner_mse": 3.7663025207818372,
+      "n_inner_records": 126
+    },
+    {
+      "origin_month": "2020-09",
+      "r": 4,
+      "inner_mse": 3.753475117570582,
+      "n_inner_records": 126
+    },
+    {
+      "origin_month": "2020-09",
+      "r": 5,
+      "inner_mse": 4.225508667630707,
+      "n_inner_records": 126
+    },
+    {
+      "origin_month": "2020-09",
+      "r": 6,
+      "inner_mse": 5.053082800179116,
+      "n_inner_records": 126
+    },
+    {
+      "origin_month": "2020-09",
+      "r": 7,
+      "inner_mse": 5.764495399640288,
+      "n_inner_records": 126
+    },
+    {
+      "origin_month": "2020-09",
+      "r": 8,
+      "inner_mse": 11.30661365494311,
+      "n_inner_records": 126
+    },
+    {
+      "origin_month": "2020-10",
+      "r": 1,
+      "inner_mse": 4.812969692436528,
+      "n_inner_records": 129
+    },
+    {
+      "origin_month": "2020-10",
+      "r": 2,
+      "inner_mse": 3.9309754569250455,
+      "n_inner_records": 129
+    },
+    {
+      "origin_month": "2020-10",
+      "r": 3,
+      "inner_mse": 3.6903177560959755,
+      "n_inner_records": 129
+    },
+    {
+      "origin_month": "2020-10",
+      "r": 4,
+      "inner_mse": 3.677358207956809,
+      "n_inner_records": 129
+    },
+    {
+      "origin_month": "2020-10",
+      "r": 5,
+      "inner_mse": 4.144356849083887,
+      "n_inner_records": 129
+    },
+    {
+      "origin_month": "2020-10",
+      "r": 6,
+      "inner_mse": 4.939398747819707,
+      "n_inner_records": 129
+    },
+    {
+      "origin_month": "2020-10",
+      "r": 7,
+      "inner_mse": 5.63367539825969,
+      "n_inner_records": 129
+    },
+    {
+      "origin_month": "2020-10",
+      "r": 8,
+      "inner_mse": 11.054567695824163,
+      "n_inner_records": 129
+    },
+    {
+      "origin_month": "2020-11",
+      "r": 1,
+      "inner_mse": 4.812969692436528,
+      "n_inner_records": 129
+    },
+    {
+      "origin_month": "2020-11",
+      "r": 2,
+      "inner_mse": 3.9309754569250455,
+      "n_inner_records": 129
+    },
+    {
+      "origin_month": "2020-11",
+      "r": 3,
+      "inner_mse": 3.6903177560959755,
+      "n_inner_records": 129
+    },
+    {
+      "origin_month": "2020-11",
+      "r": 4,
+      "inner_mse": 3.677358207956809,
+      "n_inner_records": 129
+    },
+    {
+      "origin_month": "2020-11",
+      "r": 5,
+      "inner_mse": 4.144356849083887,
+      "n_inner_records": 129
+    },
+    {
+      "origin_month": "2020-11",
+      "r": 6,
+      "inner_mse": 4.939398747819707,
+      "n_inner_records": 129
+    },
+    {
+      "origin_month": "2020-11",
+      "r": 7,
+      "inner_mse": 5.63367539825969,
+      "n_inner_records": 129
+    },
+    {
+      "origin_month": "2020-11",
+      "r": 8,
+      "inner_mse": 11.054567695824163,
+      "n_inner_records": 129
+    },
+    {
+      "origin_month": "2020-12",
+      "r": 1,
+      "inner_mse": 4.812969692436528,
+      "n_inner_records": 129
+    },
+    {
+      "origin_month": "2020-12",
+      "r": 2,
+      "inner_mse": 3.9309754569250455,
+      "n_inner_records": 129
+    },
+    {
+      "origin_month": "2020-12",
+      "r": 3,
+      "inner_mse": 3.6903177560959755,
+      "n_inner_records": 129
+    },
+    {
+      "origin_month": "2020-12",
+      "r": 4,
+      "inner_mse": 3.677358207956809,
+      "n_inner_records": 129
+    },
+    {
+      "origin_month": "2020-12",
+      "r": 5,
+      "inner_mse": 4.144356849083887,
+      "n_inner_records": 129
+    },
+    {
+      "origin_month": "2020-12",
+      "r": 6,
+      "inner_mse": 4.939398747819707,
+      "n_inner_records": 129
+    },
+    {
+      "origin_month": "2020-12",
+      "r": 7,
+      "inner_mse": 5.63367539825969,
+      "n_inner_records": 129
+    },
+    {
+      "origin_month": "2020-12",
+      "r": 8,
+      "inner_mse": 11.054567695824163,
+      "n_inner_records": 129
+    },
+    {
+      "origin_month": "2021-01",
+      "r": 1,
+      "inner_mse": 4.704797871542633,
+      "n_inner_records": 132
+    },
+    {
+      "origin_month": "2021-01",
+      "r": 2,
+      "inner_mse": 3.8450264215249095,
+      "n_inner_records": 132
+    },
+    {
+      "origin_month": "2021-01",
+      "r": 3,
+      "inner_mse": 3.611169066169701,
+      "n_inner_records": 132
+    },
+    {
+      "origin_month": "2021-01",
+      "r": 4,
+      "inner_mse": 3.60531044526639,
+      "n_inner_records": 132
+    },
+    {
+      "origin_month": "2021-01",
+      "r": 5,
+      "inner_mse": 4.062784658057681,
+      "n_inner_records": 132
+    },
+    {
+      "origin_month": "2021-01",
+      "r": 6,
+      "inner_mse": 4.8342147343508435,
+      "n_inner_records": 132
+    },
+    {
+      "origin_month": "2021-01",
+      "r": 7,
+      "inner_mse": 5.512832285978707,
+      "n_inner_records": 132
+    },
+    {
+      "origin_month": "2021-01",
+      "r": 8,
+      "inner_mse": 10.859135836266331,
+      "n_inner_records": 132
+    },
+    {
+      "origin_month": "2021-02",
+      "r": 1,
+      "inner_mse": 4.704797871542633,
+      "n_inner_records": 132
+    },
+    {
+      "origin_month": "2021-02",
+      "r": 2,
+      "inner_mse": 3.8450264215249095,
+      "n_inner_records": 132
+    },
+    {
+      "origin_month": "2021-02",
+      "r": 3,
+      "inner_mse": 3.611169066169701,
+      "n_inner_records": 132
+    },
+    {
+      "origin_month": "2021-02",
+      "r": 4,
+      "inner_mse": 3.60531044526639,
+      "n_inner_records": 132
+    },
+    {
+      "origin_month": "2021-02",
+      "r": 5,
+      "inner_mse": 4.062784658057681,
+      "n_inner_records": 132
+    },
+    {
+      "origin_month": "2021-02",
+      "r": 6,
+      "inner_mse": 4.8342147343508435,
+      "n_inner_records": 132
+    },
+    {
+      "origin_month": "2021-02",
+      "r": 7,
+      "inner_mse": 5.512832285978707,
+      "n_inner_records": 132
+    },
+    {
+      "origin_month": "2021-02",
+      "r": 8,
+      "inner_mse": 10.859135836266331,
+      "n_inner_records": 132
+    },
+    {
+      "origin_month": "2021-03",
+      "r": 1,
+      "inner_mse": 4.704797871542633,
+      "n_inner_records": 132
+    },
+    {
+      "origin_month": "2021-03",
+      "r": 2,
+      "inner_mse": 3.8450264215249095,
+      "n_inner_records": 132
+    },
+    {
+      "origin_month": "2021-03",
+      "r": 3,
+      "inner_mse": 3.611169066169701,
+      "n_inner_records": 132
+    },
+    {
+      "origin_month": "2021-03",
+      "r": 4,
+      "inner_mse": 3.60531044526639,
+      "n_inner_records": 132
+    },
+    {
+      "origin_month": "2021-03",
+      "r": 5,
+      "inner_mse": 4.062784658057681,
+      "n_inner_records": 132
+    },
+    {
+      "origin_month": "2021-03",
+      "r": 6,
+      "inner_mse": 4.8342147343508435,
+      "n_inner_records": 132
+    },
+    {
+      "origin_month": "2021-03",
+      "r": 7,
+      "inner_mse": 5.512832285978707,
+      "n_inner_records": 132
+    },
+    {
+      "origin_month": "2021-03",
+      "r": 8,
+      "inner_mse": 10.859135836266331,
+      "n_inner_records": 132
+    },
+    {
+      "origin_month": "2021-04",
+      "r": 1,
+      "inner_mse": 7.680840948454874,
+      "n_inner_records": 135
+    },
+    {
+      "origin_month": "2021-04",
+      "r": 2,
+      "inner_mse": 7.370789328741186,
+      "n_inner_records": 135
+    },
+    {
+      "origin_month": "2021-04",
+      "r": 3,
+      "inner_mse": 6.892989304895733,
+      "n_inner_records": 135
+    },
+    {
+      "origin_month": "2021-04",
+      "r": 4,
+      "inner_mse": 6.815963950068659,
+      "n_inner_records": 135
+    },
+    {
+      "origin_month": "2021-04",
+      "r": 5,
+      "inner_mse": 7.089197165668999,
+      "n_inner_records": 135
+    },
+    {
+      "origin_month": "2021-04",
+      "r": 6,
+      "inner_mse": 7.591889614164749,
+      "n_inner_records": 135
+    },
+    {
+      "origin_month": "2021-04",
+      "r": 7,
+      "inner_mse": 8.011645946057138,
+      "n_inner_records": 135
+    },
+    {
+      "origin_month": "2021-04",
+      "r": 8,
+      "inner_mse": 12.892953245473306,
+      "n_inner_records": 135
+    },
+    {
+      "origin_month": "2021-05",
+      "r": 1,
+      "inner_mse": 7.680840948454874,
+      "n_inner_records": 135
+    },
+    {
+      "origin_month": "2021-05",
+      "r": 2,
+      "inner_mse": 7.370789328741186,
+      "n_inner_records": 135
+    },
+    {
+      "origin_month": "2021-05",
+      "r": 3,
+      "inner_mse": 6.892989304895733,
+      "n_inner_records": 135
+    },
+    {
+      "origin_month": "2021-05",
+      "r": 4,
+      "inner_mse": 6.815963950068659,
+      "n_inner_records": 135
+    },
+    {
+      "origin_month": "2021-05",
+      "r": 5,
+      "inner_mse": 7.089197165668999,
+      "n_inner_records": 135
+    },
+    {
+      "origin_month": "2021-05",
+      "r": 6,
+      "inner_mse": 7.591889614164749,
+      "n_inner_records": 135
+    },
+    {
+      "origin_month": "2021-05",
+      "r": 7,
+      "inner_mse": 8.011645946057138,
+      "n_inner_records": 135
+    },
+    {
+      "origin_month": "2021-05",
+      "r": 8,
+      "inner_mse": 12.892953245473306,
+      "n_inner_records": 135
+    },
+    {
+      "origin_month": "2021-06",
+      "r": 1,
+      "inner_mse": 7.680840948454874,
+      "n_inner_records": 135
+    },
+    {
+      "origin_month": "2021-06",
+      "r": 2,
+      "inner_mse": 7.370789328741186,
+      "n_inner_records": 135
+    },
+    {
+      "origin_month": "2021-06",
+      "r": 3,
+      "inner_mse": 6.892989304895733,
+      "n_inner_records": 135
+    },
+    {
+      "origin_month": "2021-06",
+      "r": 4,
+      "inner_mse": 6.815963950068659,
+      "n_inner_records": 135
+    },
+    {
+      "origin_month": "2021-06",
+      "r": 5,
+      "inner_mse": 7.089197165668999,
+      "n_inner_records": 135
+    },
+    {
+      "origin_month": "2021-06",
+      "r": 6,
+      "inner_mse": 7.591889614164749,
+      "n_inner_records": 135
+    },
+    {
+      "origin_month": "2021-06",
+      "r": 7,
+      "inner_mse": 8.011645946057138,
+      "n_inner_records": 135
+    },
+    {
+      "origin_month": "2021-06",
+      "r": 8,
+      "inner_mse": 12.892953245473306,
+      "n_inner_records": 135
+    },
+    {
+      "origin_month": "2021-07",
+      "r": 1,
+      "inner_mse": 7.530694065524851,
+      "n_inner_records": 138
+    },
+    {
+      "origin_month": "2021-07",
+      "r": 2,
+      "inner_mse": 7.217242497540619,
+      "n_inner_records": 138
+    },
+    {
+      "origin_month": "2021-07",
+      "r": 3,
+      "inner_mse": 6.754131676651668,
+      "n_inner_records": 138
+    },
+    {
+      "origin_month": "2021-07",
+      "r": 4,
+      "inner_mse": 6.694084876545565,
+      "n_inner_records": 138
+    },
+    {
+      "origin_month": "2021-07",
+      "r": 5,
+      "inner_mse": 6.958320578384954,
+      "n_inner_records": 138
+    },
+    {
+      "origin_month": "2021-07",
+      "r": 6,
+      "inner_mse": 7.568638322274188,
+      "n_inner_records": 138
+    },
+    {
+      "origin_month": "2021-07",
+      "r": 7,
+      "inner_mse": 7.944390550840723,
+      "n_inner_records": 138
+    },
+    {
+      "origin_month": "2021-07",
+      "r": 8,
+      "inner_mse": 12.751639660411918,
+      "n_inner_records": 138
+    },
+    {
+      "origin_month": "2021-08",
+      "r": 1,
+      "inner_mse": 7.530694065524851,
+      "n_inner_records": 138
+    },
+    {
+      "origin_month": "2021-08",
+      "r": 2,
+      "inner_mse": 7.217242497540619,
+      "n_inner_records": 138
+    },
+    {
+      "origin_month": "2021-08",
+      "r": 3,
+      "inner_mse": 6.754131676651668,
+      "n_inner_records": 138
+    },
+    {
+      "origin_month": "2021-08",
+      "r": 4,
+      "inner_mse": 6.694084876545565,
+      "n_inner_records": 138
+    },
+    {
+      "origin_month": "2021-08",
+      "r": 5,
+      "inner_mse": 6.958320578384954,
+      "n_inner_records": 138
+    },
+    {
+      "origin_month": "2021-08",
+      "r": 6,
+      "inner_mse": 7.568638322274188,
+      "n_inner_records": 138
+    },
+    {
+      "origin_month": "2021-08",
+      "r": 7,
+      "inner_mse": 7.944390550840723,
+      "n_inner_records": 138
+    },
+    {
+      "origin_month": "2021-08",
+      "r": 8,
+      "inner_mse": 12.751639660411918,
+      "n_inner_records": 138
+    },
+    {
+      "origin_month": "2021-09",
+      "r": 1,
+      "inner_mse": 7.530694065524851,
+      "n_inner_records": 138
+    },
+    {
+      "origin_month": "2021-09",
+      "r": 2,
+      "inner_mse": 7.217242497540619,
+      "n_inner_records": 138
+    },
+    {
+      "origin_month": "2021-09",
+      "r": 3,
+      "inner_mse": 6.754131676651668,
+      "n_inner_records": 138
+    },
+    {
+      "origin_month": "2021-09",
+      "r": 4,
+      "inner_mse": 6.694084876545565,
+      "n_inner_records": 138
+    },
+    {
+      "origin_month": "2021-09",
+      "r": 5,
+      "inner_mse": 6.958320578384954,
+      "n_inner_records": 138
+    },
+    {
+      "origin_month": "2021-09",
+      "r": 6,
+      "inner_mse": 7.568638322274188,
+      "n_inner_records": 138
+    },
+    {
+      "origin_month": "2021-09",
+      "r": 7,
+      "inner_mse": 7.944390550840723,
+      "n_inner_records": 138
+    },
+    {
+      "origin_month": "2021-09",
+      "r": 8,
+      "inner_mse": 12.751639660411918,
+      "n_inner_records": 138
+    },
+    {
+      "origin_month": "2021-10",
+      "r": 1,
+      "inner_mse": 7.438726707795948,
+      "n_inner_records": 141
+    },
+    {
+      "origin_month": "2021-10",
+      "r": 2,
+      "inner_mse": 7.084043340493706,
+      "n_inner_records": 141
+    },
+    {
+      "origin_month": "2021-10",
+      "r": 3,
+      "inner_mse": 6.6303433349925065,
+      "n_inner_records": 141
+    },
+    {
+      "origin_month": "2021-10",
+      "r": 4,
+      "inner_mse": 6.624272235972358,
+      "n_inner_records": 141
+    },
+    {
+      "origin_month": "2021-10",
+      "r": 5,
+      "inner_mse": 6.879690198169869,
+      "n_inner_records": 141
+    },
+    {
+      "origin_month": "2021-10",
+      "r": 6,
+      "inner_mse": 7.443104762323998,
+      "n_inner_records": 141
+    },
+    {
+      "origin_month": "2021-10",
+      "r": 7,
+      "inner_mse": 7.783952013057055,
+      "n_inner_records": 141
+    },
+    {
+      "origin_month": "2021-10",
+      "r": 8,
+      "inner_mse": 12.503375296696849,
+      "n_inner_records": 141
+    },
+    {
+      "origin_month": "2021-11",
+      "r": 1,
+      "inner_mse": 7.438726707795948,
+      "n_inner_records": 141
+    },
+    {
+      "origin_month": "2021-11",
+      "r": 2,
+      "inner_mse": 7.084043340493706,
+      "n_inner_records": 141
+    },
+    {
+      "origin_month": "2021-11",
+      "r": 3,
+      "inner_mse": 6.6303433349925065,
+      "n_inner_records": 141
+    },
+    {
+      "origin_month": "2021-11",
+      "r": 4,
+      "inner_mse": 6.624272235972358,
+      "n_inner_records": 141
+    },
+    {
+      "origin_month": "2021-11",
+      "r": 5,
+      "inner_mse": 6.879690198169869,
+      "n_inner_records": 141
+    },
+    {
+      "origin_month": "2021-11",
+      "r": 6,
+      "inner_mse": 7.443104762323998,
+      "n_inner_records": 141
+    },
+    {
+      "origin_month": "2021-11",
+      "r": 7,
+      "inner_mse": 7.783952013057055,
+      "n_inner_records": 141
+    },
+    {
+      "origin_month": "2021-11",
+      "r": 8,
+      "inner_mse": 12.503375296696849,
+      "n_inner_records": 141
+    },
+    {
+      "origin_month": "2021-12",
+      "r": 1,
+      "inner_mse": 7.438726707795948,
+      "n_inner_records": 141
+    },
+    {
+      "origin_month": "2021-12",
+      "r": 2,
+      "inner_mse": 7.084043340493706,
+      "n_inner_records": 141
+    },
+    {
+      "origin_month": "2021-12",
+      "r": 3,
+      "inner_mse": 6.6303433349925065,
+      "n_inner_records": 141
+    },
+    {
+      "origin_month": "2021-12",
+      "r": 4,
+      "inner_mse": 6.624272235972358,
+      "n_inner_records": 141
+    },
+    {
+      "origin_month": "2021-12",
+      "r": 5,
+      "inner_mse": 6.879690198169869,
+      "n_inner_records": 141
+    },
+    {
+      "origin_month": "2021-12",
+      "r": 6,
+      "inner_mse": 7.443104762323998,
+      "n_inner_records": 141
+    },
+    {
+      "origin_month": "2021-12",
+      "r": 7,
+      "inner_mse": 7.783952013057055,
+      "n_inner_records": 141
+    },
+    {
+      "origin_month": "2021-12",
+      "r": 8,
+      "inner_mse": 12.503375296696849,
+      "n_inner_records": 141
+    },
+    {
+      "origin_month": "2022-01",
+      "r": 1,
+      "inner_mse": 7.339490159986586,
+      "n_inner_records": 144
+    },
+    {
+      "origin_month": "2022-01",
+      "r": 2,
+      "inner_mse": 6.962073240777846,
+      "n_inner_records": 144
+    },
+    {
+      "origin_month": "2022-01",
+      "r": 3,
+      "inner_mse": 6.5203702012946385,
+      "n_inner_records": 144
+    },
+    {
+      "origin_month": "2022-01",
+      "r": 4,
+      "inner_mse": 6.609567935927536,
+      "n_inner_records": 144
+    },
+    {
+      "origin_month": "2022-01",
+      "r": 5,
+      "inner_mse": 6.853192034741204,
+      "n_inner_records": 144
+    },
+    {
+      "origin_month": "2022-01",
+      "r": 6,
+      "inner_mse": 7.294004616206743,
+      "n_inner_records": 144
+    },
+    {
+      "origin_month": "2022-01",
+      "r": 7,
+      "inner_mse": 7.627260483342405,
+      "n_inner_records": 144
+    },
+    {
+      "origin_month": "2022-01",
+      "r": 8,
+      "inner_mse": 12.274839143826021,
+      "n_inner_records": 144
+    },
+    {
+      "origin_month": "2022-02",
+      "r": 1,
+      "inner_mse": 7.339490159986586,
+      "n_inner_records": 144
+    },
+    {
+      "origin_month": "2022-02",
+      "r": 2,
+      "inner_mse": 6.962073240777846,
+      "n_inner_records": 144
+    },
+    {
+      "origin_month": "2022-02",
+      "r": 3,
+      "inner_mse": 6.5203702012946385,
+      "n_inner_records": 144
+    },
+    {
+      "origin_month": "2022-02",
+      "r": 4,
+      "inner_mse": 6.609567935927536,
+      "n_inner_records": 144
+    },
+    {
+      "origin_month": "2022-02",
+      "r": 5,
+      "inner_mse": 6.853192034741204,
+      "n_inner_records": 144
+    },
+    {
+      "origin_month": "2022-02",
+      "r": 6,
+      "inner_mse": 7.294004616206743,
+      "n_inner_records": 144
+    },
+    {
+      "origin_month": "2022-02",
+      "r": 7,
+      "inner_mse": 7.627260483342405,
+      "n_inner_records": 144
+    },
+    {
+      "origin_month": "2022-02",
+      "r": 8,
+      "inner_mse": 12.274839143826021,
+      "n_inner_records": 144
+    },
+    {
+      "origin_month": "2022-03",
+      "r": 1,
+      "inner_mse": 7.339490159986586,
+      "n_inner_records": 144
+    },
+    {
+      "origin_month": "2022-03",
+      "r": 2,
+      "inner_mse": 6.962073240777846,
+      "n_inner_records": 144
+    },
+    {
+      "origin_month": "2022-03",
+      "r": 3,
+      "inner_mse": 6.5203702012946385,
+      "n_inner_records": 144
+    },
+    {
+      "origin_month": "2022-03",
+      "r": 4,
+      "inner_mse": 6.609567935927536,
+      "n_inner_records": 144
+    },
+    {
+      "origin_month": "2022-03",
+      "r": 5,
+      "inner_mse": 6.853192034741204,
+      "n_inner_records": 144
+    },
+    {
+      "origin_month": "2022-03",
+      "r": 6,
+      "inner_mse": 7.294004616206743,
+      "n_inner_records": 144
+    },
+    {
+      "origin_month": "2022-03",
+      "r": 7,
+      "inner_mse": 7.627260483342405,
+      "n_inner_records": 144
+    },
+    {
+      "origin_month": "2022-03",
+      "r": 8,
+      "inner_mse": 12.274839143826021,
+      "n_inner_records": 144
+    },
+    {
+      "origin_month": "2022-04",
+      "r": 1,
+      "inner_mse": 7.253105467346838,
+      "n_inner_records": 147
+    },
+    {
+      "origin_month": "2022-04",
+      "r": 2,
+      "inner_mse": 6.855477085212337,
+      "n_inner_records": 147
+    },
+    {
+      "origin_month": "2022-04",
+      "r": 3,
+      "inner_mse": 6.4150822737679585,
+      "n_inner_records": 147
+    },
+    {
+      "origin_month": "2022-04",
+      "r": 4,
+      "inner_mse": 6.49419727091299,
+      "n_inner_records": 147
+    },
+    {
+      "origin_month": "2022-04",
+      "r": 5,
+      "inner_mse": 6.782899865207011,
+      "n_inner_records": 147
+    },
+    {
+      "origin_month": "2022-04",
+      "r": 6,
+      "inner_mse": 7.161148174832841,
+      "n_inner_records": 147
+    },
+    {
+      "origin_month": "2022-04",
+      "r": 7,
+      "inner_mse": 7.495981820008594,
+      "n_inner_records": 147
+    },
+    {
+      "origin_month": "2022-04",
+      "r": 8,
+      "inner_mse": 12.149793868825382,
+      "n_inner_records": 147
+    },
+    {
+      "origin_month": "2022-05",
+      "r": 1,
+      "inner_mse": 7.253105467346838,
+      "n_inner_records": 147
+    },
+    {
+      "origin_month": "2022-05",
+      "r": 2,
+      "inner_mse": 6.855477085212337,
+      "n_inner_records": 147
+    },
+    {
+      "origin_month": "2022-05",
+      "r": 3,
+      "inner_mse": 6.4150822737679585,
+      "n_inner_records": 147
+    },
+    {
+      "origin_month": "2022-05",
+      "r": 4,
+      "inner_mse": 6.49419727091299,
+      "n_inner_records": 147
+    },
+    {
+      "origin_month": "2022-05",
+      "r": 5,
+      "inner_mse": 6.782899865207011,
+      "n_inner_records": 147
+    },
+    {
+      "origin_month": "2022-05",
+      "r": 6,
+      "inner_mse": 7.161148174832841,
+      "n_inner_records": 147
+    },
+    {
+      "origin_month": "2022-05",
+      "r": 7,
+      "inner_mse": 7.495981820008594,
+      "n_inner_records": 147
+    },
+    {
+      "origin_month": "2022-05",
+      "r": 8,
+      "inner_mse": 12.149793868825382,
+      "n_inner_records": 147
+    },
+    {
+      "origin_month": "2022-06",
+      "r": 1,
+      "inner_mse": 7.253105467346838,
+      "n_inner_records": 147
+    },
+    {
+      "origin_month": "2022-06",
+      "r": 2,
+      "inner_mse": 6.855477085212337,
+      "n_inner_records": 147
+    },
+    {
+      "origin_month": "2022-06",
+      "r": 3,
+      "inner_mse": 6.4150822737679585,
+      "n_inner_records": 147
+    },
+    {
+      "origin_month": "2022-06",
+      "r": 4,
+      "inner_mse": 6.49419727091299,
+      "n_inner_records": 147
+    },
+    {
+      "origin_month": "2022-06",
+      "r": 5,
+      "inner_mse": 6.782899865207011,
+      "n_inner_records": 147
+    },
+    {
+      "origin_month": "2022-06",
+      "r": 6,
+      "inner_mse": 7.161148174832841,
+      "n_inner_records": 147
+    },
+    {
+      "origin_month": "2022-06",
+      "r": 7,
+      "inner_mse": 7.495981820008594,
+      "n_inner_records": 147
+    },
+    {
+      "origin_month": "2022-06",
+      "r": 8,
+      "inner_mse": 12.149793868825382,
+      "n_inner_records": 147
+    },
+    {
+      "origin_month": "2022-07",
+      "r": 1,
+      "inner_mse": 7.425423034503035,
+      "n_inner_records": 150
+    },
+    {
+      "origin_month": "2022-07",
+      "r": 2,
+      "inner_mse": 6.953162353918362,
+      "n_inner_records": 150
+    },
+    {
+      "origin_month": "2022-07",
+      "r": 3,
+      "inner_mse": 6.44410629261547,
+      "n_inner_records": 150
+    },
+    {
+      "origin_month": "2022-07",
+      "r": 4,
+      "inner_mse": 6.647661922267908,
+      "n_inner_records": 150
+    },
+    {
+      "origin_month": "2022-07",
+      "r": 5,
+      "inner_mse": 6.750744159501211,
+      "n_inner_records": 150
+    },
+    {
+      "origin_month": "2022-07",
+      "r": 6,
+      "inner_mse": 7.100564500320543,
+      "n_inner_records": 150
+    },
+    {
+      "origin_month": "2022-07",
+      "r": 7,
+      "inner_mse": 7.435343226285317,
+      "n_inner_records": 150
+    },
+    {
+      "origin_month": "2022-07",
+      "r": 8,
+      "inner_mse": 12.096653254286277,
+      "n_inner_records": 150
+    },
+    {
+      "origin_month": "2022-08",
+      "r": 1,
+      "inner_mse": 7.425423034503035,
+      "n_inner_records": 150
+    },
+    {
+      "origin_month": "2022-08",
+      "r": 2,
+      "inner_mse": 6.953162353918362,
+      "n_inner_records": 150
+    },
+    {
+      "origin_month": "2022-08",
+      "r": 3,
+      "inner_mse": 6.44410629261547,
+      "n_inner_records": 150
+    },
+    {
+      "origin_month": "2022-08",
+      "r": 4,
+      "inner_mse": 6.647661922267908,
+      "n_inner_records": 150
+    },
+    {
+      "origin_month": "2022-08",
+      "r": 5,
+      "inner_mse": 6.750744159501211,
+      "n_inner_records": 150
+    },
+    {
+      "origin_month": "2022-08",
+      "r": 6,
+      "inner_mse": 7.100564500320543,
+      "n_inner_records": 150
+    },
+    {
+      "origin_month": "2022-08",
+      "r": 7,
+      "inner_mse": 7.435343226285317,
+      "n_inner_records": 150
+    },
+    {
+      "origin_month": "2022-08",
+      "r": 8,
+      "inner_mse": 12.096653254286277,
+      "n_inner_records": 150
+    },
+    {
+      "origin_month": "2022-09",
+      "r": 1,
+      "inner_mse": 7.425423034503035,
+      "n_inner_records": 150
+    },
+    {
+      "origin_month": "2022-09",
+      "r": 2,
+      "inner_mse": 6.953162353918362,
+      "n_inner_records": 150
+    },
+    {
+      "origin_month": "2022-09",
+      "r": 3,
+      "inner_mse": 6.44410629261547,
+      "n_inner_records": 150
+    },
+    {
+      "origin_month": "2022-09",
+      "r": 4,
+      "inner_mse": 6.647661922267908,
+      "n_inner_records": 150
+    },
+    {
+      "origin_month": "2022-09",
+      "r": 5,
+      "inner_mse": 6.750744159501211,
+      "n_inner_records": 150
+    },
+    {
+      "origin_month": "2022-09",
+      "r": 6,
+      "inner_mse": 7.100564500320543,
+      "n_inner_records": 150
+    },
+    {
+      "origin_month": "2022-09",
+      "r": 7,
+      "inner_mse": 7.435343226285317,
+      "n_inner_records": 150
+    },
+    {
+      "origin_month": "2022-09",
+      "r": 8,
+      "inner_mse": 12.096653254286277,
+      "n_inner_records": 150
+    },
+    {
+      "origin_month": "2022-10",
+      "r": 1,
+      "inner_mse": 7.323009509138872,
+      "n_inner_records": 153
+    },
+    {
+      "origin_month": "2022-10",
+      "r": 2,
+      "inner_mse": 6.851780119700779,
+      "n_inner_records": 153
+    },
+    {
+      "origin_month": "2022-10",
+      "r": 3,
+      "inner_mse": 6.324893792815033,
+      "n_inner_records": 153
+    },
+    {
+      "origin_month": "2022-10",
+      "r": 4,
+      "inner_mse": 6.55672810899271,
+      "n_inner_records": 153
+    },
+    {
+      "origin_month": "2022-10",
+      "r": 5,
+      "inner_mse": 6.647694649030402,
+      "n_inner_records": 153
+    },
+    {
+      "origin_month": "2022-10",
+      "r": 6,
+      "inner_mse": 7.002110035999248,
+      "n_inner_records": 153
+    },
+    {
+      "origin_month": "2022-10",
+      "r": 7,
+      "inner_mse": 7.348978386506601,
+      "n_inner_records": 153
+    },
+    {
+      "origin_month": "2022-10",
+      "r": 8,
+      "inner_mse": 11.948533911826845,
+      "n_inner_records": 153
+    },
+    {
+      "origin_month": "2022-11",
+      "r": 1,
+      "inner_mse": 7.323009509138872,
+      "n_inner_records": 153
+    },
+    {
+      "origin_month": "2022-11",
+      "r": 2,
+      "inner_mse": 6.851780119700779,
+      "n_inner_records": 153
+    },
+    {
+      "origin_month": "2022-11",
+      "r": 3,
+      "inner_mse": 6.324893792815033,
+      "n_inner_records": 153
+    },
+    {
+      "origin_month": "2022-11",
+      "r": 4,
+      "inner_mse": 6.55672810899271,
+      "n_inner_records": 153
+    },
+    {
+      "origin_month": "2022-11",
+      "r": 5,
+      "inner_mse": 6.647694649030402,
+      "n_inner_records": 153
+    },
+    {
+      "origin_month": "2022-11",
+      "r": 6,
+      "inner_mse": 7.002110035999248,
+      "n_inner_records": 153
+    },
+    {
+      "origin_month": "2022-11",
+      "r": 7,
+      "inner_mse": 7.348978386506601,
+      "n_inner_records": 153
+    },
+    {
+      "origin_month": "2022-11",
+      "r": 8,
+      "inner_mse": 11.948533911826845,
+      "n_inner_records": 153
+    },
+    {
+      "origin_month": "2022-12",
+      "r": 1,
+      "inner_mse": 7.323009509138872,
+      "n_inner_records": 153
+    },
+    {
+      "origin_month": "2022-12",
+      "r": 2,
+      "inner_mse": 6.851780119700779,
+      "n_inner_records": 153
+    },
+    {
+      "origin_month": "2022-12",
+      "r": 3,
+      "inner_mse": 6.324893792815033,
+      "n_inner_records": 153
+    },
+    {
+      "origin_month": "2022-12",
+      "r": 4,
+      "inner_mse": 6.55672810899271,
+      "n_inner_records": 153
+    },
+    {
+      "origin_month": "2022-12",
+      "r": 5,
+      "inner_mse": 6.647694649030402,
+      "n_inner_records": 153
+    },
+    {
+      "origin_month": "2022-12",
+      "r": 6,
+      "inner_mse": 7.002110035999248,
+      "n_inner_records": 153
+    },
+    {
+      "origin_month": "2022-12",
+      "r": 7,
+      "inner_mse": 7.348978386506601,
+      "n_inner_records": 153
+    },
+    {
+      "origin_month": "2022-12",
+      "r": 8,
+      "inner_mse": 11.948533911826845,
+      "n_inner_records": 153
+    },
+    {
+      "origin_month": "2023-01",
+      "r": 1,
+      "inner_mse": 7.274051460945231,
+      "n_inner_records": 156
+    },
+    {
+      "origin_month": "2023-01",
+      "r": 2,
+      "inner_mse": 6.817415122264533,
+      "n_inner_records": 156
+    },
+    {
+      "origin_month": "2023-01",
+      "r": 3,
+      "inner_mse": 6.2316800405065615,
+      "n_inner_records": 156
+    },
+    {
+      "origin_month": "2023-01",
+      "r": 4,
+      "inner_mse": 6.475106009422697,
+      "n_inner_records": 156
+    },
+    {
+      "origin_month": "2023-01",
+      "r": 5,
+      "inner_mse": 6.563154094622069,
+      "n_inner_records": 156
+    },
+    {
+      "origin_month": "2023-01",
+      "r": 6,
+      "inner_mse": 6.935746007314323,
+      "n_inner_records": 156
+    },
+    {
+      "origin_month": "2023-01",
+      "r": 7,
+      "inner_mse": 7.258011503880464,
+      "n_inner_records": 156
+    },
+    {
+      "origin_month": "2023-01",
+      "r": 8,
+      "inner_mse": 11.846648341369036,
+      "n_inner_records": 156
+    },
+    {
+      "origin_month": "2023-02",
+      "r": 1,
+      "inner_mse": 7.274051460945231,
+      "n_inner_records": 156
+    },
+    {
+      "origin_month": "2023-02",
+      "r": 2,
+      "inner_mse": 6.817415122264533,
+      "n_inner_records": 156
+    },
+    {
+      "origin_month": "2023-02",
+      "r": 3,
+      "inner_mse": 6.2316800405065615,
+      "n_inner_records": 156
+    },
+    {
+      "origin_month": "2023-02",
+      "r": 4,
+      "inner_mse": 6.475106009422697,
+      "n_inner_records": 156
+    },
+    {
+      "origin_month": "2023-02",
+      "r": 5,
+      "inner_mse": 6.563154094622069,
+      "n_inner_records": 156
+    },
+    {
+      "origin_month": "2023-02",
+      "r": 6,
+      "inner_mse": 6.935746007314323,
+      "n_inner_records": 156
+    },
+    {
+      "origin_month": "2023-02",
+      "r": 7,
+      "inner_mse": 7.258011503880464,
+      "n_inner_records": 156
+    },
+    {
+      "origin_month": "2023-02",
+      "r": 8,
+      "inner_mse": 11.846648341369036,
+      "n_inner_records": 156
+    },
+    {
+      "origin_month": "2023-03",
+      "r": 1,
+      "inner_mse": 7.274051460945231,
+      "n_inner_records": 156
+    },
+    {
+      "origin_month": "2023-03",
+      "r": 2,
+      "inner_mse": 6.817415122264533,
+      "n_inner_records": 156
+    },
+    {
+      "origin_month": "2023-03",
+      "r": 3,
+      "inner_mse": 6.2316800405065615,
+      "n_inner_records": 156
+    },
+    {
+      "origin_month": "2023-03",
+      "r": 4,
+      "inner_mse": 6.475106009422697,
+      "n_inner_records": 156
+    },
+    {
+      "origin_month": "2023-03",
+      "r": 5,
+      "inner_mse": 6.563154094622069,
+      "n_inner_records": 156
+    },
+    {
+      "origin_month": "2023-03",
+      "r": 6,
+      "inner_mse": 6.935746007314323,
+      "n_inner_records": 156
+    },
+    {
+      "origin_month": "2023-03",
+      "r": 7,
+      "inner_mse": 7.258011503880464,
+      "n_inner_records": 156
+    },
+    {
+      "origin_month": "2023-03",
+      "r": 8,
+      "inner_mse": 11.846648341369036,
+      "n_inner_records": 156
+    },
+    {
+      "origin_month": "2023-04",
+      "r": 1,
+      "inner_mse": 7.2058147629122224,
+      "n_inner_records": 159
+    },
+    {
+      "origin_month": "2023-04",
+      "r": 2,
+      "inner_mse": 6.786394532343312,
+      "n_inner_records": 159
+    },
+    {
+      "origin_month": "2023-04",
+      "r": 3,
+      "inner_mse": 6.186876926335927,
+      "n_inner_records": 159
+    },
+    {
+      "origin_month": "2023-04",
+      "r": 4,
+      "inner_mse": 6.417720482767163,
+      "n_inner_records": 159
+    },
+    {
+      "origin_month": "2023-04",
+      "r": 5,
+      "inner_mse": 6.506935034192828,
+      "n_inner_records": 159
+    },
+    {
+      "origin_month": "2023-04",
+      "r": 6,
+      "inner_mse": 6.869526170648264,
+      "n_inner_records": 159
+    },
+    {
+      "origin_month": "2023-04",
+      "r": 7,
+      "inner_mse": 7.411705286297378,
+      "n_inner_records": 159
+    },
+    {
+      "origin_month": "2023-04",
+      "r": 8,
+      "inner_mse": 11.986359915318134,
+      "n_inner_records": 159
+    },
+    {
+      "origin_month": "2023-05",
+      "r": 1,
+      "inner_mse": 7.2058147629122224,
+      "n_inner_records": 159
+    },
+    {
+      "origin_month": "2023-05",
+      "r": 2,
+      "inner_mse": 6.786394532343312,
+      "n_inner_records": 159
+    },
+    {
+      "origin_month": "2023-05",
+      "r": 3,
+      "inner_mse": 6.186876926335927,
+      "n_inner_records": 159
+    },
+    {
+      "origin_month": "2023-05",
+      "r": 4,
+      "inner_mse": 6.417720482767163,
+      "n_inner_records": 159
+    },
+    {
+      "origin_month": "2023-05",
+      "r": 5,
+      "inner_mse": 6.506935034192828,
+      "n_inner_records": 159
+    },
+    {
+      "origin_month": "2023-05",
+      "r": 6,
+      "inner_mse": 6.869526170648264,
+      "n_inner_records": 159
+    },
+    {
+      "origin_month": "2023-05",
+      "r": 7,
+      "inner_mse": 7.411705286297378,
+      "n_inner_records": 159
+    },
+    {
+      "origin_month": "2023-05",
+      "r": 8,
+      "inner_mse": 11.986359915318134,
+      "n_inner_records": 159
+    },
+    {
+      "origin_month": "2023-06",
+      "r": 1,
+      "inner_mse": 7.2058147629122224,
+      "n_inner_records": 159
+    },
+    {
+      "origin_month": "2023-06",
+      "r": 2,
+      "inner_mse": 6.786394532343312,
+      "n_inner_records": 159
+    },
+    {
+      "origin_month": "2023-06",
+      "r": 3,
+      "inner_mse": 6.186876926335927,
+      "n_inner_records": 159
+    },
+    {
+      "origin_month": "2023-06",
+      "r": 4,
+      "inner_mse": 6.417720482767163,
+      "n_inner_records": 159
+    },
+    {
+      "origin_month": "2023-06",
+      "r": 5,
+      "inner_mse": 6.506935034192828,
+      "n_inner_records": 159
+    },
+    {
+      "origin_month": "2023-06",
+      "r": 6,
+      "inner_mse": 6.869526170648264,
+      "n_inner_records": 159
+    },
+    {
+      "origin_month": "2023-06",
+      "r": 7,
+      "inner_mse": 7.411705286297378,
+      "n_inner_records": 159
+    },
+    {
+      "origin_month": "2023-06",
+      "r": 8,
+      "inner_mse": 11.986359915318134,
+      "n_inner_records": 159
+    },
+    {
+      "origin_month": "2023-07",
+      "r": 1,
+      "inner_mse": 7.079415446091908,
+      "n_inner_records": 162
+    },
+    {
+      "origin_month": "2023-07",
+      "r": 2,
+      "inner_mse": 6.6720473999400935,
+      "n_inner_records": 162
+    },
+    {
+      "origin_month": "2023-07",
+      "r": 3,
+      "inner_mse": 6.083222878018491,
+      "n_inner_records": 162
+    },
+    {
+      "origin_month": "2023-07",
+      "r": 4,
+      "inner_mse": 6.304931712172342,
+      "n_inner_records": 162
+    },
+    {
+      "origin_month": "2023-07",
+      "r": 5,
+      "inner_mse": 6.394727877364582,
+      "n_inner_records": 162
+    },
+    {
+      "origin_month": "2023-07",
+      "r": 6,
+      "inner_mse": 6.74461741426809,
+      "n_inner_records": 162
+    },
+    {
+      "origin_month": "2023-07",
+      "r": 7,
+      "inner_mse": 7.401462045602408,
+      "n_inner_records": 162
+    },
+    {
+      "origin_month": "2023-07",
+      "r": 8,
+      "inner_mse": 11.89879668526377,
+      "n_inner_records": 162
+    },
+    {
+      "origin_month": "2023-08",
+      "r": 1,
+      "inner_mse": 7.079415446091908,
+      "n_inner_records": 162
+    },
+    {
+      "origin_month": "2023-08",
+      "r": 2,
+      "inner_mse": 6.6720473999400935,
+      "n_inner_records": 162
+    },
+    {
+      "origin_month": "2023-08",
+      "r": 3,
+      "inner_mse": 6.083222878018491,
+      "n_inner_records": 162
+    },
+    {
+      "origin_month": "2023-08",
+      "r": 4,
+      "inner_mse": 6.304931712172342,
+      "n_inner_records": 162
+    },
+    {
+      "origin_month": "2023-08",
+      "r": 5,
+      "inner_mse": 6.394727877364582,
+      "n_inner_records": 162
+    },
+    {
+      "origin_month": "2023-08",
+      "r": 6,
+      "inner_mse": 6.74461741426809,
+      "n_inner_records": 162
+    },
+    {
+      "origin_month": "2023-08",
+      "r": 7,
+      "inner_mse": 7.401462045602408,
+      "n_inner_records": 162
+    },
+    {
+      "origin_month": "2023-08",
+      "r": 8,
+      "inner_mse": 11.89879668526377,
+      "n_inner_records": 162
+    },
+    {
+      "origin_month": "2023-09",
+      "r": 1,
+      "inner_mse": 7.079415446091908,
+      "n_inner_records": 162
+    },
+    {
+      "origin_month": "2023-09",
+      "r": 2,
+      "inner_mse": 6.6720473999400935,
+      "n_inner_records": 162
+    },
+    {
+      "origin_month": "2023-09",
+      "r": 3,
+      "inner_mse": 6.083222878018491,
+      "n_inner_records": 162
+    },
+    {
+      "origin_month": "2023-09",
+      "r": 4,
+      "inner_mse": 6.304931712172342,
+      "n_inner_records": 162
+    },
+    {
+      "origin_month": "2023-09",
+      "r": 5,
+      "inner_mse": 6.394727877364582,
+      "n_inner_records": 162
+    },
+    {
+      "origin_month": "2023-09",
+      "r": 6,
+      "inner_mse": 6.74461741426809,
+      "n_inner_records": 162
+    },
+    {
+      "origin_month": "2023-09",
+      "r": 7,
+      "inner_mse": 7.401462045602408,
+      "n_inner_records": 162
+    },
+    {
+      "origin_month": "2023-09",
+      "r": 8,
+      "inner_mse": 11.89879668526377,
+      "n_inner_records": 162
+    },
+    {
+      "origin_month": "2023-10",
+      "r": 1,
+      "inner_mse": 6.952515993342086,
+      "n_inner_records": 165
+    },
+    {
+      "origin_month": "2023-10",
+      "r": 2,
+      "inner_mse": 6.559139930422766,
+      "n_inner_records": 165
+    },
+    {
+      "origin_month": "2023-10",
+      "r": 3,
+      "inner_mse": 5.973610586942327,
+      "n_inner_records": 165
+    },
+    {
+      "origin_month": "2023-10",
+      "r": 4,
+      "inner_mse": 6.195735383502151,
+      "n_inner_records": 165
+    },
+    {
+      "origin_month": "2023-10",
+      "r": 5,
+      "inner_mse": 6.284345135245175,
+      "n_inner_records": 165
+    },
+    {
+      "origin_month": "2023-10",
+      "r": 6,
+      "inner_mse": 6.625278098061732,
+      "n_inner_records": 165
+    },
+    {
+      "origin_month": "2023-10",
+      "r": 7,
+      "inner_mse": 7.282828238808004,
+      "n_inner_records": 165
+    },
+    {
+      "origin_month": "2023-10",
+      "r": 8,
+      "inner_mse": 11.699083350458528,
+      "n_inner_records": 165
+    },
+    {
+      "origin_month": "2023-11",
+      "r": 1,
+      "inner_mse": 6.952515993342086,
+      "n_inner_records": 165
+    },
+    {
+      "origin_month": "2023-11",
+      "r": 2,
+      "inner_mse": 6.559139930422766,
+      "n_inner_records": 165
+    },
+    {
+      "origin_month": "2023-11",
+      "r": 3,
+      "inner_mse": 5.973610586942327,
+      "n_inner_records": 165
+    },
+    {
+      "origin_month": "2023-11",
+      "r": 4,
+      "inner_mse": 6.195735383502151,
+      "n_inner_records": 165
+    },
+    {
+      "origin_month": "2023-11",
+      "r": 5,
+      "inner_mse": 6.284345135245175,
+      "n_inner_records": 165
+    },
+    {
+      "origin_month": "2023-11",
+      "r": 6,
+      "inner_mse": 6.625278098061732,
+      "n_inner_records": 165
+    },
+    {
+      "origin_month": "2023-11",
+      "r": 7,
+      "inner_mse": 7.282828238808004,
+      "n_inner_records": 165
+    },
+    {
+      "origin_month": "2023-11",
+      "r": 8,
+      "inner_mse": 11.699083350458528,
+      "n_inner_records": 165
+    },
+    {
+      "origin_month": "2023-12",
+      "r": 1,
+      "inner_mse": 6.952515993342086,
+      "n_inner_records": 165
+    },
+    {
+      "origin_month": "2023-12",
+      "r": 2,
+      "inner_mse": 6.559139930422766,
+      "n_inner_records": 165
+    },
+    {
+      "origin_month": "2023-12",
+      "r": 3,
+      "inner_mse": 5.973610586942327,
+      "n_inner_records": 165
+    },
+    {
+      "origin_month": "2023-12",
+      "r": 4,
+      "inner_mse": 6.195735383502151,
+      "n_inner_records": 165
+    },
+    {
+      "origin_month": "2023-12",
+      "r": 5,
+      "inner_mse": 6.284345135245175,
+      "n_inner_records": 165
+    },
+    {
+      "origin_month": "2023-12",
+      "r": 6,
+      "inner_mse": 6.625278098061732,
+      "n_inner_records": 165
+    },
+    {
+      "origin_month": "2023-12",
+      "r": 7,
+      "inner_mse": 7.282828238808004,
+      "n_inner_records": 165
+    },
+    {
+      "origin_month": "2023-12",
+      "r": 8,
+      "inner_mse": 11.699083350458528,
+      "n_inner_records": 165
+    },
+    {
+      "origin_month": "2024-01",
+      "r": 1,
+      "inner_mse": 6.8285103341420195,
+      "n_inner_records": 168
+    },
+    {
+      "origin_month": "2024-01",
+      "r": 2,
+      "inner_mse": 6.442969194091037,
+      "n_inner_records": 168
+    },
+    {
+      "origin_month": "2024-01",
+      "r": 3,
+      "inner_mse": 5.86790811500956,
+      "n_inner_records": 168
+    },
+    {
+      "origin_month": "2024-01",
+      "r": 4,
+      "inner_mse": 6.086414405913543,
+      "n_inner_records": 168
+    },
+    {
+      "origin_month": "2024-01",
+      "r": 5,
+      "inner_mse": 6.173130573427592,
+      "n_inner_records": 168
+    },
+    {
+      "origin_month": "2024-01",
+      "r": 6,
+      "inner_mse": 6.52863228727524,
+      "n_inner_records": 168
+    },
+    {
+      "origin_month": "2024-01",
+      "r": 7,
+      "inner_mse": 7.21764091477299,
+      "n_inner_records": 168
+    },
+    {
+      "origin_month": "2024-01",
+      "r": 8,
+      "inner_mse": 11.555605492803648,
+      "n_inner_records": 168
+    },
+    {
+      "origin_month": "2024-02",
+      "r": 1,
+      "inner_mse": 6.8285103341420195,
+      "n_inner_records": 168
+    },
+    {
+      "origin_month": "2024-02",
+      "r": 2,
+      "inner_mse": 6.442969194091037,
+      "n_inner_records": 168
+    },
+    {
+      "origin_month": "2024-02",
+      "r": 3,
+      "inner_mse": 5.86790811500956,
+      "n_inner_records": 168
+    },
+    {
+      "origin_month": "2024-02",
+      "r": 4,
+      "inner_mse": 6.086414405913543,
+      "n_inner_records": 168
+    },
+    {
+      "origin_month": "2024-02",
+      "r": 5,
+      "inner_mse": 6.173130573427592,
+      "n_inner_records": 168
+    },
+    {
+      "origin_month": "2024-02",
+      "r": 6,
+      "inner_mse": 6.52863228727524,
+      "n_inner_records": 168
+    },
+    {
+      "origin_month": "2024-02",
+      "r": 7,
+      "inner_mse": 7.21764091477299,
+      "n_inner_records": 168
+    },
+    {
+      "origin_month": "2024-02",
+      "r": 8,
+      "inner_mse": 11.555605492803648,
+      "n_inner_records": 168
+    },
+    {
+      "origin_month": "2024-03",
+      "r": 1,
+      "inner_mse": 6.8285103341420195,
+      "n_inner_records": 168
+    },
+    {
+      "origin_month": "2024-03",
+      "r": 2,
+      "inner_mse": 6.442969194091037,
+      "n_inner_records": 168
+    },
+    {
+      "origin_month": "2024-03",
+      "r": 3,
+      "inner_mse": 5.86790811500956,
+      "n_inner_records": 168
+    },
+    {
+      "origin_month": "2024-03",
+      "r": 4,
+      "inner_mse": 6.086414405913543,
+      "n_inner_records": 168
+    },
+    {
+      "origin_month": "2024-03",
+      "r": 5,
+      "inner_mse": 6.173130573427592,
+      "n_inner_records": 168
+    },
+    {
+      "origin_month": "2024-03",
+      "r": 6,
+      "inner_mse": 6.52863228727524,
+      "n_inner_records": 168
+    },
+    {
+      "origin_month": "2024-03",
+      "r": 7,
+      "inner_mse": 7.21764091477299,
+      "n_inner_records": 168
+    },
+    {
+      "origin_month": "2024-03",
+      "r": 8,
+      "inner_mse": 11.555605492803648,
+      "n_inner_records": 168
+    },
+    {
+      "origin_month": "2024-04",
+      "r": 1,
+      "inner_mse": 6.715346194334493,
+      "n_inner_records": 171
+    },
+    {
+      "origin_month": "2024-04",
+      "r": 2,
+      "inner_mse": 6.337179981153452,
+      "n_inner_records": 171
+    },
+    {
+      "origin_month": "2024-04",
+      "r": 3,
+      "inner_mse": 5.769171458077779,
+      "n_inner_records": 171
+    },
+    {
+      "origin_month": "2024-04",
+      "r": 4,
+      "inner_mse": 5.990103772003249,
+      "n_inner_records": 171
+    },
+    {
+      "origin_month": "2024-04",
+      "r": 5,
+      "inner_mse": 6.106043830785043,
+      "n_inner_records": 171
+    },
+    {
+      "origin_month": "2024-04",
+      "r": 6,
+      "inner_mse": 6.430087833634685,
+      "n_inner_records": 171
+    },
+    {
+      "origin_month": "2024-04",
+      "r": 7,
+      "inner_mse": 7.137229729640021,
+      "n_inner_records": 171
+    },
+    {
+      "origin_month": "2024-04",
+      "r": 8,
+      "inner_mse": 11.400784359633668,
+      "n_inner_records": 171
+    },
+    {
+      "origin_month": "2024-05",
+      "r": 1,
+      "inner_mse": 6.715346194334493,
+      "n_inner_records": 171
+    },
+    {
+      "origin_month": "2024-05",
+      "r": 2,
+      "inner_mse": 6.337179981153452,
+      "n_inner_records": 171
+    },
+    {
+      "origin_month": "2024-05",
+      "r": 3,
+      "inner_mse": 5.769171458077779,
+      "n_inner_records": 171
+    },
+    {
+      "origin_month": "2024-05",
+      "r": 4,
+      "inner_mse": 5.990103772003249,
+      "n_inner_records": 171
+    },
+    {
+      "origin_month": "2024-05",
+      "r": 5,
+      "inner_mse": 6.106043830785043,
+      "n_inner_records": 171
+    },
+    {
+      "origin_month": "2024-05",
+      "r": 6,
+      "inner_mse": 6.430087833634685,
+      "n_inner_records": 171
+    },
+    {
+      "origin_month": "2024-05",
+      "r": 7,
+      "inner_mse": 7.137229729640021,
+      "n_inner_records": 171
+    },
+    {
+      "origin_month": "2024-05",
+      "r": 8,
+      "inner_mse": 11.400784359633668,
+      "n_inner_records": 171
+    },
+    {
+      "origin_month": "2024-06",
+      "r": 1,
+      "inner_mse": 6.715346194334493,
+      "n_inner_records": 171
+    },
+    {
+      "origin_month": "2024-06",
+      "r": 2,
+      "inner_mse": 6.337179981153452,
+      "n_inner_records": 171
+    },
+    {
+      "origin_month": "2024-06",
+      "r": 3,
+      "inner_mse": 5.769171458077779,
+      "n_inner_records": 171
+    },
+    {
+      "origin_month": "2024-06",
+      "r": 4,
+      "inner_mse": 5.990103772003249,
+      "n_inner_records": 171
+    },
+    {
+      "origin_month": "2024-06",
+      "r": 5,
+      "inner_mse": 6.106043830785043,
+      "n_inner_records": 171
+    },
+    {
+      "origin_month": "2024-06",
+      "r": 6,
+      "inner_mse": 6.430087833634685,
+      "n_inner_records": 171
+    },
+    {
+      "origin_month": "2024-06",
+      "r": 7,
+      "inner_mse": 7.137229729640021,
+      "n_inner_records": 171
+    },
+    {
+      "origin_month": "2024-06",
+      "r": 8,
+      "inner_mse": 11.400784359633668,
+      "n_inner_records": 171
+    },
+    {
+      "origin_month": "2024-07",
+      "r": 1,
+      "inner_mse": 6.602263648718002,
+      "n_inner_records": 174
+    },
+    {
+      "origin_month": "2024-07",
+      "r": 2,
+      "inner_mse": 6.229883880379947,
+      "n_inner_records": 174
+    },
+    {
+      "origin_month": "2024-07",
+      "r": 3,
+      "inner_mse": 5.669981328123626,
+      "n_inner_records": 174
+    },
+    {
+      "origin_month": "2024-07",
+      "r": 4,
+      "inner_mse": 5.890700860844079,
+      "n_inner_records": 174
+    },
+    {
+      "origin_month": "2024-07",
+      "r": 5,
+      "inner_mse": 6.011380440861431,
+      "n_inner_records": 174
+    },
+    {
+      "origin_month": "2024-07",
+      "r": 6,
+      "inner_mse": 6.321682675641793,
+      "n_inner_records": 174
+    },
+    {
+      "origin_month": "2024-07",
+      "r": 7,
+      "inner_mse": 7.02043816217361,
+      "n_inner_records": 174
+    },
+    {
+      "origin_month": "2024-07",
+      "r": 8,
+      "inner_mse": 11.209476612990565,
+      "n_inner_records": 174
+    },
+    {
+      "origin_month": "2024-08",
+      "r": 1,
+      "inner_mse": 6.602263648718002,
+      "n_inner_records": 174
+    },
+    {
+      "origin_month": "2024-08",
+      "r": 2,
+      "inner_mse": 6.229883880379947,
+      "n_inner_records": 174
+    },
+    {
+      "origin_month": "2024-08",
+      "r": 3,
+      "inner_mse": 5.669981328123626,
+      "n_inner_records": 174
+    },
+    {
+      "origin_month": "2024-08",
+      "r": 4,
+      "inner_mse": 5.890700860844079,
+      "n_inner_records": 174
+    },
+    {
+      "origin_month": "2024-08",
+      "r": 5,
+      "inner_mse": 6.011380440861431,
+      "n_inner_records": 174
+    },
+    {
+      "origin_month": "2024-08",
+      "r": 6,
+      "inner_mse": 6.321682675641793,
+      "n_inner_records": 174
+    },
+    {
+      "origin_month": "2024-08",
+      "r": 7,
+      "inner_mse": 7.02043816217361,
+      "n_inner_records": 174
+    },
+    {
+      "origin_month": "2024-08",
+      "r": 8,
+      "inner_mse": 11.209476612990565,
+      "n_inner_records": 174
+    },
+    {
+      "origin_month": "2024-09",
+      "r": 1,
+      "inner_mse": 6.602263648718002,
+      "n_inner_records": 174
+    },
+    {
+      "origin_month": "2024-09",
+      "r": 2,
+      "inner_mse": 6.229883880379947,
+      "n_inner_records": 174
+    },
+    {
+      "origin_month": "2024-09",
+      "r": 3,
+      "inner_mse": 5.669981328123626,
+      "n_inner_records": 174
+    },
+    {
+      "origin_month": "2024-09",
+      "r": 4,
+      "inner_mse": 5.890700860844079,
+      "n_inner_records": 174
+    },
+    {
+      "origin_month": "2024-09",
+      "r": 5,
+      "inner_mse": 6.011380440861431,
+      "n_inner_records": 174
+    },
+    {
+      "origin_month": "2024-09",
+      "r": 6,
+      "inner_mse": 6.321682675641793,
+      "n_inner_records": 174
+    },
+    {
+      "origin_month": "2024-09",
+      "r": 7,
+      "inner_mse": 7.02043816217361,
+      "n_inner_records": 174
+    },
+    {
+      "origin_month": "2024-09",
+      "r": 8,
+      "inner_mse": 11.209476612990565,
+      "n_inner_records": 174
+    },
+    {
+      "origin_month": "2024-10",
+      "r": 1,
+      "inner_mse": 6.492306433002903,
+      "n_inner_records": 177
+    },
+    {
+      "origin_month": "2024-10",
+      "r": 2,
+      "inner_mse": 6.125781585360557,
+      "n_inner_records": 177
+    },
+    {
+      "origin_month": "2024-10",
+      "r": 3,
+      "inner_mse": 5.58584462855573,
+      "n_inner_records": 177
+    },
+    {
+      "origin_month": "2024-10",
+      "r": 4,
+      "inner_mse": 5.801737650177577,
+      "n_inner_records": 177
+    },
+    {
+      "origin_month": "2024-10",
+      "r": 5,
+      "inner_mse": 5.917849922395952,
+      "n_inner_records": 177
+    },
+    {
+      "origin_month": "2024-10",
+      "r": 6,
+      "inner_mse": 6.217009505057596,
+      "n_inner_records": 177
+    },
+    {
+      "origin_month": "2024-10",
+      "r": 7,
+      "inner_mse": 6.90821870187951,
+      "n_inner_records": 177
+    },
+    {
+      "origin_month": "2024-10",
+      "r": 8,
+      "inner_mse": 11.027994369696266,
+      "n_inner_records": 177
+    },
+    {
+      "origin_month": "2024-11",
+      "r": 1,
+      "inner_mse": 6.492306433002903,
+      "n_inner_records": 177
+    },
+    {
+      "origin_month": "2024-11",
+      "r": 2,
+      "inner_mse": 6.125781585360557,
+      "n_inner_records": 177
+    },
+    {
+      "origin_month": "2024-11",
+      "r": 3,
+      "inner_mse": 5.58584462855573,
+      "n_inner_records": 177
+    },
+    {
+      "origin_month": "2024-11",
+      "r": 4,
+      "inner_mse": 5.801737650177577,
+      "n_inner_records": 177
+    },
+    {
+      "origin_month": "2024-11",
+      "r": 5,
+      "inner_mse": 5.917849922395952,
+      "n_inner_records": 177
+    },
+    {
+      "origin_month": "2024-11",
+      "r": 6,
+      "inner_mse": 6.217009505057596,
+      "n_inner_records": 177
+    },
+    {
+      "origin_month": "2024-11",
+      "r": 7,
+      "inner_mse": 6.90821870187951,
+      "n_inner_records": 177
+    },
+    {
+      "origin_month": "2024-11",
+      "r": 8,
+      "inner_mse": 11.027994369696266,
+      "n_inner_records": 177
+    },
+    {
+      "origin_month": "2024-12",
+      "r": 1,
+      "inner_mse": 6.492306433002903,
+      "n_inner_records": 177
+    },
+    {
+      "origin_month": "2024-12",
+      "r": 2,
+      "inner_mse": 6.125781585360557,
+      "n_inner_records": 177
+    },
+    {
+      "origin_month": "2024-12",
+      "r": 3,
+      "inner_mse": 5.58584462855573,
+      "n_inner_records": 177
+    },
+    {
+      "origin_month": "2024-12",
+      "r": 4,
+      "inner_mse": 5.801737650177577,
+      "n_inner_records": 177
+    },
+    {
+      "origin_month": "2024-12",
+      "r": 5,
+      "inner_mse": 5.917849922395952,
+      "n_inner_records": 177
+    },
+    {
+      "origin_month": "2024-12",
+      "r": 6,
+      "inner_mse": 6.217009505057596,
+      "n_inner_records": 177
+    },
+    {
+      "origin_month": "2024-12",
+      "r": 7,
+      "inner_mse": 6.90821870187951,
+      "n_inner_records": 177
+    },
+    {
+      "origin_month": "2024-12",
+      "r": 8,
+      "inner_mse": 11.027994369696266,
+      "n_inner_records": 177
+    },
+    {
+      "origin_month": "2025-01",
+      "r": 1,
+      "inner_mse": 6.389755229935406,
+      "n_inner_records": 180
+    },
+    {
+      "origin_month": "2025-01",
+      "r": 2,
+      "inner_mse": 6.0337922738449565,
+      "n_inner_records": 180
+    },
+    {
+      "origin_month": "2025-01",
+      "r": 3,
+      "inner_mse": 5.528059024571996,
+      "n_inner_records": 180
+    },
+    {
+      "origin_month": "2025-01",
+      "r": 4,
+      "inner_mse": 5.726422508751312,
+      "n_inner_records": 180
+    },
+    {
+      "origin_month": "2025-01",
+      "r": 5,
+      "inner_mse": 5.838402238583588,
+      "n_inner_records": 180
+    },
+    {
+      "origin_month": "2025-01",
+      "r": 6,
+      "inner_mse": 6.128885601150719,
+      "n_inner_records": 180
+    },
+    {
+      "origin_month": "2025-01",
+      "r": 7,
+      "inner_mse": 6.795612924134862,
+      "n_inner_records": 180
+    },
+    {
+      "origin_month": "2025-01",
+      "r": 8,
+      "inner_mse": 10.847302568919277,
+      "n_inner_records": 180
+    },
+    {
+      "origin_month": "2025-02",
+      "r": 1,
+      "inner_mse": 6.389755229935406,
+      "n_inner_records": 180
+    },
+    {
+      "origin_month": "2025-02",
+      "r": 2,
+      "inner_mse": 6.0337922738449565,
+      "n_inner_records": 180
+    },
+    {
+      "origin_month": "2025-02",
+      "r": 3,
+      "inner_mse": 5.528059024571996,
+      "n_inner_records": 180
+    },
+    {
+      "origin_month": "2025-02",
+      "r": 4,
+      "inner_mse": 5.726422508751312,
+      "n_inner_records": 180
+    },
+    {
+      "origin_month": "2025-02",
+      "r": 5,
+      "inner_mse": 5.838402238583588,
+      "n_inner_records": 180
+    },
+    {
+      "origin_month": "2025-02",
+      "r": 6,
+      "inner_mse": 6.128885601150719,
+      "n_inner_records": 180
+    },
+    {
+      "origin_month": "2025-02",
+      "r": 7,
+      "inner_mse": 6.795612924134862,
+      "n_inner_records": 180
+    },
+    {
+      "origin_month": "2025-02",
+      "r": 8,
+      "inner_mse": 10.847302568919277,
+      "n_inner_records": 180
+    },
+    {
+      "origin_month": "2025-03",
+      "r": 1,
+      "inner_mse": 6.389755229935406,
+      "n_inner_records": 180
+    },
+    {
+      "origin_month": "2025-03",
+      "r": 2,
+      "inner_mse": 6.0337922738449565,
+      "n_inner_records": 180
+    },
+    {
+      "origin_month": "2025-03",
+      "r": 3,
+      "inner_mse": 5.528059024571996,
+      "n_inner_records": 180
+    },
+    {
+      "origin_month": "2025-03",
+      "r": 4,
+      "inner_mse": 5.726422508751312,
+      "n_inner_records": 180
+    },
+    {
+      "origin_month": "2025-03",
+      "r": 5,
+      "inner_mse": 5.838402238583588,
+      "n_inner_records": 180
+    },
+    {
+      "origin_month": "2025-03",
+      "r": 6,
+      "inner_mse": 6.128885601150719,
+      "n_inner_records": 180
+    },
+    {
+      "origin_month": "2025-03",
+      "r": 7,
+      "inner_mse": 6.795612924134862,
+      "n_inner_records": 180
+    },
+    {
+      "origin_month": "2025-03",
+      "r": 8,
+      "inner_mse": 10.847302568919277,
+      "n_inner_records": 180
+    },
+    {
+      "origin_month": "2025-04",
+      "r": 1,
+      "inner_mse": 6.286850347844405,
+      "n_inner_records": 183
+    },
+    {
+      "origin_month": "2025-04",
+      "r": 2,
+      "inner_mse": 5.93935375629142,
+      "n_inner_records": 183
+    },
+    {
+      "origin_month": "2025-04",
+      "r": 3,
+      "inner_mse": 5.481458064849478,
+      "n_inner_records": 183
+    },
+    {
+      "origin_month": "2025-04",
+      "r": 4,
+      "inner_mse": 5.653626634930271,
+      "n_inner_records": 183
+    },
+    {
+      "origin_month": "2025-04",
+      "r": 5,
+      "inner_mse": 5.7627337911884124,
+      "n_inner_records": 183
+    },
+    {
+      "origin_month": "2025-04",
+      "r": 6,
+      "inner_mse": 6.042927360140887,
+      "n_inner_records": 183
+    },
+    {
+      "origin_month": "2025-04",
+      "r": 7,
+      "inner_mse": 6.689137417678559,
+      "n_inner_records": 183
+    },
+    {
+      "origin_month": "2025-04",
+      "r": 8,
+      "inner_mse": 10.674129093520435,
+      "n_inner_records": 183
+    },
+    {
+      "origin_month": "2025-05",
+      "r": 1,
+      "inner_mse": 6.286850347844405,
+      "n_inner_records": 183
+    },
+    {
+      "origin_month": "2025-05",
+      "r": 2,
+      "inner_mse": 5.93935375629142,
+      "n_inner_records": 183
+    },
+    {
+      "origin_month": "2025-05",
+      "r": 3,
+      "inner_mse": 5.481458064849478,
+      "n_inner_records": 183
+    },
+    {
+      "origin_month": "2025-05",
+      "r": 4,
+      "inner_mse": 5.653626634930271,
+      "n_inner_records": 183
+    },
+    {
+      "origin_month": "2025-05",
+      "r": 5,
+      "inner_mse": 5.7627337911884124,
+      "n_inner_records": 183
+    },
+    {
+      "origin_month": "2025-05",
+      "r": 6,
+      "inner_mse": 6.042927360140887,
+      "n_inner_records": 183
+    },
+    {
+      "origin_month": "2025-05",
+      "r": 7,
+      "inner_mse": 6.689137417678559,
+      "n_inner_records": 183
+    },
+    {
+      "origin_month": "2025-05",
+      "r": 8,
+      "inner_mse": 10.674129093520435,
+      "n_inner_records": 183
+    },
+    {
+      "origin_month": "2025-06",
+      "r": 1,
+      "inner_mse": 6.286850347844405,
+      "n_inner_records": 183
+    },
+    {
+      "origin_month": "2025-06",
+      "r": 2,
+      "inner_mse": 5.93935375629142,
+      "n_inner_records": 183
+    },
+    {
+      "origin_month": "2025-06",
+      "r": 3,
+      "inner_mse": 5.481458064849478,
+      "n_inner_records": 183
+    },
+    {
+      "origin_month": "2025-06",
+      "r": 4,
+      "inner_mse": 5.653626634930271,
+      "n_inner_records": 183
+    },
+    {
+      "origin_month": "2025-06",
+      "r": 5,
+      "inner_mse": 5.7627337911884124,
+      "n_inner_records": 183
+    },
+    {
+      "origin_month": "2025-06",
+      "r": 6,
+      "inner_mse": 6.042927360140887,
+      "n_inner_records": 183
+    },
+    {
+      "origin_month": "2025-06",
+      "r": 7,
+      "inner_mse": 6.689137417678559,
+      "n_inner_records": 183
+    },
+    {
+      "origin_month": "2025-06",
+      "r": 8,
+      "inner_mse": 10.674129093520435,
+      "n_inner_records": 183
+    },
+    {
+      "origin_month": "2025-07",
+      "r": 1,
+      "inner_mse": 6.189488034394475,
+      "n_inner_records": 186
+    },
+    {
+      "origin_month": "2025-07",
+      "r": 2,
+      "inner_mse": 5.8493976776908045,
+      "n_inner_records": 186
+    },
+    {
+      "origin_month": "2025-07",
+      "r": 3,
+      "inner_mse": 5.415495969299922,
+      "n_inner_records": 186
+    },
+    {
+      "origin_month": "2025-07",
+      "r": 4,
+      "inner_mse": 5.567145064630823,
+      "n_inner_records": 186
+    },
+    {
+      "origin_month": "2025-07",
+      "r": 5,
+      "inner_mse": 5.673678488705276,
+      "n_inner_records": 186
+    },
+    {
+      "origin_month": "2025-07",
+      "r": 6,
+      "inner_mse": 5.9482386554988445,
+      "n_inner_records": 186
+    },
+    {
+      "origin_month": "2025-07",
+      "r": 7,
+      "inner_mse": 6.582707042965545,
+      "n_inner_records": 186
+    },
+    {
+      "origin_month": "2025-07",
+      "r": 8,
+      "inner_mse": 10.504142807052741,
+      "n_inner_records": 186
+    },
+    {
+      "origin_month": "2025-08",
+      "r": 1,
+      "inner_mse": 6.189488034394475,
+      "n_inner_records": 186
+    },
+    {
+      "origin_month": "2025-08",
+      "r": 2,
+      "inner_mse": 5.8493976776908045,
+      "n_inner_records": 186
+    },
+    {
+      "origin_month": "2025-08",
+      "r": 3,
+      "inner_mse": 5.415495969299922,
+      "n_inner_records": 186
+    },
+    {
+      "origin_month": "2025-08",
+      "r": 4,
+      "inner_mse": 5.567145064630823,
+      "n_inner_records": 186
+    },
+    {
+      "origin_month": "2025-08",
+      "r": 5,
+      "inner_mse": 5.673678488705276,
+      "n_inner_records": 186
+    },
+    {
+      "origin_month": "2025-08",
+      "r": 6,
+      "inner_mse": 5.9482386554988445,
+      "n_inner_records": 186
+    },
+    {
+      "origin_month": "2025-08",
+      "r": 7,
+      "inner_mse": 6.582707042965545,
+      "n_inner_records": 186
+    },
+    {
+      "origin_month": "2025-08",
+      "r": 8,
+      "inner_mse": 10.504142807052741,
+      "n_inner_records": 186
+    },
+    {
+      "origin_month": "2025-09",
+      "r": 1,
+      "inner_mse": 6.189488034394475,
+      "n_inner_records": 186
+    },
+    {
+      "origin_month": "2025-09",
+      "r": 2,
+      "inner_mse": 5.8493976776908045,
+      "n_inner_records": 186
+    },
+    {
+      "origin_month": "2025-09",
+      "r": 3,
+      "inner_mse": 5.415495969299922,
+      "n_inner_records": 186
+    },
+    {
+      "origin_month": "2025-09",
+      "r": 4,
+      "inner_mse": 5.567145064630823,
+      "n_inner_records": 186
+    },
+    {
+      "origin_month": "2025-09",
+      "r": 5,
+      "inner_mse": 5.673678488705276,
+      "n_inner_records": 186
+    },
+    {
+      "origin_month": "2025-09",
+      "r": 6,
+      "inner_mse": 5.9482386554988445,
+      "n_inner_records": 186
+    },
+    {
+      "origin_month": "2025-09",
+      "r": 7,
+      "inner_mse": 6.582707042965545,
+      "n_inner_records": 186
+    },
+    {
+      "origin_month": "2025-09",
+      "r": 8,
+      "inner_mse": 10.504142807052741,
+      "n_inner_records": 186
+    },
+    {
+      "origin_month": "2025-10",
+      "r": 1,
+      "inner_mse": 6.09252167072031,
+      "n_inner_records": 189
+    },
+    {
+      "origin_month": "2025-10",
+      "r": 2,
+      "inner_mse": 5.759906712760227,
+      "n_inner_records": 189
+    },
+    {
+      "origin_month": "2025-10",
+      "r": 3,
+      "inner_mse": 5.342106083087639,
+      "n_inner_records": 189
+    },
+    {
+      "origin_month": "2025-10",
+      "r": 4,
+      "inner_mse": 5.479939396697131,
+      "n_inner_records": 189
+    },
+    {
+      "origin_month": "2025-10",
+      "r": 5,
+      "inner_mse": 5.586871569741828,
+      "n_inner_records": 189
+    },
+    {
+      "origin_month": "2025-10",
+      "r": 6,
+      "inner_mse": 5.85627758118076,
+      "n_inner_records": 189
+    },
+    {
+      "origin_month": "2025-10",
+      "r": 7,
+      "inner_mse": 6.482734071926802,
+      "n_inner_records": 189
+    },
+    {
+      "origin_month": "2025-10",
+      "r": 8,
+      "inner_mse": 10.342092873697906,
+      "n_inner_records": 189
+    },
+    {
+      "origin_month": "2025-11",
+      "r": 1,
+      "inner_mse": 6.09252167072031,
+      "n_inner_records": 189
+    },
+    {
+      "origin_month": "2025-11",
+      "r": 2,
+      "inner_mse": 5.759906712760227,
+      "n_inner_records": 189
+    },
+    {
+      "origin_month": "2025-11",
+      "r": 3,
+      "inner_mse": 5.342106083087639,
+      "n_inner_records": 189
+    },
+    {
+      "origin_month": "2025-11",
+      "r": 4,
+      "inner_mse": 5.479939396697131,
+      "n_inner_records": 189
+    },
+    {
+      "origin_month": "2025-11",
+      "r": 5,
+      "inner_mse": 5.586871569741828,
+      "n_inner_records": 189
+    },
+    {
+      "origin_month": "2025-11",
+      "r": 6,
+      "inner_mse": 5.85627758118076,
+      "n_inner_records": 189
+    },
+    {
+      "origin_month": "2025-11",
+      "r": 7,
+      "inner_mse": 6.482734071926802,
+      "n_inner_records": 189
+    },
+    {
+      "origin_month": "2025-11",
+      "r": 8,
+      "inner_mse": 10.342092873697906,
+      "n_inner_records": 189
+    },
+    {
+      "origin_month": "2025-12",
+      "r": 1,
+      "inner_mse": 6.09252167072031,
+      "n_inner_records": 189
+    },
+    {
+      "origin_month": "2025-12",
+      "r": 2,
+      "inner_mse": 5.759906712760227,
+      "n_inner_records": 189
+    },
+    {
+      "origin_month": "2025-12",
+      "r": 3,
+      "inner_mse": 5.342106083087639,
+      "n_inner_records": 189
+    },
+    {
+      "origin_month": "2025-12",
+      "r": 4,
+      "inner_mse": 5.479939396697131,
+      "n_inner_records": 189
+    },
+    {
+      "origin_month": "2025-12",
+      "r": 5,
+      "inner_mse": 5.586871569741828,
+      "n_inner_records": 189
+    },
+    {
+      "origin_month": "2025-12",
+      "r": 6,
+      "inner_mse": 5.85627758118076,
+      "n_inner_records": 189
+    },
+    {
+      "origin_month": "2025-12",
+      "r": 7,
+      "inner_mse": 6.482734071926802,
+      "n_inner_records": 189
+    },
+    {
+      "origin_month": "2025-12",
+      "r": 8,
+      "inner_mse": 10.342092873697906,
+      "n_inner_records": 189
+    },
+    {
+      "origin_month": "2026-01",
+      "r": 1,
+      "inner_mse": 6.000358693139357,
+      "n_inner_records": 192
+    },
+    {
+      "origin_month": "2026-01",
+      "r": 2,
+      "inner_mse": 5.671171802578772,
+      "n_inner_records": 192
+    },
+    {
+      "origin_month": "2026-01",
+      "r": 3,
+      "inner_mse": 5.260755122933431,
+      "n_inner_records": 192
+    },
+    {
+      "origin_month": "2026-01",
+      "r": 4,
+      "inner_mse": 5.399725766319943,
+      "n_inner_records": 192
+    },
+    {
+      "origin_month": "2026-01",
+      "r": 5,
+      "inner_mse": 5.505305152213773,
+      "n_inner_records": 192
+    },
+    {
+      "origin_month": "2026-01",
+      "r": 6,
+      "inner_mse": 5.768956255067859,
+      "n_inner_records": 192
+    },
+    {
+      "origin_month": "2026-01",
+      "r": 7,
+      "inner_mse": 6.385289862252819,
+      "n_inner_records": 192
+    },
+    {
+      "origin_month": "2026-01",
+      "r": 8,
+      "inner_mse": 10.1847150734186,
+      "n_inner_records": 192
+    },
+    {
+      "origin_month": "2026-02",
+      "r": 1,
+      "inner_mse": 6.000358693139357,
+      "n_inner_records": 192
+    },
+    {
+      "origin_month": "2026-02",
+      "r": 2,
+      "inner_mse": 5.671171802578772,
+      "n_inner_records": 192
+    },
+    {
+      "origin_month": "2026-02",
+      "r": 3,
+      "inner_mse": 5.260755122933431,
+      "n_inner_records": 192
+    },
+    {
+      "origin_month": "2026-02",
+      "r": 4,
+      "inner_mse": 5.399725766319943,
+      "n_inner_records": 192
+    },
+    {
+      "origin_month": "2026-02",
+      "r": 5,
+      "inner_mse": 5.505305152213773,
+      "n_inner_records": 192
+    },
+    {
+      "origin_month": "2026-02",
+      "r": 6,
+      "inner_mse": 5.768956255067859,
+      "n_inner_records": 192
+    },
+    {
+      "origin_month": "2026-02",
+      "r": 7,
+      "inner_mse": 6.385289862252819,
+      "n_inner_records": 192
+    },
+    {
+      "origin_month": "2026-02",
+      "r": 8,
+      "inner_mse": 10.1847150734186,
+      "n_inner_records": 192
+    },
+    {
+      "origin_month": "2026-03",
+      "r": 1,
+      "inner_mse": 6.000358693139357,
+      "n_inner_records": 192
+    },
+    {
+      "origin_month": "2026-03",
+      "r": 2,
+      "inner_mse": 5.671171802578772,
+      "n_inner_records": 192
+    },
+    {
+      "origin_month": "2026-03",
+      "r": 3,
+      "inner_mse": 5.260755122933431,
+      "n_inner_records": 192
+    },
+    {
+      "origin_month": "2026-03",
+      "r": 4,
+      "inner_mse": 5.399725766319943,
+      "n_inner_records": 192
+    },
+    {
+      "origin_month": "2026-03",
+      "r": 5,
+      "inner_mse": 5.505305152213773,
+      "n_inner_records": 192
+    },
+    {
+      "origin_month": "2026-03",
+      "r": 6,
+      "inner_mse": 5.768956255067859,
+      "n_inner_records": 192
+    },
+    {
+      "origin_month": "2026-03",
+      "r": 7,
+      "inner_mse": 6.385289862252819,
+      "n_inner_records": 192
+    },
+    {
+      "origin_month": "2026-03",
+      "r": 8,
+      "inner_mse": 10.1847150734186,
+      "n_inner_records": 192
+    },
+    {
+      "origin_month": "2026-04",
+      "r": 1,
+      "inner_mse": 5.913524080085572,
+      "n_inner_records": 195
+    },
+    {
+      "origin_month": "2026-04",
+      "r": 2,
+      "inner_mse": 5.590853099534676,
+      "n_inner_records": 195
+    },
+    {
+      "origin_month": "2026-04",
+      "r": 3,
+      "inner_mse": 5.201210570137631,
+      "n_inner_records": 195
+    },
+    {
+      "origin_month": "2026-04",
+      "r": 4,
+      "inner_mse": 5.3312377362330885,
+      "n_inner_records": 195
+    },
+    {
+      "origin_month": "2026-04",
+      "r": 5,
+      "inner_mse": 5.428834970310532,
+      "n_inner_records": 195
+    },
+    {
+      "origin_month": "2026-04",
+      "r": 6,
+      "inner_mse": 5.690567564607497,
+      "n_inner_records": 195
+    },
+    {
+      "origin_month": "2026-04",
+      "r": 7,
+      "inner_mse": 6.296673984336085,
+      "n_inner_records": 195
+    },
+    {
+      "origin_month": "2026-04",
+      "r": 8,
+      "inner_mse": 10.038591467957982,
+      "n_inner_records": 195
+    },
+    {
+      "origin_month": "2026-05",
+      "r": 1,
+      "inner_mse": 5.913524080085572,
+      "n_inner_records": 195
+    },
+    {
+      "origin_month": "2026-05",
+      "r": 2,
+      "inner_mse": 5.590853099534676,
+      "n_inner_records": 195
+    },
+    {
+      "origin_month": "2026-05",
+      "r": 3,
+      "inner_mse": 5.201210570137631,
+      "n_inner_records": 195
+    },
+    {
+      "origin_month": "2026-05",
+      "r": 4,
+      "inner_mse": 5.3312377362330885,
+      "n_inner_records": 195
+    },
+    {
+      "origin_month": "2026-05",
+      "r": 5,
+      "inner_mse": 5.428834970310532,
+      "n_inner_records": 195
+    },
+    {
+      "origin_month": "2026-05",
+      "r": 6,
+      "inner_mse": 5.690567564607497,
+      "n_inner_records": 195
+    },
+    {
+      "origin_month": "2026-05",
+      "r": 7,
+      "inner_mse": 6.296673984336085,
+      "n_inner_records": 195
+    },
+    {
+      "origin_month": "2026-05",
+      "r": 8,
+      "inner_mse": 10.038591467957982,
+      "n_inner_records": 195
+    },
+    {
+      "origin_month": "2026-06",
+      "r": 1,
+      "inner_mse": 5.913524080085572,
+      "n_inner_records": 195
+    },
+    {
+      "origin_month": "2026-06",
+      "r": 2,
+      "inner_mse": 5.590853099534676,
+      "n_inner_records": 195
+    },
+    {
+      "origin_month": "2026-06",
+      "r": 3,
+      "inner_mse": 5.201210570137631,
+      "n_inner_records": 195
+    },
+    {
+      "origin_month": "2026-06",
+      "r": 4,
+      "inner_mse": 5.3312377362330885,
+      "n_inner_records": 195
+    },
+    {
+      "origin_month": "2026-06",
+      "r": 5,
+      "inner_mse": 5.428834970310532,
+      "n_inner_records": 195
+    },
+    {
+      "origin_month": "2026-06",
+      "r": 6,
+      "inner_mse": 5.690567564607497,
+      "n_inner_records": 195
+    },
+    {
+      "origin_month": "2026-06",
+      "r": 7,
+      "inner_mse": 6.296673984336085,
+      "n_inner_records": 195
+    },
+    {
+      "origin_month": "2026-06",
+      "r": 8,
+      "inner_mse": 10.038591467957982,
+      "n_inner_records": 195
+    },
+    {
+      "origin_month": "2026-07",
+      "r": 1,
+      "inner_mse": 5.8478161296320605,
+      "n_inner_records": 198
+    },
+    {
+      "origin_month": "2026-07",
+      "r": 2,
+      "inner_mse": 5.516111531675796,
+      "n_inner_records": 198
+    },
+    {
+      "origin_month": "2026-07",
+      "r": 3,
+      "inner_mse": 5.130550109931793,
+      "n_inner_records": 198
+    },
+    {
+      "origin_month": "2026-07",
+      "r": 4,
+      "inner_mse": 5.270671882025085,
+      "n_inner_records": 198
+    },
+    {
+      "origin_month": "2026-07",
+      "r": 5,
+      "inner_mse": 5.357217539846737,
+      "n_inner_records": 198
+    },
+    {
+      "origin_month": "2026-07",
+      "r": 6,
+      "inner_mse": 5.614682286709597,
+      "n_inner_records": 198
+    },
+    {
+      "origin_month": "2026-07",
+      "r": 7,
+      "inner_mse": 6.205624637496145,
+      "n_inner_records": 198
+    },
+    {
+      "origin_month": "2026-07",
+      "r": 8,
+      "inner_mse": 9.890386710924519,
+      "n_inner_records": 198
+    },
+    {
+      "origin_month": "2026-08",
+      "r": 1,
+      "inner_mse": 5.8478161296320605,
+      "n_inner_records": 198
+    },
+    {
+      "origin_month": "2026-08",
+      "r": 2,
+      "inner_mse": 5.516111531675796,
+      "n_inner_records": 198
+    },
+    {
+      "origin_month": "2026-08",
+      "r": 3,
+      "inner_mse": 5.130550109931793,
+      "n_inner_records": 198
+    },
+    {
+      "origin_month": "2026-08",
+      "r": 4,
+      "inner_mse": 5.270671882025085,
+      "n_inner_records": 198
+    },
+    {
+      "origin_month": "2026-08",
+      "r": 5,
+      "inner_mse": 5.357217539846737,
+      "n_inner_records": 198
+    },
+    {
+      "origin_month": "2026-08",
+      "r": 6,
+      "inner_mse": 5.614682286709597,
+      "n_inner_records": 198
+    },
+    {
+      "origin_month": "2026-08",
+      "r": 7,
+      "inner_mse": 6.205624637496145,
+      "n_inner_records": 198
+    },
+    {
+      "origin_month": "2026-08",
+      "r": 8,
+      "inner_mse": 9.890386710924519,
+      "n_inner_records": 198
+    },
+    {
+      "origin_month": "2026-09",
+      "r": 1,
+      "inner_mse": 5.8478161296320605,
+      "n_inner_records": 198
+    },
+    {
+      "origin_month": "2026-09",
+      "r": 2,
+      "inner_mse": 5.516111531675796,
+      "n_inner_records": 198
+    },
+    {
+      "origin_month": "2026-09",
+      "r": 3,
+      "inner_mse": 5.130550109931793,
+      "n_inner_records": 198
+    },
+    {
+      "origin_month": "2026-09",
+      "r": 4,
+      "inner_mse": 5.270671882025085,
+      "n_inner_records": 198
+    },
+    {
+      "origin_month": "2026-09",
+      "r": 5,
+      "inner_mse": 5.357217539846737,
+      "n_inner_records": 198
+    },
+    {
+      "origin_month": "2026-09",
+      "r": 6,
+      "inner_mse": 5.614682286709597,
+      "n_inner_records": 198
+    },
+    {
+      "origin_month": "2026-09",
+      "r": 7,
+      "inner_mse": 6.205624637496145,
+      "n_inner_records": 198
+    },
+    {
+      "origin_month": "2026-09",
+      "r": 8,
+      "inner_mse": 9.890386710924519,
+      "n_inner_records": 198
+    }
+  ],
+  "coefficients_final": [
+    {
+      "fold": "2026-10",
+      "forecast_origin": "2026-09-30",
+      "term": "const",
+      "coef": -1.282938747950412,
+      "se": 0.28194245375974625,
+      "t_stat": -4.550356751323631,
+      "n_train": 155,
+      "n_positive": 41,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2026-10",
+      "forecast_origin": "2026-09-30",
+      "term": "f1",
+      "coef": -0.41269285228565883,
+      "se": 0.14216742316465875,
+      "t_stat": -2.9028651086098445,
+      "n_train": 155,
+      "n_positive": 41,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2026-10",
+      "forecast_origin": "2026-09-30",
+      "term": "f2",
+      "coef": -0.14812099862207695,
+      "se": 0.10145869579473514,
+      "t_stat": -1.4599142780402583,
+      "n_train": 155,
+      "n_positive": 41,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2026-10",
+      "forecast_origin": "2026-09-30",
+      "term": "f3",
+      "coef": -0.023817547123810838,
+      "se": 0.11280183357346477,
+      "t_stat": -0.21114503522940625,
+      "n_train": 155,
+      "n_positive": 41,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    },
+    {
+      "fold": "2026-10",
+      "forecast_origin": "2026-09-30",
+      "term": "lpr_1y_z",
+      "coef": -0.2711169484179077,
+      "se": 0.18931404846770447,
+      "t_stat": -1.4321015825941632,
+      "n_train": 155,
+      "n_positive": 41,
+      "r": 3,
+      "control_used": true,
+      "fit_method": "statsmodels_probit_newton"
+    }
+  ],
+  "coefficients_summary": [
+    {
+      "term": "const",
+      "n_folds": 82,
+      "mean_coef": -1.990573703055141,
+      "sd_coef": 0.8667207689485447,
+      "min_coef": -4.692196891508889,
+      "max_coef": -1.2265768206202392,
+      "sign_stability": 1.0
+    },
+    {
+      "term": "f1",
+      "n_folds": 82,
+      "mean_coef": -0.5731118574506124,
+      "sd_coef": 0.2807903903959358,
+      "min_coef": -1.532742967667518,
+      "max_coef": -0.33347666783743396,
+      "sign_stability": 1.0
+    },
+    {
+      "term": "f2",
+      "n_folds": 82,
+      "mean_coef": -0.05367188788549002,
+      "sd_coef": 0.12189379692276661,
+      "min_coef": -0.17983200465606167,
+      "max_coef": 0.26285759476042353,
+      "sign_stability": 0.7560975609756098
+    },
+    {
+      "term": "f3",
+      "n_folds": 82,
+      "mean_coef": 0.05887147038790091,
+      "sd_coef": 0.21340124879365863,
+      "min_coef": -0.876541906567122,
+      "max_coef": 0.499881931525853,
+      "sign_stability": 0.5609756097560976
+    },
+    {
+      "term": "f4",
+      "n_folds": 21,
+      "mean_coef": -0.03532739552942328,
+      "sd_coef": 0.12092105958941594,
+      "min_coef": -0.28795649034395054,
+      "max_coef": 0.1508736809377499,
+      "sign_stability": 0.6190476190476191
+    },
+    {
+      "term": "lpr_1y_z",
+      "n_folds": 82,
+      "mean_coef": -0.10497028778954272,
+      "sd_coef": 0.22918693410688093,
+      "min_coef": -0.4330897671026292,
+      "max_coef": 0.40076866598739874,
+      "sign_stability": 0.7073170731707317
+    }
+  ],
+  "fit_seconds": 27.4808223,
+  "environment": {
+    "python": "3.13.15",
+    "numpy": "2.5.4",
+    "pandas": "3.1.0"
+  },
+  "outputs": {
+    "predictions": "results/approach1/regime/predictions.csv",
+    "coefficients": "results/approach1/regime/coefficients.csv"
+  },
+  "sensitivity_threshold_49p5": {
+    "primary_file": "metrics_threshold_49p5.json",
+    "primary_spec": "factors_only_full_history",
+    "metrics": {
+      "overall": {
+        "n": 82,
+        "n_positive": 13,
+        "n_negative": 69,
+        "brier": 0.1470905743977178,
+        "auc": 0.6220735785953178,
+        "accuracy": 0.8292682926829268,
+        "balanced_accuracy": 0.4927536231884058,
+        "sensitivity": 0.0,
+        "specificity": 0.9855072463768116,
+        "log_loss": 0.7632295606604321,
+        "confusion": {
+          "tp": 0,
+          "tn": 68,
+          "fp": 1,
+          "fn": 13
+        }
+      },
+      "baseline_prior_frequency": {
+        "brier": 0.14177588923508908,
+        "auc": 0.5273132664437012,
+        "accuracy": 0.8414634146341463,
+        "note": "per-fold training base rate used as the constant probability"
+      },
+      "baseline_persistence": {
+        "brier": 0.1951219512195122,
+        "auc": 0.6343366778149387,
+        "accuracy": 0.8048780487804879,
+        "note": "predict d_(t+1) = d_t; probabilities are 0/1",
+        "n_evaluated": 82
+      },
+      "brier_skill_score_vs_prior": -0.037486523211404776,
+      "by_year": {
+        "2020": {
+          "n": 12,
+          "brier": 0.08555126852921559,
+          "auc": null,
+          "accuracy": 0.9166666666666666
+        },
+        "2021": {
+          "n": 12,
+          "brier": 3.785913507763667e-05,
+          "auc": null,
+          "accuracy": 1.0
+        },
+        "2022": {
+          "n": 12,
+          "brier": 0.19286554556406874,
+          "auc": 0.8888888888888888,
+          "accuracy": 0.75
+        },
+        "2023": {
+          "n": 12,
+          "brier": 0.30635985317109016,
+          "auc": 0.1875,
+          "accuracy": 0.6666666666666666
+        },
+        "2024": {
+          "n": 12,
+          "brier": 0.2051069088396147,
+          "auc": 0.37037037037037035,
+          "accuracy": 0.75
+        },
+        "2025": {
+          "n": 12,
+          "brier": 0.13750111941509827,
+          "auc": 0.75,
+          "accuracy": 0.8333333333333334
+        },
+        "2026": {
+          "n": 10,
+          "brier": 0.09323564447628781,
+          "auc": 0.7777777777777778,
+          "accuracy": 0.9
+        }
+      }
+    },
+    "control_file": "metrics_threshold_49p5_controls.json",
+    "control_metrics": {
+      "overall": {
+        "n": 82,
+        "n_positive": 13,
+        "n_negative": 69,
+        "brier": 0.14464917042518535,
+        "auc": 0.6911928651059086,
+        "accuracy": 0.7926829268292683,
+        "balanced_accuracy": 0.47101449275362317,
+        "sensitivity": 0.0,
+        "specificity": 0.9420289855072463,
+        "log_loss": 0.7335406960316171,
+        "confusion": {
+          "tp": 0,
+          "tn": 65,
+          "fp": 4,
+          "fn": 13
+        }
+      },
+      "baseline_prior_frequency": {
+        "brier": 0.14282903257722512,
+        "auc": 0.45484949832775917,
+        "accuracy": 0.8414634146341463,
+        "note": "per-fold training base rate used as the constant probability"
+      },
+      "baseline_persistence": {
+        "brier": 0.1951219512195122,
+        "auc": 0.6343366778149387,
+        "accuracy": 0.8048780487804879,
+        "note": "predict d_(t+1) = d_t; probabilities are 0/1",
+        "n_evaluated": 82
+      },
+      "brier_skill_score_vs_prior": -0.012743472493774055,
+      "by_year": {
+        "2020": {
+          "n": 12,
+          "brier": 0.08555126852921559,
+          "auc": null,
+          "accuracy": 0.9166666666666666
+        },
+        "2021": {
+          "n": 12,
+          "brier": 3.785913507763667e-05,
+          "auc": null,
+          "accuracy": 1.0
+        },
+        "2022": {
+          "n": 12,
+          "brier": 0.17135107702386532,
+          "auc": 0.8518518518518519,
+          "accuracy": 0.75
+        },
+        "2023": {
+          "n": 12,
+          "brier": 0.28941638176560675,
+          "auc": 0.25,
+          "accuracy": 0.4166666666666667
+        },
+        "2024": {
+          "n": 12,
+          "brier": 0.20209578715002127,
+          "auc": 0.40740740740740744,
+          "accuracy": 0.75
+        },
+        "2025": {
+          "n": 12,
+          "brier": 0.16454459558243847,
+          "auc": 0.5,
+          "accuracy": 0.8333333333333334
+        },
+        "2026": {
+          "n": 10,
+          "brier": 0.09052683446304968,
+          "auc": 0.6666666666666667,
+          "accuracy": 0.9
+        }
+      }
+    },
+    "note": "49.5 labels are reconstructed independently on the same calendar schedule. Because only 7 initial and 13 out-of-sample months are contractions at 49.5, the full-history factors-only specification is the primary sensitivity; the LPR-control specification is reported where estimable."
+  },
+  "sensitivity_factors_only": {
+    "file": "metrics_factors_only.json",
+    "metrics": {
+      "overall": {
+        "n": 82,
+        "n_positive": 27,
+        "n_negative": 55,
+        "brier": 0.2219656905497416,
+        "auc": 0.6356902356902356,
+        "accuracy": 0.5975609756097561,
+        "balanced_accuracy": 0.4831649831649832,
+        "sensitivity": 0.14814814814814814,
+        "specificity": 0.8181818181818182,
+        "log_loss": 0.934943581470486,
+        "confusion": {
+          "tp": 4,
+          "tn": 45,
+          "fp": 10,
+          "fn": 23
+        }
+      },
+      "baseline_prior_frequency": {
+        "brier": 0.2449270634433899,
+        "auc": 0.6188552188552189,
+        "accuracy": 0.6707317073170732,
+        "note": "per-fold training base rate used as the constant probability"
+      },
+      "baseline_persistence": {
+        "brier": 0.24390243902439024,
+        "auc": 0.7239057239057238,
+        "accuracy": 0.7560975609756098,
+        "note": "predict d_(t+1) = d_t; probabilities are 0/1",
+        "n_evaluated": 82
+      },
+      "brier_skill_score_vs_prior": 0.09374779810298661,
+      "by_year": {
+        "2020": {
+          "n": 12,
+          "brier": 0.2048769514902747,
+          "auc": null,
+          "accuracy": 0.75
+        },
+        "2021": {
+          "n": 12,
+          "brier": 0.07687055193899921,
+          "auc": 0.5454545454545454,
+          "accuracy": 0.9166666666666666
+        },
+        "2022": {
+          "n": 12,
+          "brier": 0.22413539157142096,
+          "auc": 0.7428571428571429,
+          "accuracy": 0.5833333333333334
+        },
+        "2023": {
+          "n": 12,
+          "brier": 0.3310033986372654,
+          "auc": 0.4444444444444445,
+          "accuracy": 0.4166666666666667
+        },
+        "2024": {
+          "n": 12,
+          "brier": 0.27595945465562277,
+          "auc": 0.4166666666666667,
+          "accuracy": 0.4166666666666667
+        },
+        "2025": {
+          "n": 12,
+          "brier": 0.238715261651938,
+          "auc": 0.6285714285714286,
+          "accuracy": 0.3333333333333333
+        },
+        "2026": {
+          "n": 10,
+          "brier": 0.1982454505732561,
+          "auc": 0.6875,
+          "accuracy": 0.8
+        }
+      }
+    }
+  }
+}
