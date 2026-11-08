@@ -226,6 +226,34 @@ Append each `uv run python <path> --seed 42` command
 - The scripts required by the assignment are `code/approach1_*.py`,
   `code/approach2_*.py` and `code/compare.py`; optional helper
   `data/fetch.py`.
+- `code/approach2_regime.py` (Option B leakage-safe LSTM/GRU regime
+  classifier, expanding walk-forward over the shared schedule; primary
+  run + 49.5-sensitivity run):
+
+```bash
+uv run python code/approach2_regime.py --seed 42
+uv run python code/approach2_regime.py --seed 42 --label-threshold 49.5
+```
+
+- `code/approach2_clustering.py` (Option B latent hidden-state k-means
+  clustering; per-seed silhouette, cross-seed pairwise ARI, explicit
+  d_t / d_(t+1) label alignments; reads the h selected by
+  `code/approach2_regime.py` and requires its metrics.json):
+
+```bash
+uv run python code/approach2_regime.py --seed 42   # prerequisite (provides lookback h)
+uv run python code/approach2_clustering.py --seed 42
+```
+
+- `code/approach2_leakage_ablation.py` (Option B mandatory leakage ablation:
+  safe probit vs safe LSTM/GRU vs intentionally leaky LSTM/GRU on the shared
+  82-fold schedule; leaky arms are labelled INVALID leakage demos; requires
+  `results/approach2/regime/predictions.csv` from the headline regime run):
+
+```bash
+uv run python code/approach2_regime.py --seed 42   # prerequisite (provides the safe LSTM/GRU arm)
+uv run python code/approach2_leakage_ablation.py --seed 42
+```
 
 ## 3. Conventions
 
