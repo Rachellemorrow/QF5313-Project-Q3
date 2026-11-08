@@ -856,9 +856,9 @@ appear superior.
 
 ### 7.5 Points flagged for the group (unresolved)
 
-- `[TO VERIFY]` — **Contribution statement.** The division of work below is the
-  default statement from the two integration drafts; the group must revise it to
-  reflect the actual allocation across all members and any additional tools used.
+- **Contribution statement — resolved.** The default statement from the two
+  integration drafts has been replaced by the group-approved division of
+  responsibilities and description of AI-assisted implementation in Section 8.2.
 - `[TO VERIFY]` — **Final figure/table captions and ordering.** The figure numbering
   (1–29) and table numbering (1–11) here are editorial continuity choices; the group
   should confirm they match the final curated figure set and, if any figure is dropped
@@ -895,16 +895,83 @@ and Option A's one-command entry point:
 uv run python code/run_option_a.py --seed 42
 ```
 
-### 8.2 Statement of work division
+### 8.2 Statement of Work and Division of Responsibilities
 
-The terminal coding agent was used to inspect the repository, implement the experiment
-scripts for both options, execute the prescribed experiments, generate result files and
-visualizations, and run reproducibility and leakage checks. The group retained
-responsibility for defining and approving the shared data/target conventions, selecting
-the methodological specifications, reviewing the validation evidence, interpreting the
-economic results, and approving the final conclusions. `[TO VERIFY]` — the group should
-revise this statement to reflect the actual division of work across all members and any
-additional writing or language-assistance tools used.
+We conducted this project collaboratively, with individual responsibilities divided
+as follows.
+
+**1. Qiying Zheng**
+
+- **Data preparation and infrastructure:** Responsible for establishing the data
+  interfaces and infrastructure, collecting, cleaning, and processing data,
+  conducting data quality checks, and constructing the shared dataset used by both
+  options.
+- **Option B:** Responsible for the implementation and empirical analysis of the
+  leakage-safe LSTM/GRU regime classification, hidden-state clustering, and
+  leakage-ablation experiments.
+- **Cross-option comparison:** Worked jointly with Keyang Peng on the implementation
+  of `compare.py`.
+- **Report writing:** Co-wrote and reviewed the final research report with
+  Keyang Peng.
+
+**2. Keyang Peng**
+
+- **Shared experimental framework:** Responsible for formulating the alignment rules
+  and methodological conventions for the shared framework, including target
+  construction, forecast schedules, evaluation protocols, and information-set
+  restrictions.
+- **Option A:** Responsible for the implementation and empirical analysis of
+  PCA-based GDP nowcasting, Probit regime classification, and rolling-window
+  indicator clustering.
+- **Cross-option comparison:** Worked jointly with Qiying Zheng on the implementation
+  of `compare.py`.
+- **Report writing:** Co-wrote and reviewed the final research report with
+  Qiying Zheng.
+
+**3. Joint Research Responsibilities**
+
+Beyond our individual tasks, we jointly took responsibility for the overall research
+design and all substantive analytical decisions. In particular, we:
+
+- Defined and approved the research scope, analytical framework, and shared data and
+  output interfaces.
+- Selected the mathematical methods and model specifications, including formulas,
+  variables, parameters, and rolling-window settings.
+- Established the evaluation and validation procedures and reviewed whether the
+  implementation and results were consistent with our intended methodology.
+- Examined model outputs, identified potential errors, and determined whether
+  corrections or further checks were necessary.
+- Interpreted the empirical findings, assessed the limitations, and drew the final
+  conclusions.
+- Wrote, reviewed, and took full responsibility for the final report.
+
+**4. Use of AI-Assisted Tools**
+
+We used AI coding agents as technical assistants to improve implementation efficiency
+and support computational work. Their assistance mainly covered:
+
+- Implementing data-processing and automation pipelines.
+- Writing and modifying code according to our specifications.
+- Running computational experiments and generating numerical outputs when instructed.
+- Debugging code and resolving implementation issues.
+- Assisting with code-level checks, consistency checks, and reproducibility checks.
+- Producing comparison outputs and supporting numerical verification.
+
+The use of AI tools did not transfer research responsibility or decision-making
+authority away from us. We determined the research questions, mathematical
+formulations, model specifications, method selection, experimental settings, and
+validation criteria. We also reviewed the implementation, examined the outputs,
+assessed their correctness, and made the final decisions on whether the methods and
+results were acceptable.
+
+In particular, AI agents assisted with calculations and technical implementation, but
+did not independently determine the mathematical methods, judge the validity of the
+models, or interpret the economic meaning of the results. All substantive research
+decisions and final judgments remained our responsibility. By delegating
+execution-intensive and repetitive technical tasks to AI tools, we were able to
+devote more time to research design, methodological scrutiny, and critical
+evaluation. We wrote and reviewed the final report ourselves and take full
+responsibility for its content.
 
 ### 8.3 Output index
 
