@@ -1,0 +1,245 @@
+{
+  "fit_seconds": 15.544491529464722,
+  "history": {
+    "k_selection": {
+      "gru": {
+        "candidate_mean_silhouette": {
+          "2": 0.46615512172381085,
+          "3": 0.3720236619313558,
+          "4": 0.37573473652203876,
+          "5": 0.35088786482810974,
+          "6": 0.3372276723384857
+        },
+        "k_selected": 2,
+        "method": "max mean silhouette across seeds, each seed in its own embedding space"
+      },
+      "lstm": {
+        "candidate_mean_silhouette": {
+          "2": 0.6409945686658224,
+          "3": 0.5609196722507477,
+          "4": 0.5105593005816141,
+          "5": 0.4786411424477895,
+          "6": 0.4329961935679118
+        },
+        "k_selected": 2,
+        "method": "max mean silhouette across seeds, each seed in its own embedding space"
+      }
+    },
+    "n_train_pairs": 199,
+    "n_val_pairs": 24,
+    "per_seed_epochs_val_loss": {
+      "gru": {
+        "123": null,
+        "42": null,
+        "7": null
+      },
+      "lstm": {
+        "123": null,
+        "42": null,
+        "7": null
+      }
+    },
+    "train_label_range": "2008-04:2024-10",
+    "val_label_range": "2024-11:2026-10"
+  },
+  "metrics": {
+    "gru": {
+      "k": 2,
+      "label_alignment": {
+        "d_(t+1)": {
+          "alignment": "d_(t+1)",
+          "ari_mean_over_seeds": 0.07947122455776882,
+          "n": 223,
+          "nmi_mean_over_seeds": 0.14162971417765644
+        },
+        "d_t": {
+          "alignment": "d_t",
+          "ari_mean_over_seeds": 0.08958568498496829,
+          "contraction_share_by_cluster": {
+            "0": {
+              "contraction_share": 0.022727272727272728,
+              "n": 88
+            },
+            "1": {
+              "contraction_share": 0.33088235294117646,
+              "n": 136
+            }
+          },
+          "n": 224,
+          "nmi_mean_over_seeds": 0.19385180633391386,
+          "reference_seed_for_shares": 42
+        }
+      },
+      "pairwise_ari": {
+        "42__123": {
+          "ari": 0.6283559765808486,
+          "n_common": 224
+        },
+        "42__7": {
+          "ari": 0.19517115546984595,
+          "n_common": 224
+        },
+        "7__123": {
+          "ari": 0.0710769320399662,
+          "n_common": 224
+        }
+      },
+      "pairwise_ari_mean": 0.29820135469688697,
+      "per_seed": {
+        "123": {
+          "n_clusters": 2,
+          "silhouette": 0.43852564692497253
+        },
+        "42": {
+          "n_clusters": 2,
+          "silhouette": 0.3164234757423401
+        },
+        "7": {
+          "n_clusters": 2,
+          "silhouette": 0.6435162425041199
+        }
+      },
+      "silhouette_mean": 0.46615512172381085,
+      "silhouette_std": 0.16528750837620412
+    },
+    "lstm": {
+      "k": 2,
+      "label_alignment": {
+        "d_(t+1)": {
+          "alignment": "d_(t+1)",
+          "ari_mean_over_seeds": 0.11777586359241587,
+          "n": 223,
+          "nmi_mean_over_seeds": 0.17428587151274008
+        },
+        "d_t": {
+          "alignment": "d_t",
+          "ari_mean_over_seeds": 0.13122512047188206,
+          "contraction_share_by_cluster": {
+            "0": {
+              "contraction_share": 0.42592592592592593,
+              "n": 108
+            },
+            "1": {
+              "contraction_share": 0.008620689655172414,
+              "n": 116
+            }
+          },
+          "n": 224,
+          "nmi_mean_over_seeds": 0.22368004530871374,
+          "reference_seed_for_shares": 42
+        }
+      },
+      "pairwise_ari": {
+        "42__123": {
+          "ari": 0.054111300922598714,
+          "n_common": 224
+        },
+        "42__7": {
+          "ari": 0.8123795478269863,
+          "n_common": 224
+        },
+        "7__123": {
+          "ari": 0.041678903253516,
+          "n_common": 224
+        }
+      },
+      "pairwise_ari_mean": 0.30272325066770034,
+      "per_seed": {
+        "123": {
+          "n_clusters": 2,
+          "silhouette": 0.5608696341514587
+        },
+        "42": {
+          "n_clusters": 2,
+          "silhouette": 0.6862106323242188
+        },
+        "7": {
+          "n_clusters": 2,
+          "silhouette": 0.6759034395217896
+        }
+      },
+      "silhouette_mean": 0.6409945686658224,
+      "silhouette_std": 0.06958134379318141
+    }
+  },
+  "params": {
+    "archs": [
+      "lstm",
+      "gru"
+    ],
+    "clustering_origin": "2026-10-31",
+    "embedding_origins": "2008-03:2026-10",
+    "feature_audit": {
+      "dropped_missing_idx": [
+        7,
+        9,
+        11,
+        16,
+        18,
+        19,
+        20,
+        21,
+        22,
+        28,
+        29
+      ],
+      "dropped_zero_variance_idx": [],
+      "n_features_input": 30,
+      "n_features_used": 19
+    },
+    "feature_names_used": [
+      "pmi_man",
+      "pmi_nonman",
+      "cpi_yoy",
+      "ppi_yoy",
+      "cgpi_yoy",
+      "industrial_va_yoy",
+      "retail_yoy",
+      "consumer_confidence",
+      "elec_cons_yoy",
+      "m2_yoy",
+      "m1_yoy",
+      "m0_yoy",
+      "new_loans_yoy",
+      "base_money_yoy",
+      "trade_bal_bn_usd",
+      "export_yoy",
+      "import_yoy",
+      "fx_reserves_yoy",
+      "fiscal_rev_yoy"
+    ],
+    "k_candidates": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "label_alignment": {
+      "d_(t+1)": "one-month-ahead target of the window ending at t (the regime-forecast target)",
+      "d_t": "contemporaneous label of the embedding's window-end month t"
+    },
+    "leakage_discipline": "safe",
+    "lookback_h": 3,
+    "n_embeddings": 224,
+    "residual_nondeterminism": "CPU LSTM reductions may vary in last bits; seeds fixed",
+    "rnn_hyperparameters": {
+      "batch_size": 32,
+      "dropout": 0.2,
+      "hidden": 32,
+      "layers": 2,
+      "lr": 0.001,
+      "max_epochs": 200,
+      "patience": 20,
+      "pos_weight_cap": 1.0,
+      "weight_decay": 0.0001
+    },
+    "seeds": [
+      42,
+      7,
+      123
+    ],
+    "task": "latent_state_clustering",
+    "training": "all label pairs observable at the clustering origin (training targets d_(u+1) up to d_2026-10; only labels observable then enter training); 24-month validation tail for early stopping"
+  }
+}
